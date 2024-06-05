@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class PrototypeFactory : MonoBehaviour
 {
-    public ProtoObjectType prototypeObjectType;
+    /*public ProtoObjectType prototypeObjectType;
     private PrototypeFactorySettings gameManager;
     private GameObject objectPrefab;
     private Transform manufacturerSpawnPoint;
@@ -48,5 +48,5 @@ public class PrototypeFactory : MonoBehaviour
         Conveyor,
         Object,
         Basket
-    }
+    }*/
 }

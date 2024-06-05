@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PrototypeDropper : MonoBehaviour
@@ -23,6 +24,7 @@ public class PrototypeDropper : MonoBehaviour
         if (other.GetComponent<Rigidbody>() != null)
         {
             gameManager.AddScore(1);
+            Destroy(other);
         }
     }
 }
