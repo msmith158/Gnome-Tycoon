@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class PrototypeConveyor : MonoBehaviour
 {
-    public float conveyorSpeed;
-    private Vector3 trueConveyorSpeed;
-    public Collider protoObject;
+    Rigidbody rb;
+    public float speed = 2.0f;
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.GetComponent<Rigidbody>() != null)
-        {
-            protoObject.GetComponent<PrototypeObject>().UpdateVelocity(trueConveyorSpeed);
-            Debug.Log("Hi");
-        }
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerExit(Collider other)
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        if (other.GetComponent<Rigidbody>() != null)
-        {
-            protoObject.GetComponent<PrototypeObject>().UpdateVelocity(new Vector3(0, 0, 0));
-            Debug.Log("Bye");
-        }
+        rb.position -= transform.forward * speed * Time.deltaTime;
+        rb.MovePosition(rb.position + transform.forward * speed * Time.deltaTime);
     }
 }

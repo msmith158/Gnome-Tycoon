@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PrototypeObject : MonoBehaviour
 {
-    Vector3 forceDirection;
+    /*Vector3 forceDirection;
     Rigidbody rb;
     float speed;
 
@@ -24,5 +24,5 @@ public class PrototypeObject : MonoBehaviour
     public void UpdateVelocity(Vector3 direction)
     {
         forceDirection = direction;
-    }
+    }*/
 }
