@@ -8,12 +8,12 @@ using static PrototypeFactory;
 public class PrototypeFactorySystem : MonoBehaviour
 {
     [Header("Values")]
-    public int pointScore;
+    public float pointScore;
     [Header("Object References")]
     public Collider basketTrigger;
     public TextMeshProUGUI moneyText;
 
-    public void AddScore(int amount)
+    public void AddScore(float amount)
     {
         pointScore = pointScore + amount;
         moneyText.text = "Profit: $" + pointScore.ToString();

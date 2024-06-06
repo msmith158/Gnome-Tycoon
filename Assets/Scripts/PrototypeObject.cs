@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class PrototypeObject : MonoBehaviour
 {
-    public int value;
+    public float value;
+    public float initialValue;
+
+    private void Start()
+    {
+        initialValue = value;
+    }
 }

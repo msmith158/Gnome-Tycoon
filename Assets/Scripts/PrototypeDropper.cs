@@ -23,7 +23,7 @@ public class PrototypeDropper : MonoBehaviour
     {
         if (other.GetComponent<Rigidbody>() != null)
         {
-            int value = other.GetComponent<PrototypeObject>().value;
+            float value = other.GetComponent<PrototypeObject>().value;
             gameManager.AddScore(value);
             Destroy(other);
         }
