@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static PrototypeFactory;
 
-public class PrototypeFactorySettings : MonoBehaviour
+public class PrototypeFactorySystem : MonoBehaviour
 {
     [Header("Values")]
     public int pointScore;

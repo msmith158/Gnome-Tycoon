@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PrototypeDropper : MonoBehaviour
 {
-    private PrototypeFactorySettings gameManager;
+    private PrototypeFactorySystem gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("proto_gameManager").GetComponent<PrototypeFactorySettings>();
+        gameManager = GameObject.Find("proto_gameManager").GetComponent<PrototypeFactorySystem>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,8 @@ public class PrototypeDropper : MonoBehaviour
     {
         if (other.GetComponent<Rigidbody>() != null)
         {
-            gameManager.AddScore(1);
+            int value = other.GetComponent<PrototypeObject>().value;
+            gameManager.AddScore(value);
             Destroy(other);
         }
     }
