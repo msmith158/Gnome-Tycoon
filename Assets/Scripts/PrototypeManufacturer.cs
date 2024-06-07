@@ -9,6 +9,8 @@ public class PrototypeManufacturer : MonoBehaviour
     [Header("Values")]
     public float manufacturingTime;
     public float manufacturingCooldown;
+    [HideInInspector] public float initialManuTime;
+    [HideInInspector] public float initialManuCool;
 
     [Header("Object References")]
     public GameObject timeSlider;
@@ -22,6 +24,8 @@ public class PrototypeManufacturer : MonoBehaviour
     private void Start()
     {
         slider = timeSlider.GetComponent<Scrollbar>();
+        initialManuTime = manufacturingTime;
+        initialManuCool = manufacturingCooldown;
     }
 
     public void SpawnObject()
@@ -43,7 +47,6 @@ public class PrototypeManufacturer : MonoBehaviour
             timer = Mathf.Clamp(timer, 0f, manufacturingTime);
             float progress = Mathf.InverseLerp(0f, manufacturingTime, timer);
             slider.size = progress;
-            Debug.Log(progress);
             yield return null;
         }
 
@@ -55,7 +58,6 @@ public class PrototypeManufacturer : MonoBehaviour
             timer = Mathf.Clamp(timer, 0f, manufacturingCooldown);
             float progress = Mathf.InverseLerp(0f, manufacturingCooldown, timer);
             slider.size = progress;
-            Debug.Log(progress);
             yield return null;
         }
 

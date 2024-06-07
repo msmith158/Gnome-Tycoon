@@ -6,10 +6,12 @@ public class PrototypeConveyor : MonoBehaviour
 {
     Rigidbody rb;
     public float speed = 2.0f;
+    [HideInInspector] public float initialSpeed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        initialSpeed = speed;
     }
 
     // Update is called once per frame

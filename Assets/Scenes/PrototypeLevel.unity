@@ -1203,7 +1203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
+  initialSpeed: 0
 --- !u!54 &315469249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1674,7 +1675,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 612449113}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 725734641}
+        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
+        m_MethodName: SetNewValues
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.15
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &612449113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1805,10 +1818,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeType: 0
-  initialCost: 0.5
-  increaseRate: 0.01
+  initialCost: 0.2
+  increaseRate: 0.02
   costText: {fileID: 1105035879}
   sys: {fileID: 1095546605}
+  conveyor: {fileID: 315469248}
+  manufacturer: {fileID: 1835049947}
 --- !u!1 &674638601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2330,7 @@ GameObject:
   - component: {fileID: 725734638}
   - component: {fileID: 725734640}
   - component: {fileID: 725734639}
+  - component: {fileID: 725734641}
   m_Layer: 5
   m_Name: upgrade2
   m_TagString: Untagged
@@ -2382,6 +2398,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725734637}
   m_CullTransparentMesh: 1
+--- !u!114 &725734641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725734637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeType: 1
+  initialCost: 2
+  increaseRate: 0.05
+  costText: {fileID: 815607023}
+  sys: {fileID: 1095546605}
+  conveyor: {fileID: 315469248}
+  manufacturer: {fileID: 1835049947}
 --- !u!1 &744961923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,7 +3166,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 955691402}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1613842708}
+        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
+        m_MethodName: SetNewValues
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.02
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &955691402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4391,7 +4438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increases revenue per gnome by +10%.
+  m_text: Increases revenue per gnome by 10%.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4786,6 +4833,7 @@ GameObject:
   - component: {fileID: 1613842705}
   - component: {fileID: 1613842707}
   - component: {fileID: 1613842706}
+  - component: {fileID: 1613842708}
   m_Layer: 5
   m_Name: upgrade3
   m_TagString: Untagged
@@ -4853,6 +4901,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613842704}
   m_CullTransparentMesh: 1
+--- !u!114 &1613842708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613842704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeType: 2
+  initialCost: 0.5
+  increaseRate: 0.03
+  costText: {fileID: 1660851256}
+  sys: {fileID: 1095546605}
+  conveyor: {fileID: 315469248}
+  manufacturer: {fileID: 1835049947}
 --- !u!1 &1660851254
 GameObject:
   m_ObjectHideFlags: 0
@@ -5270,7 +5337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increases conveyor belt speed by 25%.
+  m_text: Increases conveyor belt speed by 15%.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5608,8 +5675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7028703991a010143801bf5a13e3184a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manufacturingTime: 0.1
+  manufacturingTime: 1
   manufacturingCooldown: 0
+  initialManuTime: 0
+  initialManuCool: 0
   timeSlider: {fileID: 1053985530}
   manufacturerSpawnPoint: {fileID: 271631147}
   objectPrefab: {fileID: 7635434034260989549, guid: 456170c78ac37a74cad37bb146aaee60,
@@ -5706,7 +5775,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.1
+          m_FloatArgument: 0.05
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

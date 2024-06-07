@@ -16,6 +16,8 @@ public class PrototypeUpgrades : MonoBehaviour
     [Header("Object References")]
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private PrototypeFactorySystem sys;
+    [SerializeField] private PrototypeConveyor conveyor;
+    [SerializeField] private PrototypeManufacturer manufacturer;
 
     // Start is called before the first frame update
     void Start()
@@ -73,8 +75,20 @@ public class PrototypeUpgrades : MonoBehaviour
                     }
                     break;
                 case UpgradeType.ConveyorSpeed:
+                    conveyor.speed += (conveyor.initialSpeed * percentage);
+                    Debug.Log(conveyor.speed);
+                    costPercentage += increaseRate;
+                    currentPrice += (initialCost * (costPercentage * 2));
+                    Debug.Log(currentPrice);
+                    UpdatePrice(currentPrice);
                     break;
                 case UpgradeType.ManufactureTime:
+                    manufacturer.manufacturingTime -= (manufacturer.initialManuTime * percentage);
+                    Debug.Log(manufacturer.manufacturingTime);
+                    costPercentage += increaseRate;
+                    currentPrice += (initialCost * (costPercentage * 2));
+                    Debug.Log(currentPrice);
+                    UpdatePrice(currentPrice);
                     break;
             }
         }
