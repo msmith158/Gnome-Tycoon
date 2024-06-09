@@ -20,22 +20,22 @@ public class PrototypeDropper : MonoBehaviour
         {
             switch (gameManager.prestigeLvl)
             {
-                case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige0:
                     value = gameManager.lvl1Value;
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige1:
                     value = gameManager.lvl2Value;
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige2:
                     value = gameManager.lvl3Value;
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige3:
                     value = gameManager.lvl4Value;
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige4:
                     value = gameManager.lvl5Value;
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige6:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige5:
                     value = gameManager.lvl6Value;
                     break;
             }

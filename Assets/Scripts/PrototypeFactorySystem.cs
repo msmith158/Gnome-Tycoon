@@ -51,11 +51,11 @@ public class PrototypeFactorySystem : MonoBehaviour
 
     public enum PrestigeLevel
     {
+        Prestige0,
         Prestige1,
         Prestige2,
         Prestige3,
         Prestige4,
-        Prestige5,
-        Prestige6
+        Prestige5
     }
 }
