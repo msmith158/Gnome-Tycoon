@@ -15,20 +15,25 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
 
     [Header("Object References: Final Prestige")]
     [SerializeField] private PrototypeFactorySystem sys;
+    [SerializeField] private Material emerLightMaterial;
+    [SerializeField] private Light nukeLight;
+    [SerializeField] private Light nukeAmbientLight;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private Animation emerLightAnim;
     [SerializeField] private AudioSource switchOffSource;
     [SerializeField] private AudioSource generatorOffSource;
     [SerializeField] private AudioSource alarmSource;
     [SerializeField] private AudioSource clockSource;
+    [SerializeField] private AudioSource nukeSource;
     [SerializeField] private AudioClip switchOff;
     [SerializeField] private AudioClip generatorOff;
     [SerializeField] private AudioClip alarm;
     [SerializeField] private AudioClip clock;
+    [SerializeField] private AudioClip nuke;
     [SerializeField] private List<GameObject> uiToDisable = new List<GameObject>();
     [SerializeField] private List<GameObject> uiToEnable = new List<GameObject>();
     [SerializeField] private List<Light> lightsToTurnOff = new List<Light>();
     [SerializeField] private List<Light> emergencyLights = new List<Light>();
-    [SerializeField] private Material emerLightMaterial;
-    [SerializeField] private TextMeshProUGUI timerText;
 
     public void StartNukeSequence()
     {
@@ -89,5 +94,17 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
         }
         timerText.enabled = false;
         Debug.Log("Lol");
+        if (!nukeSource.isPlaying)
+        {
+            nukeSource.clip = nuke;
+            nukeSource.loop = true;
+            nukeSource.Play();
+        }
+        nukeLight.gameObject.SetActive(true);
+        nukeAmbientLight.gameObject.SetActive(true);
+        nukeLight.GetComponent<Animator>().enabled = true;
+        nukeAmbientLight.GetComponent<Animator>().enabled = true;
+        emerLightMaterial.DisableKeyword("_EMISSION");
+        emerLightAnim.wrapMode = WrapMode.Once;
     }
 }
