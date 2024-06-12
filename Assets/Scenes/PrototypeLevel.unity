@@ -1887,6 +1887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305319316}
   - component: {fileID: 305319317}
+  - component: {fileID: 305319318}
   m_Layer: 0
   m_Name: proto_emerLight2
   m_TagString: Untagged
@@ -1916,12 +1917,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305319315}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 3
+  m_Intensity: 0
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1971,6 +1972,27 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &305319318
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305319315}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d260b52f7362b204783427944dc4cf6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &315469241
 GameObject:
   m_ObjectHideFlags: 0
@@ -11257,7 +11279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alarmDelayTime: 2
-  delayUntilCountdown: 4
+  delayUntilCountdown: 5
+  countdownTimer: 10
+  sys: {fileID: 1095546605}
   switchOffSource: {fileID: 172511929}
   generatorOffSource: {fileID: 871543258}
   alarmSource: {fileID: 2088088836}
@@ -11282,6 +11306,7 @@ MonoBehaviour:
   - {fileID: 1998903131}
   - {fileID: 305319317}
   emerLightMaterial: {fileID: 2100000, guid: d4f0c779422b274488ab8b9aee653942, type: 2}
+  timerText: {fileID: 1939962531}
 --- !u!1 &1687346289
 GameObject:
   m_ObjectHideFlags: 0
@@ -13787,6 +13812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998903130}
   - component: {fileID: 1998903131}
+  - component: {fileID: 1998903132}
   m_Layer: 0
   m_Name: proto_emerLight1
   m_TagString: Untagged
@@ -13816,12 +13842,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998903129}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 3
+  m_Intensity: 0
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -13871,6 +13897,27 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &1998903132
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998903129}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d260b52f7362b204783427944dc4cf6d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2013700667
 GameObject:
   m_ObjectHideFlags: 0

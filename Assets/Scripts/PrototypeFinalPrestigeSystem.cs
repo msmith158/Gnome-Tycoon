@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PrototypeFinalPrestigeSystem : MonoBehaviour
 {
     [Header("Values: Final Prestige")]
     [SerializeField] private float alarmDelayTime;
     [SerializeField] private float delayUntilCountdown;
+    [SerializeField] private float countdownTimer;
     private Color emissiveColor = Color.red;
 
     [Header("Object References: Final Prestige")]
+    [SerializeField] private PrototypeFactorySystem sys;
     [SerializeField] private AudioSource switchOffSource;
     [SerializeField] private AudioSource generatorOffSource;
     [SerializeField] private AudioSource alarmSource;
@@ -25,6 +28,7 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
     [SerializeField] private List<Light> lightsToTurnOff = new List<Light>();
     [SerializeField] private List<Light> emergencyLights = new List<Light>();
     [SerializeField] private Material emerLightMaterial;
+    [SerializeField] private TextMeshProUGUI timerText;
 
     public void StartNukeSequence()
     {
@@ -65,6 +69,7 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
         for (int i = 0; i < emergencyLights.Count; i++)
         {
             emergencyLights[i].enabled = true;
+            emergencyLights[i].GetComponent<Animator>().enabled = true;
         }
 
         emerLightMaterial.EnableKeyword("_EMISSION");
@@ -73,7 +78,16 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
 
         for (int i = 0; i < uiToEnable.Count; i++)
         {
-
+            uiToEnable[i].SetActive(true);
         }
+        clockSource.PlayOneShot(clock);
+
+        for (float timer = countdownTimer; timer > 0; timer -= Time.deltaTime)
+        {
+            timerText.text = sys.RoundToNearestHundredth(timer).ToString("F2");
+            yield return null;
+        }
+        timerText.enabled = false;
+        Debug.Log("Lol");
     }
 }
