@@ -18,6 +18,25 @@ public class PrototypePrestige : MonoBehaviour
         
     }
 
+    public void SetNewPrestige()
+    {
+        switch (prestigeType)
+        {
+            case PrestigeType.Prestige1:
+                break;
+            case PrestigeType.Prestige2:
+                break;
+            case PrestigeType.Prestige3:
+                break;
+            case PrestigeType.Prestige4:
+                break;
+            case PrestigeType.Prestige5:
+                break;
+            case PrestigeType.FinalPrestige:
+                break;
+        }
+    }
+
     public enum PrestigeType
     {
         Prestige1,
