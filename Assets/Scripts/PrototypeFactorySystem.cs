@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Claims;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ using static PrototypeFactory;
 
 public class PrototypeFactorySystem : MonoBehaviour
 {
-    [Header("Values")]
+    [Header("Values: General")]
     public float pointScore;
     public PrestigeLevel prestigeLvl;
     public float lvl1Value;
@@ -23,7 +24,7 @@ public class PrototypeFactorySystem : MonoBehaviour
     public float lvl6Value;
     [HideInInspector] public float lvl6InitialValue;
 
-    [Header("Object References")]
+    [Header("Object References: General")]
     public Collider basketTrigger;
     public TextMeshProUGUI moneyText;
 
@@ -44,7 +45,7 @@ public class PrototypeFactorySystem : MonoBehaviour
         moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
     }
 
-    float RoundToNearestHundredth(float value)
+    public float RoundToNearestHundredth(float value)
     {
         return (float)System.Math.Round(value, 2);
     }

@@ -1,41 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Claims;
+using TMPro;
 using UnityEngine;
 
 public class PrototypePrestige : MonoBehaviour
 {
+    [Header("Values: General")]
     public PrestigeType prestigeType;
+    public float price;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Object References")]
+    [SerializeField] private PrototypeFactorySystem sys;
+    [SerializeField] private PrototypeFinalPrestigeSystem finalPrestigeSys;
 
-    // Update is called once per frame
-    void Update()
+    public void PrestigeEvents()
     {
-        
-    }
-
-    public void SetNewPrestige()
-    {
-        switch (prestigeType)
+        if (sys.pointScore >= price)
         {
-            case PrestigeType.Prestige1:
-                break;
-            case PrestigeType.Prestige2:
-                break;
-            case PrestigeType.Prestige3:
-                break;
-            case PrestigeType.Prestige4:
-                break;
-            case PrestigeType.Prestige5:
-                break;
-            case PrestigeType.FinalPrestige:
-                break;
+            sys.pointScore -= price;
+            sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
+
+            switch (prestigeType)
+            {
+                case PrestigeType.Prestige1:
+                    break;
+                case PrestigeType.Prestige2:
+                    break;
+                case PrestigeType.Prestige3:
+                    break;
+                case PrestigeType.Prestige4:
+                    break;
+                case PrestigeType.Prestige5:
+                    break;
+                case PrestigeType.FinalPrestige: // The nuke sequence
+                    //StartCoroutine(finalPrestigeSys.NukeSequence());
+                    finalPrestigeSys.SendMessage("StartNukeSequence", null);
+                    break;
+            }
         }
     }
+
+    /*private void ForTimer(float condition, float delay)
+    {
+        if (condition < delay)
+        {
+            print("ERROR: Delay larger than time");
+            return;
+        }
+        for (float i = 0; i < condition; i += Time.deltaTime)
+        {
+            if (i <= delay)
+            {
+                print("bye");
+                continue;
+            }
+            else
+            {
+                print("Hi");
+            }
+        }
+    }*/
 
     public enum PrestigeType
     {

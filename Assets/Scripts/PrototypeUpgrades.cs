@@ -31,7 +31,7 @@ public class PrototypeUpgrades : MonoBehaviour
         if (sys.pointScore >= currentPrice)
         {
             sys.pointScore -= currentPrice;
-            sys.moneyText.text = "Profit: $" + RoundToNearestHundredth(sys.pointScore).ToString("F2");
+            sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
 
             switch (upgradeType)
             {
@@ -96,12 +96,7 @@ public class PrototypeUpgrades : MonoBehaviour
 
     void UpdatePrice(float newPrice)
     {
-        costText.text = "$" + RoundToNearestHundredth(newPrice).ToString("F2");
-    }
-
-    float RoundToNearestHundredth(float value)
-    {
-        return (float)System.Math.Round(value, 2);
+        costText.text = "$" + sys.RoundToNearestHundredth(newPrice).ToString("F2");
     }
 
     public enum UpgradeType
