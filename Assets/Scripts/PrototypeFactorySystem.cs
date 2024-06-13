@@ -37,6 +37,8 @@ public class PrototypeFactorySystem : MonoBehaviour
         lvl5InitialValue = lvl5Value;
         lvl6InitialValue = lvl6Value;
         Debug.Log(lvl1InitialValue);
+
+        Application.targetFrameRate = 60;
     }
 
     public void AddScore(float amount)
