@@ -38,7 +38,7 @@ public class PrototypeUpgrades : MonoBehaviour
                 case UpgradeType.GnomeValue:
                     switch (sys.prestigeLvl)
                     {
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige0:
                             sys.lvl1Value += (sys.lvl1InitialValue * percentage);
                             Debug.Log(sys.lvl1Value);
                             costPercentage += increaseRate;
@@ -47,27 +47,27 @@ public class PrototypeUpgrades : MonoBehaviour
                             UpdatePrice(currentPrice);
                             break;
                         // ADD THESE WHEN PRESTIGE SYSTEM IS SET UP
-                        /*case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                        /*case PrototypeFactorySystem.PrestigeLevel.Prestige1:
                             sys.lvl2Value += (sys.lvl2InitialValue * percentage);
                             Debug.Log(sys.lvl2Value);
                             UpdatePrice(sys.lvl2Value);
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige2:
                             sys.lvl3Value += (sys.lvl3InitialValue * percentage);
                             Debug.Log(sys.lvl3Value);
                             UpdatePrice(sys.lvl3Value);
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige3:
                             sys.lvl4Value += (sys.lvl4InitialValue * percentage);
                             Debug.Log(sys.lvl4Value);
                             UpdatePrice(sys.lvl4Value);
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige4:
                             sys.lvl5Value += (sys.lvl5InitialValue * percentage);
                             Debug.Log(sys.lvl5Value);
                             UpdatePrice(sys.lvl5Value);
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige6:
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige5:
                             sys.lvl6Value += (sys.lvl6InitialValue * percentage);
                             Debug.Log(sys.lvl6Value);
                             UpdatePrice(sys.lvl6Value);
