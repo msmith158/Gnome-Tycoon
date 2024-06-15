@@ -19,6 +19,7 @@ public class PrototypePrestige : MonoBehaviour
     [SerializeField] private PrototypeFactorySystem sys;
     [SerializeField] private PrototypeFinalPrestigeSystem finalPrestigeSys;
     [SerializeField] private PrototypeManufacturer manufacturer;
+    [SerializeField] private PrototypeConveyor conveyor;
     [SerializeField] private TextMeshProUGUI costText;
 
     void Start()
@@ -37,10 +38,6 @@ public class PrototypePrestige : MonoBehaviour
             switch (prestigeType)
             {
                 case PrestigeType.Prestige1:
-                    sys.prestigeLvl = PrototypeFactorySystem.PrestigeLevel.Prestige1;
-                    sys.pointScore = 0;
-                    sys.moneyText.text = "Profit: $" + sys.pointScore;
-                    Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
                     break;
                 case PrestigeType.Prestige2:
                     break;
@@ -56,6 +53,25 @@ public class PrototypePrestige : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel newPrestLvl)
+    {
+        // Reset money to 0
+        sys.prestigeLvl = newPrestLvl;
+        sys.pointScore = 0;
+        sys.moneyText.text = "Profit: $" + sys.pointScore;
+
+        // Reset gnome values
+        sys.lvl2InitialValue = sys.lvl1InitialValue + unitMultiplication;
+
+        // Reset conveyor values
+        conveyor.speed = conveyor.initialSpeed;
+
+        // Reset manufacturing values
+
+
+        Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
     }
 
     /*private void ForTimer(float condition, float delay)
