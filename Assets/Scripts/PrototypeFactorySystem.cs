@@ -47,6 +47,11 @@ public class PrototypeFactorySystem : MonoBehaviour
         moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
     }
 
+    public void UpdatePrice(TextMeshProUGUI costText, string beforeText, float newPrice, string afterText)
+    {
+        costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+    }
+
     public float RoundToNearestHundredth(float value)
     {
         return (float)System.Math.Round(value, 2);

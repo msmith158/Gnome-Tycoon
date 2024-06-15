@@ -23,7 +23,7 @@ public class PrototypeUpgrades : MonoBehaviour
     void Start()
     {
         currentPrice = initialCost;
-        UpdatePrice(currentPrice);
+        sys.UpdatePrice(costText, "$", currentPrice, "");
     }
 
     public void SetNewValues(float percentage)
@@ -31,7 +31,7 @@ public class PrototypeUpgrades : MonoBehaviour
         if (sys.pointScore >= currentPrice)
         {
             sys.pointScore -= currentPrice;
-            sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
+            sys.UpdatePrice(sys.moneyText, "Profit: $", sys.pointScore, "");
 
             switch (upgradeType)
             {
@@ -44,7 +44,7 @@ public class PrototypeUpgrades : MonoBehaviour
                             costPercentage += increaseRate;
                             currentPrice += (initialCost * (costPercentage * 2));
                             Debug.Log(currentPrice);
-                            UpdatePrice(currentPrice);
+                            sys.UpdatePrice(costText, "$", currentPrice, "");
                             break;
                         // ADD THESE WHEN PRESTIGE SYSTEM IS SET UP
                         /*case PrototypeFactorySystem.PrestigeLevel.Prestige1:
@@ -80,7 +80,7 @@ public class PrototypeUpgrades : MonoBehaviour
                     costPercentage += increaseRate;
                     currentPrice += (initialCost * (costPercentage * 2));
                     Debug.Log(currentPrice);
-                    UpdatePrice(currentPrice);
+                    sys.UpdatePrice(costText, "$", currentPrice, "");
                     break;
                 case UpgradeType.ManufactureTime:
                     manufacturer.manufacturingTime -= (manufacturer.initialManuTime * percentage);
@@ -88,15 +88,10 @@ public class PrototypeUpgrades : MonoBehaviour
                     costPercentage += increaseRate;
                     currentPrice += (initialCost * (costPercentage * 2));
                     Debug.Log(currentPrice);
-                    UpdatePrice(currentPrice);
+                    sys.UpdatePrice(costText, "$", currentPrice, "");
                     break;
             }
         }
-    }
-
-    void UpdatePrice(float newPrice)
-    {
-        costText.text = "$" + sys.RoundToNearestHundredth(newPrice).ToString("F2");
     }
 
     public enum UpgradeType

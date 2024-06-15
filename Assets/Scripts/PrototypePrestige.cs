@@ -19,7 +19,7 @@ public class PrototypePrestige : MonoBehaviour
         if (sys.pointScore >= price)
         {
             sys.pointScore -= price;
-            sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
+            sys.UpdatePrice(sys.moneyText, "Profit: $", sys.pointScore, "");
 
             switch (prestigeType)
             {
