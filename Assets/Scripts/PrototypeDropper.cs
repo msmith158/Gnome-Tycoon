@@ -21,7 +21,7 @@ public class PrototypeDropper : MonoBehaviour
             switch (gameManager.prestigeLvl)
             {
                 case PrototypeFactorySystem.PrestigeLevel.Prestige0:
-                    value = gameManager.lvl1Value;
+                    value = gameManager.lvl1Value; 
                     break;
                 case PrototypeFactorySystem.PrestigeLevel.Prestige1:
                     value = gameManager.lvl2Value;
@@ -40,7 +40,7 @@ public class PrototypeDropper : MonoBehaviour
                     break;
             }
             gameManager.AddScore(value);
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }

@@ -4,13 +4,12 @@ using System.Security.Claims;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static PrototypeFactory;
 
 public class PrototypeFactorySystem : MonoBehaviour
 {
     [Header("Values: General")]
     public float pointScore;
-    public PrestigeLevel prestigeLvl;
+    public PrestigeLevel prestigeLvl = PrestigeLevel.Prestige0;
     public float lvl1Value;
     [HideInInspector] public float lvl1InitialValue;
     public float lvl2Value;
@@ -24,6 +23,10 @@ public class PrototypeFactorySystem : MonoBehaviour
     public float lvl6Value;
     [HideInInspector] public float lvl6InitialValue;
 
+    [Header("Debug Values")]
+    public float instantPointAddition;
+    private bool hasDebugRun;
+
     [Header("Object References: General")]
     public Collider basketTrigger;
     public TextMeshProUGUI moneyText;
@@ -31,19 +34,18 @@ public class PrototypeFactorySystem : MonoBehaviour
     private void Start()
     {
         lvl1InitialValue = lvl1Value;
-        lvl2InitialValue = lvl2Value;
-        lvl3InitialValue = lvl3Value;
-        lvl4InitialValue = lvl4Value;
-        lvl5InitialValue = lvl5Value;
-        lvl6InitialValue = lvl6Value;
-        Debug.Log(lvl1InitialValue);
-
         Application.targetFrameRate = 60;
+        AddScore(0);
     }
 
     public void AddScore(float amount)
     {
         pointScore = pointScore + amount;
+        if (!hasDebugRun) 
+        {
+            pointScore += instantPointAddition;
+            hasDebugRun = true;
+        }
         moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
     }
 

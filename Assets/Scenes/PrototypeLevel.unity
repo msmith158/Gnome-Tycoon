@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2305,6 +2305,7 @@ GameObject:
   - component: {fileID: 387778636}
   - component: {fileID: 387778639}
   - component: {fileID: 387778638}
+  - component: {fileID: 387778640}
   m_Layer: 5
   m_Name: prestige1
   m_TagString: Untagged
@@ -2372,6 +2373,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387778635}
   m_CullTransparentMesh: 1
+--- !u!114 &387778640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387778635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d68854fb538a746b1f74ac86c34f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prestigeType: 0
+  price: 10
+  unitMultiplication: 0
+  manufacturerDecreasePercent: 0
+  priceIncreasePercent: 0
+  sys: {fileID: 1095546605}
+  finalPrestigeSys: {fileID: 1679194115}
+  manufacturer: {fileID: 1835049947}
+  costText: {fileID: 870292091}
 --- !u!1 &395579946
 GameObject:
   m_ObjectHideFlags: 0
@@ -5734,7 +5756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 753750602}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 387778640}
+        m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
+        m_MethodName: UpdatePrestige
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &753750602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12627,6 +12661,7 @@ MonoBehaviour:
   lvl5InitialValue: 0
   lvl6Value: 32
   lvl6InitialValue: 0
+  instantPointAddition: 9999
   basketTrigger: {fileID: 2137738192}
   moneyText: {fileID: 2013700669}
 --- !u!1 &1103680912
@@ -13996,8 +14031,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prestigeType: 5
   price: 0
+  unitMultiplication: 0
+  manufacturerDecreasePercent: 0
+  priceIncreasePercent: 0
   sys: {fileID: 1095546605}
   finalPrestigeSys: {fileID: 1679194115}
+  manufacturer: {fileID: 1835049947}
+  costText: {fileID: 1882371137}
 --- !u!1 &1266549720
 GameObject:
   m_ObjectHideFlags: 0
@@ -17902,6 +17942,7 @@ MonoBehaviour:
   manufacturerSpawnPoint: {fileID: 271631147}
   objectPrefab: {fileID: 7635434034260989549, guid: 456170c78ac37a74cad37bb146aaee60,
     type: 3}
+  objectsList: []
 --- !u!1 &1835645306
 GameObject:
   m_ObjectHideFlags: 0

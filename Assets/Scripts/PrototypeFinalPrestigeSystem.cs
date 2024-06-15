@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PrototypeFinalPrestigeSystem : MonoBehaviour
@@ -122,7 +123,7 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
                 {
                     sirenSource.volume = Mathf.Lerp(0.2f, 0, timeElapsed / 0.3f);
                     timeElapsed += Time.deltaTime;
-                } 
+                }
             }
             yield return null;
         }
@@ -174,7 +175,8 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
 
         yield return new WaitForSeconds(delayAfterFadeOut);
 
-        // ENDING CODE HERE
+        // The ending of the nuke sequence, restarting everything.
+        SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
     }
 
     IEnumerator ProgrammedNukeShake()

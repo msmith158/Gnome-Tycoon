@@ -3,27 +3,44 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PrototypePrestige : MonoBehaviour
 {
-    [Header("Values: General")]
+    [Header("General Values")]
     public PrestigeType prestigeType;
     public float price;
+    [Header("Reward Values")]
+    public float unitMultiplication;
+    [Tooltip("Write the percentage as a decimal, e.g. 10% is 0.10")] public float manufacturerDecreasePercent;
+    [Tooltip("Write the percentage as a decimal, e.g. 10% is 0.10")] public float priceIncreasePercent;
 
     [Header("Object References")]
     [SerializeField] private PrototypeFactorySystem sys;
     [SerializeField] private PrototypeFinalPrestigeSystem finalPrestigeSys;
+    [SerializeField] private PrototypeManufacturer manufacturer;
+    [SerializeField] private TextMeshProUGUI costText;
 
-    public void PrestigeEvents()
+    void Start()
+    {
+        sys.UpdatePrice(costText, "$", price, "");
+    }
+
+    public void UpdatePrestige()
     {
         if (sys.pointScore >= price)
         {
             sys.pointScore -= price;
-            sys.UpdatePrice(sys.moneyText, "Profit: $", sys.pointScore, "");
+            sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
+            Debug.Log("Hello");
 
             switch (prestigeType)
             {
                 case PrestigeType.Prestige1:
+                    sys.prestigeLvl = PrototypeFactorySystem.PrestigeLevel.Prestige1;
+                    sys.pointScore = 0;
+                    sys.moneyText.text = "Profit: $" + sys.pointScore;
+                    Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
                     break;
                 case PrestigeType.Prestige2:
                     break;

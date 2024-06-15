@@ -16,6 +16,7 @@ public class PrototypeManufacturer : MonoBehaviour
     public GameObject timeSlider;
     public GameObject manufacturerSpawnPoint;
     public GameObject objectPrefab;
+    public List<GameObject> objectsList = new List<GameObject>();
 
     // Private variables
     private bool isActivated = false;
@@ -50,7 +51,8 @@ public class PrototypeManufacturer : MonoBehaviour
             yield return null;
         }
 
-        Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+        GameObject newObject = (GameObject)Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+        objectsList.Add(newObject);
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Cooling down...";
 
         for (float timer = 0; timer < manufacturingCooldown; timer += Time.deltaTime)
