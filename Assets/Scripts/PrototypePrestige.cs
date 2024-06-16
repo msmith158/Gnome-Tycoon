@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Claims;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PrototypePrestige : MonoBehaviour
 {
@@ -18,6 +16,7 @@ public class PrototypePrestige : MonoBehaviour
     [Header("Object References")]
     [SerializeField] private PrototypeFactorySystem sys;
     [SerializeField] private PrototypeFinalPrestigeSystem finalPrestigeSys;
+    [SerializeField] private List<PrototypeUpgrades> upgradeSys = new List<PrototypeUpgrades>();
     [SerializeField] private PrototypeManufacturer manufacturer;
     [SerializeField] private PrototypeConveyor conveyor;
     [SerializeField] private TextMeshProUGUI costText;
@@ -33,19 +32,38 @@ public class PrototypePrestige : MonoBehaviour
         {
             sys.pointScore -= price;
             sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
-            Debug.Log("Hello");
 
             switch (prestigeType)
             {
                 case PrestigeType.Prestige1:
+                    if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige0)
+                    {
+                        ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige1);
+                    }
                     break;
                 case PrestigeType.Prestige2:
+                    if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige1)
+                    {
+                        ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige2);
+                    }
                     break;
                 case PrestigeType.Prestige3:
+                    if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige2)
+                    {
+                        ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige3);
+                    }
                     break;
                 case PrestigeType.Prestige4:
+                    if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige3)
+                    {
+                        ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige4);
+                    }
                     break;
                 case PrestigeType.Prestige5:
+                    if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige4)
+                    {
+                        ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige5);
+                    }
                     break;
                 case PrestigeType.FinalPrestige: // The nuke sequence
                     //StartCoroutine(finalPrestigeSys.NukeSequence());
@@ -63,37 +81,60 @@ public class PrototypePrestige : MonoBehaviour
         sys.moneyText.text = "Profit: $" + sys.pointScore;
 
         // Reset gnome values
-        sys.lvl2InitialValue = sys.lvl1InitialValue + unitMultiplication;
+        switch (newPrestLvl)
+        {
+            // Dev note: Yes, I know now that this isn't the best method to do this. I'll change it if I can.
+            case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                sys.lvl2InitialValue = sys.lvl1InitialValue + unitMultiplication;
+                sys.lvl2Value = sys.lvl2InitialValue;
+                Debug.Log("New gnome value: " + sys.lvl2Value);
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                sys.lvl3InitialValue = sys.lvl1InitialValue + unitMultiplication;
+                sys.lvl3Value = sys.lvl3InitialValue;
+                Debug.Log("New gnome value: " + sys.lvl3Value);
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                sys.lvl4InitialValue = sys.lvl1InitialValue + unitMultiplication;
+                sys.lvl4Value = sys.lvl4InitialValue;
+                Debug.Log("New gnome value: " + sys.lvl4Value);
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                sys.lvl5InitialValue = sys.lvl1InitialValue + unitMultiplication;
+                sys.lvl5Value = sys.lvl5InitialValue;
+                Debug.Log("New gnome value: " + sys.lvl5Value);
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                sys.lvl6InitialValue = sys.lvl1InitialValue + unitMultiplication;
+                sys.lvl6Value = sys.lvl6InitialValue;
+                Debug.Log("New gnome value: " + sys.lvl6Value);
+                break;
+        }
 
         // Reset conveyor values
         conveyor.speed = conveyor.initialSpeed;
+        Debug.Log("Conveyor belt speed reset to " + conveyor.speed);
 
         // Reset manufacturing values
+        manufacturer.manufacturingTime = manufacturer.initialManuTime - (manufacturer.initialManuTime * manufacturerDecreasePercent);
+        Debug.Log("New manufacturing speed: " + manufacturer.manufacturingTime);
 
+        // Reset and adjust total costs
+        for (int i = 0; i < upgradeSys.Count; i++)
+        {
+            upgradeSys[i].SendMessage("ResetAndAdjustPrices", priceIncreasePercent);
+        }
 
         Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
     }
 
-    /*private void ForTimer(float condition, float delay)
+    public void PromptWindow(PrototypeFactorySystem.PrestigeLevel currentPrestige)
     {
-        if (condition < delay)
+        switch (currentPrestige)
         {
-            print("ERROR: Delay larger than time");
-            return;
+
         }
-        for (float i = 0; i < condition; i += Time.deltaTime)
-        {
-            if (i <= delay)
-            {
-                print("bye");
-                continue;
-            }
-            else
-            {
-                print("Hi");
-            }
-        }
-    }*/
+    }
 
     public enum PrestigeType
     {
