@@ -2036,6 +2036,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1692716367}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1776992790}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 343340713}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -14449,10 +14473,8 @@ MonoBehaviour:
   currentPrestigeText: {fileID: 242655326}
   prestigeBodyText: {fileID: 1961315694}
   promptParent: {fileID: 343340713}
-  promptUIToDisable:
-  - {fileID: 1692716367}
-  PromptUIToEnable:
-  - {fileID: 1776992790}
+  promptUIToDisable: []
+  PromptUIToEnable: []
 --- !u!1 &1266549720
 GameObject:
   m_ObjectHideFlags: 0
@@ -16341,7 +16363,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1261385825}
         m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
-        m_MethodName: PrestigeEvents
+        m_MethodName: UpdatePrestige
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

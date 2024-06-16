@@ -193,6 +193,11 @@ public class PrototypePrestige : MonoBehaviour
             upgradeSys[i].SendMessage("ResetAndAdjustPrices", priceIncreasePercent);
         }
 
+        for (int i = 0; i < manufacturer.objectsList.Count; i++)
+        {
+            Destroy(manufacturer.objectsList[i]);
+        }
+
         Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
     }
 
