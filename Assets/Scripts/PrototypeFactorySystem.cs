@@ -22,6 +22,7 @@ public class PrototypeFactorySystem : MonoBehaviour
     [HideInInspector] public float lvl6InitialValue;
 
     [Header("Debug Values")]
+    public bool debugMode;
     public float instantPointAddition;
     private bool hasDebugRun;
 
@@ -39,7 +40,7 @@ public class PrototypeFactorySystem : MonoBehaviour
     public void AddScore(float amount)
     {
         pointScore = pointScore + amount;
-        if (!hasDebugRun) 
+        if (debugMode && !hasDebugRun) 
         {
             pointScore += instantPointAddition;
             hasDebugRun = true;
