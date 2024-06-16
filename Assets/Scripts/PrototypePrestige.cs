@@ -43,14 +43,13 @@ public class PrototypePrestige : MonoBehaviour
     {
         if (sys.pointScore >= price)
         {
-            sys.pointScore -= price;
-            sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
-
             switch (prestigeType)
             {
                 case PrestigeType.Prestige1:
                     if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige0 && !sys.debugMode)
                     {
+                        sys.pointScore -= price;
+                        sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
                         ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige1);
                     }
                     else if (sys.debugMode)
@@ -62,6 +61,8 @@ public class PrototypePrestige : MonoBehaviour
                 case PrestigeType.Prestige2:
                     if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige1 && !sys.debugMode)
                     {
+                        sys.pointScore -= price;
+                        sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
                         ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige2);
                     }
                     else if (sys.debugMode)
@@ -73,6 +74,8 @@ public class PrototypePrestige : MonoBehaviour
                 case PrestigeType.Prestige3:
                     if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige2 && !sys.debugMode)
                     {
+                        sys.pointScore -= price;
+                        sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
                         ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige3);
                     }
                     else if (sys.debugMode)
@@ -84,6 +87,8 @@ public class PrototypePrestige : MonoBehaviour
                 case PrestigeType.Prestige4:
                     if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige3 && !sys.debugMode)
                     {
+                        sys.pointScore -= price;
+                        sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
                         ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige4);
                     }
                     else if (sys.debugMode)
@@ -95,6 +100,8 @@ public class PrototypePrestige : MonoBehaviour
                 case PrestigeType.Prestige5:
                     if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige4 && !sys.debugMode)
                     {
+                        sys.pointScore -= price;
+                        sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
                         ChangeValuesBasedOnPrestige(PrototypeFactorySystem.PrestigeLevel.Prestige5);
                     }
                     else if (sys.debugMode)
@@ -106,6 +113,8 @@ public class PrototypePrestige : MonoBehaviour
                 case PrestigeType.FinalPrestige: // The nuke sequence
                     if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige4 && !sys.debugMode)
                     {
+                        sys.pointScore -= price;
+                        sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
                         finalPrestigeSys.SendMessage("StartNukeSequence", null);
                     }
                     else if (sys.debugMode)
