@@ -17427,6 +17427,7 @@ MonoBehaviour:
   - {fileID: 1053985530}
   - {fileID: 777500700}
   - {fileID: 1509662429}
+  - {fileID: 242655324}
   uiToEnable:
   - {fileID: 1939962529}
   lightsToTurnOff:
