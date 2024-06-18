@@ -111,7 +111,7 @@ public class PrototypePrestige : MonoBehaviour
                     else PromptWindow();
                     break;
                 case PrestigeType.FinalPrestige: // The nuke sequence
-                    if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige4 && !sys.debugMode)
+                    if (sys.prestigeLvl == PrototypeFactorySystem.PrestigeLevel.Prestige5 && !sys.debugMode)
                     {
                         sys.pointScore -= price;
                         sys.moneyText.text = "Profit: $" + sys.RoundToNearestHundredth(sys.pointScore).ToString("F2");
