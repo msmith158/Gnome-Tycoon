@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 public class PrototypeFactorySystem : MonoBehaviour
@@ -58,20 +57,6 @@ public class PrototypeFactorySystem : MonoBehaviour
     {
         return (float)System.Math.Round(value, 2);
     }
-
-    public void QuitGame()
-    {
-    #if UNITY_EDITOR
-        {
-            EditorApplication.isPlaying = false;
-        }
-    #else
-        {
-            Application.Quit();
-        }
-    #endif
-    }
-
 
     public enum PrestigeLevel
     {
