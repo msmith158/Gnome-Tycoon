@@ -6,10 +6,10 @@ using UnityEngine;
 public class PrototypeGnomeCoinShopSystem : MonoBehaviour
 {
     [Header("Values")]
-    public float spinnerTime = 2f;
+    [SerializeField] private float spinnerTime = 2f;
 
     [Header("Object References")]
-    public TextMeshProUGUI gnomeCoinText;
+    [SerializeField] private PrototypeGnomeCoinSystem gnomeCoinSys;
     public GameObject promptBackground;
     public GameObject spinnerBackground;
 
@@ -23,5 +23,6 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
         promptBackground.SetActive(true);
         spinnerBackground.SetActive(true);
         yield return new WaitForSeconds(spinnerTime);
+
     }
 }
