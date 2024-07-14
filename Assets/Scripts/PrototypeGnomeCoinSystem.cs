@@ -9,6 +9,7 @@ public class PrototypeGnomeCoinSystem : MonoBehaviour
     [Header("Object References")]
     public TextMeshProUGUI gnomeCoinText;
     public List<GameObject> oneTimeObjects = new List<GameObject>();
+    public List<string> oneTimeObjectNames = new List<string>();
 
     public int coinCount;
 
