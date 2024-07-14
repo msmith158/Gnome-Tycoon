@@ -47,5 +47,6 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
         }
         obj.SetActive(false);
         isReadyToDestroy = false;
+        gnomeCoinSys.oneTimeObjects.Add(obj);
     }
 }

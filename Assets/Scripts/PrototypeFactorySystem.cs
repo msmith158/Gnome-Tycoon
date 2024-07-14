@@ -61,11 +61,7 @@ public class PrototypeFactorySystem : MonoBehaviour
             case true:
                 for (int i = 0; i < ddolManager.oneTimeObjects.Count; i++)
                 {
-                    Debug.Log(ddolManager.oneTimeObjectNames[i]);
-                    //ddolManager.oneTimeObjects.Add(GameObject.Find(ddolManager.oneTimeObjectNames[i]));
-                    //Destroy(ddolManager.oneTimeObjects[i]);
-                    GameObject.Find(ddolManager.oneTimeObjectNames[i]).SetActive(false);
-                    Debug.Log(ddolManager.oneTimeObjectNames[i]);
+                    Destroy(ddolManager.oneTimeObjects[i]);
                 }
                 Debug.Log("Bingo 2");
                 break;
@@ -73,7 +69,7 @@ public class PrototypeFactorySystem : MonoBehaviour
                 for (int i = 0; i < oneOffObjects.Count; i++)
                 {
                     //ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
-                    ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
+                    //ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
                 }
                 ddolManager.gameObject.GetComponent<PrototypeInitialisation>().isOneOffComplete = true;
                 Debug.Log("Bingo 1");
