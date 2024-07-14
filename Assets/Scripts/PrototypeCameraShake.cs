@@ -34,7 +34,6 @@ public class PrototypeCameraShake : MonoBehaviour
             float y = Random.Range(-1f, 1f) * yMagnitude;
 
             transform.localPosition = new Vector3(x, y, originalPos.z);
-            Debug.Log(xMagnitude + " + " + yMagnitude);
 
             yield return null;
         }

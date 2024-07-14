@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class PrototypeGnomeCoinShopSystem : MonoBehaviour
@@ -10,18 +12,22 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
     private bool isReadyToDestroy = false;
 
     [Header("Object References")]
-    [SerializeField] private PrototypeGnomeCoinSystem gnomeCoinSys;
+    private PrototypeGnomeCoinSystem gnomeCoinSys;
     public GameObject promptBackground;
     public GameObject spinnerBackground;
 
+    public void OnEnable()
+    {
+        gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+    }
     public void BuyGnomeCoins(int amount)
     {
         StartCoroutine(GnomeCoinPurchaseProcess(amount));
     }
 
-    public void DestroyListing(GameObject objectToDestroy)
+    public void DisableListing(GameObject objectToDestroy)
     {
-        StartCoroutine(DestroyListingDelay(objectToDestroy));
+        StartCoroutine(DisableListingDelay(objectToDestroy));
     }
 
     IEnumerator GnomeCoinPurchaseProcess(int amountToBuy)
@@ -33,13 +39,13 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
         isReadyToDestroy = true;
     }
 
-    IEnumerator DestroyListingDelay(GameObject obj)
+    IEnumerator DisableListingDelay(GameObject obj)
     {
         while (!isReadyToDestroy)
         {
             yield return null;
         }
-        Destroy(obj);
+        obj.SetActive(false);
         isReadyToDestroy = false;
     }
 }

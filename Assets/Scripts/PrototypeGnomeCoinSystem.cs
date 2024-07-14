@@ -1,29 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PrototypeGnomeCoinSystem : MonoBehaviour
 {
     [Header("Object References")]
-    [SerializeField] private TextMeshProUGUI gnomeCoinText;
+    public TextMeshProUGUI gnomeCoinText;
     public List<GameObject> oneTimeObjects = new List<GameObject>();
 
     public int coinCount;
 
-    private bool isStarted;
-
-    // Start is called before the first frame update
-    void Start()
+    public void Initialise()
     {
-        switch (isStarted)
+        if (gnomeCoinText != null)
         {
-            case true:
-                break;
-            case false:
-                DontDestroyOnLoad(this.gameObject);
-                isStarted = true;
-                break;
+            gnomeCoinText.text = "¢" + coinCount;
         }
     }
 

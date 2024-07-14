@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
+using UnityEditor.EditorTools;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PrototypeFactorySystem : MonoBehaviour
 {
@@ -30,12 +32,47 @@ public class PrototypeFactorySystem : MonoBehaviour
     [Header("Object References: General")]
     public Collider basketTrigger;
     public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI coinText;
+    public List<GameObject> oneOffObjects = new List<GameObject>();
+    private PrototypeGnomeCoinSystem ddolManager;
 
-    private void Start()
+    private void OnEnable()
     {
+        SetUpDDOLManager();
+        SetUpDDOLManagerOneOff();
+        ddolManager.Initialise();
+
         lvl1InitialValue = lvl1Value;
         Application.targetFrameRate = 60;
         AddScore(0);
+    }
+
+    public void SetUpDDOLManager()
+    {
+        ddolManager = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        ddolManager.gnomeCoinText = coinText;
+    }
+
+    public void SetUpDDOLManagerOneOff()
+    {
+        switch (ddolManager.gameObject.GetComponent<PrototypeInitialisation>().isOneOffComplete)
+        {
+            case true:
+                for (int i = 0; i < ddolManager.oneTimeObjects.Count; i++)
+                {
+                    Destroy(ddolManager.oneTimeObjects[i]);
+                }
+                Debug.Log("Bingo 2");
+                break;
+            case false:
+                for (int i = 0; i < oneOffObjects.Count; i++)
+                {
+                    ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
+                }
+                ddolManager.gameObject.GetComponent<PrototypeInitialisation>().isOneOffComplete = true;
+                Debug.Log("Bingo 1");
+                break;
+        }
     }
 
     public void AddScore(float amount)
@@ -83,7 +120,6 @@ public class PrototypeFactorySystem : MonoBehaviour
                 Time.timeScale = 1.0f;
                 break;
         }
-        
     }
 
     public enum PrestigeLevel

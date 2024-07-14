@@ -77,12 +77,10 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
             uiToDisable[i].SetActive(false);
         }
         conveyor.enabled = false;
-        Debug.Log("Hehehehaw");
 
         yield return new WaitForSeconds(alarmDelayTime);
 
         // The alarm starts blaring
-        Debug.Log("Hi");
         if (!alarmSource.isPlaying)
         {
             alarmSource.clip = alarm;
@@ -129,7 +127,6 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
         }
 
         // The nuke goes off
-        Debug.Log("Lol");
         if (!nukeSource.isPlaying)
         {
             nukeSource.clip = nuke;
@@ -167,7 +164,6 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
             {
                 whiteScreen.GetComponent<Image>().color = Color.Lerp(Color.white, Color.black, timeElapsed / 3f);
                 timeElapsed += Time.deltaTime;
-                Debug.Log(timeElapsed);
             }
             yield return null;
         }
@@ -176,7 +172,7 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
         yield return new WaitForSeconds(delayAfterFadeOut);
 
         // The ending of the nuke sequence, restarting everything.
-        SceneManager.LoadScene("PrototypeLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
     IEnumerator ProgrammedNukeShake()
