@@ -7,12 +7,24 @@ public class PrototypeGnomeCoinSystem : MonoBehaviour
 {
     [Header("Object References")]
     [SerializeField] private TextMeshProUGUI gnomeCoinText;
-    [HideInInspector] public int coinCount;
+    public List<GameObject> oneTimeObjects = new List<GameObject>();
+
+    public int coinCount;
+
+    private bool isStarted;
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        switch (isStarted)
+        {
+            case true:
+                break;
+            case false:
+                DontDestroyOnLoad(this.gameObject);
+                isStarted = true;
+                break;
+        }
     }
 
     // Update is called once per frame

@@ -72,6 +72,20 @@ public class PrototypeFactorySystem : MonoBehaviour
 #endif
     }
 
+    public void PauseGame(bool isPaused)
+    {
+        switch (isPaused)
+        {
+            case true:
+                Time.timeScale = 0.0f;
+                break;
+            case false:
+                Time.timeScale = 1.0f;
+                break;
+        }
+        
+    }
+
     public enum PrestigeLevel
     {
         Prestige0,

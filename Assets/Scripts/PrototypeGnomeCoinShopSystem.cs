@@ -7,6 +7,7 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
 {
     [Header("Values")]
     [SerializeField] private float spinnerTime = 2f;
+    private bool isReadyToDestroy = false;
 
     [Header("Object References")]
     [SerializeField] private PrototypeGnomeCoinSystem gnomeCoinSys;
@@ -18,11 +19,27 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
         StartCoroutine(GnomeCoinPurchaseProcess(amount));
     }
 
+    public void DestroyListing(GameObject objectToDestroy)
+    {
+        StartCoroutine(DestroyListingDelay(objectToDestroy));
+    }
+
     IEnumerator GnomeCoinPurchaseProcess(int amountToBuy)
     {
-        promptBackground.SetActive(true);
         spinnerBackground.SetActive(true);
         yield return new WaitForSeconds(spinnerTime);
+        gnomeCoinSys.AddCoins(amountToBuy);
+        spinnerBackground.SetActive(false);
+        isReadyToDestroy = true;
+    }
 
+    IEnumerator DestroyListingDelay(GameObject obj)
+    {
+        while (!isReadyToDestroy)
+        {
+            yield return null;
+        }
+        Destroy(obj);
+        isReadyToDestroy = false;
     }
 }
