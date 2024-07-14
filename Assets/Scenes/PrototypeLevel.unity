@@ -640,6 +640,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81504242}
   m_CullTransparentMesh: 1
+--- !u!1 &81758401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81758403}
+  - component: {fileID: 81758402}
+  m_Layer: 0
+  m_Name: proto_gnomeCoinSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &81758402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81758401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d5e7d00ecc0cb4a8851850691e4589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gnomeCoinText: {fileID: 1486817317}
+  coinCount: 0
+--- !u!4 &81758403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81758401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &84435728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7230,6 +7276,18 @@ MonoBehaviour:
       - m_Target: {fileID: 343340713}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1095546605}
+        m_TargetAssemblyTypeName: PrototypeFactorySystem, Assembly-CSharp
+        m_MethodName: PauseGame
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17095,7 +17153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinnerTime: 2
-  gnomeCoinSys: {fileID: 1186379666}
+  gnomeCoinSys: {fileID: 81758402}
   promptBackground: {fileID: 343340713}
   spinnerBackground: {fileID: 417141045}
 --- !u!1 &1177529493
@@ -17243,7 +17301,6 @@ GameObject:
   - component: {fileID: 1186379663}
   - component: {fileID: 1186379665}
   - component: {fileID: 1186379664}
-  - component: {fileID: 1186379666}
   m_Layer: 5
   m_Name: gnomeCoinCounterPanel
   m_TagString: Untagged
@@ -17310,20 +17367,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186379662}
   m_CullTransparentMesh: 1
---- !u!114 &1186379666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186379662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d5e7d00ecc0cb4a8851850691e4589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gnomeCoinText: {fileID: 1486817317}
-  coinCount: 0
 --- !u!1 &1206581063
 GameObject:
   m_ObjectHideFlags: 0
@@ -20660,6 +20703,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1095546605}
+        m_TargetAssemblyTypeName: PrototypeFactorySystem, Assembly-CSharp
+        m_MethodName: PauseGame
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1501296682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22339,6 +22394,9 @@ MonoBehaviour:
   - {fileID: 777500700}
   - {fileID: 1509662429}
   - {fileID: 242655324}
+  - {fileID: 1186379662}
+  - {fileID: 1501296679}
+  - {fileID: 1234457108}
   uiToEnable:
   - {fileID: 1939962529}
   lightsToTurnOff:
@@ -23517,6 +23575,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1176754081}
+        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+        m_MethodName: DestroyListing
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1879732283}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -26940,3 +27010,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1962326170}
+  - {fileID: 81758403}
