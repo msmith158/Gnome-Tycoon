@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gnome_material_01
-    second: {fileID: 2100000, guid: 9c4e070434e4a7a4ba4d7df97c6d9925, type: 2}
+    second: {fileID: 2100000, guid: 3b6025b9496da7446a123c93e922810f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

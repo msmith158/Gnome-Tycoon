@@ -16,7 +16,10 @@ public class PrototypeManufacturer : MonoBehaviour
     public GameObject timeSlider;
     public GameObject manufacturerSpawnPoint;
     public GameObject objectPrefab;
+    public GameObject objectModel;
+    public PrototypeFactorySystem sys;
     public List<GameObject> objectsList = new List<GameObject>();
+    public List<Material> gnomeMaterialList = new List<Material>();
 
     // Private variables
     private bool isActivated = false;
@@ -51,7 +54,47 @@ public class PrototypeManufacturer : MonoBehaviour
             yield return null;
         }
 
-        GameObject newObject = (GameObject)Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+        GameObject newObject = Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+        switch (sys.prestigeLvl)
+        {
+            case PrototypeFactorySystem.PrestigeLevel.Prestige0:
+                for (int i = 0; i < objectModel.transform.childCount; i++)
+                {
+                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[0];
+                    Debug.Log("Le lolz");
+                }
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                for (int i = 0; i < objectModel.transform.childCount; i++)
+                {
+                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[1];
+                }
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                for (int i = 0; i < objectModel.transform.childCount; i++)
+                {
+                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[2];
+                }
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                for (int i = 0; i < objectModel.transform.childCount; i++)
+                {
+                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[3];
+                }
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                for (int i = 0; i < objectModel.transform.childCount; i++)
+                {
+                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[4];
+                }
+                break;
+            case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                for (int i = 0; i < objectModel.transform.childCount; i++)
+                {
+                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[5];
+                }
+                break;
+        }
         objectsList.Add(newObject);
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Cooling down...";
 
