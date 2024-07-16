@@ -27002,6 +27002,7 @@ MonoBehaviour:
   objectModel: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
   sys: {fileID: 1095546605}
+  initSys: {fileID: 0}
   objectsList: []
   gnomeMaterialList:
   - {fileID: 2100000, guid: 4c84b3baadcf8504e9b65610716035f8, type: 2}
@@ -27010,6 +27011,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7a48c9fdbf15f9d4082179d617829b5f, type: 2}
   - {fileID: 2100000, guid: bb909b4677bbbfc4bba3bf0bcdf511d5, type: 2}
   - {fileID: 2100000, guid: c0f14d1c4bd2b084088442110fac334e, type: 2}
+  - {fileID: 2100000, guid: 9c4e070434e4a7a4ba4d7df97c6d9925, type: 2}
 --- !u!1 &1835645306
 GameObject:
   m_ObjectHideFlags: 0

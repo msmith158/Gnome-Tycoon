@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PrototypeInitialisation : MonoBehaviour
 {
     public bool isOneOffComplete = false;
+    public int resetTimes = 0;
     // Start is called before the first frame update
     void OnEnable()
     {

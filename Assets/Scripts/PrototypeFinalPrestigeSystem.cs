@@ -29,6 +29,7 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
     [SerializeField] private AnimationClip emerLightAnim;
     [SerializeField] private GameObject whiteScreen;
     [SerializeField] private AnimationCurve nukeSequenceShake;
+    [SerializeField] private PrototypeInitialisation initSys;
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource switchOffSource;
     [SerializeField] private AudioSource generatorOffSource;
@@ -49,6 +50,11 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
     [SerializeField] private List<Light> lightsToTurnOff = new List<Light>();
     [SerializeField] private List<Light> emergencyLights = new List<Light>();
     [SerializeField] private List<ParticleSystem> nukeParticles = new List<ParticleSystem>();
+
+    public void OnEnable()
+    {
+        initSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeInitialisation>();
+    }
 
     public void StartNukeSequence()
     {
@@ -172,6 +178,7 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
         yield return new WaitForSeconds(delayAfterFadeOut);
 
         // The ending of the nuke sequence, restarting everything.
+        initSys.resetTimes++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
