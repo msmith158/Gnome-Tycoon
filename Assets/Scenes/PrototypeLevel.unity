@@ -2691,7 +2691,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271631147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3944,7 +3944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 0
-  price: 50
+  price: 1000
   unitMultiplication: 2
   manufacturerDecreasePercent: 0.1
   priceIncreasePercent: 0.5
@@ -6776,7 +6776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 1
-  price: 100
+  price: 2500
   unitMultiplication: 4
   manufacturerDecreasePercent: 0.2
   priceIncreasePercent: 1
@@ -18474,7 +18474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 5
-  price: 500
+  price: 100000
   unitMultiplication: 0
   manufacturerDecreasePercent: 0
   priceIncreasePercent: 0
@@ -22104,7 +22104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 2
-  price: 150
+  price: 7500
   unitMultiplication: 8
   manufacturerDecreasePercent: 0.3
   priceIncreasePercent: 1.5
@@ -23405,7 +23405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 3
-  price: 200
+  price: 20000
   unitMultiplication: 16
   manufacturerDecreasePercent: 0.4
   priceIncreasePercent: 2
@@ -24083,7 +24083,7 @@ MonoBehaviour:
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
   manufacturerSpawnPoint: {fileID: 271631147}
-  objectPrefab: {fileID: 7635434034260989549, guid: 456170c78ac37a74cad37bb146aaee60,
+  objectPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
   objectsList: []
 --- !u!1 &1835645306
@@ -24312,7 +24312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 4
-  price: 250
+  price: 50000
   unitMultiplication: 32
   manufacturerDecreasePercent: 0.5
   priceIncreasePercent: 2.5
