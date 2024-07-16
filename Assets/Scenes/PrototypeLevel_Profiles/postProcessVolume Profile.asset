@@ -87,7 +87,7 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 2
+    value: 0
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -133,10 +133,10 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 0
-    value: 0
+    value: 0.24
   contrast:
     overrideState: 0
-    value: 0
+    value: -28.1
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
