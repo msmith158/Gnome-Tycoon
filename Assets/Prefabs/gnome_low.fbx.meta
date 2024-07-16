@@ -10,10 +10,10 @@ ModelImporter:
       name: Gnome_material_01
     second: {fileID: 2100000, guid: 3b6025b9496da7446a123c93e922810f, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

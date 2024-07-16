@@ -58,40 +58,40 @@ public class PrototypeManufacturer : MonoBehaviour
         switch (sys.prestigeLvl)
         {
             case PrototypeFactorySystem.PrestigeLevel.Prestige0:
-                for (int i = 0; i < objectModel.transform.childCount; i++)
+                for (int i = 0; i < newObject.transform.childCount; i++)
                 {
-                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[0];
+                    newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
                     Debug.Log("Le lolz");
                 }
                 break;
             case PrototypeFactorySystem.PrestigeLevel.Prestige1:
-                for (int i = 0; i < objectModel.transform.childCount; i++)
+                for (int i = 0; i < newObject.transform.childCount; i++)
                 {
-                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[1];
+                    newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[1];
                 }
                 break;
             case PrototypeFactorySystem.PrestigeLevel.Prestige2:
-                for (int i = 0; i < objectModel.transform.childCount; i++)
+                for (int i = 0; i < newObject.transform.childCount; i++)
                 {
-                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[2];
+                    newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[2];
                 }
                 break;
             case PrototypeFactorySystem.PrestigeLevel.Prestige3:
-                for (int i = 0; i < objectModel.transform.childCount; i++)
+                for (int i = 0; i < newObject.transform.childCount; i++)
                 {
-                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[3];
+                    newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[3];
                 }
                 break;
             case PrototypeFactorySystem.PrestigeLevel.Prestige4:
-                for (int i = 0; i < objectModel.transform.childCount; i++)
+                for (int i = 0; i < newObject.transform.childCount; i++)
                 {
-                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[4];
+                    newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[4];
                 }
                 break;
             case PrototypeFactorySystem.PrestigeLevel.Prestige5:
-                for (int i = 0; i < objectModel.transform.childCount; i++)
+                for (int i = 0; i < newObject.transform.childCount; i++)
                 {
-                    objectModel.GetComponentInChildren<Renderer>().material = gnomeMaterialList[5];
+                    newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[5];
                 }
                 break;
         }

@@ -26999,7 +26999,7 @@ MonoBehaviour:
   manufacturerSpawnPoint: {fileID: 271631147}
   objectPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  objectModel: {fileID: 919132149155446097, guid: 31b4353429b1a164f8fd1a84f2a5a0da,
+  objectModel: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
   sys: {fileID: 1095546605}
   objectsList: []
