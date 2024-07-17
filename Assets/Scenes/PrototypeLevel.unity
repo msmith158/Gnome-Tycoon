@@ -24376,7 +24376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Permanently increases revenue per gnome by 10%.
+  m_text: Permanently increases revenue per gnome by 3%.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25304,6 +25304,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  initSys: {fileID: 0}
   switchOffSource: {fileID: 172511929}
   generatorOffSource: {fileID: 871543258}
   alarmSource: {fileID: 2088088836}

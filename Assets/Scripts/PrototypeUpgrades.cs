@@ -7,6 +7,7 @@ public class PrototypeUpgrades : MonoBehaviour
 {
     [Header("Values")]
     public UpgradeType upgradeType;
+    public UpgradeCost upgradeCost;
     public float initialCost;
     public float increaseRate;
     private float currentPrice;
@@ -28,78 +29,86 @@ public class PrototypeUpgrades : MonoBehaviour
 
     public void SetNewValues(float percentage)
     {
-        if (sys.pointScore >= currentPrice)
+        switch (upgradeCost)
         {
-            sys.pointScore -= currentPrice;
-            sys.UpdatePrice(sys.moneyText, "Profit: $", sys.pointScore, "");
+            case UpgradeCost.Dollans:
+                if (sys.pointScore >= currentPrice)
+                {
+                    sys.pointScore -= currentPrice;
+                    sys.UpdatePrice(sys.moneyText, "Profit: $", sys.pointScore, "");
 
-            switch (upgradeType)
-            {
-                case UpgradeType.GnomeValue:
-                    switch (sys.prestigeLvl)
+                    switch (upgradeType)
                     {
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige0:
-                            sys.lvl1Value += (sys.lvl1InitialValue * percentage);
-                            Debug.Log("Gnome value: " + sys.lvl1Value);
+                        case UpgradeType.GnomeValue:
+                            switch (sys.prestigeLvl)
+                            {
+                                case PrototypeFactorySystem.PrestigeLevel.Prestige0:
+                                    sys.lvl1Value += (sys.lvl1InitialValue * percentage);
+                                    Debug.Log("Gnome value: " + sys.lvl1Value);
+                                    costPercentage += increaseRate;
+                                    currentPrice += (initialCost * (costPercentage * 2));
+                                    sys.UpdatePrice(costText, "$", currentPrice, "");
+                                    break;
+                                // These will need to be tested as to whether to use each initial value or lvl1InitialValue across the board
+                                case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                                    sys.lvl2Value += (sys.lvl2InitialValue * percentage);
+                                    Debug.Log("Gnome value: " + sys.lvl2Value);
+                                    costPercentage += increaseRate;
+                                    currentPrice += (initialCost * (costPercentage * 2));
+                                    sys.UpdatePrice(costText, "$", sys.lvl2Value, "");
+                                    break;
+                                case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                                    sys.lvl3Value += (sys.lvl3InitialValue * percentage);
+                                    Debug.Log("Gnome value: " + sys.lvl3Value);
+                                    costPercentage += increaseRate;
+                                    currentPrice += (initialCost * (costPercentage * 2));
+                                    sys.UpdatePrice(costText, "$", sys.lvl3Value, "");
+                                    break;
+                                case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                                    sys.lvl4Value += (sys.lvl4InitialValue * percentage);
+                                    Debug.Log("Gnome value: " + sys.lvl4Value);
+                                    costPercentage += increaseRate;
+                                    currentPrice += (initialCost * (costPercentage * 2));
+                                    sys.UpdatePrice(costText, "$", sys.lvl4Value, "");
+                                    break;
+                                case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                                    sys.lvl5Value += (sys.lvl5InitialValue * percentage);
+                                    Debug.Log("Gnome value: " + sys.lvl5Value);
+                                    costPercentage += increaseRate;
+                                    currentPrice += (initialCost * (costPercentage * 2));
+                                    sys.UpdatePrice(costText, "$", sys.lvl5Value, "");
+                                    break;
+                                case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                                    sys.lvl6Value += (sys.lvl6InitialValue * percentage);
+                                    Debug.Log("Gnome value: " + sys.lvl6Value);
+                                    costPercentage += increaseRate;
+                                    currentPrice += (initialCost * (costPercentage * 2));
+                                    sys.UpdatePrice(costText, "$", sys.lvl6Value, "");
+                                    break;
+                            }
+                            break;
+                        case UpgradeType.ConveyorSpeed:
+                            conveyor.speed += (conveyor.initialSpeed * percentage);
+                            Debug.Log("Conveyor speed: " + conveyor.speed);
                             costPercentage += increaseRate;
                             currentPrice += (initialCost * (costPercentage * 2));
                             sys.UpdatePrice(costText, "$", currentPrice, "");
                             break;
-                        // These will need to be tested as to whether to use each initial value or lvl1InitialValue across the board
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige1:
-                            sys.lvl2Value += (sys.lvl2InitialValue * percentage);
-                            Debug.Log("Gnome value: " + sys.lvl2Value);
+                        case UpgradeType.ManufactureTime:
+                            manufacturer.manufacturingTime -= (manufacturer.initialManuTime * percentage);
+                            Debug.Log("Manufacturing time: " + manufacturer.manufacturingTime);
                             costPercentage += increaseRate;
                             currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, "$", sys.lvl2Value, "");
-                            break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige2:
-                            sys.lvl3Value += (sys.lvl3InitialValue * percentage);
-                            Debug.Log("Gnome value: " + sys.lvl3Value);
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, "$", sys.lvl3Value, "");
-                            break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige3:
-                            sys.lvl4Value += (sys.lvl4InitialValue * percentage);
-                            Debug.Log("Gnome value: " + sys.lvl4Value);
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, "$", sys.lvl4Value, "");
-                            break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige4:
-                            sys.lvl5Value += (sys.lvl5InitialValue * percentage);
-                            Debug.Log("Gnome value: " + sys.lvl5Value);
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, "$", sys.lvl5Value, "");
-                            break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige5:
-                            sys.lvl6Value += (sys.lvl6InitialValue * percentage);
-                            Debug.Log("Gnome value: " + sys.lvl6Value);
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, "$", sys.lvl6Value, "");
+                            sys.UpdatePrice(costText, "$", currentPrice, "");
                             break;
                     }
-                    break;
-                case UpgradeType.ConveyorSpeed:
-                    conveyor.speed += (conveyor.initialSpeed * percentage);
-                    Debug.Log("Conveyor speed: " + conveyor.speed);
-                    costPercentage += increaseRate;
-                    currentPrice += (initialCost * (costPercentage * 2));
-                    sys.UpdatePrice(costText, "$", currentPrice, "");
-                    break;
-                case UpgradeType.ManufactureTime:
-                    manufacturer.manufacturingTime -= (manufacturer.initialManuTime * percentage);
-                    Debug.Log("Manufacturing time: " + manufacturer.manufacturingTime);
-                    costPercentage += increaseRate;
-                    currentPrice += (initialCost * (costPercentage * 2));
-                    sys.UpdatePrice(costText, "$", currentPrice, "");
-                    break;
-            }
+                }
+                break;
+            case UpgradeCost.GnomeCoins:
+                break;
         }
     }
+    
 
     public void ResetAndAdjustPrices(float costIncrease)
     {
@@ -112,5 +121,11 @@ public class PrototypeUpgrades : MonoBehaviour
         GnomeValue,
         ConveyorSpeed,
         ManufactureTime
+    }
+
+    public enum UpgradeCost
+    {
+        Dollans,
+        GnomeCoins
     }
 }

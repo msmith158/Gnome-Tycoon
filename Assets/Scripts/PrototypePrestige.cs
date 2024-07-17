@@ -119,6 +119,7 @@ public class PrototypePrestige : MonoBehaviour
                     }
                     else if (sys.debugMode)
                     {
+                        Debug.Log("Hi");
                         finalPrestigeSys.SendMessage("StartNukeSequence", null);
                     }
                     else PromptWindow();
