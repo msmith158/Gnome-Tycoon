@@ -290,9 +290,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 249.695, y: -720}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36250195
@@ -3400,9 +3400,9 @@ RectTransform:
   - {fileID: 2035607912}
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 249.695, y: -330}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290145983
@@ -3418,12 +3418,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeType: 2
-  initialCost: 0.5
+  upgradeCost: 1
+  initialCost: 60
   increaseRate: 0.03
   costText: {fileID: 765451484}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
   manufacturer: {fileID: 1835049947}
+  gnomeCoinSys: {fileID: 0}
 --- !u!114 &290145984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4909,9 +4911,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 249.695, y: -590}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395112279
@@ -5252,9 +5254,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 249.695, y: -460}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &408789051
@@ -6220,7 +6222,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.05
+          m_FloatArgument: 0.03
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -7820,9 +7822,9 @@ RectTransform:
   - {fileID: 1364164766}
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 249.695, y: -70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670819349
@@ -7876,12 +7878,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeType: 0
+  upgradeCost: 0
   initialCost: 0.2
   increaseRate: 0.02
   costText: {fileID: 1105035879}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
   manufacturer: {fileID: 1835049947}
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &674638601
 GameObject:
   m_ObjectHideFlags: 0
@@ -8604,9 +8608,9 @@ RectTransform:
   - {fileID: 1113661763}
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 249.695, y: -200}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703692341
@@ -8622,12 +8626,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeType: 1
-  initialCost: 2
+  upgradeCost: 1
+  initialCost: 40
   increaseRate: 0.05
   costText: {fileID: 316445869}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
   manufacturer: {fileID: 1835049947}
+  gnomeCoinSys: {fileID: 0}
 --- !u!114 &703692342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8930,9 +8936,9 @@ RectTransform:
   - {fileID: 1821498745}
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 249.695, y: -200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &725734639
@@ -8986,12 +8992,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeType: 1
+  upgradeCost: 0
   initialCost: 2
   increaseRate: 0.05
   costText: {fileID: 815607023}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
   manufacturer: {fileID: 1835049947}
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &744961923
 GameObject:
   m_ObjectHideFlags: 0
@@ -15577,9 +15585,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 249.695, y: -590}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888436933
@@ -15944,7 +15952,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0.0000017777202, y: -394}
-  m_SizeDelta: {x: 499.39, y: 0}
+  m_SizeDelta: {x: 499.39, y: 790}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931767848
 MonoBehaviour:
@@ -16131,9 +16139,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 249.695, y: -720}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946049377
@@ -18492,7 +18500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1140175465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19171,9 +19179,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 249.695, y: -460}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204188014
@@ -21073,9 +21081,9 @@ RectTransform:
   - {fileID: 1602149995}
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 249.695, y: -70}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330854409
@@ -21091,12 +21099,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeType: 0
-  initialCost: 0.2
+  upgradeCost: 1
+  initialCost: 20
   increaseRate: 0.02
   costText: {fileID: 371054590}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
   manufacturer: {fileID: 1835049947}
+  gnomeCoinSys: {fileID: 0}
 --- !u!114 &1330854410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22024,6 +22034,42 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1330854409}
+        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
+        m_MethodName: OnEnable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 703692341}
+        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
+        m_MethodName: OnEnable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 290145983}
+        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
+        m_MethodName: OnEnable
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -24623,9 +24669,9 @@ RectTransform:
   - {fileID: 1206581064}
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 249.695, y: -330}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1613842706
@@ -24679,12 +24725,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeType: 2
+  upgradeCost: 0
   initialCost: 0.5
   increaseRate: 0.03
   costText: {fileID: 1660851256}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
   manufacturer: {fileID: 1835049947}
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &1615066287
 GameObject:
   m_ObjectHideFlags: 0
@@ -26178,7 +26226,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0.0000017777202, y: -394}
-  m_SizeDelta: {x: 499.39, y: 790}
+  m_SizeDelta: {x: 499.39, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1796627217
 CanvasRenderer:
@@ -29579,7 +29627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2061824847
 RectTransform:
   m_ObjectHideFlags: 0

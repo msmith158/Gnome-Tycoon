@@ -9,7 +9,7 @@ public class PrototypeUpgrades : MonoBehaviour
     public UpgradeType upgradeType;
     public UpgradeCost upgradeCost;
     public float initialCost;
-    public float increaseRate;
+    [Tooltip("The rate at which the price increases in a curve.")] public float increaseRate;
     private float currentPrice;
     private float costPercentage;
 
@@ -19,12 +19,19 @@ public class PrototypeUpgrades : MonoBehaviour
     [SerializeField] private PrototypeFactorySystem sys;
     [SerializeField] private PrototypeConveyor conveyor;
     [SerializeField] private PrototypeManufacturer manufacturer;
+    [SerializeField] private PrototypeGnomeCoinSystem gnomeCoinSys;
 
     // Start is called before the first frame update
     void Start()
     {
         currentPrice = initialCost;
         sys.UpdatePrice(costText, "$", currentPrice, "");
+    }
+
+    public void OnEnable()
+    {
+        gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        Debug.Log("Hi");
     }
 
     public void SetNewValues(float percentage)
@@ -105,6 +112,24 @@ public class PrototypeUpgrades : MonoBehaviour
                 }
                 break;
             case UpgradeCost.GnomeCoins:
+                if (gnomeCoinSys.coinCount >= (int)currentPrice)
+                {
+                    gnomeCoinSys.coinCount -= (int)currentPrice;
+                    sys.UpdatePrice(gnomeCoinSys.gnomeCoinText, "¢", gnomeCoinSys.coinCount, "");
+
+                    switch (upgradeType)
+                    {
+                        case UpgradeType.GnomeValue:
+                            // Code here
+                            break;
+                        case UpgradeType.ConveyorSpeed:
+                            // Code here
+                            break;
+                        case UpgradeType.ManufactureTime:
+                            // Code here
+                            break;
+                    }
+                }
                 break;
         }
     }
