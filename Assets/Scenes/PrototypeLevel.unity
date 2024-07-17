@@ -3412,7 +3412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290145981}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
   m_Name: 
@@ -3421,6 +3421,7 @@ MonoBehaviour:
   upgradeCost: 1
   initialCost: 60
   increaseRate: 0.03
+  upgradeLimit: 0
   costText: {fileID: 765451484}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
@@ -3991,6 +3992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
 --- !u!54 &315469249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7881,6 +7883,7 @@ MonoBehaviour:
   upgradeCost: 0
   initialCost: 0.2
   increaseRate: 0.02
+  upgradeLimit: 0
   costText: {fileID: 1105035879}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
@@ -8620,7 +8623,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703692339}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
   m_Name: 
@@ -8629,6 +8632,7 @@ MonoBehaviour:
   upgradeCost: 1
   initialCost: 40
   increaseRate: 0.05
+  upgradeLimit: 0
   costText: {fileID: 316445869}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
@@ -8995,6 +8999,7 @@ MonoBehaviour:
   upgradeCost: 0
   initialCost: 2
   increaseRate: 0.05
+  upgradeLimit: 0
   costText: {fileID: 815607023}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
@@ -21093,7 +21098,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330854407}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
   m_Name: 
@@ -21101,7 +21106,8 @@ MonoBehaviour:
   upgradeType: 0
   upgradeCost: 1
   initialCost: 20
-  increaseRate: 0.02
+  increaseRate: 0.1
+  upgradeLimit: 0
   costText: {fileID: 371054590}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
@@ -22034,42 +22040,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1330854409}
-        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
-        m_MethodName: OnEnable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 703692341}
-        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
-        m_MethodName: OnEnable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 290145983}
-        m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
-        m_MethodName: OnEnable
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -24728,6 +24698,7 @@ MonoBehaviour:
   upgradeCost: 0
   initialCost: 0.5
   increaseRate: 0.03
+  upgradeLimit: 0
   costText: {fileID: 1660851256}
   sys: {fileID: 1095546605}
   conveyor: {fileID: 315469248}
@@ -25352,7 +25323,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  initSys: {fileID: 0}
+  ddolSys: {fileID: 0}
   switchOffSource: {fileID: 172511929}
   generatorOffSource: {fileID: 871543258}
   alarmSource: {fileID: 2088088836}
@@ -27052,6 +27023,7 @@ MonoBehaviour:
     type: 3}
   sys: {fileID: 1095546605}
   initSys: {fileID: 0}
+  gnomeCoinSys: {fileID: 0}
   objectsList: []
   gnomeMaterialList:
   - {fileID: 2100000, guid: 4c84b3baadcf8504e9b65610716035f8, type: 2}
@@ -28013,7 +27985,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.05
+          m_FloatArgument: 0.03
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

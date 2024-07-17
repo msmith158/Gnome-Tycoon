@@ -18,7 +18,8 @@ public class PrototypeManufacturer : MonoBehaviour
     public GameObject objectPrefab;
     public GameObject objectModel;
     public PrototypeFactorySystem sys;
-    [HideInInspector] public PrototypeInitialisation initSys;
+    [HideInInspector] public PrototypeDDOLManager initSys;
+    [HideInInspector] public PrototypeGnomeCoinSystem gnomeCoinSys;
     public List<GameObject> objectsList = new List<GameObject>();
     public List<Material> gnomeMaterialList = new List<Material>();
 
@@ -30,12 +31,12 @@ public class PrototypeManufacturer : MonoBehaviour
     {
         slider = timeSlider.GetComponent<Scrollbar>();
         initialManuTime = manufacturingTime;
-        initialManuCool = manufacturingCooldown;
     }
 
     private void OnEnable()
     {
-        initSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeInitialisation>();
+        initSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeDDOLManager>();
+        gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
     }
 
     public void SpawnObject()
@@ -51,6 +52,8 @@ public class PrototypeManufacturer : MonoBehaviour
     {
         timeSlider.SetActive(true);
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Manufacturing...";
+        manufacturingTime += (manufacturingTime * gnomeCoinSys.permanentTime);
+        manufacturingCooldown += (manufacturingCooldown * gnomeCoinSys.permanentCooldown);
 
         for (float timer = manufacturingTime; timer > 0; timer -= Time.deltaTime)
         {
@@ -69,7 +72,6 @@ public class PrototypeManufacturer : MonoBehaviour
                     for (int i = 0; i < newObject.transform.childCount; i++)
                     {
                         newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
-                        Debug.Log("Le lolz");
                     }
                     break;
                 case PrototypeFactorySystem.PrestigeLevel.Prestige1:

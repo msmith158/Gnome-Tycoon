@@ -56,7 +56,7 @@ public class PrototypeFactorySystem : MonoBehaviour
 
     public void SetUpDDOLManagerOneOff()
     {
-        switch (ddolManager.gameObject.GetComponent<PrototypeInitialisation>().isOneOffComplete)
+        switch (ddolManager.gameObject.GetComponent<PrototypeDDOLManager>().isOneOffComplete)
         {
             case true:
                 for (int i = 0; i < ddolManager.oneTimeObjects.Count; i++)
@@ -71,7 +71,7 @@ public class PrototypeFactorySystem : MonoBehaviour
                     //ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
                     //ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
                 }
-                ddolManager.gameObject.GetComponent<PrototypeInitialisation>().isOneOffComplete = true;
+                ddolManager.gameObject.GetComponent<PrototypeDDOLManager>().isOneOffComplete = true;
                 Debug.Log("Bingo 1");
                 break;
         }
@@ -79,7 +79,7 @@ public class PrototypeFactorySystem : MonoBehaviour
 
     public void AddScore(float amount)
     {
-        pointScore = pointScore + amount;
+        pointScore += amount + (amount * ddolManager.permanentValue);
         if (debugMode && !hasDebugRun) 
         {
             pointScore += instantPointAddition;
@@ -88,9 +88,17 @@ public class PrototypeFactorySystem : MonoBehaviour
         moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
     }
 
-    public void UpdatePrice(TextMeshProUGUI costText, string beforeText, float newPrice, string afterText)
+    public void UpdatePrice(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, float newPrice, string afterText)
     {
-        costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+        switch (isGnomeCoins)
+        {
+            case true:
+                costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString() + afterText;
+                break;
+            case false:
+                costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+                break;
+        }
     }
 
     public float RoundToNearestHundredth(float value)

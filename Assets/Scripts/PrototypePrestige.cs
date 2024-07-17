@@ -29,7 +29,7 @@ public class PrototypePrestige : MonoBehaviour
 
     void Start()
     {
-        sys.UpdatePrice(costText, "$", price, "");
+        sys.UpdatePrice(costText, false, "$", price, "");
         currentPrestigeText.text = "Current Prestige: " + displayablePrestigeLevel;
         if (prestigeType != PrestigeType.FinalPrestige)
         {
@@ -132,7 +132,14 @@ public class PrototypePrestige : MonoBehaviour
     {
         // Reset money to 0
         sys.prestigeLvl = newPrestLvl;
-        sys.pointScore = 0;
+        switch (sys.debugMode)
+        {
+            case true:
+                break;
+            case false:
+                sys.pointScore = 0;
+                break;
+        }
         sys.moneyText.text = "Profit: $" + sys.pointScore;
 
         // Reset gnome values (and update current prestige text)

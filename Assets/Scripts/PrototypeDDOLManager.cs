@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PrototypeInitialisation : MonoBehaviour
+public class PrototypeDDOLManager : MonoBehaviour
 {
     public bool isOneOffComplete = false;
     public int resetTimes = 0;

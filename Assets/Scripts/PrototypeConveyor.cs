@@ -7,6 +7,7 @@ public class PrototypeConveyor : MonoBehaviour
     Rigidbody rb;
     public float speed = 2.0f;
     [HideInInspector] public float initialSpeed;
+    [HideInInspector] public PrototypeGnomeCoinSystem gnomeCoinSys;
 
     private void Start()
     {
@@ -14,10 +15,15 @@ public class PrototypeConveyor : MonoBehaviour
         initialSpeed = speed;
     }
 
+    private void OnEnable()
+    {
+        gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.position -= transform.forward * speed * Time.deltaTime;
-        rb.MovePosition(rb.position + transform.forward * speed * Time.deltaTime);
+        rb.position -= transform.forward * (speed + (speed * gnomeCoinSys.permanentSpeed)) * Time.deltaTime;
+        rb.MovePosition(rb.position + transform.forward * (speed + (speed * gnomeCoinSys.permanentSpeed)) * Time.deltaTime);
     }
 }

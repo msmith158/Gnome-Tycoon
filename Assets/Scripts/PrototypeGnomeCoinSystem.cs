@@ -11,7 +11,12 @@ public class PrototypeGnomeCoinSystem : MonoBehaviour
     public List<GameObject> oneTimeObjects = new List<GameObject>();
     public List<string> oneTimeObjectNames = new List<string>();
 
+    [Header("Values")]
     public int coinCount;
+    public float permanentValue;
+    public float permanentSpeed;
+    public float permanentTime;
+    public float permanentCooldown;
 
     public void Initialise()
     {
