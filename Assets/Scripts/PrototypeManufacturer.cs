@@ -11,17 +11,23 @@ public class PrototypeManufacturer : MonoBehaviour
     public float manufacturingCooldown;
     [HideInInspector] public float initialManuTime;
     [HideInInspector] public float initialManuCool;
+    [Tooltip("Put the max odds in whole numbers. For example, for a 1 in 10,000 chance, put 10000. This number CANNOT be 0.")] [SerializeField] private int chanceOfJimbo;
+    private int jimboNumber = 0;
+    private bool wasJimboSpawned;
 
     [Header("Object References")]
     public GameObject timeSlider;
     public GameObject manufacturerSpawnPoint;
     public GameObject objectPrefab;
+    [SerializeField] private GameObject jimboPrefab;
     public GameObject objectModel;
     public PrototypeFactorySystem sys;
     [HideInInspector] public PrototypeDDOLManager initSys;
     [HideInInspector] public PrototypeGnomeCoinSystem gnomeCoinSys;
     public List<GameObject> objectsList = new List<GameObject>();
     public List<Material> gnomeMaterialList = new List<Material>();
+    private GameObject newObject;
+    private GameObject newJimbo;
 
     // Private variables
     private bool isActivated = false;
@@ -63,46 +69,67 @@ public class PrototypeManufacturer : MonoBehaviour
             yield return null;
         }
 
-        GameObject newObject = Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+        jimboNumber = Random.Range(0, chanceOfJimbo);
+        Debug.Log(jimboNumber);
+        if (jimboNumber != 1)
+        {
+            newObject = Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+            wasJimboSpawned = false;
+            Debug.Log("Gnome spawned");
+        }
+        else if (jimboNumber == 1 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0)
+        {
+            Debug.Log("Hey buddy");
+            newJimbo = Instantiate(jimboPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+            wasJimboSpawned = true;
+        }
+
         if (initSys.resetTimes == 0)
         {
-            switch (sys.prestigeLvl)
+            switch (wasJimboSpawned)
             {
-                case PrototypeFactorySystem.PrestigeLevel.Prestige0:
-                    for (int i = 0; i < newObject.transform.childCount; i++)
+                case false:
+                    switch (sys.prestigeLvl)
                     {
-                        newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige0:
+                            for (int i = 0; i < newObject.transform.childCount; i++)
+                            {
+                                newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
+                            }
+                            break;
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                            for (int i = 0; i < newObject.transform.childCount; i++)
+                            {
+                                newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[1];
+                            }
+                            break;
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                            for (int i = 0; i < newObject.transform.childCount; i++)
+                            {
+                                newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[2];
+                            }
+                            break;
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                            for (int i = 0; i < newObject.transform.childCount; i++)
+                            {
+                                newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[3];
+                            }
+                            break;
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                            for (int i = 0; i < newObject.transform.childCount; i++)
+                            {
+                                newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[4];
+                            }
+                            break;
+                        case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                            for (int i = 0; i < newObject.transform.childCount; i++)
+                            {
+                                newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[5];
+                            }
+                            break;
                     }
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige1:
-                    for (int i = 0; i < newObject.transform.childCount; i++)
-                    {
-                        newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[1];
-                    }
-                    break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige2:
-                    for (int i = 0; i < newObject.transform.childCount; i++)
-                    {
-                        newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[2];
-                    }
-                    break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige3:
-                    for (int i = 0; i < newObject.transform.childCount; i++)
-                    {
-                        newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[3];
-                    }
-                    break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige4:
-                    for (int i = 0; i < newObject.transform.childCount; i++)
-                    {
-                        newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[4];
-                    }
-                    break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige5:
-                    for (int i = 0; i < newObject.transform.childCount; i++)
-                    {
-                        newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[5];
-                    }
+                case true:
                     break;
             }
         }

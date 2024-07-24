@@ -27205,9 +27205,12 @@ MonoBehaviour:
   manufacturingCooldown: 0
   initialManuTime: 0
   initialManuCool: 0
+  chanceOfJimbo: 2
   timeSlider: {fileID: 1053985530}
   manufacturerSpawnPoint: {fileID: 271631147}
   objectPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
+    type: 3}
+  jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
   objectModel: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
