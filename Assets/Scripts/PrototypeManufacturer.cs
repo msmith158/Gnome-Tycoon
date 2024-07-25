@@ -71,18 +71,19 @@ public class PrototypeManufacturer : MonoBehaviour
 
         jimboNumber = Random.Range(0, chanceOfJimbo);
         Debug.Log(jimboNumber);
-        if (jimboNumber != 1)
-        {
-            newObject = Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
-            wasJimboSpawned = false;
-            Debug.Log("Gnome spawned");
-        }
-        else if (jimboNumber == 1 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0)
+        if (jimboNumber == 0 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0)
         {
             Debug.Log("Hey buddy");
             newJimbo = Instantiate(jimboPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
             wasJimboSpawned = true;
         }
+        else
+        {
+            newObject = Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
+            wasJimboSpawned = false;
+            Debug.Log("Gnome spawned");
+        }
+
 
         if (initSys.resetTimes == 0)
         {
