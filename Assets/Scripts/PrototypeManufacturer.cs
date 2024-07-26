@@ -87,50 +87,78 @@ public class PrototypeManufacturer : MonoBehaviour
 
         if (initSys.resetTimes == 0)
         {
-            switch (wasJimboSpawned)
+            switch (sys.prestigeLvl)
             {
-                case false:
-                    switch (sys.prestigeLvl)
+                case PrototypeFactorySystem.PrestigeLevel.Prestige0:
+                    for (int i = 0; i < newObject.transform.childCount; i++)
                     {
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige0:
-                            for (int i = 0; i < newObject.transform.childCount; i++)
-                            {
-                                newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
-                            }
-                            break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                        newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
+                    }
+                    break;
+                case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                    switch (wasJimboSpawned)
+                    {
+                        case false:
                             for (int i = 0; i < newObject.transform.childCount; i++)
                             {
                                 newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[1];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                        case true:
+                            break;
+                    }
+                    break;
+                case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                    switch (wasJimboSpawned)
+                    {
+                        case false:
                             for (int i = 0; i < newObject.transform.childCount; i++)
                             {
                                 newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[2];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                        case true:
+                            break;
+                    }
+                    break;
+                case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                    switch (wasJimboSpawned)
+                    {
+                        case false:
                             for (int i = 0; i < newObject.transform.childCount; i++)
                             {
                                 newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[3];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                        case true:
+                            break;
+                    }
+                    break;
+                case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                    switch (wasJimboSpawned)
+                    {
+                        case false:
                             for (int i = 0; i < newObject.transform.childCount; i++)
                             {
                                 newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[4];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                        case true:
+                            break;
+                    }
+                    break;
+                case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                    switch (wasJimboSpawned)
+                    {
+                        case false:
                             for (int i = 0; i < newObject.transform.childCount; i++)
                             {
                                 newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[5];
                             }
                             break;
+                        case true:
+                            break;
                     }
-                    break;
-                case true:
                     break;
             }
         }
