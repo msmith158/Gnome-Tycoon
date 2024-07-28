@@ -225,6 +225,10 @@ MonoBehaviour:
   oneTimeObjects: []
   oneTimeObjectNames: []
   coinCount: 0
+  permanentValue: 0
+  permanentSpeed: 0
+  permanentTime: 0
+  permanentCooldown: 0
 --- !u!4 &549282659
 Transform:
   m_ObjectHideFlags: 0
@@ -254,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOneOffComplete: 0
   resetTimes: 0
+  sceneToLoad: FinalLevel
 --- !u!1 &1210849178
 GameObject:
   m_ObjectHideFlags: 0

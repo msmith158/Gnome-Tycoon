@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FinalDispenser : MonoBehaviour
 {
+    public GameObject newDispenserObject;
+
     // Start is called before the first frame update
     void Start()
     {

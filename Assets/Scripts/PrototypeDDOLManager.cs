@@ -7,10 +7,12 @@ public class PrototypeDDOLManager : MonoBehaviour
 {
     public bool isOneOffComplete = false;
     public int resetTimes = 0;
+    public string sceneToLoad;
+
     // Start is called before the first frame update
     void OnEnable()
     {
         DontDestroyOnLoad(this.gameObject);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
