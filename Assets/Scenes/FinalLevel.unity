@@ -33425,7 +33425,7 @@ GameObject:
   - component: {fileID: 1570848360}
   - component: {fileID: 1570848359}
   m_Layer: 0
-  m_Name: line01ConveyorBeltSpawner01
+  m_Name: line01sprayerSpawnTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33448,7 +33448,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -33511,7 +33511,7 @@ Transform:
   m_GameObject: {fileID: 1570848358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.09, y: 1.16, z: 3.0489998}
+  m_LocalPosition: {x: 5.09, y: 1.16, z: -9.701}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42625,7 +42625,7 @@ GameObject:
   - component: {fileID: 2101836484}
   - component: {fileID: 2101836488}
   m_Layer: 0
-  m_Name: line01ConveyorBeltDespawner01
+  m_Name: line01sprayerDespawnTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42646,7 +42646,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -42711,7 +42711,7 @@ Transform:
   m_GameObject: {fileID: 2101836483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.09, y: 1.16, z: 1.549}
+  m_LocalPosition: {x: 5.09, y: 1.16, z: -10.451}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42726,18 +42726,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2101836483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c5734d4892a06e47b187567eb792861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  machineType: 0
-  spawnTrigger: {fileID: 1570848358}
-  newPrefab: {fileID: 0}
-  dispenser: {fileID: 0}
-  initSys: {fileID: 0}
-  sys: {fileID: 0}
-  gnomeMaterialList: []
-  jimboPrefab: {fileID: 0}
-  chanceOfJimbo: 0
+  parentToCallBackTo: {fileID: 2145476440}
+  oldObjectVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &2113437649
 GameObject:
   m_ObjectHideFlags: 0
@@ -43481,7 +43474,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2145476440}
   m_SourcePrefab: {fileID: 100100000, guid: 1cca3e91b48bf574b88fef15228851b7, type: 3}
 --- !u!4 &2145476438 stripped
 Transform:
@@ -43489,6 +43486,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2145476437}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2145476439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2145476437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2145476440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145476439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineType: 0
+  spawnTrigger: {fileID: 1570848358}
+  despawnTrigger: {fileID: 2101836488}
+  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+    type: 3}
+  dispenser: {fileID: 1487663870}
+  initSys: {fileID: 0}
+  sys: {fileID: 0}
+  gnomeMaterialList: []
+  jimboPrefab: {fileID: 0}
+  chanceOfJimbo: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
