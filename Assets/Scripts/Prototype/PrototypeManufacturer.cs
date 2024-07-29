@@ -41,6 +41,7 @@ public class PrototypeManufacturer : MonoBehaviour
 
     private void OnEnable()
     {
+        // Make sure to load the game via the loading level, otherwise these objects won't exist
         initSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeDDOLManager>();
         gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
     }
@@ -56,6 +57,7 @@ public class PrototypeManufacturer : MonoBehaviour
 
     IEnumerator DelayedSpawn()
     {
+        // Work the manufacturing delay timer
         timeSlider.SetActive(true);
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Manufacturing...";
         manufacturingTime += (manufacturingTime * gnomeCoinSys.permanentTime);
@@ -69,33 +71,34 @@ public class PrototypeManufacturer : MonoBehaviour
             yield return null;
         }
 
+        // Do a roll between a gnome and Jimbo, and then instantiate
         jimboNumber = Random.Range(0, chanceOfJimbo);
         Debug.Log(jimboNumber);
-        if (jimboNumber == 0 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0)
+        if (jimboNumber == 0 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0) // This is to spawn Jimbo
         {
             Debug.Log("Hey buddy");
             newJimbo = Instantiate(jimboPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
             wasJimboSpawned = true;
         }
-        else
+        else // This is to spawn a gnome
         {
             newObject = Instantiate(objectPrefab, manufacturerSpawnPoint.transform.position, Quaternion.identity);
             wasJimboSpawned = false;
             Debug.Log("Gnome spawned");
         }
 
-
+        // If not Jimbo, apply the prestige-relevant material to the newly-spawned gnome
         if (initSys.resetTimes == 0)
         {
             switch (sys.prestigeLvl)
             {
-                case PrototypeFactorySystem.PrestigeLevel.Prestige0:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige0: // Dirty red gnome material
                     for (int i = 0; i < newObject.transform.childCount; i++)
                     {
                         newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
                     }
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige1: // Red gnome material
                     switch (wasJimboSpawned)
                     {
                         case false:
@@ -108,7 +111,7 @@ public class PrototypeManufacturer : MonoBehaviour
                             break;
                     }
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige2: // Yellow gnome material
                     switch (wasJimboSpawned)
                     {
                         case false:
@@ -121,7 +124,7 @@ public class PrototypeManufacturer : MonoBehaviour
                             break;
                     }
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige3: // Green gnome material
                     switch (wasJimboSpawned)
                     {
                         case false:
@@ -134,7 +137,7 @@ public class PrototypeManufacturer : MonoBehaviour
                             break;
                     }
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige4: // Cyan gnome material
                     switch (wasJimboSpawned)
                     {
                         case false:
@@ -147,7 +150,7 @@ public class PrototypeManufacturer : MonoBehaviour
                             break;
                     }
                     break;
-                case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                case PrototypeFactorySystem.PrestigeLevel.Prestige5: // Purple gnome material
                     switch (wasJimboSpawned)
                     {
                         case false:
@@ -162,16 +165,29 @@ public class PrototypeManufacturer : MonoBehaviour
                     break;
             }
         }
-        else if (initSys.resetTimes >= 1) 
+        else if (initSys.resetTimes >= 1) // If the game has been reset at least once, golden gnome material
         {
             for (int i = 0; i < newObject.transform.childCount; i++)
             {
                 newObject.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[6];
             }
         }
-        objectsList.Add(newObject);
-        timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Cooling down...";
 
+        // Tag and assign objects
+        switch (wasJimboSpawned)
+        {
+            case false:
+                newObject.tag = "gnome";
+                objectsList.Add(newObject);
+                break;
+            case true:
+                newJimbo.tag = "gnome";
+                objectsList.Add(newJimbo);
+                break;
+        }
+
+        // Work the manufacturer cooldown timer
+        timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Cooling down...";
         for (float timer = 0; timer < manufacturingCooldown; timer += Time.deltaTime)
         {
             timer = Mathf.Clamp(timer, 0f, manufacturingCooldown);
