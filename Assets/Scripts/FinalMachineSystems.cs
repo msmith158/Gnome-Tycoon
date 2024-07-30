@@ -43,10 +43,12 @@ public class FinalMachineSystems : MonoBehaviour
                 newSprayedObject.GetComponent<Rigidbody>().velocity = newSprayerObjectVelocity;
                 break;
             case MachineType.Moulder: // The functions for the moulder machine
+                Vector3 newMoulderObjectVelocity = objectVelocity;
                 Destroy(other);
                 GameObject newMouldedObject = Instantiate(newPrefab, spawnTrigger.transform.position, Quaternion.identity);
                 newMouldedObject.tag = "gnome";
                 dispenser.objectsList.Add(newMouldedObject);
+                newMouldedObject.GetComponent<Rigidbody>().velocity = newMoulderObjectVelocity;
                 break;
             case MachineType.Painter: // The functions for the painter machine
                 // Apply the prestige-relevant material to the newly-spawned gnome
@@ -99,6 +101,8 @@ public class FinalMachineSystems : MonoBehaviour
                         other.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[6];
                     }
                 }
+                other.transform.position = spawnTrigger.transform.position;
+                other.GetComponent<Rigidbody>().velocity = objectVelocity;
                 break;
             case MachineType.Packager:
                 Destroy(other);
