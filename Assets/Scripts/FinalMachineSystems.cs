@@ -13,9 +13,9 @@ public class FinalMachineSystems : MonoBehaviour
     [SerializeField] private GameObject newPrefab;
     [SerializeField] private FinalDispenser dispenser;
     [HideInInspector] public PrototypeDDOLManager initSys;
-    
-    [Header("Painter Properties")]
     public PrototypeFactorySystem sys;
+
+    [Header("Painter Properties")]
     public List<Material> gnomeMaterialList = new List<Material>();
     
     [Header("Packager Properties")]
@@ -110,12 +110,14 @@ public class FinalMachineSystems : MonoBehaviour
                     GameObject newJimbo = Instantiate(jimboPrefab, spawnTrigger.transform.position, Quaternion.identity);
                     newJimbo.tag = "gnome";
                     dispenser.objectsList.Add(newJimbo);
+                    newJimbo.GetComponent<Rigidbody>().velocity = objectVelocity;
                 }
                 else // This is to spawn the raw materials out of the dispenser
                 {
                     GameObject newPackagedObject = Instantiate(newPrefab, spawnTrigger.transform.position, Quaternion.identity);
                     newPackagedObject.tag = "gnome";
                     dispenser.objectsList.Add(newPackagedObject);
+                    newPackagedObject.GetComponent<Rigidbody>().velocity = objectVelocity;
                 }
                 break;
         }
