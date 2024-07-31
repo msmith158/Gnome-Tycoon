@@ -21,6 +21,7 @@ public class FinalFactorySystem : MonoBehaviour
     [HideInInspector] public float lvl5InitialValue;
     public float lvl6Value;
     [HideInInspector] public float lvl6InitialValue;
+    [Range(1, 7)] public int productionLineAmount;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -30,6 +31,7 @@ public class FinalFactorySystem : MonoBehaviour
     [Header("Object References: General")]
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI coinText;
+    [SerializeField] private List<GameObject> productionLines = new List<GameObject>();
     public List<GameObject> oneOffObjects = new List<GameObject>();
     private PrototypeGnomeCoinSystem ddolManager;
 
@@ -37,6 +39,7 @@ public class FinalFactorySystem : MonoBehaviour
     {
         SetUpDDOLManager();
         SetUpDDOLManagerOneOff();
+        SetProductionLines();
         ddolManager.Initialise();
 
         lvl1InitialValue = lvl1Value;
@@ -46,12 +49,14 @@ public class FinalFactorySystem : MonoBehaviour
 
     public void SetUpDDOLManager()
     {
+        // Set up all the DDOL manager stuff
         ddolManager = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
         ddolManager.gnomeCoinText = coinText;
     }
 
     public void SetUpDDOLManagerOneOff()
     {
+        // Functions for the one-off objects, meant for only one interaction
         switch (ddolManager.gameObject.GetComponent<PrototypeDDOLManager>().isOneOffComplete)
         {
             case true:
@@ -70,6 +75,15 @@ public class FinalFactorySystem : MonoBehaviour
                 ddolManager.gameObject.GetComponent<PrototypeDDOLManager>().isOneOffComplete = true;
                 Debug.Log("Bingo 1");
                 break;
+        }
+    }
+
+    private void SetProductionLines()
+    {
+        // This code is just temporary to show off the feature, add code once save/load system is in
+        for (int i = 0; i < productionLineAmount; i++)
+        {
+            productionLines[i].SetActive(true);
         }
     }
 
@@ -126,6 +140,11 @@ public class FinalFactorySystem : MonoBehaviour
                 Time.timeScale = 1.0f;
                 break;
         }
+    }
+
+    public void ActivateDispensers()
+    {
+
     }
 
     public enum PrestigeLevel
