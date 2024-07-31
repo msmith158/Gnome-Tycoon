@@ -24,7 +24,7 @@ public class FinalDispenser : MonoBehaviour
         initialManuTime = manufacturingTime;
         
         // Make sure to load the game via the loading level, otherwise these objects won't exist
-        gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
     }
     
     public void SpawnObject() // This function is to be called if trying to use the DelayedSpawn method

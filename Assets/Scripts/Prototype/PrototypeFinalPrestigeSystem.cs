@@ -53,7 +53,7 @@ public class PrototypeFinalPrestigeSystem : MonoBehaviour
 
     public void OnEnable()
     {
-        ddolSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeDDOLManager>();
+        ddolSys = GameObject.Find("ddolManager").GetComponent<PrototypeDDOLManager>();
     }
 
     public void StartNukeSequence()

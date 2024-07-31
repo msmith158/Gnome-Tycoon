@@ -12,14 +12,8 @@ public class FinalMachineDespawnTrigger : MonoBehaviour
     [HideInInspector] public Vector3 oldObjectVelocity;
 
     [Header("Exit Trigger Properties")]
-    private PrototypeFactorySystem gameManager;
+    public FinalFactorySystem gameManager;
     private float value;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameManager = GameObject.Find("proto_gameManager").GetComponent<PrototypeFactorySystem>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,22 +27,22 @@ public class FinalMachineDespawnTrigger : MonoBehaviour
                 case TriggerType.ExitTrigger:
                     switch (gameManager.prestigeLvl)
                     {
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige0:
+                        case FinalFactorySystem.PrestigeLevel.Prestige0:
                             value = gameManager.lvl1Value;
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige1:
+                        case FinalFactorySystem.PrestigeLevel.Prestige1:
                             value = gameManager.lvl2Value;
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige2:
+                        case FinalFactorySystem.PrestigeLevel.Prestige2:
                             value = gameManager.lvl3Value;
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige3:
+                        case FinalFactorySystem.PrestigeLevel.Prestige3:
                             value = gameManager.lvl4Value;
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige4:
+                        case FinalFactorySystem.PrestigeLevel.Prestige4:
                             value = gameManager.lvl5Value;
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige5:
+                        case FinalFactorySystem.PrestigeLevel.Prestige5:
                             value = gameManager.lvl6Value;
                             break;
                     }

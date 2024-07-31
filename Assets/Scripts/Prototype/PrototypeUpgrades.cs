@@ -32,14 +32,14 @@ public class PrototypeUpgrades : MonoBehaviour
                 sys.UpdatePrice(costText, false, "$", currentPrice, "");
                 break;
             case UpgradeCost.GnomeCoins:
-                sys.UpdatePrice(costText, true, "¢", currentPrice, "");
+                sys.UpdatePrice(costText, true, "ï¿½", currentPrice, "");
                 break;
         }
     }
 
     public void OnEnable()
     {
-        gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
     }
 
     public void SetNewValues(float percentage)
@@ -123,7 +123,7 @@ public class PrototypeUpgrades : MonoBehaviour
                 if (gnomeCoinSys.coinCount >= (int)currentPrice)
                 {
                     gnomeCoinSys.coinCount -= (int)currentPrice;
-                    sys.UpdatePrice(gnomeCoinSys.gnomeCoinText, true, "¢", gnomeCoinSys.coinCount, "");
+                    sys.UpdatePrice(gnomeCoinSys.gnomeCoinText, true, "ï¿½", gnomeCoinSys.coinCount, "");
 
                     switch (upgradeType)
                     {
@@ -132,7 +132,7 @@ public class PrototypeUpgrades : MonoBehaviour
                             Debug.Log("Permanent gnome value: " + gnomeCoinSys.permanentValue);
                             costPercentage += increaseRate;
                             currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, true, "¢", currentPrice, "");
+                            sys.UpdatePrice(costText, true, "ï¿½", currentPrice, "");
                             break;
                         case UpgradeType.ConveyorSpeed:
                             conveyor.speed += (conveyor.initialSpeed * percentage);

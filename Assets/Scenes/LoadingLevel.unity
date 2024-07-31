@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 549282658}
   - component: {fileID: 549282660}
   m_Layer: 0
-  m_Name: proto_ddolManager
+  m_Name: ddolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

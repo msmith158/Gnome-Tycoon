@@ -27,7 +27,7 @@ public class FinalMachineSystems : MonoBehaviour
     private void OnEnable()
     {
         // Make sure to load the game via the loading level, otherwise these objects won't exist
-        initSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeDDOLManager>();
+        initSys = GameObject.Find("ddolManager").GetComponent<PrototypeDDOLManager>();
     }
 
     public void MachineFunctions(GameObject other, Vector3 objectVelocity)
@@ -109,7 +109,8 @@ public class FinalMachineSystems : MonoBehaviour
                 // Do a roll between a gnome and Jimbo, and then instantiate
                 jimboNumber = Random.Range(0, chanceOfJimbo);
                 Debug.Log(jimboNumber);
-                if (jimboNumber == 0 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0) // This is to spawn Jimbo
+                //if (jimboNumber == 0 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0) // This is to spawn Jimbo
+                if (jimboNumber == 0)
                 {
                     GameObject newJimbo = Instantiate(jimboPrefab, spawnTrigger.transform.position, Quaternion.identity);
                     newJimbo.tag = "gnome";

@@ -228,59 +228,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5154556}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &13889266
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 13889267}
-  - component: {fileID: 13889268}
-  m_Layer: 0
-  m_Name: line02conveyorBeltCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &13889267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13889266}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.07, y: 0.558, z: 10.403567}
-  m_LocalScale: {x: 2, y: 0.1, z: 65}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 879170476}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &13889268
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13889266}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &31474510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,7 +2481,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 2
+  chanceOfJimbo: 3
 --- !u!1 &151572333
 GameObject:
   m_ObjectHideFlags: 0
@@ -4531,6 +4478,7 @@ MonoBehaviour:
   triggerType: 0
   parentToCallBackTo: {fileID: 139936669}
   oldObjectVelocity: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 0}
 --- !u!65 &261866437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5636,7 +5584,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 294549101}
   m_SourcePrefab: {fileID: 100100000, guid: 1cca3e91b48bf574b88fef15228851b7, type: 3}
 --- !u!4 &294549099 stripped
 Transform:
@@ -5644,6 +5596,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 294549098}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &294549100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 294549098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &294549101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294549100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineType: 0
+  spawnTrigger: {fileID: 1570848358}
+  despawnTrigger: {fileID: 2101836488}
+  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+    type: 3}
+  dispenser: {fileID: 1487663870}
+  initSys: {fileID: 0}
+  sys: {fileID: 1095546605}
+  gnomeMaterialList: []
+  jimboPrefab: {fileID: 0}
+  chanceOfJimbo: 0
 --- !u!1001 &301798783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7374,6 +7355,7 @@ GameObject:
   - component: {fileID: 382815802}
   - component: {fileID: 382815801}
   - component: {fileID: 382815800}
+  - component: {fileID: 382815803}
   m_Layer: 0
   m_Name: line07conveyorBeltCollider
   m_TagString: Untagged
@@ -7430,7 +7412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382815798}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
   m_Name: 
@@ -7459,6 +7441,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &382815803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382815798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd401bf0fb9b944a0b35ceba378394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &387778635
 GameObject:
   m_ObjectHideFlags: 0
@@ -15779,7 +15776,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 841089561}
   m_SourcePrefab: {fileID: 100100000, guid: 1cca3e91b48bf574b88fef15228851b7, type: 3}
 --- !u!4 &841089559 stripped
 Transform:
@@ -15787,6 +15788,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 841089558}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &841089560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 841089558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &841089561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841089560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineType: 0
+  spawnTrigger: {fileID: 1570848358}
+  despawnTrigger: {fileID: 2101836488}
+  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+    type: 3}
+  dispenser: {fileID: 1487663870}
+  initSys: {fileID: 0}
+  sys: {fileID: 1095546605}
+  gnomeMaterialList: []
+  jimboPrefab: {fileID: 0}
+  chanceOfJimbo: 0
 --- !u!1001 &844432817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16724,7 +16754,7 @@ Transform:
   - {fileID: 1688444468}
   - {fileID: 1189104069}
   - {fileID: 978268625}
-  - {fileID: 13889267}
+  - {fileID: 1191192556}
   m_Father: {fileID: 315501449}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &879532409
@@ -22224,7 +22254,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 903274742}
   m_SourcePrefab: {fileID: 100100000, guid: 1cca3e91b48bf574b88fef15228851b7, type: 3}
 --- !u!4 &903274740 stripped
 Transform:
@@ -22232,6 +22266,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 903274739}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &903274741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 903274739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &903274742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903274741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineType: 0
+  spawnTrigger: {fileID: 1570848358}
+  despawnTrigger: {fileID: 2101836488}
+  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+    type: 3}
+  dispenser: {fileID: 1487663870}
+  initSys: {fileID: 0}
+  sys: {fileID: 1095546605}
+  gnomeMaterialList: []
+  jimboPrefab: {fileID: 0}
+  chanceOfJimbo: 0
 --- !u!1 &907714578
 GameObject:
   m_ObjectHideFlags: 0
@@ -22381,6 +22444,7 @@ GameObject:
   - component: {fileID: 918672829}
   - component: {fileID: 918672828}
   - component: {fileID: 918672827}
+  - component: {fileID: 918672830}
   m_Layer: 0
   m_Name: line05conveyorBeltCollider
   m_TagString: Untagged
@@ -22437,7 +22501,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918672825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
   m_Name: 
@@ -22466,6 +22530,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &918672830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918672825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd401bf0fb9b944a0b35ceba378394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &928016778
 GameObject:
   m_ObjectHideFlags: 0
@@ -25159,7 +25238,7 @@ GameObject:
   - component: {fileID: 1095546605}
   - component: {fileID: 1095546606}
   m_Layer: 0
-  m_Name: proto_gameManager
+  m_Name: gameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25187,7 +25266,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095546602}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35ac281d7c62ed548953e0ba8d874984, type: 3}
   m_Name: 
@@ -25220,7 +25299,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095546602}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71eb41777a1cd984fa7f62631ff457b8, type: 3}
   m_Name: 
@@ -25241,9 +25320,8 @@ MonoBehaviour:
   lvl6InitialValue: 0
   debugMode: 0
   instantPointAddition: 0
-  basketTrigger: {fileID: 0}
-  moneyText: {fileID: 0}
-  coinText: {fileID: 0}
+  moneyText: {fileID: 2013700669}
+  coinText: {fileID: 1486817317}
   oneOffObjects: []
 --- !u!1 &1095815692
 GameObject:
@@ -26896,6 +26974,171 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1189104068}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1191192555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1191192556}
+  - component: {fileID: 1191192562}
+  - component: {fileID: 1191192561}
+  - component: {fileID: 1191192560}
+  - component: {fileID: 1191192559}
+  - component: {fileID: 1191192558}
+  - component: {fileID: 1191192557}
+  m_Layer: 0
+  m_Name: line02conveyorBeltCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1191192556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191192555}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.048, y: 0.558, z: 10.403567}
+  m_LocalScale: {x: 2, y: 0.099999994, z: 65}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 879170476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191192557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191192555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd401bf0fb9b944a0b35ceba378394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
+--- !u!23 &1191192558
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191192555}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1191192559
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191192555}
+  m_Mesh: {fileID: -1274251057333091914, guid: 5893559094540b44883e7dfa6e6a0e8b, type: 3}
+--- !u!54 &1191192560
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191192555}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1191192561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191192555}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
+--- !u!65 &1191192562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191192555}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1192601725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27335,7 +27578,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1204674070}
   m_SourcePrefab: {fileID: 100100000, guid: 1cca3e91b48bf574b88fef15228851b7, type: 3}
 --- !u!4 &1204674068 stripped
 Transform:
@@ -27343,6 +27590,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1204674067}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1204674069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1204674067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1204674070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204674069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineType: 0
+  spawnTrigger: {fileID: 1570848358}
+  despawnTrigger: {fileID: 2101836488}
+  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+    type: 3}
+  dispenser: {fileID: 1487663870}
+  initSys: {fileID: 0}
+  sys: {fileID: 1095546605}
+  gnomeMaterialList: []
+  jimboPrefab: {fileID: 0}
+  chanceOfJimbo: 0
 --- !u!1 &1206581063
 GameObject:
   m_ObjectHideFlags: 0
@@ -27491,6 +27767,7 @@ GameObject:
   - component: {fileID: 1218973844}
   - component: {fileID: 1218973846}
   - component: {fileID: 1218973845}
+  - component: {fileID: 1218973847}
   m_Layer: 0
   m_Name: line01conveyorBeltCollider
   m_TagString: Untagged
@@ -27541,7 +27818,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218973838}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
   m_Name: 
@@ -27626,6 +27903,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218973838}
   m_Mesh: {fileID: -1274251057333091914, guid: 5893559094540b44883e7dfa6e6a0e8b, type: 3}
+--- !u!114 &1218973847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218973838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd401bf0fb9b944a0b35ceba378394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &1221460738
 GameObject:
   m_ObjectHideFlags: 0
@@ -29239,6 +29531,7 @@ MonoBehaviour:
   triggerType: 0
   parentToCallBackTo: {fileID: 60835334}
   oldObjectVelocity: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 0}
 --- !u!65 &1288432946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31655,6 +31948,7 @@ MonoBehaviour:
   triggerType: 1
   parentToCallBackTo: {fileID: 0}
   oldObjectVelocity: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 1095546606}
 --- !u!1 &1464514080
 GameObject:
   m_ObjectHideFlags: 0
@@ -33267,6 +33561,7 @@ GameObject:
   - component: {fileID: 1516747032}
   - component: {fileID: 1516747031}
   - component: {fileID: 1516747030}
+  - component: {fileID: 1516747033}
   m_Layer: 0
   m_Name: line04conveyorBeltCollider
   m_TagString: Untagged
@@ -33323,7 +33618,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516747028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
   m_Name: 
@@ -33352,6 +33647,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1516747033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516747028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd401bf0fb9b944a0b35ceba378394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &1525967854
 GameObject:
   m_ObjectHideFlags: 0
@@ -33670,6 +33980,7 @@ MonoBehaviour:
   triggerType: 0
   parentToCallBackTo: {fileID: 301798786}
   oldObjectVelocity: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 0}
 --- !u!65 &1540584438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34368,12 +34679,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570848358}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.09, y: 1.16, z: -9.701}
-  m_LocalScale: {x: 1, y: 1, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
+  m_LocalPosition: {x: -0.011381877, y: -0.14160001, z: 0.007572801}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.020000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1641748625}
+  m_Father: {fileID: 2145476438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589245869
 GameObject:
@@ -35394,6 +35705,7 @@ GameObject:
   - component: {fileID: 1630329355}
   - component: {fileID: 1630329354}
   - component: {fileID: 1630329353}
+  - component: {fileID: 1630329356}
   m_Layer: 0
   m_Name: line03conveyorBeltCollider
   m_TagString: Untagged
@@ -35450,7 +35762,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630329351}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
   m_Name: 
@@ -35479,6 +35791,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1630329356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630329351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd401bf0fb9b944a0b35ceba378394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
 --- !u!1001 &1631315109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35726,8 +36053,6 @@ Transform:
   - {fileID: 1892673273}
   - {fileID: 94444271}
   - {fileID: 1218973842}
-  - {fileID: 2101836487}
-  - {fileID: 1570848362}
   m_Father: {fileID: 1377345721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1651389320
@@ -35861,7 +36186,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1651389323}
   m_SourcePrefab: {fileID: 100100000, guid: 1cca3e91b48bf574b88fef15228851b7, type: 3}
 --- !u!4 &1651389321 stripped
 Transform:
@@ -35869,6 +36198,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1651389320}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1651389322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1651389320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1651389323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651389322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineType: 0
+  spawnTrigger: {fileID: 1570848358}
+  despawnTrigger: {fileID: 2101836488}
+  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+    type: 3}
+  dispenser: {fileID: 1487663870}
+  initSys: {fileID: 0}
+  sys: {fileID: 1095546605}
+  gnomeMaterialList: []
+  jimboPrefab: {fileID: 0}
+  chanceOfJimbo: 0
 --- !u!1 &1652192714
 GameObject:
   m_ObjectHideFlags: 0
@@ -41608,6 +41966,7 @@ GameObject:
   - component: {fileID: 1976125690}
   - component: {fileID: 1976125689}
   - component: {fileID: 1976125688}
+  - component: {fileID: 1976125691}
   m_Layer: 0
   m_Name: line06conveyorBeltCollider
   m_TagString: Untagged
@@ -41664,7 +42023,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976125686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 133cc990b0e144a44aee1a135de3d3a3, type: 3}
   m_Name: 
@@ -41693,6 +42052,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1976125691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976125686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46cd401bf0fb9b944a0b35ceba378394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  initialSpeed: 0
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &1981737422
 GameObject:
   m_ObjectHideFlags: 0
@@ -42313,7 +42687,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2003655963}
   m_SourcePrefab: {fileID: 100100000, guid: 1cca3e91b48bf574b88fef15228851b7, type: 3}
 --- !u!4 &2003655961 stripped
 Transform:
@@ -42321,6 +42699,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2003655960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2003655962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2003655960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003655963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003655962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ae4247cd3dbab4883aea61800ffd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineType: 0
+  spawnTrigger: {fileID: 1570848358}
+  despawnTrigger: {fileID: 2101836488}
+  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+    type: 3}
+  dispenser: {fileID: 1487663870}
+  initSys: {fileID: 0}
+  sys: {fileID: 1095546605}
+  gnomeMaterialList: []
+  jimboPrefab: {fileID: 0}
+  chanceOfJimbo: 0
 --- !u!1001 &2004151856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43568,12 +43975,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101836483}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.09, y: 1.16, z: -10.451}
-  m_LocalScale: {x: 1, y: 1, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
+  m_LocalPosition: {x: 0.13861813, y: -0.14160001, z: 0.0075720907}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.020000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1641748625}
+  m_Father: {fileID: 2145476438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2101836488
 MonoBehaviour:
@@ -43590,6 +43997,7 @@ MonoBehaviour:
   triggerType: 0
   parentToCallBackTo: {fileID: 2145476440}
   oldObjectVelocity: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &2113437649
 GameObject:
   m_ObjectHideFlags: 0
@@ -44332,7 +44740,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8e8577d22f4ff7147a9592e7225167a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101836487}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cca3e91b48bf574b88fef15228851b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1570848362}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca3e91b48bf574b88fef15228851b7,
         type: 3}

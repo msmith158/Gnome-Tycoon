@@ -28,7 +28,6 @@ public class FinalFactorySystem : MonoBehaviour
     private bool hasDebugRun;
 
     [Header("Object References: General")]
-    public Collider basketTrigger;
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI coinText;
     public List<GameObject> oneOffObjects = new List<GameObject>();
@@ -47,7 +46,7 @@ public class FinalFactorySystem : MonoBehaviour
 
     public void SetUpDDOLManager()
     {
-        ddolManager = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        ddolManager = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
         ddolManager.gnomeCoinText = coinText;
     }
 
