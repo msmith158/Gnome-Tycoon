@@ -81,6 +81,10 @@ public class FinalFactorySystem : MonoBehaviour
     private void SetProductionLines()
     {
         // This code is just temporary to show off the feature, add code once save/load system is in
+        for (int i = 0; i < productionLines.Count; i++)
+        {
+            productionLines[i].SetActive(false);
+        }
         for (int i = 0; i < productionLineAmount; i++)
         {
             productionLines[i].SetActive(true);
@@ -144,7 +148,11 @@ public class FinalFactorySystem : MonoBehaviour
 
     public void ActivateDispensers()
     {
-
+        for (int i = 0; i < productionLineAmount; i++)
+        {
+            string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
+            productionLines[i].transform.FindChild(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
+        }
     }
 
     public enum PrestigeLevel
