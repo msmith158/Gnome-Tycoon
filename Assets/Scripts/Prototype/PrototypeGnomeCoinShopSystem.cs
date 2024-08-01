@@ -16,7 +16,7 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
 
     public void OnEnable()
     {
-        gnomeCoinSys = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
     }
     public void BuyGnomeCoins(int amount)
     {

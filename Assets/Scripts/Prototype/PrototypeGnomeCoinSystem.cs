@@ -22,7 +22,7 @@ public class PrototypeGnomeCoinSystem : MonoBehaviour
     {
         if (gnomeCoinText != null)
         {
-            gnomeCoinText.text = "¢" + coinCount;
+            gnomeCoinText.text = "Coins: ¢" + coinCount;
         }
     }
 
@@ -30,6 +30,6 @@ public class PrototypeGnomeCoinSystem : MonoBehaviour
     public void AddCoins(int amountToAdd)
     {
         coinCount += amountToAdd;
-        gnomeCoinText.text = "¢" + coinCount;
+        gnomeCoinText.text = "Coins: ¢" + coinCount;
     }
 }
