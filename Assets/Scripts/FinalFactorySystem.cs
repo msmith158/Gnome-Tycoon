@@ -44,6 +44,7 @@ public class FinalFactorySystem : MonoBehaviour
 
         lvl1InitialValue = lvl1Value;
         Application.targetFrameRate = 60;
+        // Add code here for amount of production lines from save/load system
         AddScore(0);
     }
 
