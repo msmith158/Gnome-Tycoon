@@ -3403,7 +3403,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 9999
+  chanceOfJimbo: 4999
 --- !u!1001 &140040515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8459,7 +8459,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 9999
+  chanceOfJimbo: 4999
 --- !u!1001 &336384433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8630,7 +8630,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 9999
+  chanceOfJimbo: 4999
 --- !u!1001 &341541254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28455,7 +28455,7 @@ MonoBehaviour:
   lvl5InitialValue: 0
   lvl6Value: 32
   lvl6InitialValue: 0
-  productionLineAmount: 3
+  productionLineAmount: 7
   debugMode: 0
   instantPointAddition: 0
   moneyText: {fileID: 2013700669}
@@ -39323,7 +39323,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 9999
+  chanceOfJimbo: 4999
 --- !u!1 &1537700154
 GameObject:
   m_ObjectHideFlags: 0
@@ -45158,7 +45158,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 9999
+  chanceOfJimbo: 4999
 --- !u!1 &1790825621
 GameObject:
   m_ObjectHideFlags: 0
@@ -45581,7 +45581,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 9999
+  chanceOfJimbo: 4999
 --- !u!1 &1807406759
 GameObject:
   m_ObjectHideFlags: 0
@@ -51146,7 +51146,7 @@ MonoBehaviour:
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
-  chanceOfJimbo: 9999
+  chanceOfJimbo: 4999
 --- !u!1 &2075753308
 GameObject:
   m_ObjectHideFlags: 0
