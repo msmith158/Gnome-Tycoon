@@ -45,13 +45,13 @@ public class PrototypeFactorySystem : MonoBehaviour
         AddScore(0);
     }
 
-    public void SetUpDDOLManager()
+    private void SetUpDDOLManager()
     {
         ddolManager = GameObject.Find("proto_ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
         ddolManager.gnomeCoinText = coinText;
     }
 
-    public void SetUpDDOLManagerOneOff()
+    private void SetUpDDOLManagerOneOff()
     {
         switch (ddolManager.gameObject.GetComponent<PrototypeDDOLManager>().isOneOffComplete)
         {
@@ -101,19 +101,6 @@ public class PrototypeFactorySystem : MonoBehaviour
     public float RoundToNearestHundredth(float value)
     {
         return (float)System.Math.Round(value, 2);
-    }
-
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        {
-        EditorApplication.isPlaying = false;
-        }
-#else
-        {
-            Application.Quit();
-        }
-#endif
     }
 
     public void PauseGame(bool isPaused)
