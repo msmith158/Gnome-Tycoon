@@ -22,6 +22,7 @@ public class FinalFactorySystem : MonoBehaviour
     public float lvl6Value;
     [HideInInspector] public float lvl6InitialValue;
     [Range(1, 7)] public int productionLineAmount;
+    private float switchPanelTime;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -34,6 +35,8 @@ public class FinalFactorySystem : MonoBehaviour
     [SerializeField] private List<GameObject> productionLines = new List<GameObject>();
     public List<GameObject> oneOffObjects = new List<GameObject>();
     private PrototypeGnomeCoinSystem ddolManager;
+    private GameObject switchPanelDismissVar;
+    private GameObject switchPanelActivateVar;
 
     private void OnEnable()
     {
@@ -154,6 +157,11 @@ public class FinalFactorySystem : MonoBehaviour
             string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
             productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
         }
+    }
+
+    public void SwitchPanels(GameObject panelToDismiss)
+    {
+        
     }
 
     public enum PrestigeLevel
