@@ -152,7 +152,7 @@ public class FinalFactorySystem : MonoBehaviour
         for (int i = 0; i < productionLineAmount; i++)
         {
             string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
-            productionLines[i].transform.FindChild(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
+            productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
         }
     }
 
