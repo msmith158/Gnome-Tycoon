@@ -21,9 +21,9 @@ public class SwitchPanels : MonoBehaviour
         dismissalTime = time;
     }
 
-    public void AdjustDismissalPositionY(float locationY)
+    public void SetNewDismissalPos(GameObject newDismissalLocation)
     {
-        dismissalLocation = new Vector3(objectToDismiss.transform.position.x, objectToDismiss.transform.position.y + locationY, objectToDismiss.transform.position.z);
+        dismissalLocation = newDismissalLocation.transform.position;
     }
 
     public void SetAsActivatingPanelObject(GameObject panelToActivate)
@@ -36,9 +36,9 @@ public class SwitchPanels : MonoBehaviour
         activationTime = time;
     }
 
-    public void AdjustActivationPositionY(float locationY)
+    public void SetNewActivationPos(GameObject newActivationLocation)
     {
-        activationLocation = new Vector3(objectToActivate.transform.position.x, objectToActivate.transform.position.y + locationY, objectToActivate.transform.position.z);
+        activationLocation = newActivationLocation.transform.position;
     }
 
     public void ExecuteSmooth()
