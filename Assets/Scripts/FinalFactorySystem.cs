@@ -159,11 +159,6 @@ public class FinalFactorySystem : MonoBehaviour
         }
     }
 
-    public void SwitchPanels(GameObject panelToDismiss)
-    {
-        
-    }
-
     public enum PrestigeLevel
     {
         Prestige0,
