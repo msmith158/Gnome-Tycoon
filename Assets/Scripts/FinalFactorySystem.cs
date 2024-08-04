@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public class FinalFactorySystem : MonoBehaviour
     [HideInInspector] public float lvl6InitialValue;
     [Range(1, 7)] public int productionLineAmount;
     private float switchPanelTime;
+    private bool isProductionLinesSet = false;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -82,16 +84,28 @@ public class FinalFactorySystem : MonoBehaviour
         }
     }
 
-    private void SetProductionLines()
+    public void SetProductionLines()
     {
         // This code is just temporary to show off the feature, add code once save/load system is in
-        for (int i = 0; i < productionLines.Count; i++)
+        switch (isProductionLinesSet)
         {
-            productionLines[i].SetActive(false);
+            case true:
+                break;
+            case false:
+                for (int i = 0; i < productionLines.Count; i++)
+                {
+                    productionLines[i].SetActive(false);
+                    isProductionLinesSet = true;
+                }
+                break;
         }
         for (int i = 0; i < productionLineAmount; i++)
         {
             productionLines[i].SetActive(true);
+            float firstManufactureTime = productionLines[0].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime;
+            float firstConveyorSpeed = productionLines[0].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed;
+            productionLines[i].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime = firstManufactureTime;
+            productionLines[i].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed = firstConveyorSpeed;
         }
     }
 

@@ -15,6 +15,7 @@ public class FinalUpgrades : MonoBehaviour
     private float currentPrice;
     private float costPercentage;
     private int currentBuyAmount;
+    private Color initialSliderColour;
 
 
     [Header("Object References")]
@@ -41,6 +42,8 @@ public class FinalUpgrades : MonoBehaviour
                 sys.UpdatePrice(costText, true, "c", currentPrice, "");
                 break;
         }
+
+        initialSliderColour = slider.transform.GetChild(0).GetComponent<Image>().color;
 
         if (upgradeLimit == 0)
         {
@@ -144,6 +147,14 @@ public class FinalUpgrades : MonoBehaviour
                                 currentPrice += (initialCost * (costPercentage * 2));
                                 sys.UpdatePrice(costText, false, "$", currentPrice, "");
                                 break;
+                            case UpgradeType.ProductionLines:
+
+                                sys.productionLineAmount += (int)percentage;
+                                sys.SetProductionLines();
+                                costPercentage += increaseRate;
+                                currentPrice += (initialCost * (costPercentage * 2));
+                                sys.UpdatePrice(costText, false, "$", currentPrice, "");
+                                break;
                         }
                         currentBuyAmount++;
                         if (currentBuyAmount != upgradeLimit)
@@ -220,13 +231,17 @@ public class FinalUpgrades : MonoBehaviour
         sys.UpdatePrice(costText, false, "$", currentPrice, "");
         slider.value = 0;
         currentBuyAmount = 0;
+        slider.transform.GetChild(1).gameObject.SetActive(true);
+        slider.transform.GetChild(0).GetComponent<Image>().color = initialSliderColour;
+        upgradeButton.interactable = true;
     }
 
     public enum UpgradeType
     {
         GnomeValue,
         ConveyorSpeed,
-        ManufactureTime
+        ManufactureTime,
+        ProductionLines
     }
 
     public enum UpgradeCost
