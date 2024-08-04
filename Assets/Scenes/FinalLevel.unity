@@ -22367,7 +22367,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -27832,6 +27832,9 @@ MonoBehaviour:
   maxZoom: 15
   minBounds: {x: -10, y: 0, z: 5}
   maxBounds: {x: 70, y: 0, z: 65}
+  objectsToFollowX: []
+  objectsToFollowZ:
+  - {fileID: 882636323}
 --- !u!114 &917814197
 MonoBehaviour:
   m_ObjectHideFlags: 0
