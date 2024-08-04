@@ -164,38 +164,49 @@ public class FinalUpgrades : MonoBehaviour
             case UpgradeCost.GnomeCoins:
                 if (gnomeCoinSys.coinCount >= (int)currentPrice)
                 {
-                    gnomeCoinSys.coinCount -= (int)currentPrice;
-                    sys.UpdatePrice(gnomeCoinSys.gnomeCoinText, true, "c", gnomeCoinSys.coinCount, "");
-
-                    switch (upgradeType)
-                    {
-                        case UpgradeType.GnomeValue:
-                            gnomeCoinSys.permanentValue += percentage;
-                            Debug.Log("Permanent gnome value: " + gnomeCoinSys.permanentValue);
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, true, "c", currentPrice, "");
-                            break;
-                        case UpgradeType.ConveyorSpeed:
-                            gnomeCoinSys.permanentSpeed += percentage;
-                            Debug.Log("Permanent conveyor speed: " + gnomeCoinSys.permanentSpeed);
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, true, "c", currentPrice, "");
-                            break;
-                        case UpgradeType.ManufactureTime:
-                            gnomeCoinSys.permanentTime += percentage;
-                            Debug.Log("Permanent manufacturing time: " + gnomeCoinSys.permanentTime);
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, true, "c", currentPrice, "");
-                            break;
-                    }
-
-                    currentBuyAmount++;
                     if (currentBuyAmount != upgradeLimit)
                     {
-                        slider.value = Mathf.InverseLerp(0f, upgradeLimit, currentBuyAmount);
+                        gnomeCoinSys.coinCount -= (int)currentPrice;
+                        sys.UpdatePrice(gnomeCoinSys.gnomeCoinText, true, "c", gnomeCoinSys.coinCount, "");
+
+                        switch (upgradeType)
+                        {
+                            case UpgradeType.GnomeValue:
+                                gnomeCoinSys.permanentValue += percentage;
+                                Debug.Log("Permanent gnome value: " + gnomeCoinSys.permanentValue);
+                                costPercentage += increaseRate;
+                                currentPrice += (initialCost * (costPercentage * 2));
+                                sys.UpdatePrice(costText, true, "c", currentPrice, "");
+                                break;
+                            case UpgradeType.ConveyorSpeed:
+                                gnomeCoinSys.permanentSpeed += percentage;
+                                Debug.Log("Permanent conveyor speed: " + gnomeCoinSys.permanentSpeed);
+                                costPercentage += increaseRate;
+                                currentPrice += (initialCost * (costPercentage * 2));
+                                sys.UpdatePrice(costText, true, "c", currentPrice, "");
+                                break;
+                            case UpgradeType.ManufactureTime:
+                                gnomeCoinSys.permanentTime += percentage;
+                                Debug.Log("Permanent manufacturing time: " + gnomeCoinSys.permanentTime);
+                                costPercentage += increaseRate;
+                                currentPrice += (initialCost * (costPercentage * 2));
+                                sys.UpdatePrice(costText, true, "c", currentPrice, "");
+                                break;
+                        }
+
+                        currentBuyAmount++;
+                        if (currentBuyAmount != upgradeLimit)
+                        {
+                            slider.value = Mathf.InverseLerp(0f, upgradeLimit, currentBuyAmount);
+                        }
+                        else if (currentBuyAmount == upgradeLimit)
+                        {
+                            slider.value = Mathf.InverseLerp(0f, upgradeLimit, currentBuyAmount);
+                            upgradeButton.interactable = false;
+                            Color sliderColour = slider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color;
+                            slider.transform.GetChild(1).gameObject.SetActive(false);
+                            slider.transform.GetChild(0).GetComponent<Image>().color = sliderColour;
+                        }
                     }
                 }
                 break;
