@@ -7,12 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: factory_wall_factory_wall_material_BaseColor
+  m_Name: factoryDoors
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _NORMALMAP
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -25,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 44c876d92decb4348a36aa5490f128da, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -45,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 810e99cc646a69c4d854de5d646ee3e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: e6e291877179f5741975e39689e87596, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -62,12 +61,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BumpScale: 1
+    - _BumpScale: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -79,6 +78,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
+    - _Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
