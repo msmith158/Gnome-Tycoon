@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinalUpgrades : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class FinalUpgrades : MonoBehaviour
     [Tooltip("How many of these upgrades the player can buy before reaching the max. Set to 0 for infinity.")] public int upgradeLimit;
     private float currentPrice;
     private float costPercentage;
+    private int currentBuyAmount;
 
 
     [Header("Object References")]
     [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private Button upgradeButton;
+    [SerializeField] private Slider slider;
     [SerializeField] private FinalFactorySystem sys;
     [SerializeField] private List<FinalConveyor> conveyors = new List<FinalConveyor>();
     [SerializeField] private List<FinalDispenser> dispensers = new List<FinalDispenser>();
@@ -37,6 +41,11 @@ public class FinalUpgrades : MonoBehaviour
                 sys.UpdatePrice(costText, true, "c", currentPrice, "");
                 break;
         }
+
+        if (upgradeLimit == 0)
+        {
+            slider.transform.GetChild(1).gameObject.SetActive(false);
+        }
     }
 
     public void SetNewValues(float percentage)
@@ -46,93 +55,109 @@ public class FinalUpgrades : MonoBehaviour
             case UpgradeCost.Dollans:
                 if (sys.pointScore >= currentPrice)
                 {
-                    sys.pointScore -= currentPrice;
-                    sys.UpdatePrice(sys.moneyText, false, "Profit: $", sys.pointScore, "");
-
-                    switch (upgradeType)
+                    if (currentBuyAmount != upgradeLimit)
                     {
-                        case UpgradeType.GnomeValue:
-                            switch (sys.prestigeLvl)
-                            {
-                                case FinalFactorySystem.PrestigeLevel.Prestige0:
-                                    sys.lvl1Value += (sys.lvl1InitialValue * percentage);
-                                    Debug.Log("Gnome value: " + sys.lvl1Value);
-                                    costPercentage += increaseRate;
-                                    currentPrice += (initialCost * (costPercentage * 2));
-                                    sys.UpdatePrice(costText, false, "$", currentPrice, "");
-                                    break;
-                                case FinalFactorySystem.PrestigeLevel.Prestige1:
-                                    sys.lvl2Value += (sys.lvl2InitialValue * percentage);
-                                    Debug.Log("Gnome value: " + sys.lvl2Value);
-                                    costPercentage += increaseRate;
-                                    currentPrice += (initialCost * (costPercentage * 2));
-                                    sys.UpdatePrice(costText, false, "$", sys.lvl2Value, "");
-                                    break;
-                                case FinalFactorySystem.PrestigeLevel.Prestige2:
-                                    sys.lvl3Value += (sys.lvl3InitialValue * percentage);
-                                    Debug.Log("Gnome value: " + sys.lvl3Value);
-                                    costPercentage += increaseRate;
-                                    currentPrice += (initialCost * (costPercentage * 2));
-                                    sys.UpdatePrice(costText, false, "$", sys.lvl3Value, "");
-                                    break;
-                                case FinalFactorySystem.PrestigeLevel.Prestige3:
-                                    sys.lvl4Value += (sys.lvl4InitialValue * percentage);
-                                    Debug.Log("Gnome value: " + sys.lvl4Value);
-                                    costPercentage += increaseRate;
-                                    currentPrice += (initialCost * (costPercentage * 2));
-                                    sys.UpdatePrice(costText, false, "$", sys.lvl4Value, "");
-                                    break;
-                                case FinalFactorySystem.PrestigeLevel.Prestige4:
-                                    sys.lvl5Value += (sys.lvl5InitialValue * percentage);
-                                    Debug.Log("Gnome value: " + sys.lvl5Value);
-                                    costPercentage += increaseRate;
-                                    currentPrice += (initialCost * (costPercentage * 2));
-                                    sys.UpdatePrice(costText, false, "$", sys.lvl5Value, "");
-                                    break;
-                                case FinalFactorySystem.PrestigeLevel.Prestige5:
-                                    sys.lvl6Value += (sys.lvl6InitialValue * percentage);
-                                    Debug.Log("Gnome value: " + sys.lvl6Value);
-                                    costPercentage += increaseRate;
-                                    currentPrice += (initialCost * (costPercentage * 2));
-                                    sys.UpdatePrice(costText, false, "$", sys.lvl6Value, "");
-                                    break;
-                            }
-                            break;
-                        case UpgradeType.ConveyorSpeed:
-                            for(int i = 0; i < conveyors.Count; i++)
-                            {
-                                switch (conveyors[i].isActiveAndEnabled)
-                                {
-                                    case true:
-                                        conveyors[i].speed += (conveyors[i].initialSpeed * percentage);
-                                        Debug.Log("Conveyor speed: " + conveyors[i].speed);
-                                        break;
-                                    case false:
-                                        break;
-                                }
+                        sys.pointScore -= currentPrice;
+                        sys.UpdatePrice(sys.moneyText, false, "Profit: $", sys.pointScore, "");
 
-                            }
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, false, "$", currentPrice, "");
-                            break;
-                        case UpgradeType.ManufactureTime:
-                            for(int i = 0; i < dispensers.Count; i++)
-                            {
-                                switch (dispensers[i].isActiveAndEnabled)
+                        switch (upgradeType)
+                        {
+                            case UpgradeType.GnomeValue:
+                                switch (sys.prestigeLvl)
                                 {
-                                    case true:
-                                        dispensers[i].manufacturingTime -= (dispensers[i].initialManuTime * percentage);
-                                        Debug.Log("Manufacturing time: " + dispensers[i].manufacturingTime);
+                                    case FinalFactorySystem.PrestigeLevel.Prestige0:
+                                        sys.lvl1Value += (sys.lvl1InitialValue * percentage);
+                                        Debug.Log("Gnome value: " + sys.lvl1Value);
+                                        costPercentage += increaseRate;
+                                        currentPrice += (initialCost * (costPercentage * 2));
+                                        sys.UpdatePrice(costText, false, "$", currentPrice, "");
                                         break;
-                                    case false:
+                                    case FinalFactorySystem.PrestigeLevel.Prestige1:
+                                        sys.lvl2Value += (sys.lvl2InitialValue * percentage);
+                                        Debug.Log("Gnome value: " + sys.lvl2Value);
+                                        costPercentage += increaseRate;
+                                        currentPrice += (initialCost * (costPercentage * 2));
+                                        sys.UpdatePrice(costText, false, "$", sys.lvl2Value, "");
+                                        break;
+                                    case FinalFactorySystem.PrestigeLevel.Prestige2:
+                                        sys.lvl3Value += (sys.lvl3InitialValue * percentage);
+                                        Debug.Log("Gnome value: " + sys.lvl3Value);
+                                        costPercentage += increaseRate;
+                                        currentPrice += (initialCost * (costPercentage * 2));
+                                        sys.UpdatePrice(costText, false, "$", sys.lvl3Value, "");
+                                        break;
+                                    case FinalFactorySystem.PrestigeLevel.Prestige3:
+                                        sys.lvl4Value += (sys.lvl4InitialValue * percentage);
+                                        Debug.Log("Gnome value: " + sys.lvl4Value);
+                                        costPercentage += increaseRate;
+                                        currentPrice += (initialCost * (costPercentage * 2));
+                                        sys.UpdatePrice(costText, false, "$", sys.lvl4Value, "");
+                                        break;
+                                    case FinalFactorySystem.PrestigeLevel.Prestige4:
+                                        sys.lvl5Value += (sys.lvl5InitialValue * percentage);
+                                        Debug.Log("Gnome value: " + sys.lvl5Value);
+                                        costPercentage += increaseRate;
+                                        currentPrice += (initialCost * (costPercentage * 2));
+                                        sys.UpdatePrice(costText, false, "$", sys.lvl5Value, "");
+                                        break;
+                                    case FinalFactorySystem.PrestigeLevel.Prestige5:
+                                        sys.lvl6Value += (sys.lvl6InitialValue * percentage);
+                                        Debug.Log("Gnome value: " + sys.lvl6Value);
+                                        costPercentage += increaseRate;
+                                        currentPrice += (initialCost * (costPercentage * 2));
+                                        sys.UpdatePrice(costText, false, "$", sys.lvl6Value, "");
                                         break;
                                 }
-                            }
-                            costPercentage += increaseRate;
-                            currentPrice += (initialCost * (costPercentage * 2));
-                            sys.UpdatePrice(costText, false, "$", currentPrice, "");
-                            break;
+                                break;
+                            case UpgradeType.ConveyorSpeed:
+                                for (int i = 0; i < conveyors.Count; i++)
+                                {
+                                    switch (conveyors[i].isActiveAndEnabled)
+                                    {
+                                        case true:
+                                            conveyors[i].speed += (conveyors[i].initialSpeed * percentage);
+                                            Debug.Log("Conveyor speed: " + conveyors[i].speed);
+                                            break;
+                                        case false:
+                                            break;
+                                    }
+
+                                }
+                                costPercentage += increaseRate;
+                                currentPrice += (initialCost * (costPercentage * 2));
+                                sys.UpdatePrice(costText, false, "$", currentPrice, "");
+                                break;
+                            case UpgradeType.ManufactureTime:
+                                for (int i = 0; i < dispensers.Count; i++)
+                                {
+                                    switch (dispensers[i].isActiveAndEnabled)
+                                    {
+                                        case true:
+                                            dispensers[i].manufacturingTime -= (dispensers[i].initialManuTime * percentage);
+                                            Debug.Log("Manufacturing time: " + dispensers[i].manufacturingTime);
+                                            break;
+                                        case false:
+                                            break;
+                                    }
+                                }
+                                costPercentage += increaseRate;
+                                currentPrice += (initialCost * (costPercentage * 2));
+                                sys.UpdatePrice(costText, false, "$", currentPrice, "");
+                                break;
+                        }
+                        currentBuyAmount++;
+                        if (currentBuyAmount != upgradeLimit)
+                        {
+                            slider.value = Mathf.InverseLerp(0f, upgradeLimit, currentBuyAmount);
+                        }
+                        else if (currentBuyAmount == upgradeLimit)
+                        {
+                            slider.value = Mathf.InverseLerp(0f, upgradeLimit, currentBuyAmount);
+                            upgradeButton.interactable = false;
+                            Color sliderColour = slider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color;
+                            slider.transform.GetChild(1).gameObject.SetActive(false);
+                            slider.transform.GetChild(0).GetComponent<Image>().color = sliderColour;
+                        }
                     }
                 }
                 break;
@@ -165,6 +190,12 @@ public class FinalUpgrades : MonoBehaviour
                             currentPrice += (initialCost * (costPercentage * 2));
                             sys.UpdatePrice(costText, true, "c", currentPrice, "");
                             break;
+                    }
+
+                    currentBuyAmount++;
+                    if (currentBuyAmount != upgradeLimit)
+                    {
+                        slider.value = Mathf.InverseLerp(0f, upgradeLimit, currentBuyAmount);
                     }
                 }
                 break;
