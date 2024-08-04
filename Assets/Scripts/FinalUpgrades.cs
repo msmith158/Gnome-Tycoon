@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class FinalUpgradeSystem : MonoBehaviour
+public class FinalUpgrades : MonoBehaviour
 {
     [Header("Values")]
     public UpgradeType upgradeType;
@@ -22,15 +22,11 @@ public class FinalUpgradeSystem : MonoBehaviour
     [SerializeField] private List<FinalDispenser> dispensers = new List<FinalDispenser>();
     [SerializeField] private PrototypeGnomeCoinSystem gnomeCoinSys;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void OnEnable()
     {
         gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+
+        // Set the first prices for upgrades
         currentPrice = initialCost;
         switch (upgradeCost)
         {
@@ -65,7 +61,6 @@ public class FinalUpgradeSystem : MonoBehaviour
                                     currentPrice += (initialCost * (costPercentage * 2));
                                     sys.UpdatePrice(costText, false, "$", currentPrice, "");
                                     break;
-                                // These will need to be tested as to whether to use each initial value or lvl1InitialValue across the board
                                 case FinalFactorySystem.PrestigeLevel.Prestige1:
                                     sys.lvl2Value += (sys.lvl2InitialValue * percentage);
                                     Debug.Log("Gnome value: " + sys.lvl2Value);
@@ -111,15 +106,15 @@ public class FinalUpgradeSystem : MonoBehaviour
                                     case true:
                                         conveyors[i].speed += (conveyors[i].initialSpeed * percentage);
                                         Debug.Log("Conveyor speed: " + conveyors[i].speed);
-                                        costPercentage += increaseRate;
-                                        currentPrice += (initialCost * (costPercentage * 2));
-                                        sys.UpdatePrice(costText, false, "$", currentPrice, "");
                                         break;
                                     case false:
                                         break;
                                 }
 
                             }
+                            costPercentage += increaseRate;
+                            currentPrice += (initialCost * (costPercentage * 2));
+                            sys.UpdatePrice(costText, false, "$", currentPrice, "");
                             break;
                         case UpgradeType.ManufactureTime:
                             for(int i = 0; i < dispensers.Count; i++)
@@ -129,14 +124,14 @@ public class FinalUpgradeSystem : MonoBehaviour
                                     case true:
                                         dispensers[i].manufacturingTime -= (dispensers[i].initialManuTime * percentage);
                                         Debug.Log("Manufacturing time: " + dispensers[i].manufacturingTime);
-                                        costPercentage += increaseRate;
-                                        currentPrice += (initialCost * (costPercentage * 2));
-                                        sys.UpdatePrice(costText, false, "$", currentPrice, "");
                                         break;
                                     case false:
                                         break;
                                 }
                             }
+                            costPercentage += increaseRate;
+                            currentPrice += (initialCost * (costPercentage * 2));
+                            sys.UpdatePrice(costText, false, "$", currentPrice, "");
                             break;
                     }
                 }

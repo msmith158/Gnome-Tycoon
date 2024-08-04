@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 290145983}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
         m_MethodName: SetNewValues
         m_Mode: 4
@@ -7394,7 +7394,7 @@ GameObject:
   - component: {fileID: 290145982}
   - component: {fileID: 290145985}
   - component: {fileID: 290145984}
-  - component: {fileID: 290145983}
+  - component: {fileID: 290145986}
   m_Layer: 5
   m_Name: upgrade3
   m_TagString: Untagged
@@ -7424,28 +7424,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -330}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &290145983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290145981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeType: 2
-  upgradeCost: 1
-  initialCost: 60
-  increaseRate: 0.03
-  upgradeLimit: 0
-  costText: {fileID: 765451484}
-  sys: {fileID: 1095546605}
-  conveyor: {fileID: 315469248}
-  manufacturer: {fileID: 1835049947}
-  gnomeCoinSys: {fileID: 0}
 --- !u!114 &290145984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7484,6 +7462,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290145981}
   m_CullTransparentMesh: 1
+--- !u!114 &290145986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290145981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a08072b2166d34bb95b2245f6a27c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeType: 2
+  upgradeCost: 1
+  initialCost: 60
+  increaseRate: 0.03
+  upgradeLimit: 0
+  costText: {fileID: 765451484}
+  sys: {fileID: 1095546606}
+  conveyors: []
+  dispensers:
+  - {fileID: 1487663870}
+  - {fileID: 680535911}
+  - {fileID: 1291777366}
+  - {fileID: 1716639367}
+  - {fileID: 1954626671}
+  - {fileID: 923677708}
+  - {fileID: 1199300292}
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &293525499
 GameObject:
   m_ObjectHideFlags: 0
@@ -8147,7 +8154,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 703692341}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
         m_MethodName: SetNewValues
         m_Mode: 4
@@ -8463,7 +8470,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA2null"
+  m_text: cnull
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9942,7 +9949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA2null"
+  m_text: cnull
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13020,7 +13027,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1330854409}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PrototypeUpgrades, Assembly-CSharp
         m_MethodName: SetNewValues
         m_Mode: 4
@@ -17694,7 +17701,7 @@ GameObject:
   - component: {fileID: 703692340}
   - component: {fileID: 703692343}
   - component: {fileID: 703692342}
-  - component: {fileID: 703692341}
+  - component: {fileID: 703692344}
   m_Layer: 5
   m_Name: upgrade2
   m_TagString: Untagged
@@ -17724,28 +17731,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -200}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &703692341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703692339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeType: 1
-  upgradeCost: 1
-  initialCost: 40
-  increaseRate: 0.05
-  upgradeLimit: 0
-  costText: {fileID: 316445869}
-  sys: {fileID: 1095546605}
-  conveyor: {fileID: 315469248}
-  manufacturer: {fileID: 1835049947}
-  gnomeCoinSys: {fileID: 0}
 --- !u!114 &703692342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17784,6 +17769,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703692339}
   m_CullTransparentMesh: 1
+--- !u!114 &703692344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703692339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a08072b2166d34bb95b2245f6a27c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeType: 1
+  upgradeCost: 1
+  initialCost: 40
+  increaseRate: 0.05
+  upgradeLimit: 0
+  costText: {fileID: 316445869}
+  sys: {fileID: 1095546606}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
+  dispensers: []
+  gnomeCoinSys: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -19022,7 +19036,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA2null"
+  m_text: cnull
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -35794,7 +35808,7 @@ GameObject:
   - component: {fileID: 1330854408}
   - component: {fileID: 1330854411}
   - component: {fileID: 1330854410}
-  - component: {fileID: 1330854409}
+  - component: {fileID: 1330854412}
   m_Layer: 5
   m_Name: upgrade1
   m_TagString: Untagged
@@ -35824,28 +35838,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -70}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1330854409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330854407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7499b7101184e49bda6ea4e431ec99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeType: 0
-  upgradeCost: 1
-  initialCost: 20
-  increaseRate: 0.02
-  upgradeLimit: 0
-  costText: {fileID: 371054590}
-  sys: {fileID: 1095546605}
-  conveyor: {fileID: 315469248}
-  manufacturer: {fileID: 1835049947}
-  gnomeCoinSys: {fileID: 0}
 --- !u!114 &1330854410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35884,6 +35876,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330854407}
   m_CullTransparentMesh: 1
+--- !u!114 &1330854412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330854407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a08072b2166d34bb95b2245f6a27c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeType: 0
+  upgradeCost: 1
+  initialCost: 20
+  increaseRate: 0.02
+  upgradeLimit: 0
+  costText: {fileID: 371054590}
+  sys: {fileID: 1095546606}
+  conveyors: []
+  dispensers: []
+  gnomeCoinSys: {fileID: 0}
 --- !u!1001 &1332292622
 PrefabInstance:
   m_ObjectHideFlags: 0
