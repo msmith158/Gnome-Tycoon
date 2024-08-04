@@ -10612,7 +10612,7 @@ GameObject:
   - component: {fileID: 387778636}
   - component: {fileID: 387778639}
   - component: {fileID: 387778638}
-  - component: {fileID: 387778640}
+  - component: {fileID: 387778641}
   m_Layer: 5
   m_Name: prestige1
   m_TagString: Untagged
@@ -10680,7 +10680,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387778635}
   m_CullTransparentMesh: 1
---- !u!114 &387778640
+--- !u!114 &387778641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10689,7 +10689,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 387778635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d68854fb538a746b1f74ac86c34f87, type: 3}
+  m_Script: {fileID: 11500000, guid: 630b71545ac333a47b5335ef1995cda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 0
@@ -10697,14 +10697,28 @@ MonoBehaviour:
   unitMultiplication: 2
   manufacturerDecreasePercent: 0.1
   priceIncreasePercent: 0.5
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   finalPrestigeSys: {fileID: 1679194115}
   upgradeSys:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  manufacturer: {fileID: 1835049947}
-  conveyor: {fileID: 315469248}
+  - {fileID: 670819352}
+  - {fileID: 725734642}
+  - {fileID: 1613842709}
+  dispensers:
+  - {fileID: 1487663870}
+  - {fileID: 680535911}
+  - {fileID: 1291777366}
+  - {fileID: 1716639367}
+  - {fileID: 1954626671}
+  - {fileID: 923677708}
+  - {fileID: 1199300292}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
   costText: {fileID: 870292091}
   currentPrestigeText: {fileID: 242655326}
   prestigeBodyText: {fileID: 521305268}
@@ -13048,8 +13062,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 663133063}
-        m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
+      - m_Target: {fileID: 663133064}
+        m_TargetAssemblyTypeName: PrestigeSystem, Assembly-CSharp
         m_MethodName: UpdatePrestige
         m_Mode: 1
         m_Arguments:
@@ -17310,7 +17324,7 @@ GameObject:
   - component: {fileID: 663133059}
   - component: {fileID: 663133062}
   - component: {fileID: 663133061}
-  - component: {fileID: 663133063}
+  - component: {fileID: 663133064}
   m_Layer: 5
   m_Name: prestige2
   m_TagString: Untagged
@@ -17378,7 +17392,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663133058}
   m_CullTransparentMesh: 1
---- !u!114 &663133063
+--- !u!114 &663133064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17387,7 +17401,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 663133058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d68854fb538a746b1f74ac86c34f87, type: 3}
+  m_Script: {fileID: 11500000, guid: 630b71545ac333a47b5335ef1995cda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 1
@@ -17395,14 +17409,28 @@ MonoBehaviour:
   unitMultiplication: 4
   manufacturerDecreasePercent: 0.2
   priceIncreasePercent: 1
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   finalPrestigeSys: {fileID: 1679194115}
   upgradeSys:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  manufacturer: {fileID: 1835049947}
-  conveyor: {fileID: 315469248}
+  - {fileID: 670819352}
+  - {fileID: 725734642}
+  - {fileID: 1613842709}
+  dispensers:
+  - {fileID: 1487663870}
+  - {fileID: 680535911}
+  - {fileID: 1291777366}
+  - {fileID: 1716639367}
+  - {fileID: 1954626671}
+  - {fileID: 923677708}
+  - {fileID: 1199300292}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
   costText: {fileID: 957364113}
   currentPrestigeText: {fileID: 242655326}
   prestigeBodyText: {fileID: 1447676651}
@@ -19621,8 +19649,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 387778640}
-        m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
+      - m_Target: {fileID: 387778641}
+        m_TargetAssemblyTypeName: PrestigeSystem, Assembly-CSharp
         m_MethodName: UpdatePrestige
         m_Mode: 1
         m_Arguments:
@@ -21775,8 +21803,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1858979261}
-        m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
+      - m_Target: {fileID: 1858979262}
+        m_TargetAssemblyTypeName: PrestigeSystem, Assembly-CSharp
         m_MethodName: UpdatePrestige
         m_Mode: 1
         m_Arguments:
@@ -35291,7 +35319,7 @@ GameObject:
   - component: {fileID: 1261385822}
   - component: {fileID: 1261385824}
   - component: {fileID: 1261385823}
-  - component: {fileID: 1261385825}
+  - component: {fileID: 1261385826}
   m_Layer: 5
   m_Name: finalPrestige
   m_TagString: Untagged
@@ -35359,7 +35387,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261385821}
   m_CullTransparentMesh: 1
---- !u!114 &1261385825
+--- !u!114 &1261385826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35368,7 +35396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1261385821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d68854fb538a746b1f74ac86c34f87, type: 3}
+  m_Script: {fileID: 11500000, guid: 630b71545ac333a47b5335ef1995cda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 5
@@ -35376,17 +35404,36 @@ MonoBehaviour:
   unitMultiplication: 0
   manufacturerDecreasePercent: 0
   priceIncreasePercent: 0
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   finalPrestigeSys: {fileID: 1679194115}
-  upgradeSys: []
-  manufacturer: {fileID: 1835049947}
-  conveyor: {fileID: 315469248}
+  upgradeSys:
+  - {fileID: 670819352}
+  - {fileID: 725734642}
+  - {fileID: 1613842709}
+  dispensers:
+  - {fileID: 1487663870}
+  - {fileID: 680535911}
+  - {fileID: 1291777366}
+  - {fileID: 1716639367}
+  - {fileID: 1954626671}
+  - {fileID: 923677708}
+  - {fileID: 1199300292}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
   costText: {fileID: 1882371137}
   currentPrestigeText: {fileID: 242655326}
   prestigeBodyText: {fileID: 1961315694}
   promptParent: {fileID: 343340713}
-  promptUIToDisable: []
-  PromptUIToEnable: []
+  promptUIToDisable:
+  - {fileID: 1692716367}
+  PromptUIToEnable:
+  - {fileID: 1776992790}
 --- !u!1 &1266549720
 GameObject:
   m_ObjectHideFlags: 0
@@ -36497,8 +36544,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1807406763}
-        m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
+      - m_Target: {fileID: 1807406764}
+        m_TargetAssemblyTypeName: PrestigeSystem, Assembly-CSharp
         m_MethodName: UpdatePrestige
         m_Mode: 1
         m_Arguments:
@@ -38057,8 +38104,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1635484083}
-        m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
+      - m_Target: {fileID: 1635484084}
+        m_TargetAssemblyTypeName: PrestigeSystem, Assembly-CSharp
         m_MethodName: UpdatePrestige
         m_Mode: 1
         m_Arguments:
@@ -43596,7 +43643,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1261385825}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PrototypePrestige, Assembly-CSharp
         m_MethodName: UpdatePrestige
         m_Mode: 1
@@ -46039,7 +46086,7 @@ GameObject:
   - component: {fileID: 1635484079}
   - component: {fileID: 1635484082}
   - component: {fileID: 1635484081}
-  - component: {fileID: 1635484083}
+  - component: {fileID: 1635484084}
   m_Layer: 5
   m_Name: prestige3
   m_TagString: Untagged
@@ -46107,7 +46154,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635484078}
   m_CullTransparentMesh: 1
---- !u!114 &1635484083
+--- !u!114 &1635484084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46116,7 +46163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1635484078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d68854fb538a746b1f74ac86c34f87, type: 3}
+  m_Script: {fileID: 11500000, guid: 630b71545ac333a47b5335ef1995cda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 2
@@ -46124,14 +46171,28 @@ MonoBehaviour:
   unitMultiplication: 8
   manufacturerDecreasePercent: 0.3
   priceIncreasePercent: 1.5
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   finalPrestigeSys: {fileID: 1679194115}
   upgradeSys:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  manufacturer: {fileID: 1835049947}
-  conveyor: {fileID: 315469248}
+  - {fileID: 670819352}
+  - {fileID: 725734642}
+  - {fileID: 1613842709}
+  dispensers:
+  - {fileID: 1487663870}
+  - {fileID: 680535911}
+  - {fileID: 1291777366}
+  - {fileID: 1716639367}
+  - {fileID: 1954626671}
+  - {fileID: 923677708}
+  - {fileID: 1199300292}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
   costText: {fileID: 395579948}
   currentPrestigeText: {fileID: 242655326}
   prestigeBodyText: {fileID: 623625290}
@@ -50256,7 +50317,7 @@ GameObject:
   - component: {fileID: 1807406760}
   - component: {fileID: 1807406762}
   - component: {fileID: 1807406761}
-  - component: {fileID: 1807406763}
+  - component: {fileID: 1807406764}
   m_Layer: 5
   m_Name: prestige4
   m_TagString: Untagged
@@ -50324,7 +50385,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807406759}
   m_CullTransparentMesh: 1
---- !u!114 &1807406763
+--- !u!114 &1807406764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50333,7 +50394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1807406759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d68854fb538a746b1f74ac86c34f87, type: 3}
+  m_Script: {fileID: 11500000, guid: 630b71545ac333a47b5335ef1995cda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 3
@@ -50341,14 +50402,28 @@ MonoBehaviour:
   unitMultiplication: 16
   manufacturerDecreasePercent: 0.4
   priceIncreasePercent: 2
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   finalPrestigeSys: {fileID: 1679194115}
   upgradeSys:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  manufacturer: {fileID: 1835049947}
-  conveyor: {fileID: 315469248}
+  - {fileID: 670819352}
+  - {fileID: 725734642}
+  - {fileID: 1613842709}
+  dispensers:
+  - {fileID: 1487663870}
+  - {fileID: 680535911}
+  - {fileID: 1291777366}
+  - {fileID: 1716639367}
+  - {fileID: 1954626671}
+  - {fileID: 923677708}
+  - {fileID: 1199300292}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
   costText: {fileID: 1835645308}
   currentPrestigeText: {fileID: 242655326}
   prestigeBodyText: {fileID: 1137389963}
@@ -51602,7 +51677,7 @@ GameObject:
   - component: {fileID: 1858979258}
   - component: {fileID: 1858979260}
   - component: {fileID: 1858979259}
-  - component: {fileID: 1858979261}
+  - component: {fileID: 1858979262}
   m_Layer: 5
   m_Name: prestige5
   m_TagString: Untagged
@@ -51670,7 +51745,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858979257}
   m_CullTransparentMesh: 1
---- !u!114 &1858979261
+--- !u!114 &1858979262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51679,7 +51754,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1858979257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d68854fb538a746b1f74ac86c34f87, type: 3}
+  m_Script: {fileID: 11500000, guid: 630b71545ac333a47b5335ef1995cda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prestigeType: 4
@@ -51687,14 +51762,28 @@ MonoBehaviour:
   unitMultiplication: 32
   manufacturerDecreasePercent: 0.5
   priceIncreasePercent: 2.5
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   finalPrestigeSys: {fileID: 1679194115}
   upgradeSys:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  manufacturer: {fileID: 1835049947}
-  conveyor: {fileID: 315469248}
+  - {fileID: 670819352}
+  - {fileID: 725734642}
+  - {fileID: 1613842709}
+  dispensers:
+  - {fileID: 1487663870}
+  - {fileID: 680535911}
+  - {fileID: 1291777366}
+  - {fileID: 1716639367}
+  - {fileID: 1954626671}
+  - {fileID: 923677708}
+  - {fileID: 1199300292}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
   costText: {fileID: 752684616}
   currentPrestigeText: {fileID: 242655326}
   prestigeBodyText: {fileID: 1917592779}

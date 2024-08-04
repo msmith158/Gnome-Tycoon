@@ -218,6 +218,8 @@ public class FinalUpgrades : MonoBehaviour
     {
         currentPrice = initialCost + (initialCost * costIncrease);
         sys.UpdatePrice(costText, false, "$", currentPrice, "");
+        slider.value = 0;
+        currentBuyAmount = 0;
     }
 
     public enum UpgradeType
