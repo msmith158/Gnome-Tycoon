@@ -59,6 +59,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private AudioClip switchOff;
     [SerializeField] private AudioClip generatorOff;
     [SerializeField] private AudioClip alarm;
+    [SerializeField] private AudioClip computerAlarm;
     [SerializeField] private AudioClip clock;
     [SerializeField] private AudioClip nuke;
     [SerializeField] private AudioClip siren;
@@ -141,6 +142,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
         yield return new WaitForSeconds(delayUntilCountdown - 3f);
 
         // The countdown timer begins
+        alarmSource.PlayOneShot(computerAlarm);
         for (int i = 0; i < uiToEnableNuke.Count; i++)
         {
             uiToEnableNuke[i].SetActive(true);
