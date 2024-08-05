@@ -9,6 +9,7 @@ public class FinalDispenser : MonoBehaviour
     [SerializeField] private GameObject spawnTrigger;
     [SerializeField] private GameObject newPrefab;
     [HideInInspector] public PrototypeGnomeCoinSystem gnomeCoinSys;
+    [SerializeField] private FinalFactorySystem sys;
     public float manufacturingTime;
     public float manufacturingCooldown;
     [HideInInspector] public float initialManuTime;
@@ -68,6 +69,7 @@ public class FinalDispenser : MonoBehaviour
         }
 
         timeSlider.SetActive(false);
+        sys.FinishDispensing();
         isActivated = false;
     }
 }

@@ -12,6 +12,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private float standardSequenceDelay;
     [SerializeField] private List<float> switchAwayTimeStandard = new List<float>();
     [SerializeField] private List<float> switchToTimeStandard = new List<float>();
+    private bool isFinishedPrestige;
 
     [Header("Nuke Sequence > Values")]
     [SerializeField] private float alarmDelayTime;
@@ -22,6 +23,9 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private float delayAfterFadeOut;
     private Color emissiveColor = Color.red;
     private float timeElapsed;
+
+    [Header("Standard Sequence > Object References > General")]
+    [SerializeField] private TextMeshProUGUI prestigingText;
 
     [Header("Standard Sequence > Object References > Lists")]
     [SerializeField] private List<GameObject> uiToDisableStandard = new List<GameObject>();
@@ -44,6 +48,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private PrototypeDDOLManager ddolSys;
     [SerializeField] private SwitchPanels panelSwitchSys;
     [SerializeField] private string sceneToLoad;
+
     [Header("Nuke Sequence > Object References > Audio")]
     [SerializeField] private AudioSource switchOffSource;
     [SerializeField] private AudioSource generatorOffSource;
@@ -58,6 +63,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private AudioClip nuke;
     [SerializeField] private AudioClip siren;
     [SerializeField] private AudioMixerGroup outsideNuke;
+
     [Header("Nuke Sequence > Object References > Lists")]
     [SerializeField] private List<GameObject> uiToDisableNuke = new List<GameObject>();
     [SerializeField] private List<GameObject> uiToEnableNuke = new List<GameObject>();
@@ -100,6 +106,11 @@ public class PrestigeSequenceSystem : MonoBehaviour
         for (int i = 0; i < conveyors.Count; i++)
         {
             conveyors[i].enabled = false;
+        }
+        for (int i = 0; i < uiToSwitchAwayStandard.Count; i++)
+        {
+            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayStandard[i], switchAwayTimeStandard[i], uiToSwitchAwayLocations[i], 1);
+            panelSwitchSys.ExecuteSmooth();
         }
 
         yield return new WaitForSeconds(alarmDelayTime);
@@ -264,7 +275,12 @@ public class PrestigeSequenceSystem : MonoBehaviour
             uiToDisableStandard[i].SetActive(false);
         }
 
+        isFinishedPrestige = false;
+        prestigingText.gameObject.SetActive(true);
+        StartCoroutine(AutomatePrestigingText());
         yield return new WaitForSeconds(standardSequenceDelay);
+        prestigingText.gameObject.SetActive(false);
+        isFinishedPrestige = true;
 
         foreach (Light lights in lightsToTurnOff)
         {
@@ -281,6 +297,22 @@ public class PrestigeSequenceSystem : MonoBehaviour
         for (int i = 0; i < uiToEnableStandard.Count; i++)
         {
             uiToEnableStandard[i].SetActive(true);
+        }
+    }
+
+    // This is to automate the prestige in-progress text
+    IEnumerator AutomatePrestigingText()
+    {
+        while (!isFinishedPrestige)
+        {
+            prestigingText.text = "Prestiging";
+            yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < 3; i++)
+            {
+                prestigingText.text += ".";
+                yield return new WaitForSeconds(0.5f);
+            }
+            yield return null;
         }
     }
 }

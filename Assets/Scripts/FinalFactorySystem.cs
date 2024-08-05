@@ -40,6 +40,11 @@ public class FinalFactorySystem : MonoBehaviour
     private GameObject switchPanelDismissVar;
     private GameObject switchPanelActivateVar;
 
+    [Header("Object References: Audio")]
+    [SerializeField] private AudioSource buttonSfxSource;
+    [SerializeField] private AudioClip buttonInSfx;
+    [SerializeField] private AudioClip buttonOutSfx;
+
     private void OnEnable()
     {
         SetUpDDOLManager();
@@ -166,11 +171,19 @@ public class FinalFactorySystem : MonoBehaviour
 
     public void ActivateDispensers()
     {
+        buttonSfxSource.clip = buttonInSfx;
+        buttonSfxSource.Play();
         for (int i = 0; i < productionLineAmount; i++)
         {
             string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
             productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
         }
+    }
+
+    public void FinishDispensing()
+    {
+        buttonSfxSource.clip = buttonOutSfx;
+        buttonSfxSource.Play();
     }
 
     public enum PrestigeLevel
