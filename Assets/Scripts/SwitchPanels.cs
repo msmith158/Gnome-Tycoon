@@ -10,6 +10,7 @@ public class SwitchPanels : MonoBehaviour
     private float activationTime;
     private Vector3 dismissalLocation;
     private Vector3 activationLocation;
+    private int methodRunMode = 0;
 
     public void SetAsDismissingPanelObject(GameObject panelToDismiss)
     {
@@ -41,10 +42,38 @@ public class SwitchPanels : MonoBehaviour
         activationLocation = newActivationLocation.transform.position;
     }
 
+    public void SetDismissalValuesThroughScript(GameObject panelToDismiss, float dismissTime, GameObject newDismissalLocation, int mode)
+    {
+        objectToDismiss = panelToDismiss;
+        dismissalTime = dismissTime;
+        dismissalLocation = newDismissalLocation.transform.position;
+        methodRunMode = mode;
+    }
+
+    public void SetActivationValuesThroughScript(GameObject panelToActivate, float activeTime, GameObject newActivationLocation, int mode)
+    {
+        objectToActivate = panelToActivate;
+        activationTime = activeTime;
+        activationLocation = newActivationLocation.transform.position;
+        methodRunMode = mode;
+    }
+
     public void ExecuteSmooth()
     {
-        StartCoroutine(SmoothSwitchDismissal());
-        StartCoroutine(SmoothSwitchActivation());
+        switch (methodRunMode)
+        {
+            case 0:
+                StartCoroutine(SmoothSwitchDismissal());
+                StartCoroutine(SmoothSwitchActivation());
+                break;
+            case 1:
+                StartCoroutine(SmoothSwitchDismissal());
+                break;
+            case 2:
+                StartCoroutine(SmoothSwitchActivation());
+                break;
+        }
+        
     }
 
     IEnumerator SmoothSwitchDismissal()
@@ -58,6 +87,8 @@ public class SwitchPanels : MonoBehaviour
             yield return null;
         }
         objectToDismiss.transform.position = dismissalLocation;
+        // Reset to 0 to allow Event systems to run without issues
+        methodRunMode = 0;
     }
 
     IEnumerator SmoothSwitchActivation()
@@ -71,5 +102,7 @@ public class SwitchPanels : MonoBehaviour
             yield return null;
         }
         objectToActivate.transform.position = activationLocation;
+        // Reset to 0 to allow Event systems to run without issues
+        methodRunMode = 0;
     }
 }

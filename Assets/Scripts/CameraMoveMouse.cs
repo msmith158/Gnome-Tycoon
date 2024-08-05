@@ -12,22 +12,16 @@ public class CameraMoveMouse : MonoBehaviour
     [SerializeField] private float maxZoom = 15.0f;
     [SerializeField] private Vector3 minBounds;
     [SerializeField] private Vector3 maxBounds;
-    [SerializeField] private List<ParticleSystem> particlesToFollowZ = new List<ParticleSystem>();
-    [SerializeField] private float particleFollowZOffset;
+    [SerializeField] private List<GameObject> objectsToFollowZ = new List<GameObject>();
+    [SerializeField] private float objectFollowZOffset;
 
     private Vector3 dragOrigin;
     private bool isDragging = false;
     private Vector3 resetCameraPosition;
-    private Camera particleCamera;
 
     private void Start()
     {
         resetCameraPosition = _camera.transform.position;
-    }
-
-    private void OnEnable()
-    {
-        particleCamera = _camera.transform.GetChild(0).GetComponent<Camera>();
     }
 
     private void LateUpdate()
@@ -60,9 +54,9 @@ public class CameraMoveMouse : MonoBehaviour
             newPosition.z = Mathf.Clamp(newPosition.z, minBounds.z, maxBounds.z);
 
             _camera.transform.position = new Vector3(newPosition.x, _camera.transform.position.y, newPosition.z);
-            for (int i = 0; i < particlesToFollowZ.Count; i++)
+            for (int i = 0; i < objectsToFollowZ.Count; i++)
             {
-                particlesToFollowZ[i].transform.position = new Vector3(particlesToFollowZ[i].transform.position.x, particlesToFollowZ[i].transform.position.y, newPosition.z + particleFollowZOffset);
+                objectsToFollowZ[i].transform.position = new Vector3(objectsToFollowZ[i].transform.position.x, objectsToFollowZ[i].transform.position.y, newPosition.z + objectFollowZOffset);
             }
         }
     }

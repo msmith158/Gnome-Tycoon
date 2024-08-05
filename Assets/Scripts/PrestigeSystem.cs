@@ -16,7 +16,7 @@ public class PrestigeSystem : MonoBehaviour
 
     [Header("Object References")]
     [SerializeField] private FinalFactorySystem sys;
-    [SerializeField] private PrototypeFinalPrestigeSystem finalPrestigeSys;
+    [SerializeField] private PrestigeSequenceSystem finalPrestigeSys;
     [SerializeField] private List<FinalUpgrades> upgradeSys = new List<FinalUpgrades>();
     [SerializeField] private List<FinalDispenser> dispensers = new List<FinalDispenser>();
     [SerializeField] private List<FinalConveyor> conveyors = new List<FinalConveyor>();
@@ -232,18 +232,9 @@ public class PrestigeSystem : MonoBehaviour
             }
         }
 
-        Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
-    }
+        StartCoroutine(finalPrestigeSys.DoPrestigePhase());
 
-    private void PrestigePhase(bool startOrEnd)
-    {
-        switch (startOrEnd)
-        {
-            case true:
-                break;
-            case false:
-                break;
-        }
+        Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
     }
 
     private void PromptWindow()

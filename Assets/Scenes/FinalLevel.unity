@@ -10921,7 +10921,7 @@ MonoBehaviour:
   manufacturerDecreasePercent: 0.1
   priceIncreasePercent: 0.5
   sys: {fileID: 1095546606}
-  finalPrestigeSys: {fileID: 1679194115}
+  finalPrestigeSys: {fileID: 1679194116}
   upgradeSys:
   - {fileID: 670819352}
   - {fileID: 725734642}
@@ -17724,7 +17724,7 @@ MonoBehaviour:
   manufacturerDecreasePercent: 0.2
   priceIncreasePercent: 1
   sys: {fileID: 1095546606}
-  finalPrestigeSys: {fileID: 1679194115}
+  finalPrestigeSys: {fileID: 1679194116}
   upgradeSys:
   - {fileID: 670819352}
   - {fileID: 725734642}
@@ -20047,7 +20047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -720, y: -960}
+  m_AnchoredPosition: {x: -1400, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &754205792
@@ -20426,7 +20426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 360, y: -950}
+  m_AnchoredPosition: {x: -320, y: -50}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &777500702
@@ -28146,10 +28146,8 @@ MonoBehaviour:
   maxZoom: 15
   minBounds: {x: -10, y: 0, z: 5}
   maxBounds: {x: 70, y: 0, z: 65}
-  particlesToFollowZ:
-  - {fileID: 882636325}
-  - {fileID: 1452091687}
-  particleFollowZOffset: -40
+  objectsToFollowZ: []
+  objectFollowZOffset: 0
 --- !u!114 &917814197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29431,7 +29429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 720, y: -960}
+  m_AnchoredPosition: {x: 1400, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964360921
@@ -36284,7 +36282,7 @@ MonoBehaviour:
   manufacturerDecreasePercent: 0
   priceIncreasePercent: 0
   sys: {fileID: 1095546606}
-  finalPrestigeSys: {fileID: 1679194115}
+  finalPrestigeSys: {fileID: 1679194116}
   upgradeSys:
   - {fileID: 670819352}
   - {fileID: 725734642}
@@ -48141,7 +48139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: -950}
+  m_AnchoredPosition: {x: 320, y: -50}
   m_SizeDelta: {x: 600, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509662431
@@ -48212,10 +48210,10 @@ RectTransform:
   m_Children:
   - {fileID: 1676150600}
   - {fileID: 1105133938}
-  - {fileID: 1808492410}
   - {fileID: 754205791}
-  - {fileID: 1571090997}
+  - {fileID: 1808492410}
   - {fileID: 964360920}
+  - {fileID: 1571090997}
   m_Father: {fileID: 242331128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -52028,7 +52026,7 @@ MonoBehaviour:
   manufacturerDecreasePercent: 0.3
   priceIncreasePercent: 1.5
   sys: {fileID: 1095546606}
-  finalPrestigeSys: {fileID: 1679194115}
+  finalPrestigeSys: {fileID: 1679194116}
   upgradeSys:
   - {fileID: 670819352}
   - {fileID: 725734642}
@@ -52899,7 +52897,7 @@ GameObject:
   - component: {fileID: 1679194115}
   - component: {fileID: 1679194116}
   m_Layer: 5
-  m_Name: finalPrestigeHandler
+  m_Name: prestigeSequenceHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53040,21 +53038,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b04cb4587e14b4ebc40b375470659b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standardSequenceDelay: 2
+  switchAwayTimeStandard:
+  - 0.3
+  - 0.3
+  switchToTimeStandard:
+  - 0.3
+  - 0.3
   alarmDelayTime: 2
   delayUntilCountdown: 5
   countdownTimer: 10
   delayAfterNuke: 3.5
   nukeParticlesDelay: 2.6
   delayAfterFadeOut: 3
+  uiToDisableStandard:
+  - {fileID: 1486817315}
+  - {fileID: 2013700667}
+  - {fileID: 636105028}
+  - {fileID: 242655324}
+  - {fileID: 798740691}
+  - {fileID: 1501296679}
+  uiToEnableStandard:
+  - {fileID: 1486817315}
+  - {fileID: 2013700667}
+  - {fileID: 636105028}
+  - {fileID: 242655324}
+  - {fileID: 798740691}
+  - {fileID: 1501296679}
+  uiToSwitchAwayStandard:
+  - {fileID: 1384334421}
+  - {fileID: 1509662429}
+  uiToSwitchAwayLocations:
+  - {fileID: 1676150599}
+  - {fileID: 964360919}
+  uiToSwitchToStandard:
+  - {fileID: 1384334421}
+  uiToSwitchToLocations:
+  - {fileID: 1105133937}
   sys: {fileID: 1095546606}
-  conveyors:
-  - {fileID: 1218973847}
-  - {fileID: 1191192557}
-  - {fileID: 1454708224}
-  - {fileID: 1459449874}
-  - {fileID: 486588557}
-  - {fileID: 2044665510}
-  - {fileID: 715084897}
   camShake: {fileID: 577573454}
   emerLightMaterial: {fileID: 2100000, guid: d4f0c779422b274488ab8b9aee653942, type: 2}
   nukeLight: {fileID: 1776627249}
@@ -53105,6 +53126,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   ddolSys: {fileID: 0}
+  panelSwitchSys: {fileID: 1095546607}
   sceneToLoad: FinalLevel
   switchOffSource: {fileID: 172511929}
   generatorOffSource: {fileID: 871543258}
@@ -53119,17 +53141,8 @@ MonoBehaviour:
   nuke: {fileID: 8300000, guid: 0124a7306102d0f44aa261cd0d84dc6c, type: 3}
   siren: {fileID: 8300000, guid: 68b8c12e20ad284438105a75ab866eaf, type: 3}
   outsideNuke: {fileID: 24300002, guid: d0d72b2067b28904399214efd70ab9e7, type: 2}
-  uiToDisable:
-  - {fileID: 1384334421}
-  - {fileID: 1509662429}
-  - {fileID: 1501296679}
-  - {fileID: 798740691}
-  - {fileID: 1486817315}
-  - {fileID: 2013700667}
-  - {fileID: 636105028}
-  - {fileID: 242655324}
-  uiToEnable:
-  - {fileID: 1939962529}
+  uiToDisableNuke: []
+  uiToEnableNuke: []
   lightsToTurnOff:
   - {fileID: 251553355}
   - {fileID: 2041411201}
@@ -53143,6 +53156,14 @@ MonoBehaviour:
   nukeParticles:
   - {fileID: 882636325}
   - {fileID: 1452091687}
+  conveyors:
+  - {fileID: 1218973847}
+  - {fileID: 1191192557}
+  - {fileID: 1454708224}
+  - {fileID: 1459449874}
+  - {fileID: 486588557}
+  - {fileID: 2044665510}
+  - {fileID: 715084897}
 --- !u!1 &1679685330
 GameObject:
   m_ObjectHideFlags: 0
@@ -56492,7 +56513,7 @@ MonoBehaviour:
   manufacturerDecreasePercent: 0.4
   priceIncreasePercent: 2
   sys: {fileID: 1095546606}
-  finalPrestigeSys: {fileID: 1679194115}
+  finalPrestigeSys: {fileID: 1679194116}
   upgradeSys:
   - {fileID: 670819352}
   - {fileID: 725734642}
@@ -57852,7 +57873,7 @@ MonoBehaviour:
   manufacturerDecreasePercent: 0.5
   priceIncreasePercent: 2.5
   sys: {fileID: 1095546606}
-  finalPrestigeSys: {fileID: 1679194115}
+  finalPrestigeSys: {fileID: 1679194116}
   upgradeSys:
   - {fileID: 670819352}
   - {fileID: 725734642}
