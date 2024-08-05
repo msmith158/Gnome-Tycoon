@@ -6,9 +6,14 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class FinalPrestigeSystem : MonoBehaviour
+public class PrestigeSequenceSystem : MonoBehaviour
 {
-    [Header("Values")]
+    [Header("Standard Sequence > Values")]
+    [SerializeField] private float standardSequenceDelay;
+    [SerializeField] private List<float> switchAwayTimeStandard = new List<float>();
+    [SerializeField] private List<float> switchToTimeStandard = new List<float>();
+
+    [Header("Nuke Sequence > Values")]
     [SerializeField] private float alarmDelayTime;
     [SerializeField] private float delayUntilCountdown;
     [SerializeField] private float countdownTimer;
@@ -18,9 +23,16 @@ public class FinalPrestigeSystem : MonoBehaviour
     private Color emissiveColor = Color.red;
     private float timeElapsed;
 
-    [Header("Object References: General")]
+    [Header("Standard Sequence > Object References > Lists")]
+    [SerializeField] private List<GameObject> uiToDisableStandard = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToEnableStandard = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToSwitchAwayStandard = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToSwitchAwayLocations = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToSwitchToStandard = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToSwitchToLocations = new List<GameObject>();
+
+    [Header("Nuke Sequence > Object References > General")]
     [SerializeField] private FinalFactorySystem sys;
-    [SerializeField] private List<FinalConveyor> conveyors = new List<FinalConveyor>();
     [SerializeField] private PrototypeCameraShake camShake;
     [SerializeField] private Material emerLightMaterial;
     [SerializeField] private Light nukeLight;
@@ -30,8 +42,9 @@ public class FinalPrestigeSystem : MonoBehaviour
     [SerializeField] private GameObject whiteScreen;
     [SerializeField] private AnimationCurve nukeSequenceShake;
     [SerializeField] private PrototypeDDOLManager ddolSys;
+    [SerializeField] private SwitchPanels panelSwitchSys;
     [SerializeField] private string sceneToLoad;
-    [Header("Object References: Audio")]
+    [Header("Nuke Sequence > Object References > Audio")]
     [SerializeField] private AudioSource switchOffSource;
     [SerializeField] private AudioSource generatorOffSource;
     [SerializeField] private AudioSource alarmSource;
@@ -45,12 +58,13 @@ public class FinalPrestigeSystem : MonoBehaviour
     [SerializeField] private AudioClip nuke;
     [SerializeField] private AudioClip siren;
     [SerializeField] private AudioMixerGroup outsideNuke;
-    [Header("Object References: Lists")]
-    [SerializeField] private List<GameObject> uiToDisable = new List<GameObject>();
-    [SerializeField] private List<GameObject> uiToEnable = new List<GameObject>();
-    [SerializeField] private List<Light> lightsToTurnOff = new List<Light>();
+    [Header("Nuke Sequence > Object References > Lists")]
+    [SerializeField] private List<GameObject> uiToDisableNuke = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToEnableNuke = new List<GameObject>();
+    public List<Light> lightsToTurnOff = new List<Light>();
     [SerializeField] private List<Light> emergencyLights = new List<Light>();
     [SerializeField] private List<ParticleSystem> nukeParticles = new List<ParticleSystem>();
+    [SerializeField] private List<FinalConveyor> conveyors = new List<FinalConveyor>();
 
     public void OnEnable()
     {
@@ -62,7 +76,7 @@ public class FinalPrestigeSystem : MonoBehaviour
         StartCoroutine(NukeSequence());
     }
 
-    public IEnumerator NukeSequence()
+    private IEnumerator NukeSequence()
     {
         // The beginning of the sequence, power turns off
         for (int i = 0; i < lightsToTurnOff.Count; i++)
@@ -79,9 +93,9 @@ public class FinalPrestigeSystem : MonoBehaviour
             generatorOffSource.clip = generatorOff;
             generatorOffSource.Play();
         }
-        for (int i = 0; i < uiToDisable.Count; i++)
+        for (int i = 0; i < uiToDisableNuke.Count; i++)
         {
-            uiToDisable[i].SetActive(false);
+            uiToDisableNuke[i].SetActive(false);
         }
         for (int i = 0; i < conveyors.Count; i++)
         {
@@ -116,9 +130,9 @@ public class FinalPrestigeSystem : MonoBehaviour
         yield return new WaitForSeconds(delayUntilCountdown - 3f);
 
         // The countdown timer begins
-        for (int i = 0; i < uiToEnable.Count; i++)
+        for (int i = 0; i < uiToEnableNuke.Count; i++)
         {
-            uiToEnable[i].SetActive(true);
+            uiToEnableNuke[i].SetActive(true);
         }
         clockSource.PlayOneShot(clock);
 
@@ -187,7 +201,7 @@ public class FinalPrestigeSystem : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
-    IEnumerator ProgrammedNukeShake()
+    private IEnumerator ProgrammedNukeShake()
     {
         float timeElapsed = 0;
         camShake.isShaking = true;
@@ -202,7 +216,7 @@ public class FinalPrestigeSystem : MonoBehaviour
         }
     }
 
-    IEnumerator SetDelayedParticles(bool enable)
+    private IEnumerator SetDelayedParticles(bool enable)
     {
         switch (enable)
         {
@@ -219,6 +233,54 @@ public class FinalPrestigeSystem : MonoBehaviour
                     nukeParticle.Stop();
                 }
                 break;
+        }
+    }
+
+    // Prestige sequence for when normal prestige levels are attained
+    public IEnumerator DoPrestigePhase()
+    {
+        // Shut all the factory equipment down 
+        foreach (Light lights in lightsToTurnOff)
+        {
+            lights.enabled = false;
+        }
+        if (!switchOffSource.isPlaying)
+        {
+            switchOffSource.clip = switchOff;
+            switchOffSource.Play();
+        }
+        if (!generatorOffSource.isPlaying)
+        {
+            generatorOffSource.clip = generatorOff;
+            generatorOffSource.Play();
+        }
+        for (int i = 0; i < uiToSwitchAwayStandard.Count; i++)
+        {
+            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayStandard[i], switchAwayTimeStandard[i], uiToSwitchAwayLocations[i], 1);
+            panelSwitchSys.ExecuteSmooth();
+        }
+        for (int i = 0; i < uiToDisableStandard.Count; i++)
+        {
+            uiToDisableStandard[i].SetActive(false);
+        }
+
+        yield return new WaitForSeconds(standardSequenceDelay);
+
+        foreach (Light lights in lightsToTurnOff)
+        {
+            lights.enabled = true;
+        }
+
+        // CODE HERE FOR THE SOUNDS OF TURNING BACK ON
+
+        for (int i = 0; i < uiToSwitchToStandard.Count; i++)
+        {
+            panelSwitchSys.SetActivationValuesThroughScript(uiToSwitchToStandard[i], switchToTimeStandard[i], uiToSwitchToLocations[i], 2);
+            panelSwitchSys.ExecuteSmooth();
+        }
+        for (int i = 0; i < uiToEnableStandard.Count; i++)
+        {
+            uiToEnableStandard[i].SetActive(true);
         }
     }
 }
