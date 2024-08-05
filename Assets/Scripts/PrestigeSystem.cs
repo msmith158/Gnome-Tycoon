@@ -235,6 +235,17 @@ public class PrestigeSystem : MonoBehaviour
         Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
     }
 
+    private void PrestigePhase(bool startOrEnd)
+    {
+        switch (startOrEnd)
+        {
+            case true:
+                break;
+            case false:
+                break;
+        }
+    }
+
     private void PromptWindow()
     {
         promptParent.SetActive(true);

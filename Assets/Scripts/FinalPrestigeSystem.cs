@@ -20,7 +20,7 @@ public class FinalPrestigeSystem : MonoBehaviour
 
     [Header("Object References: General")]
     [SerializeField] private FinalFactorySystem sys;
-    [SerializeField] private FinalConveyor conveyor;
+    [SerializeField] private List<FinalConveyor> conveyors = new List<FinalConveyor>();
     [SerializeField] private PrototypeCameraShake camShake;
     [SerializeField] private Material emerLightMaterial;
     [SerializeField] private Light nukeLight;
@@ -30,6 +30,7 @@ public class FinalPrestigeSystem : MonoBehaviour
     [SerializeField] private GameObject whiteScreen;
     [SerializeField] private AnimationCurve nukeSequenceShake;
     [SerializeField] private PrototypeDDOLManager ddolSys;
+    [SerializeField] private string sceneToLoad;
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource switchOffSource;
     [SerializeField] private AudioSource generatorOffSource;
@@ -82,7 +83,10 @@ public class FinalPrestigeSystem : MonoBehaviour
         {
             uiToDisable[i].SetActive(false);
         }
-        conveyor.enabled = false;
+        for (int i = 0; i < conveyors.Count; i++)
+        {
+            conveyors[i].enabled = false;
+        }
 
         yield return new WaitForSeconds(alarmDelayTime);
 
@@ -145,7 +149,7 @@ public class FinalPrestigeSystem : MonoBehaviour
         nukeAmbientLight.GetComponent<Animator>().enabled = true;
         alarmSource.Stop();
         StartCoroutine(ProgrammedNukeShake());
-        StartCoroutine(DelayedParticles());
+        StartCoroutine(SetDelayedParticles(true));
         yield return new WaitForSeconds(1);
         timerText.enabled = false;
         sirenSource.Stop();
@@ -160,6 +164,7 @@ public class FinalPrestigeSystem : MonoBehaviour
         yield return new WaitForSeconds(delayAfterNuke - 1);
 
         // The nuke finally hits and the screen goes white
+        StartCoroutine(SetDelayedParticles(false));
         whiteScreen.GetComponent<Image>().enabled = true;
         whiteScreen.GetComponent<Image>().CrossFadeAlpha(1, 0.5f, false);
         yield return new WaitForSeconds(1.5f);
@@ -179,7 +184,7 @@ public class FinalPrestigeSystem : MonoBehaviour
 
         // The ending of the nuke sequence, restarting everything.
         ddolSys.resetTimes++;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
     IEnumerator ProgrammedNukeShake()
@@ -197,12 +202,23 @@ public class FinalPrestigeSystem : MonoBehaviour
         }
     }
 
-    IEnumerator DelayedParticles()
+    IEnumerator SetDelayedParticles(bool enable)
     {
-        yield return new WaitForSeconds(nukeParticlesDelay);
-        foreach (ParticleSystem nukeParticle in nukeParticles)
+        switch (enable)
         {
-            nukeParticle.Play();
+            case true:
+                yield return new WaitForSeconds(nukeParticlesDelay);
+                foreach (ParticleSystem nukeParticle in nukeParticles)
+                {
+                    nukeParticle.Play();
+                }
+                break;
+            case false:
+                foreach (ParticleSystem nukeParticle in nukeParticles)
+                {
+                    nukeParticle.Stop();
+                }
+                break;
         }
     }
 }

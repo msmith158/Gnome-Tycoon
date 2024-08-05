@@ -13,6 +13,6 @@ public class PrototypeDDOLManager : MonoBehaviour
     void OnEnable()
     {
         DontDestroyOnLoad(this.gameObject);
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadSceneAsync(sceneToLoad);
     }
 }
