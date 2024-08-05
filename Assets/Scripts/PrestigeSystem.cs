@@ -217,14 +217,14 @@ public class PrestigeSystem : MonoBehaviour
             upgradeSys[i].SendMessage("ResetAndAdjustPrices", priceIncreasePercent);
         }
 
-        for (int i1 = 0; i1 < dispensers.Count; i1++)
+        for (int i = 0; i < dispensers.Count; i++)
         {
-            switch (dispensers[i1].isActiveAndEnabled)
+            switch (dispensers[i].isActiveAndEnabled)
             {
                 case true:
-                    for (int i2 = 0; i2 < dispensers[i1].objectsList.Count; i2++)
+                    for (int j = 0; j < dispensers[i].objectsList.Count; j++)
                     {
-                        Destroy(dispensers[i2].objectsList[i2]);
+                        Destroy(dispensers[i].objectsList[j]);
                     }
                     break;
                 case false:
