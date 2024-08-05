@@ -47688,6 +47688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679194114}
   - component: {fileID: 1679194115}
+  - component: {fileID: 1679194116}
   m_Layer: 5
   m_Name: finalPrestigeHandler
   m_TagString: Untagged
@@ -47721,7 +47722,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679194113}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c28d2faee47d0d45add8a6ddec4e5d5, type: 3}
   m_Name: 
@@ -47818,6 +47819,94 @@ MonoBehaviour:
   - {fileID: 305319317}
   nukeParticles:
   - {fileID: 882636325}
+--- !u!114 &1679194116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679194113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b04cb4587e14b4ebc40b375470659b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alarmDelayTime: 2
+  delayUntilCountdown: 5
+  countdownTimer: 10
+  delayAfterNuke: 3.5
+  nukeParticlesDelay: 2.6
+  delayAfterFadeOut: 0
+  sys: {fileID: 0}
+  conveyor: {fileID: 0}
+  camShake: {fileID: 0}
+  emerLightMaterial: {fileID: 0}
+  nukeLight: {fileID: 0}
+  nukeAmbientLight: {fileID: 0}
+  timerText: {fileID: 0}
+  emerLightAnim: {fileID: 0}
+  whiteScreen: {fileID: 0}
+  nukeSequenceShake:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.2
+      inSlope: -0.4500466
+      outSlope: -0.4500466
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.055374783
+    - serializedVersion: 3
+      time: 0.48316336
+      value: 0.04428021
+      inSlope: -0.20800456
+      outSlope: -0.10518972
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.110633686
+    - serializedVersion: 3
+      time: 2.25
+      value: 0.01
+      inSlope: -0.01087996
+      outSlope: 0.18015715
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.15023248
+      outWeight: 0.22141933
+    - serializedVersion: 3
+      time: 3.25
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08164835
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ddolSys: {fileID: 0}
+  switchOffSource: {fileID: 0}
+  generatorOffSource: {fileID: 0}
+  alarmSource: {fileID: 0}
+  clockSource: {fileID: 0}
+  nukeSource: {fileID: 0}
+  sirenSource: {fileID: 0}
+  switchOff: {fileID: 0}
+  generatorOff: {fileID: 0}
+  alarm: {fileID: 0}
+  clock: {fileID: 0}
+  nuke: {fileID: 0}
+  siren: {fileID: 0}
+  outsideNuke: {fileID: 0}
+  uiToDisable: []
+  uiToEnable: []
+  lightsToTurnOff: []
+  emergencyLights: []
+  nukeParticles: []
 --- !u!1 &1679685330
 GameObject:
   m_ObjectHideFlags: 0
