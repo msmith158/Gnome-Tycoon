@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.017499045, g: 0.025350958, b: 0.037963193, a: 1}
+  m_IndirectSpecularColor: {r: 0.017499126, g: 0.025351053, b: 0.037963424, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53632,7 +53632,7 @@ MonoBehaviour:
   switchOff: {fileID: 8300000, guid: daa22a701530f3c458a916327bc8a038, type: 3}
   generatorOff: {fileID: 8300000, guid: c3cb2efb09d172441a977707649d59e1, type: 3}
   alarm: {fileID: 8300000, guid: dccb7d6cbe989cf40afca33d28ae6fe7, type: 3}
-  computerAlarm: {fileID: 8300000, guid: 47a9c09f62f38864ba1b3dcf6bc4100a, type: 3}
+  computerAlarm: {fileID: 8300000, guid: ebd6b2ac11e6fa246a4e074b4b6fb66f, type: 3}
   clock: {fileID: 8300000, guid: 2aa182cfc266b884cb3708b3f54f7bd4, type: 3}
   nuke: {fileID: 8300000, guid: 0124a7306102d0f44aa261cd0d84dc6c, type: 3}
   siren: {fileID: 8300000, guid: 68b8c12e20ad284438105a75ab866eaf, type: 3}
