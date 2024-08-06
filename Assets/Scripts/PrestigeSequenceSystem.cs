@@ -17,6 +17,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [Header("Nuke Sequence > Values")]
     [SerializeField] private float alarmDelayTime;
     [SerializeField] private float delayUntilCountdown;
+    [SerializeField] private float flashingInTextInterval;
+    [SerializeField] private float flashingOutTextInterval;
     [SerializeField] private float countdownTimer;
     [SerializeField] private float delayAfterNuke;
     [SerializeField] private float nukeParticlesDelay;
@@ -26,6 +28,9 @@ public class PrestigeSequenceSystem : MonoBehaviour
 
     [Header("Standard Sequence > Object References > General")]
     [SerializeField] private TextMeshProUGUI prestigingText;
+
+    [Header("Standard Sequence > Object References > Audio")]
+    [SerializeField] private AudioSource musicSource1;
 
     [Header("Standard Sequence > Object References > Lists")]
     [SerializeField] private List<GameObject> uiToDisableStandard = new List<GameObject>();
@@ -86,6 +91,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     private IEnumerator NukeSequence()
     {
         // The beginning of the sequence, power turns off
+        musicSource1.Stop();
         for (int i = 0; i < lightsToTurnOff.Count; i++)
         {
             lightsToTurnOff[i].enabled = false;
@@ -142,11 +148,20 @@ public class PrestigeSequenceSystem : MonoBehaviour
         yield return new WaitForSeconds(delayUntilCountdown - 3f);
 
         // The countdown timer begins
-        alarmSource.PlayOneShot(computerAlarm);
         for (int i = 0; i < uiToEnableNuke.Count; i++)
         {
             uiToEnableNuke[i].SetActive(true);
         }
+        alarmSource.PlayOneShot(computerAlarm);
+        timerText.text = "WARNING: Nuclear Protocol Activated";
+        yield return new WaitForSeconds(flashingInTextInterval);
+        timerText.enabled = false;
+        yield return new WaitForSeconds(flashingOutTextInterval);
+        timerText.enabled = true;
+        yield return new WaitForSeconds(flashingInTextInterval);
+        timerText.enabled = false;
+        yield return new WaitForSeconds(flashingOutTextInterval);
+        timerText.enabled = true;
         clockSource.PlayOneShot(clock);
 
         for (float timer = countdownTimer; timer > 0; timer -= Time.deltaTime)
@@ -170,6 +185,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
             nukeSource.loop = false;
             nukeSource.Play();
         }
+        timerText.text = "0.00";
         nukeLight.gameObject.SetActive(true);
         nukeAmbientLight.gameObject.SetActive(true);
         nukeLight.GetComponent<Animator>().enabled = true;
@@ -276,6 +292,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
         {
             uiToDisableStandard[i].SetActive(false);
         }
+        musicSource1.Pause();
 
         isFinishedPrestige = false;
         prestigingText.gameObject.SetActive(true);
@@ -290,6 +307,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
         }
 
         // CODE HERE FOR THE SOUNDS OF TURNING BACK ON
+        musicSource1.Play();
 
         for (int i = 0; i < uiToSwitchToStandard.Count; i++)
         {
