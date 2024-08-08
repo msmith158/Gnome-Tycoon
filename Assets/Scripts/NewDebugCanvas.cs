@@ -19,6 +19,7 @@ public class NewDebugCanvas : MonoBehaviour
     public bool enableFPSCounter;
     public bool enableFrameTiming;
     public bool enableLevelName;
+    public bool enableResAndAspect;
     [Header("Object State Metrics")]
     public bool enableVelocityMetric;
 
@@ -30,6 +31,7 @@ public class NewDebugCanvas : MonoBehaviour
     private string frameTimingString = "";
     private string levelNameString = "";
     private string velocityMetricString = "";
+    private string resAndAspectString = "";
 
     // Framerate values
     [Header("Metrics Settings")]
@@ -56,6 +58,7 @@ public class NewDebugCanvas : MonoBehaviour
         boolDictionary.Add(frameTimingString, enableFrameTiming);
         boolDictionary.Add(levelNameString, enableLevelName);
         boolDictionary.Add(velocityMetricString, enableVelocityMetric);
+        boolDictionary.Add(resAndAspectString, enableResAndAspect);
 
         // Reset list per draw to get fresh stats
         debugList.Clear();
@@ -95,16 +98,12 @@ public class NewDebugCanvas : MonoBehaviour
             case true:
                 Framerate();
                 break;
-            case false:
-                break;
         }
 
         switch (enableFrameTiming)
         {
             case true:
                 FrameTiming();
-                break;
-            case false:
                 break;
         }
 
@@ -113,8 +112,6 @@ public class NewDebugCanvas : MonoBehaviour
             case true:
                 LevelName();
                 break;
-            case false:
-                break;
         }
 
         switch (enableVelocityMetric)
@@ -122,7 +119,12 @@ public class NewDebugCanvas : MonoBehaviour
             case true:
                 VelocityMeasurement();
                 break;
-            case false:
+        }
+
+        switch (enableResAndAspect)
+        {
+            case true:
+                ResAndAspect();
                 break;
         }
     }
@@ -159,5 +161,13 @@ public class NewDebugCanvas : MonoBehaviour
     private void VelocityMeasurement()
     {
         
+    }
+
+    private void ResAndAspect()
+    {
+        float screenResW = Screen.width;
+        float screenResH = Screen.height;
+        float aspect = Camera.main.aspect;
+        resAndAspectString = "Screen: " + screenResW.ToString() + "x" + screenResH.ToString() + ", " + aspect; 
     }
 }
