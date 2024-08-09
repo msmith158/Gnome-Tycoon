@@ -34,7 +34,7 @@ public class FinalFactorySystem : MonoBehaviour
     [Header("Object References: General")]
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI coinText;
-    [SerializeField] private List<GameObject> productionLines = new List<GameObject>();
+    public List<GameObject> productionLines = new List<GameObject>();
     public List<GameObject> oneOffObjects = new List<GameObject>();
     private PrototypeGnomeCoinSystem ddolManager;
     private GameObject switchPanelDismissVar;

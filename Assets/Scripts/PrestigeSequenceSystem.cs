@@ -17,8 +17,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [Header("Nuke Sequence > Values")]
     [SerializeField] private float alarmDelayTime;
     [SerializeField] private float delayUntilCountdown;
-    [SerializeField] private float flashingInTextInterval;
-    [SerializeField] private float flashingOutTextInterval;
+    [SerializeField] private float flashingInInterval;
+    [SerializeField] private float flashingOutInterval;
     [SerializeField] private float countdownTimer;
     [SerializeField] private float delayAfterNuke;
     [SerializeField] private float nukeParticlesDelay;
@@ -28,6 +28,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
 
     [Header("Standard Sequence > Object References > General")]
     [SerializeField] private TextMeshProUGUI prestigingText;
+    [SerializeField] private Image redVignette;
 
     [Header("Standard Sequence > Object References > Audio")]
     [SerializeField] private AudioSource musicSource1;
@@ -73,6 +74,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [Header("Nuke Sequence > Object References > Lists")]
     [SerializeField] private List<GameObject> uiToDisableNuke = new List<GameObject>();
     [SerializeField] private List<GameObject> uiToEnableNuke = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToFlashNuke = new List<GameObject>();
     public List<Light> lightsToTurnOff = new List<Light>();
     [SerializeField] private List<Light> emergencyLights = new List<Light>();
     [SerializeField] private List<ParticleSystem> nukeParticles = new List<ParticleSystem>();
@@ -154,13 +156,15 @@ public class PrestigeSequenceSystem : MonoBehaviour
         }
         alarmSource.PlayOneShot(computerAlarm);
         timerText.text = "WARNING: Nuclear Protocol Activated";
-        yield return new WaitForSeconds(flashingInTextInterval);
+        redVignette.gameObject.SetActive(true);
+        yield return new WaitForSeconds(flashingInInterval);
+        redVignette.enabled = false;
+        yield return new WaitForSeconds(flashingOutInterval);
+        redVignette.enabled = true;
+        yield return new WaitForSeconds(flashingInInterval);
+        redVignette.enabled = false;
         timerText.enabled = false;
-        yield return new WaitForSeconds(flashingOutTextInterval);
-        timerText.enabled = true;
-        yield return new WaitForSeconds(flashingInTextInterval);
-        timerText.enabled = false;
-        yield return new WaitForSeconds(flashingOutTextInterval);
+        yield return new WaitForSeconds(flashingOutInterval);
         timerText.enabled = true;
         clockSource.PlayOneShot(clock);
 
@@ -186,6 +190,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
             nukeSource.Play();
         }
         timerText.text = "0.00";
+        redVignette.enabled = true;
         nukeLight.gameObject.SetActive(true);
         nukeAmbientLight.gameObject.SetActive(true);
         nukeLight.GetComponent<Animator>().enabled = true;
@@ -193,10 +198,12 @@ public class PrestigeSequenceSystem : MonoBehaviour
         alarmSource.Stop();
         StartCoroutine(ProgrammedNukeShake());
         StartCoroutine(SetDelayedParticles(true));
-        yield return new WaitForSeconds(1);
-        timerText.enabled = false;
         sirenSource.Stop();
         sirenSource.outputAudioMixerGroup = null;
+        yield return new WaitForSeconds(1);
+        // The moment after the nuke where the text disappears
+        timerText.enabled = false;
+        redVignette.enabled = false;
         for (int i = 0; i < emergencyLights.Count; i++)
         {
             emergencyLights[i].GetComponent<Animator>().enabled = false;
