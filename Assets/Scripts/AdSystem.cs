@@ -16,6 +16,7 @@ public class AdSystem : MonoBehaviour
     [SerializeField] private bool allowForAdSkip = true;
     [SerializeField] private int secondsToSkip;
     [SerializeField] private int coinsToReward;
+    private bool endTrigger = false;
 
     [Header("Object References")]
     [SerializeField] private Image blackScreen;
@@ -33,7 +34,7 @@ public class AdSystem : MonoBehaviour
     }
 
     public void PlayFakeAd() { StartCoroutine(PlayAd()); }
-    public void SkipAd() { StartCoroutine(EndVideo()); }
+    public void SkipAd() { StopCoroutine(PlayAd()); StartCoroutine(EndVideo()); }
 
     private void GiveReward()
     {
@@ -60,33 +61,45 @@ public class AdSystem : MonoBehaviour
                 break;
             case >0:
                 int videoSelection = Random.Range(0, videos.Count);
-                Debug.Log(videoSelection);
                 videoPlayer.clip = videos[videoSelection];
                 break;
         }
         rawImage.enabled = true;
         videoPlayer.enabled = true;
         videoPlayer.Play();
-        Debug.Log("Hehehehaw");
         
         switch (allowForAdSkip)
         {
             case true:
-                Debug.Log("Haiya");
                 StartCoroutine(SkipAdFeature());
                 break;
             case false:
-                Debug.Log("Bruh moment");
                 break;
         }
-        yield return new WaitForSeconds((float)videoPlayer.clip.length);
+
+        float duration = (float)videoPlayer.clip.length;
+        Debug.Log(duration);
+        for (int i = 0; i <= duration; duration -= Time.deltaTime)
+        {
+            Debug.Log(duration);
+            switch (endTrigger)
+            {
+                case true:
+                    duration = 0;
+                    yield return null;
+                    break;
+                case false:
+                    yield return null;
+                    break;
+            }
+            
+        }
         StartCoroutine(EndVideo());
     }
 
     private IEnumerator SkipAdFeature()
     {
         adSkipButton.gameObject.SetActive(true);
-        Debug.Log("Hello");
         adSkipButton.interactable = false;
         TextMeshProUGUI buttonText = adSkipButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         int seconds = secondsToSkip;
@@ -102,8 +115,9 @@ public class AdSystem : MonoBehaviour
     // This method is to be invoked via the ad skip button OnClick event
     private IEnumerator EndVideo()
     {
-        StopCoroutine(PlayAd());
+        endTrigger = true;
         StopCoroutine(SkipAdFeature());
+        videoPlayer.Stop();
         rawImage.enabled = false;
         videoPlayer.enabled = false;
         adSkipButton.gameObject.SetActive(false);
@@ -114,5 +128,7 @@ public class AdSystem : MonoBehaviour
             sources.Play();
         }
         GiveReward();
+        yield return null;
+        endTrigger = false;
     }
 }
