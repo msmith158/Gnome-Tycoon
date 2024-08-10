@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    public void Start()
+    {
+        
+    }
     public void QuitGame()
     {
 #if UNITY_EDITOR
