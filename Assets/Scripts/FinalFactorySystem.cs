@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinalFactorySystem : MonoBehaviour
 {
@@ -39,6 +39,7 @@ public class FinalFactorySystem : MonoBehaviour
     private PrototypeGnomeCoinSystem ddolManager;
     private GameObject switchPanelDismissVar;
     private GameObject switchPanelActivateVar;
+    public Image gnomeCoinVignetteReference;
 
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource buttonSfxSource;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -14,20 +15,37 @@ public class AdSystem : MonoBehaviour
     [SerializeField] private int chanceOfGnome;
     [SerializeField] private bool allowForAdSkip = true;
     [SerializeField] private int secondsToSkip;
+    [SerializeField] private int coinsToReward;
 
-    [Header("Object References")] 
+    [Header("Object References")]
     [SerializeField] private Image blackScreen;
     [SerializeField] private List<VideoClip> videos = new List<VideoClip>();
     [SerializeField] private VideoClip secretVideo;
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private RawImage rawImage;
     [SerializeField] private Button adSkipButton;
-    
+    [SerializeField] private List<AudioSource> sourcesToStop = new List<AudioSource>();
+    private PrototypeGnomeCoinSystem coinSys;
+
+    private void OnEnable()
+    {
+        coinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+    }
+
     public void PlayFakeAd() { StartCoroutine(PlayAd()); }
     public void SkipAd() { StartCoroutine(EndVideo()); }
 
+    private void GiveReward()
+    {
+        coinSys.AddCoins(coinsToReward);
+    }
+
     private IEnumerator PlayAd()
     {
+        foreach (AudioSource sources in sourcesToStop)
+        {
+            sources.Pause();
+        }
         yield return new WaitForSeconds(delayUntilBlackScreen);
         blackScreen.enabled = true;
         yield return new WaitForSeconds(delayUntilAd);
@@ -91,5 +109,10 @@ public class AdSystem : MonoBehaviour
         adSkipButton.gameObject.SetActive(false);
         yield return new WaitForSeconds(delayAfterAd);
         blackScreen.enabled = false;
+        foreach (AudioSource sources in sourcesToStop)
+        {
+            sources.Play();
+        }
+        GiveReward();
     }
 }
