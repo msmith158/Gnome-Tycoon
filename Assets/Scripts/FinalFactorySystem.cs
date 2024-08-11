@@ -72,7 +72,7 @@ public class FinalFactorySystem : MonoBehaviour
     public void SetUpDDOLManagerOneOff()
     {
         // Functions for the one-off objects, meant for only one interaction
-        switch (ddolManager.gameObject.GetComponent<PrototypeDDOLManager>().isOneOffComplete)
+        switch (ddolManager.gameObject.GetComponent<DDOLManager>().isOneOffComplete)
         {
             case true:
                 for (int i = 0; i < ddolManager.oneTimeObjects.Count; i++)
@@ -87,7 +87,7 @@ public class FinalFactorySystem : MonoBehaviour
                     //ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
                     //ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
                 }
-                ddolManager.gameObject.GetComponent<PrototypeDDOLManager>().isOneOffComplete = true;
+                ddolManager.gameObject.GetComponent<DDOLManager>().isOneOffComplete = true;
                 Debug.Log("Bingo 1");
                 break;
         }

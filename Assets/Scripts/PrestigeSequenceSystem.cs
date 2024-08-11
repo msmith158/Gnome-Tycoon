@@ -51,7 +51,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private AnimationClip emerLightAnim;
     [SerializeField] private GameObject whiteScreen;
     [SerializeField] private AnimationCurve nukeSequenceShake;
-    [SerializeField] private PrototypeDDOLManager ddolSys;
+    [SerializeField] private DDOLManager ddolSys;
     [SerializeField] private SwitchPanels panelSwitchSys;
     [SerializeField] private string sceneToLoad;
 
@@ -82,7 +82,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
 
     public void OnEnable()
     {
-        ddolSys = GameObject.Find("ddolManager").GetComponent<PrototypeDDOLManager>();
+        ddolSys = GameObject.Find("ddolManager").GetComponent<DDOLManager>();
     }
 
     public void StartNukeSequence()

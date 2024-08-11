@@ -12,7 +12,7 @@ public class FinalMachineSystems : MonoBehaviour
     [SerializeField] private FinalMachineDespawnTrigger despawnTrigger;
     [SerializeField] private GameObject newPrefab;
     [SerializeField] private FinalDispenser dispenser;
-    [HideInInspector] public PrototypeDDOLManager initSys;
+    [HideInInspector] public DDOLManager initSys;
     public PrototypeFactorySystem sys;
 
     [Header("Painter Properties")]
@@ -27,7 +27,7 @@ public class FinalMachineSystems : MonoBehaviour
     private void OnEnable()
     {
         // Make sure to load the game via the loading level, otherwise these objects won't exist
-        initSys = GameObject.Find("ddolManager").GetComponent<PrototypeDDOLManager>();
+        initSys = GameObject.Find("ddolManager").GetComponent<DDOLManager>();
     }
 
     public void MachineFunctions(GameObject other, Vector3 objectVelocity)

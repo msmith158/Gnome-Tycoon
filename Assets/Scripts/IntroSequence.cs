@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class IntroSequence : MonoBehaviour
 {
     [Header("Values")]
-    public bool skipped = false;
+    private bool skipped; // Change this setting in the DDOL Manager
     [SerializeField] private float fadeTime;
     private int spriteState = 0;
     private float timeRemaining = 0;
@@ -15,10 +15,11 @@ public class IntroSequence : MonoBehaviour
     [Header("Object References > General")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject spriteHolder;
-    [SerializeField] private Image blockingImage; // This is so that the player can't play the game during the intro.
+    [SerializeField] private Image blockingImage; // This is so that the player can't play the game during the intro
     [SerializeField] private SwitchPanels switchPanels;
     [SerializeField] private TextMeshProUGUI dialogueHeader;
     [SerializeField] private TextMeshProUGUI dialogueBody;
+    private DDOLManager ddolManager;
 
     [Header("Object References > Panel Switch")]
     [SerializeField] private GameObject controlPanel;
@@ -46,6 +47,12 @@ public class IntroSequence : MonoBehaviour
     [SerializeField] private Image nervousSprite;
     [SerializeField] private Image unhappySprite;
     [SerializeField] private Image thinkingSprite;
+
+    private void OnEnable()
+    {
+        ddolManager = GameObject.Find("ddolManager").GetComponent<DDOLManager>();
+        skipped = ddolManager.introSkipped;
+    }
 
     public void ProgressIntroStates()
     {
@@ -266,6 +273,7 @@ public class IntroSequence : MonoBehaviour
                         switchPanels.GetComponent<SwitchPanels>().SetActivationValuesThroughScript(gnomeShopButton, 0.5f, gnomeShopButtonActivationPoint);
                         switchPanels.GetComponent<SwitchPanels>().ExecuteSmooth(2);
 
+                        ddolManager.introSkipped = true;
                         blockingImage.enabled = false;
                         break;
                 }
