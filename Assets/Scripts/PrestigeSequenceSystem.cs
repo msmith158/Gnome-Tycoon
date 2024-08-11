@@ -23,6 +23,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private float delayAfterNuke;
     [SerializeField] private float nukeParticlesDelay;
     [SerializeField] private float delayAfterFadeOut;
+    [SerializeField] private List<float> switchAwayTimeNuke = new List<float>();
     private Color emissiveColor = Color.red;
     private float timeElapsed;
 
@@ -74,6 +75,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [Header("Nuke Sequence > Object References > Lists")]
     [SerializeField] private List<GameObject> uiToDisableNuke = new List<GameObject>();
     [SerializeField] private List<GameObject> uiToEnableNuke = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToSwitchAwayNuke = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToSwitchAwayLocationsNuke = new List<GameObject>();
     [SerializeField] private List<GameObject> uiToFlashNuke = new List<GameObject>();
     public List<Light> lightsToTurnOff = new List<Light>();
     [SerializeField] private List<Light> emergencyLights = new List<Light>();
@@ -116,9 +119,9 @@ public class PrestigeSequenceSystem : MonoBehaviour
         {
             conveyors[i].enabled = false;
         }
-        for (int i = 0; i < uiToSwitchAwayStandard.Count; i++)
+        for (int i = 0; i < uiToSwitchAwayNuke.Count; i++)
         {
-            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayStandard[i], switchAwayTimeStandard[i], uiToSwitchAwayLocations[i]);
+            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayNuke[i], switchAwayTimeNuke[i], uiToSwitchAwayLocationsNuke[i]);
             panelSwitchSys.ExecuteSmooth(1);
         }
 

@@ -48,14 +48,11 @@ public class IntroSequence : MonoBehaviour
     [SerializeField] private Image unhappySprite;
     [SerializeField] private Image thinkingSprite;
 
-    private void OnEnable()
+    public void ProgressIntroStates()
     {
         ddolManager = GameObject.Find("ddolManager").GetComponent<DDOLManager>();
         skipped = ddolManager.introSkipped;
-    }
 
-    public void ProgressIntroStates()
-    {
         switch (skipped)
         {
             case false:

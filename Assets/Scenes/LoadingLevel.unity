@@ -261,7 +261,7 @@ MonoBehaviour:
   isOneOffComplete: 0
   resetTimes: 0
   sceneToLoad: FinalLevel
-  introSkipped: 0
+  introSkipped: 1
 --- !u!1 &1210849178
 GameObject:
   m_ObjectHideFlags: 0
