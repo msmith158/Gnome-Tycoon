@@ -7,7 +7,7 @@ public class FinalConveyor : MonoBehaviour
     Rigidbody rb;
     public float speed = 2.0f;
     [HideInInspector] public float initialSpeed;
-    [HideInInspector] public PrototypeGnomeCoinSystem gnomeCoinSys;
+    [HideInInspector] public GnomeCoinSystem gnomeCoinSys;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class FinalConveyor : MonoBehaviour
 
     private void OnEnable()
     {
-        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
     }
 
     // Update is called once per frame

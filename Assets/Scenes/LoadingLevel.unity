@@ -200,8 +200,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 549282659}
-  - component: {fileID: 549282658}
   - component: {fileID: 549282661}
+  - component: {fileID: 549282662}
   m_Layer: 0
   m_Name: ddolManager
   m_TagString: Untagged
@@ -209,28 +209,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &549282658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549282657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d5e7d00ecc0cb4a8851850691e4589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gnomeCoinText: {fileID: 0}
-  oneTimeObjects: []
-  oneTimeObjectNames: []
-  coinCount: 0
-  permanentValue: 0
-  permanentSpeed: 0
-  permanentTime: 0
-  permanentCooldown: 0
-  flashAmount: 4
-  flashLength: 0.2
 --- !u!4 &549282659
 Transform:
   m_ObjectHideFlags: 0
@@ -262,6 +240,28 @@ MonoBehaviour:
   resetTimes: 0
   sceneToLoad: FinalLevel
   introSkipped: 1
+--- !u!114 &549282662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549282657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31314dc224390e0429fd745233b1b882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gnomeCoinText: {fileID: 0}
+  oneTimeObjects: []
+  oneTimeObjectNames: []
+  coinCount: 0
+  permanentValue: 0
+  permanentSpeed: 0
+  permanentTime: 0
+  permanentCooldown: 0
+  flashAmount: 3
+  flashLength: 0.3
 --- !u!1 &1210849178
 GameObject:
   m_ObjectHideFlags: 0

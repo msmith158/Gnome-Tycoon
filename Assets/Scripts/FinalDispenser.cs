@@ -8,7 +8,7 @@ public class FinalDispenser : MonoBehaviour
 {
     [SerializeField] private GameObject spawnTrigger;
     [SerializeField] private GameObject newPrefab;
-    [HideInInspector] public PrototypeGnomeCoinSystem gnomeCoinSys;
+    [HideInInspector] public GnomeCoinSystem gnomeCoinSys;
     [SerializeField] private FinalFactorySystem sys;
     public float manufacturingTime;
     public float manufacturingCooldown;
@@ -25,7 +25,7 @@ public class FinalDispenser : MonoBehaviour
         initialManuTime = manufacturingTime;
         
         // Make sure to load the game via the loading level, otherwise these objects won't exist
-        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
     }
     
     public void SpawnObject() // This function is to be called if trying to use the DelayedSpawn method

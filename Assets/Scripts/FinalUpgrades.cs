@@ -25,11 +25,11 @@ public class FinalUpgrades : MonoBehaviour
     [SerializeField] private FinalFactorySystem sys;
     [SerializeField] private List<FinalConveyor> conveyors = new List<FinalConveyor>();
     [SerializeField] private List<FinalDispenser> dispensers = new List<FinalDispenser>();
-    [SerializeField] private PrototypeGnomeCoinSystem gnomeCoinSys;
+    [SerializeField] private GnomeCoinSystem gnomeCoinSys;
 
     public void OnEnable()
     {
-        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
 
         // Set the first prices for upgrades
         currentPrice = initialCost;

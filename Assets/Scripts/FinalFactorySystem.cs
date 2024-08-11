@@ -36,7 +36,7 @@ public class FinalFactorySystem : MonoBehaviour
     public TextMeshProUGUI coinText;
     public List<GameObject> productionLines = new List<GameObject>();
     public List<GameObject> oneOffObjects = new List<GameObject>();
-    private PrototypeGnomeCoinSystem ddolManager;
+    private GnomeCoinSystem ddolManager;
     private GameObject switchPanelDismissVar;
     private GameObject switchPanelActivateVar;
     public Image gnomeCoinVignetteReference;
@@ -65,7 +65,7 @@ public class FinalFactorySystem : MonoBehaviour
     public void SetUpDDOLManager()
     {
         // Set up all the DDOL manager stuff
-        ddolManager = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        ddolManager = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
         ddolManager.gnomeCoinText = coinText;
     }
 

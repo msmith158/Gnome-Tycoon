@@ -26,11 +26,11 @@ public class AdSystem : MonoBehaviour
     [SerializeField] private RawImage rawImage;
     [SerializeField] private Button adSkipButton;
     [SerializeField] private List<AudioSource> sourcesToStop = new List<AudioSource>();
-    private PrototypeGnomeCoinSystem coinSys;
+    private GnomeCoinSystem coinSys;
 
     private void OnEnable()
     {
-        coinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        coinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
     }
 
     public void PlayFakeAd() { StartCoroutine(PlayAd()); }
