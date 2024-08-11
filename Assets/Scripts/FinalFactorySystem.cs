@@ -57,6 +57,9 @@ public class FinalFactorySystem : MonoBehaviour
         Application.targetFrameRate = 60;
         // Add code here for amount of production lines from save/load system
         AddScore(0);
+
+        // Start intro sequence
+        GetComponent<IntroSequence>().ProgressIntroStates();
     }
 
     public void SetUpDDOLManager()
