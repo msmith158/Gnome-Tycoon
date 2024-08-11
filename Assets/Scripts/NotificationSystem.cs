@@ -16,6 +16,7 @@ public class NotificationSystem : MonoBehaviour
     [SerializeField] private GameObject sabotageNotification;
     [SerializeField] private GameObject listArea;
     [SerializeField] private Image greenVignette;
+    [SerializeField] private Image bellNotifIcon;
     private List<GameObject> activeNotifications = new List<GameObject>();
 
     public void AddNotification(int type)
@@ -35,9 +36,15 @@ public class NotificationSystem : MonoBehaviour
 
     }
 
+    public void DestroyNotification(GameObject obj)
+    {
+
+    }
+
     private IEnumerator PushAlert()
     {
         greenVignette.gameObject.SetActive(true);
+        bellNotifIcon.enabled = true;
         for (int i = 0; i < flashAmount; i++)
         {
             greenVignette.enabled = true;
