@@ -56,6 +56,6 @@ public class GnomeCoinSystem : MonoBehaviour
             vignette.enabled = false;
             yield return new WaitForSeconds(flashLength);
         }
-        vignette.gameObject.SetActive(true);
+        vignette.gameObject.SetActive(false);
     }
 }
