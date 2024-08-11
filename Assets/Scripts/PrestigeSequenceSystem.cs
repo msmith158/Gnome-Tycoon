@@ -118,8 +118,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
         }
         for (int i = 0; i < uiToSwitchAwayStandard.Count; i++)
         {
-            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayStandard[i], switchAwayTimeStandard[i], uiToSwitchAwayLocations[i], 1);
-            panelSwitchSys.ExecuteSmooth();
+            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayStandard[i], switchAwayTimeStandard[i], uiToSwitchAwayLocations[i]);
+            panelSwitchSys.ExecuteSmooth(1);
         }
 
         yield return new WaitForSeconds(alarmDelayTime);
@@ -292,8 +292,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
         }
         for (int i = 0; i < uiToSwitchAwayStandard.Count; i++)
         {
-            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayStandard[i], switchAwayTimeStandard[i], uiToSwitchAwayLocations[i], 1);
-            panelSwitchSys.ExecuteSmooth();
+            panelSwitchSys.SetDismissalValuesThroughScript(uiToSwitchAwayStandard[i], switchAwayTimeStandard[i], uiToSwitchAwayLocations[i]);
+            panelSwitchSys.ExecuteSmooth(1);
         }
         for (int i = 0; i < uiToDisableStandard.Count; i++)
         {
@@ -318,8 +318,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
 
         for (int i = 0; i < uiToSwitchToStandard.Count; i++)
         {
-            panelSwitchSys.SetActivationValuesThroughScript(uiToSwitchToStandard[i], switchToTimeStandard[i], uiToSwitchToLocations[i], 2);
-            panelSwitchSys.ExecuteSmooth();
+            panelSwitchSys.SetActivationValuesThroughScript(uiToSwitchToStandard[i], switchToTimeStandard[i], uiToSwitchToLocations[i]);
+            panelSwitchSys.ExecuteSmooth(2);
         }
         for (int i = 0; i < uiToEnableStandard.Count; i++)
         {

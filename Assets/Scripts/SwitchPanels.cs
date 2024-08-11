@@ -42,24 +42,23 @@ public class SwitchPanels : MonoBehaviour
         activationLocation = newActivationLocation.transform.position;
     }
 
-    public void SetDismissalValuesThroughScript(GameObject panelToDismiss, float dismissTime, GameObject newDismissalLocation, int mode)
+    public void SetDismissalValuesThroughScript(GameObject panelToDismiss, float dismissTime, GameObject newDismissalLocation)
     {
         objectToDismiss = panelToDismiss;
         dismissalTime = dismissTime;
         dismissalLocation = newDismissalLocation.transform.position;
-        methodRunMode = mode;
     }
 
-    public void SetActivationValuesThroughScript(GameObject panelToActivate, float activeTime, GameObject newActivationLocation, int mode)
+    public void SetActivationValuesThroughScript(GameObject panelToActivate, float activeTime, GameObject newActivationLocation)
     {
         objectToActivate = panelToActivate;
         activationTime = activeTime;
         activationLocation = newActivationLocation.transform.position;
-        methodRunMode = mode;
     }
 
-    public void ExecuteSmooth()
+    public void ExecuteSmooth(int mode)
     {
+        methodRunMode = mode;
         switch (methodRunMode)
         {
             case 0:
