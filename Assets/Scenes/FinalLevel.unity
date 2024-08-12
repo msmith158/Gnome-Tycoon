@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.017499045, g: 0.025350958, b: 0.037963193, a: 1}
+  m_IndirectSpecularColor: {r: 0.017499126, g: 0.025351053, b: 0.037963424, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14451,11 +14451,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashAmount: 3
   flashLength: 0.3
+  adSys: {fileID: 1183474761}
   adNotification: {fileID: 8773297502568404236, guid: e34042ddff0a88041b7106ce3d0b8da6,
     type: 3}
   mailNotification: {fileID: 0}
   sabotageNotification: {fileID: 0}
   listArea: {fileID: 206438522}
+  uiSfxSource: {fileID: 1357006267}
+  buttonSound: {fileID: 8300000, guid: 46fc963587284f94eb5a6b36c12da542, type: 3}
   greenVignette: {fileID: 576263592}
   bellNotifIcon: {fileID: 387811295}
 --- !u!1 &465080049
@@ -62146,7 +62149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1722694471
 RectTransform:
   m_ObjectHideFlags: 0
@@ -73264,6 +73267,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1633428560234704554, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633428560234704554, guid: e34042ddff0a88041b7106ce3d0b8da6,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1183474761}
@@ -73276,12 +73284,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1357006267}
+      objectReference: {fileID: 459495972}
     - target: {fileID: 1633428560234704554, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 459495972}
+    - target: {fileID: 1633428560234704554, guid: e34042ddff0a88041b7106ce3d0b8da6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DestroyNotification
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633428560234704554, guid: e34042ddff0a88041b7106ce3d0b8da6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: NotificationSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633428560234704554, guid: e34042ddff0a88041b7106ce3d0b8da6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 6465240255732872291}
+    - target: {fileID: 1633428560234704554, guid: e34042ddff0a88041b7106ce3d0b8da6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -73392,6 +73420,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34042ddff0a88041b7106ce3d0b8da6, type: 3}
+--- !u!1 &6465240255732872291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8773297502568404236, guid: e34042ddff0a88041b7106ce3d0b8da6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6465240255732872290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8885021457825592025 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,

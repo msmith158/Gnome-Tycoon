@@ -17,6 +17,7 @@ public class AdSystem : MonoBehaviour
     [SerializeField] private int secondsToSkip;
     [SerializeField] private int coinsToReward;
     private bool endTrigger = false;
+    private bool adSkipped = false;
 
     [Header("Object References")]
     [SerializeField] private Image blackScreen;
@@ -34,7 +35,7 @@ public class AdSystem : MonoBehaviour
     }
 
     public void PlayFakeAd() { StartCoroutine(PlayAd()); }
-    public void SkipAd() { StopCoroutine(PlayAd()); StartCoroutine(EndVideo()); }
+    public void SkipAd() { StopCoroutine(PlayAd()); adSkipped = true; StartCoroutine(EndVideo()); }
 
     private void GiveReward()
     {
@@ -94,7 +95,16 @@ public class AdSystem : MonoBehaviour
             }
             
         }
-        StartCoroutine(EndVideo());
+
+        switch (adSkipped)
+        {
+            case true:
+                break;
+            case false:
+                StartCoroutine(EndVideo());
+                adSkipped = false;
+                break;
+        }
     }
 
     private IEnumerator SkipAdFeature()

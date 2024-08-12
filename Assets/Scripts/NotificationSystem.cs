@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class NotificationSystem : MonoBehaviour
@@ -10,11 +10,14 @@ public class NotificationSystem : MonoBehaviour
     [SerializeField] private int flashAmount;
     [SerializeField] private float flashLength;
 
-    [Header("Object References")]
+    [Header("Object References")] 
+    [SerializeField] private AdSystem adSys;
     [SerializeField] private GameObject adNotification;
     [SerializeField] private GameObject mailNotification;
     [SerializeField] private GameObject sabotageNotification;
     [SerializeField] private GameObject listArea;
+    [SerializeField] private AudioSource uiSfxSource;
+    [SerializeField] private AudioClip buttonSound;
     [SerializeField] private Image greenVignette;
     [SerializeField] private Image bellNotifIcon;
     private List<GameObject> activeNotifications = new List<GameObject>();
@@ -27,6 +30,10 @@ public class NotificationSystem : MonoBehaviour
                 GameObject newAdNotif = Instantiate(adNotification, listArea.transform);
                 activeNotifications.Add(newAdNotif);
                 StartCoroutine(PushAlert());
+                Button button = newAdNotif.transform.GetChild(0).GetComponent<Button>();
+                button.onClick.AddListener(() => uiSfxSource.PlayOneShot(buttonSound));
+                button.onClick.AddListener(() => adSys.PlayFakeAd());
+                button.onClick.AddListener(() => DestroyNotification(newAdNotif));
                 break;
             case 1:
                 break;
@@ -38,7 +45,7 @@ public class NotificationSystem : MonoBehaviour
 
     public void DestroyNotification(GameObject obj)
     {
-
+        Destroy(obj);
     }
 
     private IEnumerator PushAlert()
