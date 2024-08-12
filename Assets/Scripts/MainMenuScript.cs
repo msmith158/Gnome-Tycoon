@@ -35,7 +35,7 @@ public class MainMenuScript : MonoBehaviour
         Color fixedColor = blackScreen.color;
         fixedColor.a = 0;
         blackScreen.color = fixedColor;
-        blackScreen.CrossFadeAlpha(1, 2.0f, false);
+        blackScreen.CrossFadeAlpha(1, fadeTime, false);
         yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene(scene);
     }

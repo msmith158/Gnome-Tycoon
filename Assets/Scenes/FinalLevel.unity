@@ -26264,7 +26264,7 @@ ParticleSystem:
   m_GameObject: {fileID: 882636323}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1.5
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -47616,7 +47616,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1452091684}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1.5
+  simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -73328,7 +73328,7 @@ PrefabInstance:
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
@@ -73338,7 +73338,7 @@ PrefabInstance:
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
@@ -73388,12 +73388,12 @@ PrefabInstance:
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 7921541844600336877, guid: e34042ddff0a88041b7106ce3d0b8da6,
         type: 3}
@@ -73414,6 +73414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: notification1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773297502568404236, guid: e34042ddff0a88041b7106ce3d0b8da6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
