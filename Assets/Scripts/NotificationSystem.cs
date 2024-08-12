@@ -8,6 +8,7 @@ public class NotificationSystem : MonoBehaviour
     [Header("Values")]
     [SerializeField] private int flashAmount;
     [SerializeField] private float flashLength;
+    [SerializeField] private bool isActive;
 
     [Header("Object References")] 
     [SerializeField] private AdSystem adSys;
@@ -39,7 +40,6 @@ public class NotificationSystem : MonoBehaviour
             case 2:
                 break;
         }
-
     }
 
     public void DestroyNotification(GameObject obj)
@@ -47,10 +47,31 @@ public class NotificationSystem : MonoBehaviour
         Destroy(obj);
     }
 
+    public void SetState(bool state)
+    {
+        switch (state)
+        {
+            case true:
+                isActive = true;
+                break;
+            case false:
+                isActive = false;
+                break;
+        }
+    }
+
     private IEnumerator PushAlert()
     {
+        switch (isActive)
+        {
+            case false:
+                bellNotifIcon.enabled = true;
+                break;
+            case true:
+                bellNotifIcon.enabled = false;
+                break;
+        }
         greenVignette.gameObject.SetActive(true);
-        bellNotifIcon.enabled = true;
         for (int i = 0; i < flashAmount; i++)
         {
             greenVignette.enabled = true;

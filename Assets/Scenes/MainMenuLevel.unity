@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 179497891}
   - component: {fileID: 179497890}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: olderButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 179497891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1863236520}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: AgeCheck
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1863236520}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LoadingLevel
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &179497891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +517,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 217784418}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1863236520}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: AgeCheck
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1863236520}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LoadingLevel
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &217784418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +612,6 @@ Transform:
   - {fileID: 1450986598}
   - {fileID: 1264567206}
   - {fileID: 887678585}
-  - {fileID: 1863236519}
   m_Father: {fileID: 1243427286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543443253
@@ -579,7 +626,7 @@ GameObject:
   - component: {fileID: 543443256}
   - component: {fileID: 543443255}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: olderButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,7 +763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &568463034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1049,10 +1096,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1863236520}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 2054294183}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1060,6 +1107,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: LoadingLevel
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 568463033}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &972821395
 MonoBehaviour:
@@ -1804,9 +1863,9 @@ RectTransform:
   m_Children:
   - {fileID: 1713371029}
   - {fileID: 2054294184}
-  - {fileID: 1232068478}
   - {fileID: 568463034}
   - {fileID: 1082330216}
+  - {fileID: 1232068478}
   m_Father: {fileID: 485172222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2326,7 +2385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 485172222}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1863236520
 MonoBehaviour:
@@ -2342,6 +2401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 1232068479}
   fadeTime: 0
+  isOver13: 0
 --- !u!1 &1918953633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,7 +2551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2054294184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2519,3 +2579,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1243427286}
+  - {fileID: 1863236519}

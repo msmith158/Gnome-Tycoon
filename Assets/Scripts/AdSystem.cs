@@ -15,6 +15,7 @@ public class AdSystem : MonoBehaviour
     [SerializeField] private bool allowForAdSkip = true;
     [SerializeField] private int secondsToSkip;
     [SerializeField] private int coinsToReward;
+    [SerializeField] private int blankAdTime;
     private bool endTrigger = false;
     private bool adSkipped = false;
 
@@ -25,12 +26,16 @@ public class AdSystem : MonoBehaviour
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private RawImage rawImage;
     [SerializeField] private Button adSkipButton;
+    [SerializeField] private TextMeshProUGUI ageDenialText;
+    [SerializeField] private Image ageDenialQrImage;
     [SerializeField] private List<AudioSource> sourcesToStop = new List<AudioSource>();
     private GnomeCoinSystem coinSys;
+    private MainMenuScript menuSys;
 
     private void OnEnable()
     {
         coinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
+        menuSys = GameObject.Find("mainMenuSystemHandler").GetComponent<MainMenuScript>();
     }
 
     public void PlayFakeAd() { StartCoroutine(PlayAd()); }
@@ -50,51 +55,84 @@ public class AdSystem : MonoBehaviour
         yield return new WaitForSeconds(delayUntilBlackScreen);
         blackScreen.enabled = true;
         yield return new WaitForSeconds(delayUntilAd);
-        
-        // Pick from a random selection of videos
-        int chance = Random.Range(0, chanceOfGnome);
-        Debug.Log(chance);
-        switch (chance)
-        {
-            case 0:
-                videoPlayer.clip = secretVideo;
-                break;
-            case >0:
-                int videoSelection = Random.Range(0, videos.Count);
-                videoPlayer.clip = videos[videoSelection];
-                break;
-        }
-        rawImage.enabled = true;
-        videoPlayer.enabled = true;
-        videoPlayer.Play();
-        
-        switch (allowForAdSkip)
+
+        switch (menuSys.isOver13)
         {
             case true:
-                StartCoroutine(SkipAdFeature());
+                // Pick from a random selection of videos
+                int chance = Random.Range(0, chanceOfGnome);
+                Debug.Log(chance);
+                switch (chance)
+                {
+                    case 0:
+                        videoPlayer.clip = secretVideo;
+                        break;
+                    case >0:
+                        int videoSelection = Random.Range(0, videos.Count);
+                        videoPlayer.clip = videos[videoSelection];
+                        break;
+                }
+                rawImage.enabled = true;
+                videoPlayer.enabled = true;
+                videoPlayer.Play();
+        
+                switch (allowForAdSkip)
+                {
+                    case true:
+                        StartCoroutine(SkipAdFeature());
+                        break;
+                    case false:
+                        break;
+                }
+
+                float duration = (float)videoPlayer.clip.length;
+                Debug.Log(duration);
+                for (int i = 0; i <= duration; duration -= Time.deltaTime)
+                {
+                    Debug.Log(duration);
+                    switch (endTrigger)
+                    {
+                        case true:
+                            duration = 0;
+                            yield return null;
+                            break;
+                        case false:
+                            yield return null;
+                            break;
+                    }
+                }
                 break;
             case false:
+                ageDenialText.enabled = true;
+                ageDenialQrImage.enabled = true;
+                switch (allowForAdSkip)
+                {
+                    case true:
+                        StartCoroutine(SkipAdFeature());
+                        break;
+                    case false:
+                        break;
+                }
+
+                float ageDenialDuration = blankAdTime;
+                Debug.Log(ageDenialDuration);
+                for (int i = 0; i <= ageDenialDuration; ageDenialDuration -= Time.deltaTime)
+                {
+                    Debug.Log(ageDenialDuration);
+                    switch (endTrigger)
+                    {
+                        case true:
+                            duration = 0;
+                            yield return null;
+                            break;
+                        case false:
+                            yield return null;
+                            break;
+                    }
+                }
                 break;
         }
-
-        float duration = (float)videoPlayer.clip.length;
-        Debug.Log(duration);
-        for (int i = 0; i <= duration; duration -= Time.deltaTime)
-        {
-            Debug.Log(duration);
-            switch (endTrigger)
-            {
-                case true:
-                    duration = 0;
-                    yield return null;
-                    break;
-                case false:
-                    yield return null;
-                    break;
-            }
-            
-        }
-
+        
         switch (adSkipped)
         {
             case true:
@@ -125,10 +163,19 @@ public class AdSystem : MonoBehaviour
     private IEnumerator EndVideo()
     {
         endTrigger = true;
+        switch (menuSys.isOver13)
+        {
+            case true:
+                videoPlayer.Stop();
+                rawImage.enabled = false;
+                videoPlayer.enabled = false;
+                break;
+            case false:
+                ageDenialText.enabled = false;
+                ageDenialQrImage.enabled = false;
+                break;
+        }
         StopCoroutine(SkipAdFeature());
-        videoPlayer.Stop();
-        rawImage.enabled = false;
-        videoPlayer.enabled = false;
         adSkipButton.gameObject.SetActive(false);
         yield return new WaitForSeconds(delayAfterAd);
         blackScreen.enabled = false;
