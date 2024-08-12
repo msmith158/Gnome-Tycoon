@@ -15,6 +15,7 @@ public class FinalDispenser : MonoBehaviour
     [HideInInspector] public float initialManuTime;
     [HideInInspector] public float initialManuCool;
     public GameObject timeSlider;
+    public bool isAutomated;
     public List<GameObject> objectsList = new List<GameObject>();
     private bool isActivated = false;
     private Scrollbar slider;
