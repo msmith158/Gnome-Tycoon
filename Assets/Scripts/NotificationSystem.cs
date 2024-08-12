@@ -8,7 +8,7 @@ public class NotificationSystem : MonoBehaviour
     [Header("Values")]
     [SerializeField] private int flashAmount;
     [SerializeField] private float flashLength;
-    [SerializeField] private bool isActive;
+    [SerializeField] private bool isActive = false;
 
     [Header("Object References")] 
     [SerializeField] private AdSystem adSys;

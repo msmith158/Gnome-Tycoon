@@ -11,6 +11,13 @@ public class FactoryNameChanger : MonoBehaviour
     void OnEnable()
     {
         menuSys = GameObject.Find("mainMenuSystemHandler").GetComponent<MainMenuScript>();
-        GetComponent<TextMeshPro>().text = "Mom & Pop's\n" + menuSys.adjective + " Gnomes";
+        if (menuSys.adjective == "")
+        {
+            GetComponent<TextMeshPro>().text = "Mom & Pop's\n" + "Amazing Gnomes";
+        }
+        else
+        {
+            GetComponent<TextMeshPro>().text = "Mom & Pop's\n" + menuSys.adjective + " Gnomes";
+        }
     }
 }
