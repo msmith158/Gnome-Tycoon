@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.017499045, g: 0.025350958, b: 0.037963193, a: 1}
+  m_IndirectSpecularColor: {r: 0.017499126, g: 0.025351053, b: 0.037963424, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21605,6 +21605,7 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
+  isAutomated: 0
   objectsList: []
 --- !u!1 &681298734
 GameObject:
@@ -26278,7 +26279,7 @@ ParticleSystem:
   m_GameObject: {fileID: 882636323}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 1.5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -32190,6 +32191,7 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
+  isAutomated: 0
   objectsList: []
 --- !u!1 &928016778
 GameObject:
@@ -39582,6 +39584,7 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
+  isAutomated: 0
   objectsList: []
 --- !u!1 &1204188012
 GameObject:
@@ -43180,6 +43183,7 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
+  isAutomated: 0
   objectsList: []
 --- !u!1 &1293386297
 GameObject:
@@ -47649,7 +47653,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1452091684}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 1.5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -53966,6 +53970,7 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
+  isAutomated: 0
   objectsList: []
 --- !u!1 &1490965635
 GameObject:
@@ -62144,6 +62149,7 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
+  isAutomated: 0
   objectsList: []
 --- !u!1 &1717992301
 GameObject:
@@ -68662,6 +68668,7 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
+  isAutomated: 0
   objectsList: []
 --- !u!1 &1956339343
 GameObject:
