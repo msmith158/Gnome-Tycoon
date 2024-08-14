@@ -12,6 +12,7 @@ public class FinalUpgrades : MonoBehaviour
     public float initialCost;
     [Tooltip("The rate at which the price increases in a curve.")] public float increaseRate;
     [Tooltip("How many of these upgrades the player can buy before reaching the max. Set to 0 for infinity.")] public int upgradeLimit;
+    [Tooltip("The amount that the upgrade limit increases each prestige.")] [SerializeField] private int upgradeLimitIncrease;
     private float currentPrice;
     private float costPercentage;
     private int currentBuyAmount;
@@ -228,9 +229,11 @@ public class FinalUpgrades : MonoBehaviour
     public void ResetAndAdjustPrices(float costIncrease)
     {
         currentPrice = initialCost + (initialCost * costIncrease);
+        costPercentage = 0;
         sys.UpdatePrice(costText, false, "$", currentPrice, "");
         slider.value = 0;
         currentBuyAmount = 0;
+        upgradeLimit += upgradeLimitIncrease;
         slider.transform.GetChild(1).gameObject.SetActive(true);
         slider.transform.GetChild(0).GetComponent<Image>().color = initialSliderColour;
         upgradeButton.interactable = true;
