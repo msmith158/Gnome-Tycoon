@@ -14,6 +14,7 @@ public class AdSystem : MonoBehaviour
     [SerializeField] private int chanceOfGnome;
     [SerializeField] private bool allowForAdSkip = true;
     [SerializeField] private int secondsToSkip;
+    [SerializeField] private int secondsToSkipBlank;
     [SerializeField] private int coinsToReward;
     [SerializeField] private int blankAdTime;
     private bool endTrigger = false;
@@ -149,11 +150,24 @@ public class AdSystem : MonoBehaviour
         adSkipButton.gameObject.SetActive(true);
         adSkipButton.interactable = false;
         TextMeshProUGUI buttonText = adSkipButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        int seconds = secondsToSkip;
-        for (int i = 0; i < seconds; seconds--)
+        switch (menuSys.isOver13)
         {
-            buttonText.text = seconds.ToString();
-            yield return new WaitForSeconds(1);
+            case true:
+                int seconds = secondsToSkip;
+                for (int i = 0; i < seconds; seconds--)
+                {
+                    buttonText.text = seconds.ToString();
+                    yield return new WaitForSeconds(1);
+                }
+                break;
+            case false:
+                int blankSeconds = secondsToSkipBlank;
+                for (int i = 0; i < blankSeconds; blankSeconds--)
+                {
+                    buttonText.text = blankSeconds.ToString();
+                    yield return new WaitForSeconds(1);
+                }
+                break;
         }
         buttonText.text = "X";
         adSkipButton.interactable = true;
@@ -183,7 +197,16 @@ public class AdSystem : MonoBehaviour
         {
             sources.Play();
         }
-        GiveReward();
+
+        switch (menuSys.isOver13)
+        {
+            case true:
+                GiveReward();
+                break;
+            case false:
+                Debug.Log("No reward was given for the ad due to the player being under 13.");
+                break;
+        }
         yield return null;
         endTrigger = false;
     }

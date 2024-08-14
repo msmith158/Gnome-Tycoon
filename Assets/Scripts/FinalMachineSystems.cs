@@ -10,7 +10,7 @@ public class FinalMachineSystems : MonoBehaviour
     [SerializeField] private GameObject newPrefab;
     [SerializeField] private FinalDispenser dispenser;
     [HideInInspector] public DDOLManager initSys;
-    public PrototypeFactorySystem sys;
+    public FinalFactorySystem sys;
 
     [Header("Painter Properties")]
     public List<Material> gnomeMaterialList = new List<Material>();
@@ -53,37 +53,37 @@ public class FinalMachineSystems : MonoBehaviour
                 {
                     switch (sys.prestigeLvl)
                     {
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige0: // Dirty red gnome material
+                        case FinalFactorySystem.PrestigeLevel.Prestige0: // Dirty red gnome material
                             for (int i = 0; i < other.transform.childCount; i++)
                             {
                                 other.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[0];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige1: // Red gnome material
+                        case FinalFactorySystem.PrestigeLevel.Prestige1: // Red gnome material
                             for (int i = 0; i < other.transform.childCount; i++)
                             {
                                 other.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[1];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige2: // Yellow gnome material
+                        case FinalFactorySystem.PrestigeLevel.Prestige2: // Yellow gnome material
                             for (int i = 0; i < other.transform.childCount; i++)
                             {
                                 other.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[2];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige3: // Green gnome material
+                        case FinalFactorySystem.PrestigeLevel.Prestige3: // Green gnome material
                             for (int i = 0; i < other.transform.childCount; i++)
                             {
                                 other.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[3];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige4: // Cyan gnome material
+                        case FinalFactorySystem.PrestigeLevel.Prestige4: // Cyan gnome material
                             for (int i = 0; i < other.transform.childCount; i++)
                             {
                                 other.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[4];
                             }
                             break;
-                        case PrototypeFactorySystem.PrestigeLevel.Prestige5: // Purple gnome material
+                        case FinalFactorySystem.PrestigeLevel.Prestige5: // Purple gnome material
                             for (int i = 0; i < other.transform.childCount; i++)
                             {
                                 other.transform.GetChild(i).GetComponent<Renderer>().material = gnomeMaterialList[5];
@@ -106,8 +106,7 @@ public class FinalMachineSystems : MonoBehaviour
                 // Do a roll between a gnome and Jimbo, and then instantiate
                 jimboNumber = Random.Range(0, chanceOfJimbo);
                 Debug.Log(jimboNumber);
-                //if (jimboNumber == 0 && sys.prestigeLvl != PrototypeFactorySystem.PrestigeLevel.Prestige0) // This is to spawn Jimbo
-                if (jimboNumber == 0)
+                if (jimboNumber == 0 && sys.prestigeLvl != FinalFactorySystem.PrestigeLevel.Prestige0)
                 {
                     GameObject newJimbo = Instantiate(jimboPrefab, spawnTrigger.transform.position, Quaternion.identity);
                     newJimbo.tag = "gnome";
@@ -124,6 +123,8 @@ public class FinalMachineSystems : MonoBehaviour
                 break;
         }
     }
+    
+    
 
     private enum MachineType // YOU MUST SET YOUR MACHINES TO ONE OF THESE IN ORDER TO MAKE THIS SCRIPT WORK!
     {

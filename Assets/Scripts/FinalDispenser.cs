@@ -73,4 +73,9 @@ public class FinalDispenser : MonoBehaviour
         sys.FinishDispensing();
         isActivated = false;
     }
+
+    public IEnumerator AutomatedSpawn()
+    {
+        yield return null;
+    }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.017499126, g: 0.025351053, b: 0.037963424, a: 1}
+  m_IndirectSpecularColor: {r: 0.018258957, g: 0.026106842, b: 0.037719812, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c8ad0ca3ed644d7419e72dbfce1ca908,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 0320355314dce874a9d8e41b9cb71f66,
     type: 2}
 --- !u!196 &4
@@ -239,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22202160}
   m_Layer: 5
-  m_Name: upgrade1SliderFillArea
+  m_Name: permanentUpgrade1SliderFillArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -745,9 +746,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -720}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36250195
@@ -949,7 +950,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1716639367}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -1678,7 +1679,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1487663870}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -3463,7 +3464,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1954626671}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -3736,7 +3737,7 @@ GameObject:
   - component: {fileID: 125260441}
   - component: {fileID: 125260440}
   m_Layer: 5
-  m_Name: upgrade3Button
+  m_Name: permanentUpgrade3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4006,16 +4007,16 @@ Light:
   m_GameObject: {fileID: 139120564}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 100
-  m_SpotAngle: 30
+  m_Intensity: 3
+  m_Range: 30
+  m_SpotAngle: 90
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -4048,13 +4049,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: -3.7987242e+32, z: 4.5904e-41, w: -3.8035646e+32}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -4067,13 +4068,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139120564}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30, y: 15, z: -17}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 25, y: 23, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &139936666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4240,7 +4241,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1487663870}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
@@ -6192,7 +6193,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0.0000017777202, y: -360.00003}
-  m_SizeDelta: {x: 600, y: 0}
+  m_SizeDelta: {x: 600, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206438524
 MonoBehaviour:
@@ -6409,7 +6410,7 @@ GameObject:
   - component: {fileID: 213882207}
   - component: {fileID: 213882206}
   m_Layer: 5
-  m_Name: upgrade1Label
+  m_Name: permanentUpgrade1Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6796,7 +6797,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1199300292}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -7375,7 +7376,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 680535911}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -7971,16 +7972,16 @@ Light:
   m_GameObject: {fileID: 251553354}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 100
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 3
+  m_Range: 30
+  m_SpotAngle: 90
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -8013,13 +8014,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 8.4538974e+30}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -8032,13 +8033,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251553354}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 15, z: 5}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 5, y: 23, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &261866434
 GameObject:
   m_ObjectHideFlags: 0
@@ -9149,7 +9150,7 @@ GameObject:
   - component: {fileID: 290145984}
   - component: {fileID: 290145986}
   m_Layer: 5
-  m_Name: upgrade3
+  m_Name: permanentUpgrade3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9172,9 +9173,9 @@ RectTransform:
   - {fileID: 2035607912}
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -330}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290145984
@@ -9231,7 +9232,7 @@ MonoBehaviour:
   upgradeCost: 1
   initialCost: 60
   increaseRate: 0.03
-  upgradeLimit: 0
+  upgradeLimit: 40
   costText: {fileID: 772687250}
   upgradeButton: {fileID: 125260440}
   slider: {fileID: 1971643825}
@@ -9710,7 +9711,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1487663870}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList:
   - {fileID: 2100000, guid: e84b672834c4b50438c72e71a86cc21f, type: 2}
   - {fileID: 2100000, guid: 463d33319f69d4f4397a1e5301caf217, type: 2}
@@ -9970,7 +9971,7 @@ GameObject:
   - component: {fileID: 313496326}
   - component: {fileID: 313496327}
   m_Layer: 5
-  m_Name: upgrade2Slider
+  m_Name: permanentUpgrade2Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10061,7 +10062,7 @@ GameObject:
   - component: {fileID: 315164608}
   - component: {fileID: 315164607}
   m_Layer: 5
-  m_Name: upgrade2Button
+  m_Name: permanentUpgrade2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10404,7 +10405,7 @@ GameObject:
   - component: {fileID: 320773969}
   - component: {fileID: 320773968}
   m_Layer: 5
-  m_Name: upgrade2SliderFill
+  m_Name: permanentUpgrade2SliderFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10833,7 +10834,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 680535911}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
@@ -11004,7 +11005,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1199300292}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
@@ -11763,7 +11764,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1954626671}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList:
   - {fileID: 2100000, guid: e84b672834c4b50438c72e71a86cc21f, type: 2}
   - {fileID: 2100000, guid: 463d33319f69d4f4397a1e5301caf217, type: 2}
@@ -12646,9 +12647,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -590}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395112279
@@ -13098,9 +13099,9 @@ RectTransform:
   - {fileID: 2032471992}
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -460}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &408789051
@@ -14377,7 +14378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &459495969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14514,7 +14515,7 @@ GameObject:
   - component: {fileID: 465781431}
   - component: {fileID: 465781430}
   m_Layer: 5
-  m_Name: upgrade1Cost
+  m_Name: permanentUpgrade1Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15744,7 +15745,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 923677708}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -15761,7 +15762,7 @@ GameObject:
   - component: {fileID: 488322700}
   - component: {fileID: 488322699}
   m_Layer: 5
-  m_Name: upgrade1Button
+  m_Name: permanentUpgrade1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16138,6 +16139,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503314162}
   m_CullTransparentMesh: 1
+--- !u!1 &503488560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503488562}
+  - component: {fileID: 503488561}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!215 &503488561
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503488560}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 94.55, y: 63.57, z: 105.89}
+  m_BoxOffset: {x: 5, y: 5, z: -5}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
+--- !u!4 &503488562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503488560}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505278994
 GameObject:
   m_ObjectHideFlags: 0
@@ -16502,7 +16568,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1199300292}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList:
   - {fileID: 2100000, guid: e84b672834c4b50438c72e71a86cc21f, type: 2}
   - {fileID: 2100000, guid: 463d33319f69d4f4397a1e5301caf217, type: 2}
@@ -16709,7 +16775,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 923677708}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList:
   - {fileID: 2100000, guid: e84b672834c4b50438c72e71a86cc21f, type: 2}
   - {fileID: 2100000, guid: 463d33319f69d4f4397a1e5301caf217, type: 2}
@@ -21003,9 +21069,9 @@ RectTransform:
   - {fileID: 1364164766}
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -70}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670819349
@@ -21746,7 +21812,7 @@ GameObject:
   - component: {fileID: 683597122}
   - component: {fileID: 683597123}
   m_Layer: 5
-  m_Name: upgrade1Slider
+  m_Name: permanentUpgrade1Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22274,7 +22340,7 @@ GameObject:
   - component: {fileID: 703692342}
   - component: {fileID: 703692344}
   m_Layer: 5
-  m_Name: upgrade2
+  m_Name: permanentUpgrade2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22297,9 +22363,9 @@ RectTransform:
   - {fileID: 1113661763}
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703692342
@@ -22356,7 +22422,7 @@ MonoBehaviour:
   upgradeCost: 1
   initialCost: 40
   increaseRate: 0.05
-  upgradeLimit: 5
+  upgradeLimit: 15
   costText: {fileID: 1974242035}
   upgradeButton: {fileID: 315164607}
   slider: {fileID: 313496327}
@@ -22387,7 +22453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -22406,7 +22472,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -22458,13 +22524,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.013338189, y: -0.89299315, z: 0.2578405, w: 0.36865124}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.056, y: -132.415, z: 10.861}
 --- !u!1 &709725449
 GameObject:
   m_ObjectHideFlags: 0
@@ -22915,9 +22981,9 @@ RectTransform:
   - {fileID: 1821498745}
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -200}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &725734639
@@ -23728,7 +23794,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 923677708}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -23819,7 +23885,7 @@ GameObject:
   - component: {fileID: 772687251}
   - component: {fileID: 772687250}
   m_Layer: 5
-  m_Name: upgrade3Cost
+  m_Name: permanentUpgrade3Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24375,7 +24441,7 @@ GameObject:
   - component: {fileID: 797081650}
   - component: {fileID: 797081649}
   m_Layer: 5
-  m_Name: upgrade2Header
+  m_Name: permanentUpgrade2Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25328,7 +25394,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1954626671}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -31401,9 +31467,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -590}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888436933
@@ -32393,7 +32459,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0.0000017777202, y: -394}
-  m_SizeDelta: {x: 600, y: 790}
+  m_SizeDelta: {x: 600, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931767848
 MonoBehaviour:
@@ -32714,9 +32780,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -720}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946049377
@@ -33185,13 +33251,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958330922}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30, y: 15, z: 36}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -15, y: 23, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &958330924
 Light:
   m_ObjectHideFlags: 0
@@ -33201,16 +33267,16 @@ Light:
   m_GameObject: {fileID: 958330922}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 100
-  m_SpotAngle: 30
+  m_Intensity: 3
+  m_Range: 30
+  m_SpotAngle: 90
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -33243,13 +33309,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 5.6e-44, z: 0, w: 1.6114932e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -34357,7 +34423,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 5.51013e-40, y: 9.1835e-41, z: 1.8e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -37299,7 +37365,7 @@ GameObject:
   - component: {fileID: 1113661765}
   - component: {fileID: 1113661764}
   m_Layer: 5
-  m_Name: upgrade2Body
+  m_Name: permanentUpgrade2Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37806,7 +37872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1140175465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38257,7 +38323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1152906236}
   m_Layer: 5
-  m_Name: upgrade3SliderFillArea
+  m_Name: permanentUpgrade3SliderFillArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38533,7 +38599,7 @@ GameObject:
   - component: {fileID: 1168731799}
   - component: {fileID: 1168731798}
   m_Layer: 5
-  m_Name: upgrade3SliderBackground
+  m_Name: permanentUpgrade3SliderBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38959,11 +39025,11 @@ MonoBehaviour:
   chanceOfGnome: 24
   allowForAdSkip: 1
   secondsToSkip: 5
+  secondsToSkipBlank: 0
   coinsToReward: 20
   blankAdTime: 30
   blackScreen: {fileID: 1900626975}
   videos:
-  - {fileID: 32900000, guid: 1deec20ca888e4a46aa510defe5b9ca8, type: 3}
   - {fileID: 32900000, guid: a6d9649f086facc479c775ff2ddc67f3, type: 3}
   - {fileID: 32900000, guid: ebc4eee8a13d9ed42b26a23c54375b83, type: 3}
   - {fileID: 32900000, guid: 2e6186ee474103c4ea50a56c03bea643, type: 3}
@@ -39618,9 +39684,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -460}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204188014
@@ -41302,7 +41368,7 @@ RectTransform:
   m_Father: {fileID: 1144519116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -42779,7 +42845,7 @@ GameObject:
   - component: {fileID: 1286853947}
   - component: {fileID: 1286853946}
   m_Layer: 5
-  m_Name: upgrade1Header
+  m_Name: permanentUpgrade1Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44225,7 +44291,7 @@ GameObject:
   - component: {fileID: 1330854410}
   - component: {fileID: 1330854412}
   m_Layer: 5
-  m_Name: upgrade1
+  m_Name: permanentUpgrade1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44248,9 +44314,9 @@ RectTransform:
   - {fileID: 1602149995}
   m_Father: {fileID: 931767847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -70}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330854410
@@ -44307,7 +44373,7 @@ MonoBehaviour:
   upgradeCost: 1
   initialCost: 20
   increaseRate: 0.02
-  upgradeLimit: 0
+  upgradeLimit: 200
   costText: {fileID: 465781430}
   upgradeButton: {fileID: 488322699}
   slider: {fileID: 683597123}
@@ -44511,7 +44577,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1716639367}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList:
   - {fileID: 2100000, guid: e84b672834c4b50438c72e71a86cc21f, type: 2}
   - {fileID: 2100000, guid: 463d33319f69d4f4397a1e5301caf217, type: 2}
@@ -45788,7 +45854,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1716639367}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -46813,7 +46879,7 @@ GameObject:
   - component: {fileID: 1432177902}
   - component: {fileID: 1432177901}
   m_Layer: 5
-  m_Name: upgrade3Label
+  m_Name: permanentUpgrade3Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52905,7 +52971,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1199300292}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -54402,7 +54468,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 680535911}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList:
   - {fileID: 2100000, guid: e84b672834c4b50438c72e71a86cc21f, type: 2}
   - {fileID: 2100000, guid: 463d33319f69d4f4397a1e5301caf217, type: 2}
@@ -55336,7 +55402,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1291777366}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
@@ -55935,8 +56001,8 @@ MonoBehaviour:
     this advertisement has been disabled.
 
 
-    Your reward will be granted once
-    this screen has been dismissed.
+    The ad for reward system has been
+    replaced with a passive income.
 
 
     For more information, scan the QR code
@@ -56362,7 +56428,7 @@ GameObject:
   - component: {fileID: 1570334334}
   - component: {fileID: 1570334333}
   m_Layer: 5
-  m_Name: upgrade3Header
+  m_Name: permanentUpgrade3Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57027,7 +57093,7 @@ GameObject:
   - component: {fileID: 1602149997}
   - component: {fileID: 1602149996}
   m_Layer: 5
-  m_Name: upgrade1Body
+  m_Name: permanentUpgrade1Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57764,7 +57830,7 @@ GameObject:
   - component: {fileID: 1610048134}
   - component: {fileID: 1610048133}
   m_Layer: 5
-  m_Name: upgrade2Label
+  m_Name: permanentUpgrade2Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57922,9 +57988,9 @@ RectTransform:
   - {fileID: 1206581064}
   m_Father: {fileID: 1796627213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -330}
   m_SizeDelta: {x: 550, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1613842706
@@ -58142,7 +58208,7 @@ GameObject:
   - component: {fileID: 1619533373}
   - component: {fileID: 1619533372}
   m_Layer: 5
-  m_Name: upgrade3SliderFill
+  m_Name: permanentUpgrade3SliderFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58366,7 +58432,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1291777366}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -59142,7 +59208,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1291777366}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -59396,7 +59462,7 @@ RectTransform:
   m_Father: {fileID: 1193600914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -61844,7 +61910,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1291777366}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList:
   - {fileID: 2100000, guid: e84b672834c4b50438c72e71a86cc21f, type: 2}
   - {fileID: 2100000, guid: 463d33319f69d4f4397a1e5301caf217, type: 2}
@@ -62773,7 +62839,7 @@ GameObject:
   - component: {fileID: 1751872681}
   - component: {fileID: 1751872680}
   m_Layer: 5
-  m_Name: upgrade1SliderFill
+  m_Name: permanentUpgrade1SliderFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63170,7 +63236,7 @@ RectTransform:
   m_Father: {fileID: 1801148141}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -63928,7 +63994,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1716639367}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
@@ -64135,7 +64201,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0.0000017777202, y: -394}
-  m_SizeDelta: {x: 600, y: 0}
+  m_SizeDelta: {x: 600, y: 790}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1796627217
 CanvasRenderer:
@@ -64351,7 +64417,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 923677708}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
@@ -67641,7 +67707,7 @@ GameObject:
   - component: {fileID: 1919666701}
   - component: {fileID: 1919666700}
   m_Layer: 5
-  m_Name: upgrade2SliderBackground
+  m_Name: permanentUpgrade2SliderBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67872,7 +67938,7 @@ RectTransform:
   m_Father: {fileID: 550365087}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -67924,7 +67990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925912401}
   m_Layer: 5
-  m_Name: upgrade2SliderFillArea
+  m_Name: permanentUpgrade2SliderFillArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69171,7 +69237,7 @@ GameObject:
   - component: {fileID: 1971643824}
   - component: {fileID: 1971643825}
   m_Layer: 5
-  m_Name: upgrade3Slider
+  m_Name: permanentUpgrade3Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69261,7 +69327,7 @@ GameObject:
   - component: {fileID: 1974242036}
   - component: {fileID: 1974242035}
   m_Layer: 5
-  m_Name: upgrade2Cost
+  m_Name: permanentUpgrade2Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69607,7 +69673,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 3.673418e-39, y: -9.1835e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -69809,7 +69875,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 680535911}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
@@ -70621,7 +70687,7 @@ GameObject:
   - component: {fileID: 2035607914}
   - component: {fileID: 2035607913}
   m_Layer: 5
-  m_Name: upgrade3Body
+  m_Name: permanentUpgrade3Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70769,16 +70835,16 @@ Light:
   m_GameObject: {fileID: 2041411200}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 100
-  m_SpotAngle: 30
+  m_Intensity: 3
+  m_Range: 30
+  m_SpotAngle: 90
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -70811,13 +70877,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 2.4e-44, z: 8.982e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -70830,13 +70896,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041411200}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41, y: 15, z: 36}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 15, y: 23, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2042575892
 GameObject:
   m_ObjectHideFlags: 0
@@ -70862,13 +70928,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042575892}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 15, z: -17}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -5, y: 23, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &2042575894
 Light:
   m_ObjectHideFlags: 0
@@ -70878,16 +70944,16 @@ Light:
   m_GameObject: {fileID: 2042575892}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.5
-  m_Range: 100
-  m_SpotAngle: 30
+  m_Intensity: 3
+  m_Range: 30
+  m_SpotAngle: 90
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -70920,13 +70986,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 4e-44, z: 2.1535e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -71248,7 +71314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2061824847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -71362,7 +71428,7 @@ GameObject:
   - component: {fileID: 2067757217}
   - component: {fileID: 2067757216}
   m_Layer: 5
-  m_Name: upgrade1SliderBackground
+  m_Name: permanentUpgrade1SliderBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71834,7 +71900,7 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1954626671}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 7397386311574792193, guid: 0149845c887c5724593facf5f340517a,
     type: 3}
@@ -73524,10 +73590,61 @@ MonoBehaviour:
     type: 3}
   dispenser: {fileID: 1487663870}
   initSys: {fileID: 0}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 1095546606}
   gnomeMaterialList: []
   jimboPrefab: {fileID: 0}
   chanceOfJimbo: 0
+--- !u!1 &2146610634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2146610636}
+  - component: {fileID: 2146610635}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &2146610635
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146610634}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -1}
+  - {x: 243.91501, y: 218.63165, z: 1387.8009}
+  m_Dering: 1
+--- !u!4 &2146610636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146610634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -243.91501, y: -209.0433, z: -1387.8009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6465240255732872290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73713,3 +73830,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1962326170}
+  - {fileID: 2146610636}
+  - {fileID: 503488562}

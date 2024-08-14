@@ -10,13 +10,13 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
     private bool isReadyToDestroy = false;
 
     [Header("Object References")]
-    private PrototypeGnomeCoinSystem gnomeCoinSys;
+    private GnomeCoinSystem gnomeCoinSys;
     public GameObject promptBackground;
     public GameObject spinnerBackground;
 
     public void OnEnable()
     {
-        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
     }
     public void BuyGnomeCoins(int amount)
     {
