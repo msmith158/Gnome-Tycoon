@@ -8,6 +8,8 @@ public class SwitchPanels : MonoBehaviour
     private GameObject objectToActivate;
     private float dismissalTime;
     private float activationTime;
+    private float altDismissalTime;
+    private float altActivationTime;
     private Vector3 dismissalLocation;
     private Vector3 altDismissalLocation;
     private Vector3 activationLocation;
@@ -30,6 +32,11 @@ public class SwitchPanels : MonoBehaviour
     {
         dismissalTime = time;
     }
+    
+    public void SetAltDismissalTime(float time)
+    {
+        altDismissalTime = time;
+    }
 
     public void SetNewDismissalPos(GameObject newDismissalLocation)
     {
@@ -49,6 +56,11 @@ public class SwitchPanels : MonoBehaviour
     public void SetActivationTime(float time)
     {
         activationTime = time;
+    }
+    
+    public void SetAltActivationTime(float time)
+    {
+        altActivationTime = time;
     }
 
     public void SetNewActivationPos(GameObject newActivationLocation)
@@ -114,9 +126,9 @@ public class SwitchPanels : MonoBehaviour
             case true:
                 // Smooth switch operation for the alt dismissing object
                 float altDismissalTimeElapsed = 0;
-                while (altDismissalTimeElapsed < dismissalTime)
+                while (altDismissalTimeElapsed < altDismissalTime)
                 {
-                    objectToDismiss.transform.position = Vector3.Lerp(objectToDismiss.transform.position, altDismissalLocation, altDismissalTimeElapsed / dismissalTime);
+                    objectToDismiss.transform.position = Vector3.Lerp(objectToDismiss.transform.position, altDismissalLocation, altDismissalTimeElapsed / altDismissalTime);
                     altDismissalTimeElapsed += Time.deltaTime;
                     yield return null;
                 }
@@ -148,10 +160,10 @@ public class SwitchPanels : MonoBehaviour
             case true:
                 // Smooth switch operation for the alt activating object
                 float altActivationTimeElapsed = 0;
-                while (altActivationTimeElapsed < activationTime)
+                while (altActivationTimeElapsed < altActivationTime)
                 {
                     objectToActivate.transform.position = Vector3.Lerp(objectToActivate.transform.position,
-                        altActivationLocation, altActivationTimeElapsed / activationTime);
+                        altActivationLocation, altActivationTimeElapsed / altActivationTime);
                     altActivationTimeElapsed += Time.deltaTime;
                     yield return null;
                 }

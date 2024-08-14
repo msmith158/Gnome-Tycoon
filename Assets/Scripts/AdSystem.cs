@@ -44,7 +44,7 @@ public class AdSystem : MonoBehaviour
 
     private void GiveReward()
     {
-        coinSys.AddCoins(coinsToReward);
+        coinSys.AddCoins(coinsToReward, false);
     }
 
     private IEnumerator PlayAd()

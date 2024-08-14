@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class PrototypeGnomeCoinShopSystem : MonoBehaviour
+public class GnomeCoinShopSystem : MonoBehaviour
 {
     [Header("Values")]
     [SerializeField] private float spinnerTime = 2f;
     private bool isReadyToDestroy = false;
 
     [Header("Object References")]
-    private PrototypeGnomeCoinSystem gnomeCoinSys;
+    private GnomeCoinSystem gnomeCoinSys;
     public GameObject promptBackground;
     public GameObject spinnerBackground;
 
     public void OnEnable()
     {
-        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<PrototypeGnomeCoinSystem>();
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
     }
     public void BuyGnomeCoins(int amount)
     {
@@ -32,7 +31,7 @@ public class PrototypeGnomeCoinShopSystem : MonoBehaviour
     {
         spinnerBackground.SetActive(true);
         yield return new WaitForSeconds(spinnerTime);
-        gnomeCoinSys.AddCoins(amountToBuy);
+        gnomeCoinSys.AddCoins(amountToBuy, false);
         spinnerBackground.SetActive(false);
         isReadyToDestroy = true;
     }

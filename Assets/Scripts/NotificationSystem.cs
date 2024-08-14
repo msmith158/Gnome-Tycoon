@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class NotificationSystem : MonoBehaviour
 {
     [Header("Values")]
+    [SerializeField] private bool hasTimedSpawn;
+    [SerializeField] private float spawnTimer;
+    [SerializeField] private float spawnTimerVariation;
     [SerializeField] private int flashAmount;
     [SerializeField] private float flashLength;
-    [SerializeField] private bool isActive = false;
+    private bool isActive = false;
 
     [Header("Object References")] 
     [SerializeField] private AdSystem adSys;
@@ -21,6 +24,11 @@ public class NotificationSystem : MonoBehaviour
     [SerializeField] private Image greenVignette;
     [SerializeField] private Image bellNotifIcon;
     private List<GameObject> activeNotifications = new List<GameObject>();
+
+    private void OnEnable()
+    {
+        StartCoroutine(TimedAdSpawn());
+    }
 
     public void AddNotification(int type)
     {
@@ -57,6 +65,17 @@ public class NotificationSystem : MonoBehaviour
             case false:
                 isActive = false;
                 break;
+        }
+    }
+
+    private IEnumerator TimedAdSpawn()
+    {
+        while (hasTimedSpawn)
+        {
+            float random = Random.Range(-spawnTimerVariation, spawnTimerVariation);
+            float finalTimedSpawn = spawnTimer + random;
+            yield return new WaitForSeconds(finalTimedSpawn);
+            AddNotification(0);
         }
     }
 
