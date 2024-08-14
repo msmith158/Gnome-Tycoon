@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private float standardSequenceDelay;
     [SerializeField] private List<float> switchAwayTimeStandard = new List<float>();
     [SerializeField] private List<float> switchToTimeStandard = new List<float>();
+    [SerializeField] private int prestigeFlashAmount;
+    [SerializeField] private float prestigeFlashLength;
     private bool isFinishedPrestige;
 
     [Header("Nuke Sequence > Values")]
@@ -29,7 +32,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
 
     [Header("Standard Sequence > Object References > General")]
     [SerializeField] private TextMeshProUGUI prestigingText;
-    [SerializeField] private Image redVignette;
+    [SerializeField] private Image greenVignette;
 
     [Header("Standard Sequence > Object References > Audio")]
     [SerializeField] private AudioSource musicSource1;
@@ -55,6 +58,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private AnimationCurve nukeSequenceShake;
     [SerializeField] private DDOLManager ddolSys;
     [SerializeField] private SwitchPanels panelSwitchSys;
+    [SerializeField] private Image redVignette;
     [SerializeField] private string sceneToLoad;
 
     [Header("Nuke Sequence > Object References > Audio")]
@@ -313,6 +317,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
         prestigingText.gameObject.SetActive(false);
         isFinishedPrestige = true;
 
+        StartCoroutine(FlashScreen());
+
         foreach (Light lights in lightsToTurnOff)
         {
             lights.enabled = true;
@@ -350,5 +356,18 @@ public class PrestigeSequenceSystem : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    private IEnumerator FlashScreen()
+    {
+        greenVignette.gameObject.SetActive(true);
+        for (int i = 0; i < prestigeFlashAmount; i++)
+        {
+            greenVignette.enabled = true;
+            yield return new WaitForSeconds(prestigeFlashLength);
+            greenVignette.enabled = false;
+            yield return new WaitForSeconds(prestigeFlashLength);
+        }
+        greenVignette.gameObject.SetActive(false);
     }
 }

@@ -60506,6 +60506,8 @@ MonoBehaviour:
   switchToTimeStandard:
   - 0.3
   - 0.3
+  prestigeFlashAmount: 3
+  prestigeFlashLength: 0.3
   alarmDelayTime: 3
   delayUntilCountdown: 5
   flashingInInterval: 1
@@ -60517,19 +60519,17 @@ MonoBehaviour:
   switchAwayTimeNuke:
   - 0.3
   prestigingText: {fileID: 34893959}
-  redVignette: {fileID: 768089347}
+  greenVignette: {fileID: 1916496785}
   musicSource1: {fileID: 1329982744}
   uiToDisableStandard:
   - {fileID: 1486817315}
   - {fileID: 2013700667}
-  - {fileID: 636105028}
   - {fileID: 242655324}
   - {fileID: 798740691}
   - {fileID: 1501296679}
   uiToEnableStandard:
   - {fileID: 1486817315}
   - {fileID: 2013700667}
-  - {fileID: 636105028}
   - {fileID: 242655324}
   - {fileID: 798740691}
   - {fileID: 1501296679}
@@ -60596,6 +60596,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   ddolSys: {fileID: 0}
   panelSwitchSys: {fileID: 1095546607}
+  redVignette: {fileID: 768089347}
   sceneToLoad: FinalLevel
   switchOffSource: {fileID: 172511929}
   generatorOffSource: {fileID: 871543258}
@@ -60614,7 +60615,6 @@ MonoBehaviour:
   uiToDisableNuke:
   - {fileID: 1486817315}
   - {fileID: 2013700667}
-  - {fileID: 636105028}
   - {fileID: 242655324}
   - {fileID: 798740691}
   - {fileID: 1501296679}
