@@ -8,9 +8,13 @@ using UnityEngine;
 public class WidescreenUIFix : MonoBehaviour
 {
     [SerializeField] private bool runOnEnable = true;
+    [SerializeField] private ThresholdType thresholdType;
     [Tooltip("Any aspect ratio above this number will be affected.")][SerializeField] private float aspectRatioThreshold;
     [SerializeField] private List<GameObject> uiToMove = new List<GameObject>();
-    [Tooltip("This will ADD to the current UI element position.")][SerializeField] private List<Vector3> offsetAdjustment = new List<Vector3>();
+    [SerializeField] private AdjustmentType adjustmentType;
+    [Tooltip("This will ADD to the current UI element position.")][SerializeField] private List<Vector3> newValue = new List<Vector3>();
+    [Tooltip("Only assign this if you're using the ObjectAlignment option.")] [SerializeField] private List<GameObject> posPoints = new List<GameObject>();
+    public bool isActivated = false;
 
     private void OnEnable()
     {
@@ -24,24 +28,89 @@ public class WidescreenUIFix : MonoBehaviour
 
     private void FixUI()
     {
-        if (Camera.main.aspect <= aspectRatioThreshold)
+        switch (thresholdType)
         {
-            Debug.Log("Your aspect ratio is below the threshold. Current aspect ratio: " + Camera.main.aspect + ".");
-        }
-        else if (Camera.main.aspect > aspectRatioThreshold)
-        {
-            if (uiToMove.Count != offsetAdjustment.Count)
-            {
-                Debug.Log("You have not set up the widescreen fix script correctly. Please ensure the lists are of equal length.");
-            }
-            else
-            {
-                for (int i = 0; i < uiToMove.Count; i++)
+            case ThresholdType.Below:
+                if (Camera.main.aspect > aspectRatioThreshold)
                 {
-                    uiToMove[i].transform.position += offsetAdjustment[i];
+                    Debug.Log("Your aspect ratio is above the threshold. Current aspect ratio: " + Camera.main.aspect + ".");
                 }
-                Debug.Log("The widescreen fix script has completed.");
-            }
+                else if (Camera.main.aspect <= aspectRatioThreshold)
+                {
+                    if (uiToMove.Count != newValue.Count || uiToMove.Count != posPoints.Count)
+                    {
+                        Debug.Log("You have not set up the widescreen fix script correctly. Please ensure the lists are of equal length.");
+                    }
+                    for (int i = 0; i < uiToMove.Count; i++)
+                    {
+                        switch (adjustmentType)
+                        {
+                            case AdjustmentType.Offset:
+                                uiToMove[i].GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
+                                uiToMove[i].GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
+                                uiToMove[i].GetComponent<RectTransform>().position += newValue[i];
+                                break;
+                            case AdjustmentType.Position:
+                                uiToMove[i].GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
+                                uiToMove[i].GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
+                                uiToMove[i].GetComponent<RectTransform>().position = new Vector3(newValue[i].x, newValue[i].y);
+                                break;
+                            case AdjustmentType.ObjectAlignment:
+                                uiToMove[i].transform.position = posPoints[i].transform.position;
+                                
+                                break;
+                        }
+                    }
+                    isActivated = true;
+                    Debug.Log("The widescreen fix script has completed.");
+                }
+                break;
+            case ThresholdType.Above:
+                if (Camera.main.aspect <= aspectRatioThreshold)
+                {
+                    Debug.Log("Your aspect ratio is above the threshold. Current aspect ratio: " + Camera.main.aspect + ".");
+                }
+                else if (Camera.main.aspect > aspectRatioThreshold)
+                {
+                    if (uiToMove.Count != newValue.Count)
+                    {
+                        Debug.Log("You have not set up the widescreen fix script correctly. Please ensure the lists are of equal length.");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < uiToMove.Count; i++)
+                        {
+                            uiToMove[i].GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f);
+                            uiToMove[i].GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f);
+                            Debug.Log(newValue[i]);
+                            switch (adjustmentType)
+                            {
+                                case AdjustmentType.Offset:
+                                    uiToMove[i].transform.position += newValue[i];
+                                    break;
+                                case AdjustmentType.Position:
+                                    uiToMove[i].GetComponent<Transform>().position = new Vector3(newValue[i].x, newValue[i].y, newValue[i].z);
+                                    break;
+                            }
+                        }
+                        isActivated = true;
+                        Debug.Log("The widescreen fix script has completed.");
+                    }
+                }
+                break;
         }
+    }
+
+    private enum AdjustmentType
+    {
+        Offset,
+        Position,
+        ObjectAlignment
+    }
+
+    private enum ThresholdType
+    {
+        Above,
+        Below
     }
 }

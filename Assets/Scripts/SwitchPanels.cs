@@ -9,8 +9,17 @@ public class SwitchPanels : MonoBehaviour
     private float dismissalTime;
     private float activationTime;
     private Vector3 dismissalLocation;
+    private Vector3 altDismissalLocation;
     private Vector3 activationLocation;
+    private Vector3 altActivationLocation;
     private int methodRunMode = 0;
+    [SerializeField] private WidescreenUIFix uiFixScript;
+    public bool useAltPositions;
+
+    private void OnEnable()
+    {
+        useAltPositions = uiFixScript.isActivated;
+    }
 
     public void SetAsDismissingPanelObject(GameObject panelToDismiss)
     {
@@ -26,6 +35,11 @@ public class SwitchPanels : MonoBehaviour
     {
         dismissalLocation = newDismissalLocation.transform.position;
     }
+    
+    public void SetNewAltDismissalPos(GameObject newAltDismissalLocation)
+    {
+        altDismissalLocation = newAltDismissalLocation.transform.position;
+    }
 
     public void SetAsActivatingPanelObject(GameObject panelToActivate)
     {
@@ -40,6 +54,11 @@ public class SwitchPanels : MonoBehaviour
     public void SetNewActivationPos(GameObject newActivationLocation)
     {
         activationLocation = newActivationLocation.transform.position;
+    }
+    
+    public void SetNewAltActivationPos(GameObject newAltActivationLocation)
+    {
+        altActivationLocation = newAltActivationLocation.transform.position;
     }
 
     public void SetDismissalValuesThroughScript(GameObject panelToDismiss, float dismissTime, GameObject newDismissalLocation)
@@ -77,31 +96,69 @@ public class SwitchPanels : MonoBehaviour
 
     IEnumerator SmoothSwitchDismissal()
     {
-        // Smooth switch operation for the dismissing object
-        float dismissalTimeElapsed = 0;
-        while (dismissalTimeElapsed < dismissalTime)
+        switch (useAltPositions)
         {
-            objectToDismiss.transform.position = Vector3.Lerp(objectToDismiss.transform.position, dismissalLocation, dismissalTimeElapsed / dismissalTime);
-            dismissalTimeElapsed += Time.deltaTime;
-            yield return null;
+            case false:
+                // Smooth switch operation for the dismissing object
+                float dismissalTimeElapsed = 0;
+                while (dismissalTimeElapsed < dismissalTime)
+                {
+                    objectToDismiss.transform.position = Vector3.Lerp(objectToDismiss.transform.position, dismissalLocation, dismissalTimeElapsed / dismissalTime);
+                    dismissalTimeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+                objectToDismiss.transform.position = dismissalLocation;
+                // Reset to 0 to allow Event systems to run without issues
+                methodRunMode = 0;
+                break;
+            case true:
+                // Smooth switch operation for the alt dismissing object
+                float altDismissalTimeElapsed = 0;
+                while (altDismissalTimeElapsed < dismissalTime)
+                {
+                    objectToDismiss.transform.position = Vector3.Lerp(objectToDismiss.transform.position, altDismissalLocation, altDismissalTimeElapsed / dismissalTime);
+                    altDismissalTimeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+                objectToDismiss.transform.position = altDismissalLocation;
+                // Reset to 0 to allow Event systems to run without issues
+                methodRunMode = 0;
+                break;
         }
-        objectToDismiss.transform.position = dismissalLocation;
-        // Reset to 0 to allow Event systems to run without issues
-        methodRunMode = 0;
     }
 
     IEnumerator SmoothSwitchActivation()
     {
-        // Smooth switch operation for the activating object
-        float activationTimeElapsed = 0;
-        while (activationTimeElapsed < activationTime)
+        switch (useAltPositions)
         {
-            objectToActivate.transform.position = Vector3.Lerp(objectToActivate.transform.position, activationLocation, activationTimeElapsed / activationTime);
-            activationTimeElapsed += Time.deltaTime;
-            yield return null;
+            case false:
+                // Smooth switch operation for the activating object
+                float activationTimeElapsed = 0;
+                while (activationTimeElapsed < activationTime)
+                {
+                    objectToActivate.transform.position = Vector3.Lerp(objectToActivate.transform.position,
+                        activationLocation, activationTimeElapsed / activationTime);
+                    activationTimeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+                objectToActivate.transform.position = activationLocation;
+                // Reset to 0 to allow Event systems to run without issues
+                methodRunMode = 0;
+                break;
+            case true:
+                // Smooth switch operation for the alt activating object
+                float altActivationTimeElapsed = 0;
+                while (altActivationTimeElapsed < activationTime)
+                {
+                    objectToActivate.transform.position = Vector3.Lerp(objectToActivate.transform.position,
+                        altActivationLocation, altActivationTimeElapsed / activationTime);
+                    altActivationTimeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+                objectToActivate.transform.position = altActivationLocation;
+                // Reset to 0 to allow Event systems to run without issues
+                methodRunMode = 0;
+                break;
         }
-        objectToActivate.transform.position = activationLocation;
-        // Reset to 0 to allow Event systems to run without issues
-        methodRunMode = 0;
     }
 }
