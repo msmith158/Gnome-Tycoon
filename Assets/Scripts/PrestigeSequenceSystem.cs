@@ -318,7 +318,11 @@ public class PrestigeSequenceSystem : MonoBehaviour
             lights.enabled = true;
         }
 
-        // CODE HERE FOR THE SOUNDS OF TURNING BACK ON
+        if (!switchOffSource.isPlaying)
+        {
+            switchOffSource.clip = switchOff;
+            switchOffSource.Play();
+        }
         musicSource1.Play();
 
         for (int i = 0; i < uiToSwitchToStandard.Count; i++)

@@ -71,35 +71,18 @@ public class FinalFactorySystem : MonoBehaviour
     private void SetUpDDOLManagerOneOff()
     {
         // Functions for the one-off objects, meant for only one interaction
-        /*switch (ddolManager.gameObject.GetComponent<DDOLManager>().isOneOffComplete)
-        {
-            case true:
-                foreach (var t in ddolManager.oneTimeObjects)
-                {
-                    Destroy(t);
-                }
-                Debug.Log("Bingo 2");
-                break;
-            case false:
-                foreach (var t in oneOffObjects)
-                {
-                    ddolManager.oneTimeObjects.Add(t);
-                }
-                ddolManager.gameObject.GetComponent<DDOLManager>().isOneOffComplete = true;
-                Debug.Log("Bingo 1");
-                break;
-        }*/
         for (int i = 0; i < oneOffObjects.Count; i++)
         {
-            if (ddolManager.oneTimeObjects.Count != 0)
+            if (ddolManager.oneTimeObjectNames.Count != 0)
             {
-                if (oneOffObjects[i] != ddolManager.oneTimeObjects[i])
+                if (oneOffObjects[i].name != ddolManager.oneTimeObjectNames[i])
                 {
                     // It's going here once you restart the level after the nuke detonation. See if you can figure out what's going on.
                     Debug.Log("Heave ho 2!");
-                    ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
+                    Debug.Log(oneOffObjects[i].name + " & " + ddolManager.oneTimeObjectNames[i]);
+                    ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
                 }
-                else if (oneOffObjects[i] == ddolManager.oneTimeObjects[i])
+                else if (oneOffObjects[i].name == ddolManager.oneTimeObjectNames[i])
                 {
                     Destroy(oneOffObjects[i]);
                     oneOffObjects.Remove(oneOffObjects[i]);
@@ -108,7 +91,8 @@ public class FinalFactorySystem : MonoBehaviour
             else
             {
                 Debug.Log("Heave ho 1!");
-                ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
+                ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
+                Debug.Log(ddolManager.oneTimeObjectNames[i]);
             }
         }
     }

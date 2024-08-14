@@ -26445,7 +26445,7 @@ GameObject:
   - component: {fileID: 882636325}
   - component: {fileID: 882636324}
   m_Layer: 7
-  m_Name: proto_nukeParticleSystem1
+  m_Name: nukeParticleSystem1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32313,8 +32313,10 @@ MonoBehaviour:
   maxZoom: 15
   minBounds: {x: -10, y: 0, z: 5}
   maxBounds: {x: 70, y: 0, z: 65}
-  objectsToFollowZ: []
-  objectFollowZOffset: 0
+  objectsToFollowZ:
+  - {fileID: 882636323}
+  - {fileID: 1452091684}
+  objectFollowZOffset: -52
 --- !u!114 &917814197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32322,7 +32324,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917814194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c457e20ace64abe409e890e7a41c409e, type: 3}
   m_Name: 
@@ -32334,6 +32336,10 @@ MonoBehaviour:
   maxZoom: 15
   minBounds: {x: -10, y: 0, z: 5}
   maxBounds: {x: 70, y: 0, z: 65}
+  objectsToFollowZ:
+  - {fileID: 882636323}
+  - {fileID: 1452091684}
+  objectFollowZOffset: -52
 --- !u!1001 &923677705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47985,7 +47991,7 @@ GameObject:
   - component: {fileID: 1452091687}
   - component: {fileID: 1452091686}
   m_Layer: 7
-  m_Name: proto_nukeParticleSystem2
+  m_Name: nukeParticleSystem2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

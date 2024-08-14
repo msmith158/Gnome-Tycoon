@@ -11,6 +11,8 @@ public class CameraMoveTouch : MonoBehaviour
     [SerializeField] private float maxZoom = 15.0f;
     [SerializeField] private Vector3 minBounds;
     [SerializeField] private Vector3 maxBounds;
+    [SerializeField] private List<GameObject> objectsToFollowZ = new List<GameObject>();
+    [SerializeField] private float objectFollowZOffset;
 
     private Vector3 dragOrigin;
     private bool isDragging = false;
@@ -52,10 +54,14 @@ public class CameraMoveTouch : MonoBehaviour
                 Vector3 newPosition = _camera.transform.position + difference * dragSpeed * Time.deltaTime;
 
                 newPosition.x = Mathf.Clamp(newPosition.x, minBounds.x, maxBounds.x);
-                newPosition.y = _camera.transform.position.y;
                 newPosition.z = Mathf.Clamp(newPosition.z, minBounds.z, maxBounds.z);
 
                 _camera.transform.position = new Vector3(newPosition.x, _camera.transform.position.y, newPosition.z);
+
+                for (int i = 0; i < objectsToFollowZ.Count; i++)
+                {
+                    objectsToFollowZ[i].transform.position = new Vector3(objectsToFollowZ[i].transform.position.x, objectsToFollowZ[i].transform.position.y, newPosition.z + objectFollowZOffset);
+                }
             }
         }
     }
