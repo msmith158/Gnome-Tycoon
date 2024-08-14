@@ -61,34 +61,54 @@ public class FinalFactorySystem : MonoBehaviour
         GetComponent<IntroSequence>().ProgressIntroStates();
     }
 
-    public void SetUpDDOLManager()
+    private void SetUpDDOLManager()
     {
         // Set up all the DDOL manager stuff
         ddolManager = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
         ddolManager.gnomeCoinText = coinText;
     }
 
-    public void SetUpDDOLManagerOneOff()
+    private void SetUpDDOLManagerOneOff()
     {
         // Functions for the one-off objects, meant for only one interaction
-        switch (ddolManager.gameObject.GetComponent<DDOLManager>().isOneOffComplete)
+        /*switch (ddolManager.gameObject.GetComponent<DDOLManager>().isOneOffComplete)
         {
             case true:
-                for (int i = 0; i < ddolManager.oneTimeObjects.Count; i++)
+                foreach (var t in ddolManager.oneTimeObjects)
                 {
-                    Destroy(ddolManager.oneTimeObjects[i]);
+                    Destroy(t);
                 }
                 Debug.Log("Bingo 2");
                 break;
             case false:
-                for (int i = 0; i < oneOffObjects.Count; i++)
+                foreach (var t in oneOffObjects)
                 {
-                    //ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
-                    //ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
+                    ddolManager.oneTimeObjects.Add(t);
                 }
                 ddolManager.gameObject.GetComponent<DDOLManager>().isOneOffComplete = true;
                 Debug.Log("Bingo 1");
                 break;
+        }*/
+        for (int i = 0; i < oneOffObjects.Count; i++)
+        {
+            if (ddolManager.oneTimeObjects.Count != 0)
+            {
+                if (oneOffObjects[i] != ddolManager.oneTimeObjects[i])
+                {
+                    Debug.Log("Heave ho 2!");
+                    ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
+                }
+                else if (oneOffObjects[i] == ddolManager.oneTimeObjects[i])
+                {
+                    Destroy(oneOffObjects[i]);
+                    oneOffObjects.Remove(oneOffObjects[i]);
+                }
+            }
+            else
+            {
+                Debug.Log("Heave ho 1!");
+                ddolManager.oneTimeObjects.Add(oneOffObjects[i]);
+            }
         }
     }
 
@@ -100,9 +120,9 @@ public class FinalFactorySystem : MonoBehaviour
             case true:
                 break;
             case false:
-                for (int i = 0; i < productionLines.Count; i++)
+                foreach (var t in productionLines)
                 {
-                    productionLines[i].SetActive(false);
+                    t.SetActive(false);
                     isProductionLinesSet = true;
                 }
                 break;
@@ -150,7 +170,7 @@ public class FinalFactorySystem : MonoBehaviour
     {
 #if UNITY_EDITOR
         {
-        EditorApplication.isPlaying = false;
+            EditorApplication.isPlaying = false;
         }
 #else
         {

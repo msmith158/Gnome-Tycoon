@@ -12,6 +12,8 @@ public class GnomeCoinShopSystem : MonoBehaviour
     private GnomeCoinSystem gnomeCoinSys;
     public GameObject promptBackground;
     public GameObject spinnerBackground;
+    [SerializeField] private AudioSource UiSfxSource;
+    [SerializeField] private AudioClip chaChingSfx;
 
     public void OnEnable()
     {
@@ -33,6 +35,7 @@ public class GnomeCoinShopSystem : MonoBehaviour
         yield return new WaitForSeconds(spinnerTime);
         gnomeCoinSys.AddCoins(amountToBuy, false);
         spinnerBackground.SetActive(false);
+        UiSfxSource.PlayOneShot(chaChingSfx);
         isReadyToDestroy = true;
     }
 

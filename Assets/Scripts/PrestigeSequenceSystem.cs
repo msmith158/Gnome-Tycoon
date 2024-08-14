@@ -48,6 +48,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
     [SerializeField] private Material emerLightMaterial;
     [SerializeField] private Light nukeLight;
     [SerializeField] private Light nukeAmbientLight;
+    [SerializeField] private Light globalLight;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private AnimationClip emerLightAnim;
     [SerializeField] private GameObject whiteScreen;
@@ -101,6 +102,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
         {
             lightsToTurnOff[i].enabled = false;
         }
+        globalLight.enabled = false;
         if (!switchOffSource.isPlaying)
         {
             switchOffSource.clip = switchOff;

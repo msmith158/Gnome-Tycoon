@@ -276,7 +276,6 @@ public class IntroSequence : MonoBehaviour
                 }
                 break;
             case true:
-                Debug.Log("Intro sequence skipped!");
                 break;
         }
     }

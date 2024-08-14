@@ -68,7 +68,7 @@ public class WidescreenUIFix : MonoBehaviour
             case ThresholdType.Above:
                 if (Camera.main.aspect <= aspectRatioThreshold)
                 {
-                    Debug.Log("Your aspect ratio is above the threshold. Current aspect ratio: " + Camera.main.aspect + ".");
+                    Debug.Log("Your aspect ratio is below the threshold. Current aspect ratio: " + Camera.main.aspect + ".");
                 }
                 else if (Camera.main.aspect > aspectRatioThreshold)
                 {

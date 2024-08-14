@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  m_AmbientSkyColor: {r: 0.37106913, g: 0.37106913, b: 0.37106913, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35647707}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2156,8 +2156,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+      - m_Target: {fileID: 1176754082}
+        m_TargetAssemblyTypeName: GnomeCoinShopSystem, Assembly-CSharp
         m_MethodName: BuyGnomeCoins
         m_Mode: 3
         m_Arguments:
@@ -4011,9 +4011,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 3
-  m_Range: 30
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 21.80208
+  m_Range: 35
+  m_SpotAngle: 120
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -8062,8 +8062,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 3
-  m_Range: 30
-  m_SpotAngle: 90
+  m_Range: 35
+  m_SpotAngle: 120
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -9835,13 +9835,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305319315}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 20, y: 14.999401, z: 5}
-  m_LocalScale: {x: 0.3, y: 0.20000008, z: 0.3}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 5, y: 23, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &305319317
 Light:
   m_ObjectHideFlags: 0
@@ -9849,15 +9849,15 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305319315}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2.5
   m_Range: 50
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 120
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -9899,7 +9899,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 3.673418e-39, y: -9.1835e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -12079,8 +12079,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+      - m_Target: {fileID: 1176754082}
+        m_TargetAssemblyTypeName: GnomeCoinShopSystem, Assembly-CSharp
         m_MethodName: BuyGnomeCoins
         m_Mode: 3
         m_Arguments:
@@ -22653,7 +22653,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -23791,7 +23791,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754205790}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -33508,9 +33508,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 3
-  m_Range: 30
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 21.80208
+  m_Range: 35
+  m_SpotAngle: 120
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -33960,7 +33960,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964360919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -34035,7 +34035,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968212418}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -34575,13 +34575,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000268710}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -10, y: 14.999401, z: 5}
-  m_LocalScale: {x: 0.3, y: 0.20000008, z: 0.3}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 5, y: 23, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!95 &1000268712
 Animator:
   serializedVersion: 5
@@ -34610,15 +34610,15 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000268710}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2.5
   m_Range: 50
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 120
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -34660,7 +34660,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 5.51013e-40, y: 9.1835e-41, z: 1.8e-43, w: 0}
+  m_BoundingSphereOverride: {x: 3.673418e-39, y: -9.1835e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -36902,7 +36902,8 @@ MonoBehaviour:
   - {fileID: 1677891339}
   - {fileID: 2119151320}
   - {fileID: 94380721}
-  oneOffObjects: []
+  oneOffObjects:
+  - {fileID: 1879732283}
   gnomeCoinVignetteReference: {fileID: 410136122}
   buttonSfxSource: {fileID: 1357006267}
   buttonInSfx: {fileID: 8300000, guid: f2f2528d7a2bdf84385b6da03c7f31d6, type: 3}
@@ -37417,7 +37418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105133937}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -39071,6 +39072,8 @@ MonoBehaviour:
   spinnerTime: 2
   promptBackground: {fileID: 343340713}
   spinnerBackground: {fileID: 417141045}
+  UiSfxSource: {fileID: 1357006267}
+  chaChingSfx: {fileID: 8300000, guid: 11539755a76fd274fbe8ebe113c34f86, type: 3}
 --- !u!1 &1177529493
 GameObject:
   m_ObjectHideFlags: 0
@@ -40301,7 +40304,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214901335}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -40819,8 +40822,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+      - m_Target: {fileID: 1176754082}
+        m_TargetAssemblyTypeName: GnomeCoinShopSystem, Assembly-CSharp
         m_MethodName: BuyGnomeCoins
         m_Mode: 3
         m_Arguments:
@@ -45956,7 +45959,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380406784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -46308,8 +46311,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+      - m_Target: {fileID: 1176754082}
+        m_TargetAssemblyTypeName: GnomeCoinShopSystem, Assembly-CSharp
         m_MethodName: BuyGnomeCoins
         m_Mode: 3
         m_Arguments:
@@ -53802,8 +53805,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+      - m_Target: {fileID: 1176754082}
+        m_TargetAssemblyTypeName: GnomeCoinShopSystem, Assembly-CSharp
         m_MethodName: BuyGnomeCoins
         m_Mode: 3
         m_Arguments:
@@ -57021,7 +57024,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571090996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -60239,7 +60242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676150599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -60451,7 +60454,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679194114}
-  - component: {fileID: 1679194115}
   - component: {fileID: 1679194116}
   m_Layer: 5
   m_Name: prestigeSequenceHandler
@@ -60479,110 +60481,6 @@ RectTransform:
   m_AnchoredPosition: {x: 971.5, y: 546.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1679194115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679194113}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c28d2faee47d0d45add8a6ddec4e5d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alarmDelayTime: 2
-  delayUntilCountdown: 5
-  countdownTimer: 10
-  delayAfterNuke: 3.5
-  nukeParticlesDelay: 2.6
-  delayAfterFadeOut: 0
-  sys: {fileID: 1095546605}
-  conveyor: {fileID: 315469248}
-  camShake: {fileID: 0}
-  emerLightMaterial: {fileID: 2100000, guid: d4f0c779422b274488ab8b9aee653942, type: 2}
-  nukeLight: {fileID: 1776627249}
-  nukeAmbientLight: {fileID: 287230656}
-  timerText: {fileID: 1939962531}
-  emerLightAnim: {fileID: 7400000, guid: 42a14b1db891c074e8957b13293da3db, type: 2}
-  whiteScreen: {fileID: 1231535996}
-  nukeSequenceShake:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: -0.4500466
-      outSlope: -0.4500466
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.055374783
-    - serializedVersion: 3
-      time: 0.48316336
-      value: 0.04428021
-      inSlope: -0.20800456
-      outSlope: -0.10518972
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.110633686
-    - serializedVersion: 3
-      time: 2.25
-      value: 0.01
-      inSlope: -0.01087996
-      outSlope: 0.18015715
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.15023248
-      outWeight: 0.22141933
-    - serializedVersion: 3
-      time: 3.25
-      value: 2
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.08164835
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ddolSys: {fileID: 0}
-  switchOffSource: {fileID: 172511929}
-  generatorOffSource: {fileID: 871543258}
-  alarmSource: {fileID: 2088088836}
-  clockSource: {fileID: 681298736}
-  nukeSource: {fileID: 812422128}
-  sirenSource: {fileID: 871543258}
-  switchOff: {fileID: 8300000, guid: daa22a701530f3c458a916327bc8a038, type: 3}
-  generatorOff: {fileID: 8300000, guid: c3cb2efb09d172441a977707649d59e1, type: 3}
-  alarm: {fileID: 8300000, guid: dccb7d6cbe989cf40afca33d28ae6fe7, type: 3}
-  clock: {fileID: 8300000, guid: 2aa182cfc266b884cb3708b3f54f7bd4, type: 3}
-  nuke: {fileID: 8300000, guid: 0124a7306102d0f44aa261cd0d84dc6c, type: 3}
-  siren: {fileID: 8300000, guid: 68b8c12e20ad284438105a75ab866eaf, type: 3}
-  outsideNuke: {fileID: 24300002, guid: d0d72b2067b28904399214efd70ab9e7, type: 2}
-  uiToDisable:
-  - {fileID: 699607255}
-  - {fileID: 2013700667}
-  - {fileID: 1053985530}
-  - {fileID: 777500700}
-  - {fileID: 1509662429}
-  - {fileID: 242655324}
-  - {fileID: 0}
-  - {fileID: 1501296679}
-  - {fileID: 1234457108}
-  uiToEnable:
-  - {fileID: 1939962529}
-  lightsToTurnOff:
-  - {fileID: 251553355}
-  - {fileID: 2041411201}
-  - {fileID: 139120565}
-  emergencyLights:
-  - {fileID: 1998903131}
-  - {fileID: 305319317}
-  nukeParticles:
-  - {fileID: 882636325}
 --- !u!114 &1679194116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60644,6 +60542,7 @@ MonoBehaviour:
   emerLightMaterial: {fileID: 2100000, guid: d4f0c779422b274488ab8b9aee653942, type: 2}
   nukeLight: {fileID: 1776627249}
   nukeAmbientLight: {fileID: 287230656}
+  globalLight: {fileID: 705507994}
   timerText: {fileID: 1939962531}
   emerLightAnim: {fileID: 7400000, guid: 42a14b1db891c074e8957b13293da3db, type: 2}
   whiteScreen: {fileID: 1231535996}
@@ -60679,7 +60578,7 @@ MonoBehaviour:
       outWeight: 0.22141933
     - serializedVersion: 3
       time: 3.25
-      value: 0.5
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -62721,7 +62620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1722694471
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64951,7 +64850,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808492409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -65140,8 +65039,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+      - m_Target: {fileID: 1176754082}
+        m_TargetAssemblyTypeName: GnomeCoinShopSystem, Assembly-CSharp
         m_MethodName: BuyGnomeCoins
         m_Mode: 3
         m_Arguments:
@@ -65152,8 +65051,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrototypeGnomeCoinShopSystem, Assembly-CSharp
+      - m_Target: {fileID: 1176754082}
+        m_TargetAssemblyTypeName: GnomeCoinShopSystem, Assembly-CSharp
         m_MethodName: DisableListing
         m_Mode: 2
         m_Arguments:
@@ -69932,13 +69831,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998903129}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: 14.999401, z: 5}
-  m_LocalScale: {x: 0.29999998, y: 0.20000003, z: 0.3}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 5, y: 23, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458630966}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &1998903131
 Light:
   m_ObjectHideFlags: 0
@@ -69946,15 +69845,15 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998903129}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2.5
   m_Range: 50
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 120
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -71162,9 +71061,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 3
-  m_Range: 30
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 21.80208
+  m_Range: 35
+  m_SpotAngle: 120
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -71271,9 +71170,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 3
-  m_Range: 30
-  m_SpotAngle: 90
-  m_InnerSpotAngle: 21.80208
+  m_Range: 35
+  m_SpotAngle: 120
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -73124,7 +73023,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111791025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -73407,7 +73306,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125332563}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
