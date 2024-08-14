@@ -78,8 +78,6 @@ public class FinalFactorySystem : MonoBehaviour
                 if (oneOffObjects[i].name != ddolManager.oneTimeObjectNames[i])
                 {
                     // It's going here once you restart the level after the nuke detonation. See if you can figure out what's going on.
-                    Debug.Log("Heave ho 2!");
-                    Debug.Log(oneOffObjects[i].name + " & " + ddolManager.oneTimeObjectNames[i]);
                     ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
                 }
                 else if (oneOffObjects[i].name == ddolManager.oneTimeObjectNames[i])
@@ -90,9 +88,7 @@ public class FinalFactorySystem : MonoBehaviour
             }
             else
             {
-                Debug.Log("Heave ho 1!");
                 ddolManager.oneTimeObjectNames.Add(oneOffObjects[i].name);
-                Debug.Log(ddolManager.oneTimeObjectNames[i]);
             }
         }
     }
