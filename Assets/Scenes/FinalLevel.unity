@@ -37204,7 +37204,7 @@ MonoBehaviour:
   lvl6Value: 32
   lvl6InitialValue: 0
   productionLineAmount: 1
-  debugMode: 1
+  debugMode: 0
   instantPointAddition: 109999
   moneyText: {fileID: 2013700669}
   coinText: {fileID: 1486817317}
