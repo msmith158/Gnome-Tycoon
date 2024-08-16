@@ -9333,7 +9333,7 @@ MonoBehaviour:
   upgradeCost: 1
   initialCost: 60
   increaseRate: 0.03
-  upgradeLimit: 40
+  upgradeLimit: 20
   upgradeLimitIncrease: 0
   costText: {fileID: 772687250}
   upgradeButton: {fileID: 125260440}
@@ -45225,7 +45225,7 @@ MonoBehaviour:
   upgradeCost: 1
   initialCost: 20
   increaseRate: 0.02
-  upgradeLimit: 200
+  upgradeLimit: 0
   upgradeLimitIncrease: 0
   costText: {fileID: 465781430}
   upgradeButton: {fileID: 488322699}
