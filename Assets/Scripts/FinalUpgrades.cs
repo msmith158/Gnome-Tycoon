@@ -233,7 +233,24 @@ public class FinalUpgrades : MonoBehaviour
         sys.UpdatePrice(costText, false, "$", currentPrice, "");
         slider.value = 0;
         currentBuyAmount = 0;
-        upgradeLimit += upgradeLimitIncrease;
+        switch (sys.prestigeLvl)
+        {
+            case FinalFactorySystem.PrestigeLevel.Prestige1:
+                upgradeLimit += (1 * upgradeLimitIncrease);
+                break;
+            case FinalFactorySystem.PrestigeLevel.Prestige2:
+                upgradeLimit += (2 * upgradeLimitIncrease);
+                break;
+            case FinalFactorySystem.PrestigeLevel.Prestige3:
+                upgradeLimit += (3 * upgradeLimitIncrease);
+                break;
+            case FinalFactorySystem.PrestigeLevel.Prestige4:
+                upgradeLimit += (4 * upgradeLimitIncrease);
+                break;
+            case FinalFactorySystem.PrestigeLevel.Prestige5:
+                upgradeLimit += (5 * upgradeLimitIncrease);
+                break;
+        }
         slider.transform.GetChild(1).gameObject.SetActive(true);
         slider.transform.GetChild(0).GetComponent<Image>().color = initialSliderColour;
         upgradeButton.interactable = true;
