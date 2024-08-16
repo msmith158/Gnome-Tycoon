@@ -249,7 +249,7 @@ public class IntroSequence : MonoBehaviour
                     case 31:
                         SwitchSprites(neutralArmUpSprite, nervousSprite, false);
                         dialogueHeader.text = "Pop";
-                        dialogueBody.text = "Good luck, son. Go show them who's the real boss around here.";
+                        dialogueBody.text = "Good luck, kiddo. Go show them who's the real boss around here.";
                         break;
                     case 32:
                         // Finish the intro sequence here
