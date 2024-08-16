@@ -22184,7 +22184,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1095546605}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PrototypeFactorySystem, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 6
@@ -36810,7 +36810,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095546604}
-  - component: {fileID: 1095546605}
   - component: {fileID: 1095546606}
   - component: {fileID: 1095546607}
   - component: {fileID: 1095546608}
@@ -36836,39 +36835,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1831941846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1095546605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095546602}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ac281d7c62ed548953e0ba8d874984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointScore: 0
-  prestigeLvl: 0
-  lvl1Value: 1
-  lvl1InitialValue: 0
-  lvl2Value: 2
-  lvl2InitialValue: 0
-  lvl3Value: 4
-  lvl3InitialValue: 0
-  lvl4Value: 8
-  lvl4InitialValue: 0
-  lvl5Value: 16
-  lvl5InitialValue: 0
-  lvl6Value: 32
-  lvl6InitialValue: 0
-  debugMode: 1
-  instantPointAddition: 99999
-  basketTrigger: {fileID: 2137738192}
-  moneyText: {fileID: 2013700669}
-  coinText: {fileID: 1486817317}
-  oneOffObjects:
-  - {fileID: 1879732283}
 --- !u!114 &1095546606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36896,7 +36862,7 @@ MonoBehaviour:
   lvl6Value: 32
   lvl6InitialValue: 0
   productionLineAmount: 1
-  debugMode: 1
+  debugMode: 0
   instantPointAddition: 109999
   moneyText: {fileID: 2013700669}
   coinText: {fileID: 1486817317}
@@ -36911,6 +36877,7 @@ MonoBehaviour:
   oneOffObjects:
   - {fileID: 1879732283}
   gnomeCoinVignetteReference: {fileID: 410136122}
+  debugMetrics: {fileID: 1213765071}
   buttonSfxSource: {fileID: 1357006267}
   buttonInSfx: {fileID: 8300000, guid: f2f2528d7a2bdf84385b6da03c7f31d6, type: 3}
   buttonOutSfx: {fileID: 8300000, guid: ef1fd96f3c9ea8649b1e903bbf149856, type: 3}
@@ -54962,7 +54929,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1095546605}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PrototypeFactorySystem, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 6
@@ -65656,7 +65623,7 @@ MonoBehaviour:
     type: 3}
   objectModel: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  sys: {fileID: 1095546605}
+  sys: {fileID: 0}
   initSys: {fileID: 0}
   gnomeCoinSys: {fileID: 0}
   objectsList: []

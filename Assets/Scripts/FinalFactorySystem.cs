@@ -39,6 +39,7 @@ public class FinalFactorySystem : MonoBehaviour
     private GameObject switchPanelDismissVar;
     private GameObject switchPanelActivateVar;
     public Image gnomeCoinVignetteReference;
+    [SerializeField] private TextMeshProUGUI debugMetrics;
 
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource buttonSfxSource;
@@ -51,6 +52,20 @@ public class FinalFactorySystem : MonoBehaviour
         SetUpDDOLManagerOneOff();
         SetProductionLines();
         ddolManager.Initialise();
+        
+        switch (debugMode)
+        {
+            case true:
+                debugMetrics.gameObject.SetActive(true);
+                debugMetrics.GetComponent<NewDebugCanvas>().enabled = true;
+                Debug.Log("Booper 1");
+                break;
+            case false:
+                debugMetrics.gameObject.SetActive(false);
+                debugMetrics.GetComponent<NewDebugCanvas>().enabled = false;
+                Debug.Log("Booper 2");
+                break;
+        }
 
         lvl1InitialValue = lvl1Value;
         Application.targetFrameRate = 60;
