@@ -205,6 +205,19 @@ public class FinalFactorySystem : MonoBehaviour
         buttonSfxSource.Play();
     }
 
+    public void ResetProductionLineAmount()
+    {
+        if (productionLineAmount != 1)
+        {
+            for (int i = 1; i < productionLines.Count; i++)
+            {
+                productionLines[i].SetActive(false);
+            }
+
+            productionLineAmount = 1;
+        }
+    }
+
     public enum PrestigeLevel
     {
         Prestige0,

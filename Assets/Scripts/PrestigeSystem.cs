@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PrestigeSystem : MonoBehaviour
 {
@@ -231,6 +232,8 @@ public class PrestigeSystem : MonoBehaviour
                     break;
             }
         }
+
+        sys.ResetProductionLineAmount();
 
         StartCoroutine(finalPrestigeSys.DoPrestigePhase());
 
