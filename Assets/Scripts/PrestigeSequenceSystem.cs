@@ -289,6 +289,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
         {
             lights.enabled = false;
         }
+        globalLight.enabled = false;
         if (!switchOffSource.isPlaying)
         {
             switchOffSource.clip = switchOff;
@@ -323,6 +324,7 @@ public class PrestigeSequenceSystem : MonoBehaviour
         {
             lights.enabled = true;
         }
+        globalLight.enabled = true;
 
         if (!switchOffSource.isPlaying)
         {
