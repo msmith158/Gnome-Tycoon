@@ -9337,7 +9337,7 @@ MonoBehaviour:
   upgradeType: 2
   upgradeCost: 1
   initialCost: 60
-  increaseRate: 0.03
+  increaseRate: 0.0333333
   upgradeLimit: 10
   upgradeLimitIncrease: 0
   costText: {fileID: 772687250}
@@ -45245,8 +45245,8 @@ MonoBehaviour:
   upgradeType: 0
   upgradeCost: 1
   initialCost: 20
-  increaseRate: 0.02
-  upgradeLimit: 0
+  increaseRate: 0.025
+  upgradeLimit: 100
   upgradeLimitIncrease: 0
   costText: {fileID: 465781430}
   upgradeButton: {fileID: 488322699}
