@@ -43,8 +43,8 @@ public class FinalDispenser : MonoBehaviour
         // Work the manufacturing delay timer
         timeSlider.SetActive(true);
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Manufacturing...";
+        //manufacturingTime += (manufacturingTime * gnomeCoinSys.permanentTime);
         float manuT = manufacturingTime + (manufacturingTime * gnomeCoinSys.permanentTime);
-        manufacturingTime = manuT;
         manufacturingCooldown += (manufacturingCooldown * gnomeCoinSys.permanentCooldown);
 
         for (float timer = manufacturingTime; timer > 0; timer -= Time.deltaTime)

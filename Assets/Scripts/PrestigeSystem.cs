@@ -215,7 +215,7 @@ public class PrestigeSystem : MonoBehaviour
         // Reset and adjust total costs
         for (int i = 0; i < upgradeSys.Count; i++)
         {
-            upgradeSys[i].SendMessage("ResetAndAdjustPrices", priceIncreasePercent);
+            upgradeSys[i].gameObject.SendMessage("ResetAndAdjustPrices", priceIncreasePercent);
         }
 
         for (int i = 0; i < dispensers.Count; i++)

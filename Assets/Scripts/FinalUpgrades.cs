@@ -17,6 +17,7 @@ public class FinalUpgrades : MonoBehaviour
     private float costPercentage;
     private int currentBuyAmount;
     private Color initialSliderColour;
+    private bool hasRanOnce = false;
 
 
     [Header("Object References")]
@@ -30,25 +31,34 @@ public class FinalUpgrades : MonoBehaviour
 
     public void OnEnable()
     {
-        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
-
-        // Set the first prices for upgrades
-        currentPrice = initialCost;
-        switch (upgradeCost)
+        switch (hasRanOnce)
         {
-            case UpgradeCost.Dollans:
-                sys.UpdatePrice(costText, false, "$", currentPrice, "");
-                break;
-            case UpgradeCost.GnomeCoins:
-                sys.UpdatePrice(costText, true, "c", currentPrice, "");
-                break;
-        }
+            case false:
+                gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
 
-        initialSliderColour = slider.transform.GetChild(0).GetComponent<Image>().color;
+                // Set the first prices for upgrades
+                currentPrice = initialCost;
+                switch (upgradeCost)
+                {
+                    case UpgradeCost.Dollans:
+                        sys.UpdatePrice(costText, false, "$", currentPrice, "");
+                        break;
+                    case UpgradeCost.GnomeCoins:
+                        sys.UpdatePrice(costText, true, "c", currentPrice, "");
+                        break;
+                }
 
-        if (upgradeLimit == 0)
-        {
-            slider.transform.GetChild(1).gameObject.SetActive(false);
+                initialSliderColour = slider.transform.GetChild(0).GetComponent<Image>().color;
+
+                if (upgradeLimit == 0)
+                {
+                    slider.transform.GetChild(1).gameObject.SetActive(false);
+                }
+
+                hasRanOnce = true;
+                break;
+            case true:
+                break;
         }
     }
 

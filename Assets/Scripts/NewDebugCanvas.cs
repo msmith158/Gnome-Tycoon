@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 public class NewDebugCanvas : MonoBehaviour
 {
     private TextMeshProUGUI debugText;
+    [SerializeField] private FinalConveyor line01Conveyor;
+    [SerializeField] private FinalFactorySystem sys;
+    [SerializeField] private FinalDispenser line01Dispenser;
+    [SerializeField] private GnomeCoinSystem gnomeCoinSys;
 
     // Dictionary to store bools by their names
     private Dictionary<string, bool> boolDictionary = new Dictionary<string, bool>();
@@ -20,8 +24,10 @@ public class NewDebugCanvas : MonoBehaviour
     public bool enableFrameTiming;
     public bool enableLevelName;
     public bool enableResAndAspect;
-    [Header("Object State Metrics")]
-    public bool enableVelocityMetric;
+    [Header("Gnome Tycoon Specific Metrics")]
+    public bool enableGnomeValueMetric;
+    public bool enableConveyorSpeedMetric;
+    public bool enableManufacturingTimeMetric;
 
     // String to modify
     private string resultString = "";
@@ -30,8 +36,10 @@ public class NewDebugCanvas : MonoBehaviour
     private string framerateString = "";
     private string frameTimingString = "";
     private string levelNameString = "";
-    private string velocityMetricString = "";
     private string resAndAspectString = "";
+    private string gnomeValueString = "";
+    private string conveyorSpeedString = "";
+    private string manufacturingTimeString = "";
 
     // Framerate values
     [Header("Metrics Settings")]
@@ -46,6 +54,11 @@ public class NewDebugCanvas : MonoBehaviour
         debugText = GetComponent<TextMeshProUGUI>();
     }
 
+    private void OnEnable()
+    {
+        gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
+    }
+
     private void Update()
     {
         CheckBools();
@@ -57,8 +70,10 @@ public class NewDebugCanvas : MonoBehaviour
         boolDictionary.Add(framerateString, enableFPSCounter);
         boolDictionary.Add(frameTimingString, enableFrameTiming);
         boolDictionary.Add(levelNameString, enableLevelName);
-        boolDictionary.Add(velocityMetricString, enableVelocityMetric);
         boolDictionary.Add(resAndAspectString, enableResAndAspect);
+        boolDictionary.Add(gnomeValueString, enableGnomeValueMetric);
+        boolDictionary.Add(conveyorSpeedString, enableConveyorSpeedMetric);
+        boolDictionary.Add(manufacturingTimeString, enableManufacturingTimeMetric);
 
         // Reset list per draw to get fresh stats
         debugList.Clear();
@@ -114,17 +129,31 @@ public class NewDebugCanvas : MonoBehaviour
                 break;
         }
 
-        switch (enableVelocityMetric)
-        {
-            case true:
-                VelocityMeasurement();
-                break;
-        }
-
         switch (enableResAndAspect)
         {
             case true:
                 ResAndAspect();
+                break;
+        }
+        
+        switch (enableGnomeValueMetric)
+        {
+            case true:
+                GnomeValueMetric();
+                break;
+        }
+        
+        switch (enableConveyorSpeedMetric)
+        {
+            case true:
+                ConveyorSpeedMetric();
+                break;
+        }
+        
+        switch (enableManufacturingTimeMetric)
+        {
+            case true:
+                ManufacturingTimeMetric();
                 break;
         }
     }
@@ -158,16 +187,26 @@ public class NewDebugCanvas : MonoBehaviour
         levelNameString = "Active scene: \"" + scene.name + "\"";
     }
 
-    private void VelocityMeasurement()
-    {
-        
-    }
-
     private void ResAndAspect()
     {
         float screenResW = Screen.width;
         float screenResH = Screen.height;
         float aspect = Camera.main.aspect;
         resAndAspectString = "Screen: " + screenResW.ToString() + "x" + screenResH.ToString() + ", " + aspect; 
+    }
+
+    private void GnomeValueMetric()
+    {
+        gnomeValueString = "";
+    }
+
+    private void ConveyorSpeedMetric()
+    {
+        conveyorSpeedString = "Conveyor speed: " + line01Conveyor.speed + " + " + gnomeCoinSys.permanentSpeed;
+    }
+
+    private void ManufacturingTimeMetric()
+    {
+        manufacturingTimeString = "Manufacturing time: " + line01Dispenser.manufacturingTime + " + " + gnomeCoinSys.permanentTime;
     }
 }
