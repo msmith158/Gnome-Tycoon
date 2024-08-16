@@ -184,7 +184,7 @@ public class FinalUpgrades : MonoBehaviour
                         switch (upgradeType)
                         {
                             case UpgradeType.GnomeValue:
-                                gnomeCoinSys.permanentValue += percentage;
+                                gnomeCoinSys.permanentValue -= percentage;
                                 Debug.Log("Permanent gnome value: " + gnomeCoinSys.permanentValue);
                                 costPercentage += increaseRate;
                                 currentPrice += (initialCost * (costPercentage * 2));

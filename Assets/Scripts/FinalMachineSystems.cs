@@ -37,7 +37,7 @@ public class FinalMachineSystems : MonoBehaviour
                 GameObject newSprayedObject = Instantiate(newPrefab, spawnTrigger.transform.position, Quaternion.identity);
                 newSprayedObject.tag = "gnome";
                 dispenser.objectsList.Add(newSprayedObject);
-                newSprayedObject.GetComponent<Rigidbody>().velocity = newSprayerObjectVelocity;
+                newSprayedObject.GetComponent<Rigidbody>().linearVelocity = newSprayerObjectVelocity;
                 break;
             case MachineType.Moulder: // The functions for the moulder machine
                 Vector3 newMoulderObjectVelocity = objectVelocity;
@@ -45,7 +45,7 @@ public class FinalMachineSystems : MonoBehaviour
                 GameObject newMouldedObject = Instantiate(newPrefab, spawnTrigger.transform.position, Quaternion.identity);
                 newMouldedObject.tag = "gnome";
                 dispenser.objectsList.Add(newMouldedObject);
-                newMouldedObject.GetComponent<Rigidbody>().velocity = newMoulderObjectVelocity;
+                newMouldedObject.GetComponent<Rigidbody>().linearVelocity = newMoulderObjectVelocity;
                 break;
             case MachineType.Painter: // The functions for the painter machine
                 // Apply the prestige-relevant material to the newly-spawned gnome
@@ -99,7 +99,7 @@ public class FinalMachineSystems : MonoBehaviour
                     }
                 }
                 other.transform.position = spawnTrigger.transform.position;
-                other.GetComponent<Rigidbody>().velocity = objectVelocity;
+                other.GetComponent<Rigidbody>().linearVelocity = objectVelocity;
                 break;
             case MachineType.Packager:
                 Destroy(other);
@@ -111,14 +111,14 @@ public class FinalMachineSystems : MonoBehaviour
                     GameObject newJimbo = Instantiate(jimboPrefab, spawnTrigger.transform.position, Quaternion.identity);
                     newJimbo.tag = "gnome";
                     dispenser.objectsList.Add(newJimbo);
-                    newJimbo.GetComponent<Rigidbody>().velocity = objectVelocity;
+                    newJimbo.GetComponent<Rigidbody>().linearVelocity = objectVelocity;
                 }
                 else // This is to spawn the raw materials out of the dispenser
                 {
                     GameObject newPackagedObject = Instantiate(newPrefab, spawnTrigger.transform.position, Quaternion.identity);
                     newPackagedObject.tag = "gnome";
                     dispenser.objectsList.Add(newPackagedObject);
-                    newPackagedObject.GetComponent<Rigidbody>().velocity = objectVelocity;
+                    newPackagedObject.GetComponent<Rigidbody>().linearVelocity = objectVelocity;
                 }
                 break;
         }

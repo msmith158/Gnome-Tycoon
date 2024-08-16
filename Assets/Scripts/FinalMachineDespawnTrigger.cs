@@ -20,7 +20,7 @@ public class FinalMachineDespawnTrigger : MonoBehaviour
             switch (triggerType)
             {
                 case TriggerType.MachineTrigger:
-                    parentToCallBackTo.MachineFunctions(other.gameObject, other.GetComponent<Rigidbody>().velocity);
+                    parentToCallBackTo.MachineFunctions(other.gameObject, other.GetComponent<Rigidbody>().linearVelocity);
                     break;
                 case TriggerType.ExitTrigger:
                     switch (gameManager.prestigeLvl)
