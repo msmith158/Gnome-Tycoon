@@ -13,7 +13,15 @@ public class DDOLManager : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        StartCoroutine(LoadDDOLManager());
+    }
+
+    private IEnumerator LoadDDOLManager()
+    {
+        yield return null;
         DontDestroyOnLoad(this.gameObject);
+        yield return null;
         SceneManager.LoadSceneAsync(sceneToLoad);
     }
+    
 }
