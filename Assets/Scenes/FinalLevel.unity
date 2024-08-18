@@ -4582,7 +4582,7 @@ Transform:
   m_GameObject: {fileID: 149077435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: -0.011372375, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10079,7 +10079,7 @@ Transform:
   m_GameObject: {fileID: 312233537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: 0.13862763, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: 0.22, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16223,7 +16223,7 @@ MonoBehaviour:
   machineType: 0
   spawnTrigger: {fileID: 149077435}
   despawnTrigger: {fileID: 1081957010}
-  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+  newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
   dispenser: {fileID: 923677708}
   initSys: {fileID: 0}
@@ -16469,7 +16469,7 @@ Transform:
   m_GameObject: {fileID: 494995700}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: -0.011372375, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22354,7 +22354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTrigger: {fileID: 885737649}
-  newPrefab: {fileID: 470057895797715705, guid: 16f0a6be0b1bc044ca84b755182a71c6,
+  newPrefab: {fileID: 2167648547223744162, guid: 64edad7f20668b6449cde03440781eb7,
     type: 3}
   gnomeCoinSys: {fileID: 0}
   sys: {fileID: 1095546606}
@@ -22365,6 +22365,7 @@ MonoBehaviour:
   timeSlider: {fileID: 1053985530}
   isAutomated: 0
   objectsList: []
+  objectXOffset: -0.5
 --- !u!1 &681298734
 GameObject:
   m_ObjectHideFlags: 0
@@ -26344,7 +26345,7 @@ MonoBehaviour:
   machineType: 0
   spawnTrigger: {fileID: 1883199132}
   despawnTrigger: {fileID: 312233539}
-  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+  newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
   dispenser: {fileID: 1954626671}
   initSys: {fileID: 0}
@@ -27083,7 +27084,7 @@ Transform:
   m_GameObject: {fileID: 874274116}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: -0.011372375, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33276,7 +33277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTrigger: {fileID: 1141893177}
-  newPrefab: {fileID: 470057895797715705, guid: 16f0a6be0b1bc044ca84b755182a71c6,
+  newPrefab: {fileID: 2167648547223744162, guid: 64edad7f20668b6449cde03440781eb7,
     type: 3}
   gnomeCoinSys: {fileID: 0}
   sys: {fileID: 1095546606}
@@ -33287,6 +33288,7 @@ MonoBehaviour:
   timeSlider: {fileID: 1053985530}
   isAutomated: 0
   objectsList: []
+  objectXOffset: -0.5
 --- !u!1 &928016778
 GameObject:
   m_ObjectHideFlags: 0
@@ -37162,7 +37164,7 @@ Transform:
   m_GameObject: {fileID: 1081957008}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: 0.13862763, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: 0.22, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40645,7 +40647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTrigger: {fileID: 2141454657}
-  newPrefab: {fileID: 470057895797715705, guid: 16f0a6be0b1bc044ca84b755182a71c6,
+  newPrefab: {fileID: 2167648547223744162, guid: 64edad7f20668b6449cde03440781eb7,
     type: 3}
   gnomeCoinSys: {fileID: 0}
   sys: {fileID: 1095546606}
@@ -40656,6 +40658,7 @@ MonoBehaviour:
   timeSlider: {fileID: 1053985530}
   isAutomated: 0
   objectsList: []
+  objectXOffset: -0.5
 --- !u!1 &1204188012
 GameObject:
   m_ObjectHideFlags: 0
@@ -43476,7 +43479,7 @@ Transform:
   m_GameObject: {fileID: 1274994847}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: -0.011372375, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44393,7 +44396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTrigger: {fileID: 1775596879}
-  newPrefab: {fileID: 470057895797715705, guid: 16f0a6be0b1bc044ca84b755182a71c6,
+  newPrefab: {fileID: 2167648547223744162, guid: 64edad7f20668b6449cde03440781eb7,
     type: 3}
   gnomeCoinSys: {fileID: 0}
   sys: {fileID: 1095546606}
@@ -44404,6 +44407,7 @@ MonoBehaviour:
   timeSlider: {fileID: 1053985530}
   isAutomated: 0
   objectsList: []
+  objectXOffset: -0.5
 --- !u!1 &1293386297
 GameObject:
   m_ObjectHideFlags: 0
@@ -47161,7 +47165,7 @@ MonoBehaviour:
   machineType: 0
   spawnTrigger: {fileID: 1274994847}
   despawnTrigger: {fileID: 1438240488}
-  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+  newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
   dispenser: {fileID: 1716639367}
   initSys: {fileID: 0}
@@ -48341,7 +48345,7 @@ Transform:
   m_GameObject: {fileID: 1438240486}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: 0.13862763, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: 0.22, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53938,7 +53942,7 @@ Transform:
   m_GameObject: {fileID: 1455183268}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: 0.13862763, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: 0.22, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54278,7 +54282,7 @@ MonoBehaviour:
   machineType: 0
   spawnTrigger: {fileID: 494995700}
   despawnTrigger: {fileID: 1455183270}
-  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+  newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
   dispenser: {fileID: 1199300292}
   initSys: {fileID: 0}
@@ -55342,7 +55346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTrigger: {fileID: 1409292576}
-  newPrefab: {fileID: 470057895797715705, guid: 16f0a6be0b1bc044ca84b755182a71c6,
+  newPrefab: {fileID: 2167648547223744162, guid: 64edad7f20668b6449cde03440781eb7,
     type: 3}
   gnomeCoinSys: {fileID: 0}
   sys: {fileID: 1095546606}
@@ -55353,6 +55357,7 @@ MonoBehaviour:
   timeSlider: {fileID: 1053985530}
   isAutomated: 0
   objectsList: []
+  objectXOffset: -0.5
 --- !u!1 &1490965635
 GameObject:
   m_ObjectHideFlags: 0
@@ -58039,7 +58044,7 @@ Transform:
   m_GameObject: {fileID: 1570848358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: -0.011381877, y: -0.14160001, z: 0.007572801}
+  m_LocalPosition: {x: -0.1, y: -0.14160001, z: 0.008}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.020000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58149,7 +58154,7 @@ Transform:
   m_GameObject: {fileID: 1581497911}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: 0.13862763, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: 0.22, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60494,7 +60499,7 @@ MonoBehaviour:
   machineType: 0
   spawnTrigger: {fileID: 874274116}
   despawnTrigger: {fileID: 1581497913}
-  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+  newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
   dispenser: {fileID: 1291777366}
   initSys: {fileID: 0}
@@ -63455,7 +63460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTrigger: {fileID: 642178324}
-  newPrefab: {fileID: 470057895797715705, guid: 16f0a6be0b1bc044ca84b755182a71c6,
+  newPrefab: {fileID: 2167648547223744162, guid: 64edad7f20668b6449cde03440781eb7,
     type: 3}
   gnomeCoinSys: {fileID: 0}
   sys: {fileID: 1095546606}
@@ -63466,6 +63471,7 @@ MonoBehaviour:
   timeSlider: {fileID: 1053985530}
   isAutomated: 0
   objectsList: []
+  objectXOffset: -0.5
 --- !u!1 &1717992301
 GameObject:
   m_ObjectHideFlags: 0
@@ -64359,7 +64365,7 @@ Transform:
   m_GameObject: {fileID: 1762465320}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: 0.13862763, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: 0.22, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64661,7 +64667,7 @@ Transform:
   m_GameObject: {fileID: 1766005719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: -0.011372375, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -68023,7 +68029,7 @@ Transform:
   m_GameObject: {fileID: 1883199132}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: -0.011372375, y: -0.14160001, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.14160001, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70136,7 +70142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTrigger: {fileID: 1073579751}
-  newPrefab: {fileID: 470057895797715705, guid: 16f0a6be0b1bc044ca84b755182a71c6,
+  newPrefab: {fileID: 2167648547223744162, guid: 64edad7f20668b6449cde03440781eb7,
     type: 3}
   gnomeCoinSys: {fileID: 0}
   sys: {fileID: 1095546606}
@@ -70147,6 +70153,7 @@ MonoBehaviour:
   timeSlider: {fileID: 1053985530}
   isAutomated: 0
   objectsList: []
+  objectXOffset: -0.5
 --- !u!1 &1961315692
 GameObject:
   m_ObjectHideFlags: 0
@@ -71176,7 +71183,7 @@ MonoBehaviour:
   machineType: 0
   spawnTrigger: {fileID: 1766005719}
   despawnTrigger: {fileID: 2101836488}
-  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+  newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
   dispenser: {fileID: 680535911}
   initSys: {fileID: 0}
@@ -74022,7 +74029,7 @@ Transform:
   m_GameObject: {fileID: 2101836483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071051, z: -0, w: 0.7071085}
-  m_LocalPosition: {x: 0.13861813, y: -0.14160001, z: 0.0075720907}
+  m_LocalPosition: {x: 0.22, y: -0.14160001, z: 0.008}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.020000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75144,7 +75151,7 @@ MonoBehaviour:
   machineType: 0
   spawnTrigger: {fileID: 1570848358}
   despawnTrigger: {fileID: 2101836488}
-  newPrefab: {fileID: 6942153428704450127, guid: afd0b9a4ae40f7f4abb330ea13ed32af,
+  newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
   dispenser: {fileID: 1487663870}
   initSys: {fileID: 0}

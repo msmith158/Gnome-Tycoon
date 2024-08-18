@@ -19,6 +19,7 @@ public class FinalDispenser : MonoBehaviour
     public List<GameObject> objectsList = new List<GameObject>();
     private bool isActivated = false;
     private Scrollbar slider;
+    [SerializeField] private float objectXOffset;
 
     void OnEnable()
     {
@@ -56,7 +57,9 @@ public class FinalDispenser : MonoBehaviour
         }
 
         // Instantiate the new raw materials from the dispenser
-        GameObject newObject = Instantiate(newPrefab, spawnTrigger.transform.position, Quaternion.identity);
+        Vector3 newPos = new Vector3(spawnTrigger.transform.position.x + objectXOffset, spawnTrigger.transform.position.y,
+            spawnTrigger.transform.position.z);
+        GameObject newObject = Instantiate(newPrefab, newPos, Quaternion.identity);
         newObject.tag = "gnome";
         objectsList.Add(newObject);
 
