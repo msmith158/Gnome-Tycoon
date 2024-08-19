@@ -10,7 +10,7 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] private Image blackScreen;
     [SerializeField] private float fadeTime = 1f;
     public bool isOver13;
-    public string adjective; 
+    public string adjective;
 
     private void OnEnable()
     {
