@@ -9,6 +9,11 @@ public class ModeSwitch : MonoBehaviour
     [SerializeField] private Button modeButton;
     [SerializeField] private GameObject manufactureButton;
     [SerializeField] private GameObject detonateButton;
+    [SerializeField] private GameObject panelPlate;
+    [SerializeField] private float sinkingPosAdditionY;
+    [SerializeField] private float sinkingTime;
+    [SerializeField] private float risingTime;
+    private float risingPosY;
     
     void OnEnable()
     {
@@ -25,6 +30,8 @@ public class ModeSwitch : MonoBehaviour
                 detonateButton.SetActive(true);
                 break;
         }
+
+        risingPosY = manufactureButton.transform.position.y;
     }
     
     public void EnableModeButton()
@@ -37,15 +44,41 @@ public class ModeSwitch : MonoBehaviour
         switch (mode)
         {
             case 0:
-                manufactureButton.SetActive(false);
-                detonateButton.SetActive(true);
-                mode = 1;
+                manufactureButton.GetComponent<Button>().interactable = false;
+                StartCoroutine(DoButtonAnimation(manufactureButton, detonateButton));
                 break;
             case 1:
-                manufactureButton.SetActive(true);
-                detonateButton.SetActive(false);
-                mode = 0;
+                detonateButton.GetComponent<Button>().interactable = true;
+                StartCoroutine(DoButtonAnimation(detonateButton, manufactureButton));
                 break;
+        }
+    }
+
+    private IEnumerator DoButtonAnimation(GameObject oldButton, GameObject newButton)
+    {
+        Vector3 oldButtonNewPos = new Vector3(oldButton.transform.position.x, oldButton.transform.position.y + sinkingPosAdditionY, oldButton.transform.position.z);
+        float timeElapsed = 0;
+        
+        while (timeElapsed < sinkingTime)
+        {
+            oldButton.transform.position =
+                Vector3.Lerp(oldButton.transform.position, oldButtonNewPos, timeElapsed / sinkingTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        manufactureButton.SetActive(false);
+        detonateButton.SetActive(true);
+        
+        Vector3 newButtonNewPos = new Vector3(newButton.transform.position.x, risingPosY, newButton.transform.position.z);
+        timeElapsed = 0;
+        
+        while (timeElapsed < risingTime)
+        {
+            newButton.transform.position =
+                Vector3.Lerp(newButton.transform.position, newButtonNewPos, timeElapsed / sinkingTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
     }
 }
