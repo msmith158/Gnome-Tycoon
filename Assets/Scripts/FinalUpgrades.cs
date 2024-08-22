@@ -27,7 +27,8 @@ public class FinalUpgrades : MonoBehaviour
     [SerializeField] private FinalFactorySystem sys;
     [SerializeField] private List<FinalConveyor> conveyors = new List<FinalConveyor>();
     [SerializeField] private List<FinalDispenser> dispensers = new List<FinalDispenser>();
-    [SerializeField] private GnomeCoinSystem gnomeCoinSys;
+    private GnomeCoinSystem gnomeCoinSys;
+    private DDOLManager ddolManager;
 
     public void OnEnable()
     {
@@ -35,6 +36,7 @@ public class FinalUpgrades : MonoBehaviour
         {
             case false:
                 gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
+                ddolManager = GameObject.Find("ddolManager").GetComponent<DDOLManager>();
 
                 // Set the first prices for upgrades
                 currentPrice = initialCost;
@@ -72,6 +74,7 @@ public class FinalUpgrades : MonoBehaviour
                     if (currentBuyAmount != upgradeLimit)
                     {
                         sys.pointScore -= currentPrice;
+                        ddolManager.totalUpgradesBought++;
                         sys.UpdatePrice(sys.moneyText, false, "Profit: $", sys.pointScore, "");
 
                         switch (upgradeType)
@@ -189,6 +192,7 @@ public class FinalUpgrades : MonoBehaviour
                     if (currentBuyAmount != upgradeLimit)
                     {
                         gnomeCoinSys.coinCount -= (int)currentPrice;
+                        ddolManager.totalUpgradesBought++;
                         sys.UpdatePrice(gnomeCoinSys.gnomeCoinText, true, "c", gnomeCoinSys.coinCount, "");
 
                         switch (upgradeType)

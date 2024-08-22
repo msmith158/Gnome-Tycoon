@@ -36,10 +36,14 @@ public class FinalFactorySystem : MonoBehaviour
     public List<GameObject> productionLines = new List<GameObject>();
     public List<GameObject> oneOffObjects = new List<GameObject>();
     private GnomeCoinSystem ddolManager;
+    private DDOLManager ddolManager2;
     private GameObject switchPanelDismissVar;
     private GameObject switchPanelActivateVar;
     public Image gnomeCoinVignetteReference;
     [SerializeField] private TextMeshProUGUI debugMetrics;
+    public Image manufacturingButtonImage;
+    public Sprite manufacturingButtonUnpressed;
+    public Sprite manufacturingButtonPressed;
 
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource buttonSfxSource;
@@ -80,6 +84,7 @@ public class FinalFactorySystem : MonoBehaviour
     {
         // Set up all the DDOL manager stuff
         ddolManager = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
+        ddolManager2 = GameObject.Find("ddolManager").GetComponent<DDOLManager>();
         ddolManager.gnomeCoinText = coinText;
     }
 
@@ -136,6 +141,7 @@ public class FinalFactorySystem : MonoBehaviour
     public void AddScore(float amount)
     {
         pointScore += amount + (amount * ddolManager.permanentValue);
+        ddolManager2.totalProfitMade += (amount + (amount * ddolManager.permanentValue));
         if (debugMode && !hasDebugRun) 
         {
             pointScore += instantPointAddition;
@@ -192,6 +198,8 @@ public class FinalFactorySystem : MonoBehaviour
     {
         buttonSfxSource.clip = buttonInSfx;
         buttonSfxSource.Play();
+        manufacturingButtonImage.sprite = manufacturingButtonPressed;
+
         for (int i = 0; i < productionLineAmount; i++)
         {
             string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
@@ -203,6 +211,7 @@ public class FinalFactorySystem : MonoBehaviour
     {
         buttonSfxSource.clip = buttonOutSfx;
         buttonSfxSource.Play();
+        manufacturingButtonImage.sprite = manufacturingButtonUnpressed;
     }
 
     public void ResetProductionLineAmount()

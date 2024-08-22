@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ModeSwitch : MonoBehaviour
 {
-    [Tooltip("0 = disabled, 1 = enabled")] [Range(0, 1)] public int mode;
+    [Header("Values")]
+    [Tooltip("0 = disabled, 1 = enabled")][Range(0, 1)] public int mode;
+    [SerializeField] private float sinkingPosAdditionY;
+    [SerializeField] private float sinkingTime;
+    [SerializeField] private float sinkingTimePostDelay;
+    [SerializeField] private float risingTime;
+    private float risingPosY;
+
+    [Header("Object References")]
     [SerializeField] private Button modeButton;
     [SerializeField] private GameObject manufactureButton;
     [SerializeField] private GameObject detonateButton;
     [SerializeField] private GameObject panelPlate;
-    [SerializeField] private float sinkingPosAdditionY;
-    [SerializeField] private float sinkingTime;
-    [SerializeField] private float risingTime;
-    private float risingPosY;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioClip machineWhirr1;
+    [SerializeField] private AudioClip machineWhirr2;
+    [SerializeField] private AudioClip machineThud;
     
     void OnEnable()
     {
@@ -44,41 +53,117 @@ public class ModeSwitch : MonoBehaviour
         switch (mode)
         {
             case 0:
-                manufactureButton.GetComponent<Button>().interactable = false;
                 StartCoroutine(DoButtonAnimation(manufactureButton, detonateButton));
+                StartCoroutine(DoPanelPlateAnimation());
+                mode = 1;
                 break;
             case 1:
-                detonateButton.GetComponent<Button>().interactable = true;
                 StartCoroutine(DoButtonAnimation(detonateButton, manufactureButton));
+                StartCoroutine(DoPanelPlateAnimation());
+                mode = 0;
                 break;
         }
     }
 
     private IEnumerator DoButtonAnimation(GameObject oldButton, GameObject newButton)
     {
-        Vector3 oldButtonNewPos = new Vector3(oldButton.transform.position.x, oldButton.transform.position.y + sinkingPosAdditionY, oldButton.transform.position.z);
+        modeButton.GetComponent<Button>().interactable = false;
+        oldButton.GetComponent<Button>().interactable = false;
+
+        Vector3 buttonOldPos = oldButton.transform.position;
+        Vector3 buttonNewPos = new Vector3(oldButton.transform.position.x, oldButton.transform.position.y + sinkingPosAdditionY, oldButton.transform.position.z);
         float timeElapsed = 0;
-        
+
+        sfxSource.clip = machineWhirr1;
+        sfxSource.Play();
+
         while (timeElapsed < sinkingTime)
         {
-            oldButton.transform.position =
-                Vector3.Lerp(oldButton.transform.position, oldButtonNewPos, timeElapsed / sinkingTime);
+            float t = timeElapsed / sinkingTime;
+            Vector3 currentPosition = Vector3.Lerp(buttonOldPos, buttonNewPos, t);
+            oldButton.transform.position = currentPosition;
             timeElapsed += Time.deltaTime;
             yield return null;
+
+            if (!sfxSource.isPlaying && sfxSource.clip == machineWhirr1)
+            {
+                sfxSource.clip = machineWhirr2;
+                sfxSource.loop = true;
+                sfxSource.Play();
+            }
         }
-        
-        manufactureButton.SetActive(false);
-        detonateButton.SetActive(true);
-        
-        Vector3 newButtonNewPos = new Vector3(newButton.transform.position.x, risingPosY, newButton.transform.position.z);
+        oldButton.transform.position = buttonNewPos;
+        sfxSource.loop = false;
+        sfxSource.Stop();
+        sfxSource.PlayOneShot(machineThud);
+
+        yield return new WaitForSeconds(sinkingTimePostDelay);
+
+        oldButton.SetActive(false);
+        newButton.SetActive(true);
+        newButton.GetComponent<Button>().interactable = false;
+
+        //buttonOldPos = newButton.transform.position;
+        //buttonNewPos = new Vector3(newButton.transform.position.x, newButton.transform.position.y + sinkingPosAdditionY, newButton.transform.position.z);
         timeElapsed = 0;
+
+        sfxSource.clip = machineWhirr1;
+        sfxSource.Play();
         
         while (timeElapsed < risingTime)
         {
-            newButton.transform.position =
-                Vector3.Lerp(newButton.transform.position, newButtonNewPos, timeElapsed / sinkingTime);
+            float t = timeElapsed / risingTime;
+            Vector3 currentPosition = Vector3.Lerp(buttonNewPos, buttonOldPos, t);
+            newButton.transform.position = currentPosition;
+            timeElapsed += Time.deltaTime;
+            yield return null;
+
+            if (!sfxSource.isPlaying && sfxSource.clip == machineWhirr1)
+            {
+                sfxSource.clip = machineWhirr2;
+                sfxSource.loop = true;
+                sfxSource.Play();
+            }
+        }
+        newButton.transform.position = buttonOldPos;
+        sfxSource.loop = false;
+        sfxSource.Stop();
+        sfxSource.PlayOneShot(machineThud);
+
+        newButton.GetComponent<Button>().interactable = true;
+        modeButton.GetComponent<Button>().interactable = true;
+    }
+
+    private IEnumerator DoPanelPlateAnimation()
+    {
+        Vector3 panelPlateOldPos = panelPlate.transform.position;
+        Vector3 panelPlateNewPos = new Vector3(panelPlate.transform.position.x, panelPlate.transform.position.y + sinkingPosAdditionY, panelPlate.transform.position.z);
+        float timeElapsed = 0;
+
+        while (timeElapsed < sinkingTime)
+        {
+            float t = timeElapsed / sinkingTime;
+            Vector3 currentPosition = Vector3.Lerp(panelPlateOldPos, panelPlateNewPos, t);
+            panelPlate.transform.position = currentPosition;
             timeElapsed += Time.deltaTime;
             yield return null;
         }
+        panelPlate.transform.position = panelPlateNewPos;
+
+        yield return new WaitForSeconds(sinkingTimePostDelay);
+
+        //panelPlateOldPos = panelPlate.transform.position;
+        //panelPlateNewPos = new Vector3(panelPlate.transform.position.x, panelPlate.transform.position.y + sinkingPosAdditionY, panelPlate.transform.position.z);
+        timeElapsed = 0;
+
+        while (timeElapsed < risingTime)
+        {
+            float t = timeElapsed / risingTime;
+            Vector3 currentPosition = Vector3.Lerp(panelPlateNewPos, panelPlateOldPos, t);
+            panelPlate.transform.position = currentPosition;
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        panelPlate.transform.position = panelPlateOldPos;
     }
 }

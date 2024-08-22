@@ -20,6 +20,7 @@ public class FinalDispenser : MonoBehaviour
     private bool isActivated = false;
     private Scrollbar slider;
     [SerializeField] private float objectXOffset;
+    private DDOLManager ddolManager;
 
     void OnEnable()
     {
@@ -28,6 +29,7 @@ public class FinalDispenser : MonoBehaviour
         
         // Make sure to load the game via the loading level, otherwise these objects won't exist
         gnomeCoinSys = GameObject.Find("ddolManager").GetComponent<GnomeCoinSystem>();
+        ddolManager = GameObject.Find("ddolManager").GetComponent<DDOLManager>();
     }
     
     public void SpawnObject() // This function is to be called if trying to use the DelayedSpawn method
@@ -44,6 +46,7 @@ public class FinalDispenser : MonoBehaviour
         // Work the manufacturing delay timer
         timeSlider.SetActive(true);
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Manufacturing...";
+        sys.manufacturingButtonImage.sprite = sys.manufacturingButtonPressed;
         //manufacturingTime += (manufacturingTime * gnomeCoinSys.permanentTime);
         float manuT = manufacturingTime + (manufacturingTime * gnomeCoinSys.permanentTime);
         manufacturingCooldown += (manufacturingCooldown * gnomeCoinSys.permanentCooldown);
@@ -62,6 +65,7 @@ public class FinalDispenser : MonoBehaviour
         GameObject newObject = Instantiate(newPrefab, newPos, Quaternion.identity);
         newObject.tag = "gnome";
         objectsList.Add(newObject);
+        ddolManager.totalGnomesMade++;
 
         // Work the manufacturer cooldown timer
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Cooling down...";
@@ -74,12 +78,14 @@ public class FinalDispenser : MonoBehaviour
         }
 
         timeSlider.SetActive(false);
+        sys.manufacturingButtonImage.sprite = sys.manufacturingButtonUnpressed;
         sys.FinishDispensing();
         isActivated = false;
     }
 
     public IEnumerator AutomatedSpawn()
     {
+        // DO THIS FEATURE LATER
         yield return null;
     }
 }

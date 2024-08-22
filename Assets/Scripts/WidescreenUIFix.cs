@@ -14,6 +14,8 @@ public class WidescreenUIFix : MonoBehaviour
     [SerializeField] private AdjustmentType adjustmentType;
     [Tooltip("This will ADD to the current UI element position.")][SerializeField] private List<Vector3> newValue = new List<Vector3>();
     [Tooltip("Only assign this if you're using the ObjectAlignment option.")] [SerializeField] private List<GameObject> posPoints = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToDisable = new List<GameObject>();
+    [SerializeField] private List<GameObject> uiToEnable = new List<GameObject>();
     public bool isActivated = false;
 
     private void OnEnable()
@@ -59,6 +61,20 @@ public class WidescreenUIFix : MonoBehaviour
                                 uiToMove[i].transform.position = posPoints[i].transform.position;
                                 
                                 break;
+                        }
+                    }
+                    if (uiToDisable.Count != 0)
+                    {
+                        foreach (GameObject obj in uiToDisable)
+                        {
+                            obj.SetActive(false);
+                        }
+                    }
+                    if (uiToEnable.Count != 0)
+                    {
+                        foreach (GameObject obj in uiToEnable)
+                        {
+                            obj.SetActive(true);
                         }
                     }
                     isActivated = true;
