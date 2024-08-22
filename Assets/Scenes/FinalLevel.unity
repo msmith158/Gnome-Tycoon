@@ -36125,6 +36125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.5
+  delayTime: 0.7
   dialoguePanel: {fileID: 958412882}
   spriteHolder: {fileID: 465080049}
   blockingImage: {fileID: 1691478486}

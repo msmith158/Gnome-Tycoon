@@ -9,6 +9,7 @@ public class IntroSequence : MonoBehaviour
     [Header("Values")]
     private bool skipped; // Change this setting in the DDOL Manager
     [SerializeField] private float fadeTime;
+    [SerializeField] private float delayTime;
     private int spriteState = 0;
     private float timeRemaining = 0;
 
@@ -120,7 +121,7 @@ public class IntroSequence : MonoBehaviour
                         dialoguePanel.SetActive(false);
                         switchPanels.SetActivationValuesThroughScript(controlPanel, 0.5f, controlPanelActivationPoint);
                         switchPanels.ExecuteSmooth(2);
-                        StartCoroutine(DelayedAction(1f));
+                        StartCoroutine(DelayedAction(delayTime));
                         break;
                     case 10:
                         SwitchSprites(null, neutralArmDownSprite, false);
@@ -144,7 +145,7 @@ public class IntroSequence : MonoBehaviour
                         switchPanels.SetDismissalValuesThroughScript(controlPanel, 0.5f, controlPanelDismissalPoint);
                         switchPanels.SetActivationValuesThroughScript(upgradesPanel, 0.5f, upgradesPanelActivationPoint);
                         switchPanels.ExecuteSmooth(0);
-                        StartCoroutine(DelayedAction(1f));
+                        StartCoroutine(DelayedAction(delayTime));
                         break;
                     case 14:
                         SwitchSprites(neutralArmDownSprite, neutralArmUpSprite, false);
@@ -168,7 +169,7 @@ public class IntroSequence : MonoBehaviour
                         switchPanels.SetDismissalValuesThroughScript(upgradesPanel, 0.5f, upgradesPanelDismissalPoint);
                         switchPanels.SetActivationValuesThroughScript(prestigePanel, 0.5f, prestigePanelActivationPoint);
                         switchPanels.ExecuteSmooth(0);
-                        StartCoroutine(DelayedAction(1f));
+                        StartCoroutine(DelayedAction(delayTime));
                         break;
                     case 18:
                         SwitchSprites(neutralArmDownSprite, thinkingSprite, false);
@@ -187,7 +188,7 @@ public class IntroSequence : MonoBehaviour
                         switchPanels.SetDismissalValuesThroughScript(prestigePanel, 0.5f, prestigePanelDismissalPoint);
                         switchPanels.SetActivationValuesThroughScript(notificationPanel, 0.5f, notificationPanelActivationPoint);
                         switchPanels.ExecuteSmooth(0);
-                        StartCoroutine(DelayedAction(1f));
+                        StartCoroutine(DelayedAction(delayTime));
                         break;
                     case 21:
                         SwitchSprites(null, null, false);
@@ -205,7 +206,7 @@ public class IntroSequence : MonoBehaviour
                         dialoguePanel.SetActive(false);
                         switchPanels.SetDismissalValuesThroughScript(notificationPanel, 0.5f, notificationPanelDismissalPoint);
                         switchPanels.ExecuteSmooth(1);
-                        StartCoroutine(DelayedAction(1f));
+                        StartCoroutine(DelayedAction(delayTime));
                         break;
                     case 24:
                         SwitchSprites(thinkingSprite, nervousSprite, false);
@@ -227,7 +228,7 @@ public class IntroSequence : MonoBehaviour
                         dialoguePanel.SetActive(false);
                         switchPanels.SetActivationValuesThroughScript(mainScreens, 0.5f, mainScreensActivationPoint);
                         switchPanels.ExecuteSmooth(2);
-                        StartCoroutine(DelayedAction(1f));
+                        StartCoroutine(DelayedAction(delayTime));
                         break;
                     case 28:
                         SwitchSprites(neutralArmDownSprite, neutralArmUpSprite, false);
@@ -239,7 +240,7 @@ public class IntroSequence : MonoBehaviour
                         dialoguePanel.SetActive(false);
                         switchPanels.SetDismissalValuesThroughScript(mainScreens, 0.5f, mainScreensDismissalPoint);
                         switchPanels.ExecuteSmooth(1);
-                        StartCoroutine(DelayedAction(1f));
+                        StartCoroutine(DelayedAction(delayTime));
                         break;
                     case 30:
                         SwitchSprites(neutralArmDownSprite, neutralArmUpSprite, false);
