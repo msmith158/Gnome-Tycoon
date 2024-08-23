@@ -235,6 +235,12 @@ MonoBehaviour:
   resetTimes: 0
   sceneToLoad: FinalLevel
   introSkipped: 1
+<<<<<<< Updated upstream
+=======
+  totalGnomesMade: 0
+  totalUpgradesBought: 0
+  totalProfitMade: 0
+>>>>>>> Stashed changes
 --- !u!114 &549282662
 MonoBehaviour:
   m_ObjectHideFlags: 0
