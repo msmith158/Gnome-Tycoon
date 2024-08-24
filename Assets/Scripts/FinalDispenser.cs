@@ -48,13 +48,13 @@ public class FinalDispenser : MonoBehaviour
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Manufacturing...";
         sys.manufacturingButtonImage.sprite = sys.manufacturingButtonPressed;
         //manufacturingTime += (manufacturingTime * gnomeCoinSys.permanentTime);
-        float manuT = manufacturingTime + (manufacturingTime * gnomeCoinSys.permanentTime);
+        float manuT = manufacturingTime - (manufacturingTime * gnomeCoinSys.permanentTime);
         manufacturingCooldown += (manufacturingCooldown * gnomeCoinSys.permanentCooldown);
 
-        for (float timer = manufacturingTime; timer > 0; timer -= Time.deltaTime)
+        for (float timer = manuT; timer > 0; timer -= Time.deltaTime)
         {
-            timer = Mathf.Clamp(timer, 0f, manufacturingTime);
-            float progress = Mathf.InverseLerp(0f, manufacturingTime, timer);
+            timer = Mathf.Clamp(timer, 0f, manuT);
+            float progress = Mathf.InverseLerp(0f, manuT, timer);
             slider.size = progress;
             yield return null;
         }
