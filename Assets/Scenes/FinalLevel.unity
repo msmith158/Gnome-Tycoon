@@ -22377,7 +22377,11 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+<<<<<<< Updated upstream
   m_ActiveFontFeatures: 00000000
+=======
+  m_ActiveFontFeatures: 6e72656b
+>>>>>>> Stashed changes
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -33328,7 +33332,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917814194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c51345e5e13b3c64683279a2a61ad580, type: 3}
   m_Name: 
@@ -33359,7 +33363,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917814194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c457e20ace64abe409e890e7a41c409e, type: 3}
   m_Name: 
@@ -34657,10 +34661,14 @@ RectTransform:
   - {fileID: 1698723415}
   m_Father: {fileID: 242331128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -50}
+<<<<<<< Updated upstream
   m_SizeDelta: {x: -1000, y: -600}
+=======
+  m_SizeDelta: {x: 918, y: 480}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958412884
 MonoBehaviour:
@@ -37958,10 +37966,14 @@ MonoBehaviour:
   lvl6Value: 32
   lvl6InitialValue: 0
   productionLineAmount: 1
+<<<<<<< Updated upstream
   debugMode: 1
 <<<<<<< Updated upstream
   instantPointAddition: 999999
 =======
+=======
+  debugMode: 0
+>>>>>>> Stashed changes
   instantPointAddition: 109999
 >>>>>>> Stashed changes
   moneyText: {fileID: 2013700669}
@@ -45895,7 +45907,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: e9b1d9306e9aa254fba547faea0b15a2, type: 3}
   m_Resource: {fileID: 8300000, guid: e9b1d9306e9aa254fba547faea0b15a2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -48052,7 +48064,11 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+<<<<<<< Updated upstream
   m_ActiveFontFeatures: 00000000
+=======
+  m_ActiveFontFeatures: 6e72656b
+>>>>>>> Stashed changes
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -71215,7 +71231,11 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+<<<<<<< Updated upstream
   m_ActiveFontFeatures: 00000000
+=======
+  m_ActiveFontFeatures: 6e72656b
+>>>>>>> Stashed changes
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

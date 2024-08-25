@@ -1,5 +1,6 @@
 # ninja log v5
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 1	506	7455233378080251	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	ac8ca19be3b3bd55
 509	707	7455233379970898	C:/Users/noobh/Documents/GitHub/Gnome-Tycoon/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/1l53305q/obj/armeabi-v7a/libswappywrapper.so	217952985d2a5361
 4	166	7455238910885839	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	ac8ca19be3b3bd55
@@ -9,4 +10,8 @@
 617	855	7460209882820345	C:/Users/noobh/Documents/GitHub/Gnome-Tycoon/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/1l53305q/obj/armeabi-v7a/libswappywrapper.so	217952985d2a5361
 4	165	7460214290155982	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	ac8ca19be3b3bd55
 166	332	7460214291683965	C:/Users/noobh/Documents/GitHub/Gnome-Tycoon/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/1l53305q/obj/armeabi-v7a/libswappywrapper.so	217952985d2a5361
+>>>>>>> Stashed changes
+=======
+1	512	7461743878578923	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	ac8ca19be3b3bd55
+516	724	7461743880611074	C:/Users/noobh/Documents/GitHub/Gnome-Tycoon/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/1l53305q/obj/armeabi-v7a/libswappywrapper.so	217952985d2a5361
 >>>>>>> Stashed changes

@@ -145,9 +145,13 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   bundleVersion: 0.2.9
 =======
   bundleVersion: 0.3.1
+>>>>>>> Stashed changes
+=======
+  bundleVersion: 0.3.2
 >>>>>>> Stashed changes
   preloadedAssets: []
   metroInputSource: 0
