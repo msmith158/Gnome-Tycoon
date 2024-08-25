@@ -31928,7 +31928,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917814194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c51345e5e13b3c64683279a2a61ad580, type: 3}
   m_Name: 
@@ -31959,7 +31959,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917814194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c457e20ace64abe409e890e7a41c409e, type: 3}
   m_Name: 
@@ -33247,10 +33247,10 @@ RectTransform:
   - {fileID: 1698723415}
   m_Father: {fileID: 242331128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: -1500, y: -600}
+  m_SizeDelta: {x: 918, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958412884
 MonoBehaviour:
@@ -36074,7 +36074,7 @@ MonoBehaviour:
   lvl6Value: 32
   lvl6InitialValue: 0
   productionLineAmount: 1
-  debugMode: 1
+  debugMode: 0
   instantPointAddition: 109999
   moneyText: {fileID: 2013700669}
   coinText: {fileID: 1486817317}
