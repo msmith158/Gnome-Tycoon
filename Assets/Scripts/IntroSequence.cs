@@ -320,7 +320,6 @@ public class IntroSequence : MonoBehaviour
         timeRemaining = time;
         for (int i = 0; i < timeRemaining; timeRemaining -= Time.deltaTime)
         {
-            Debug.Log(timeRemaining);
             yield return null;
         }
         switch (spriteState)
