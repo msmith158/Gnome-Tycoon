@@ -58,6 +58,4 @@ public class MainMenuScript : MonoBehaviour
         yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene(scene);
     }
-
-
 }
