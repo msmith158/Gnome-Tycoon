@@ -202,7 +202,7 @@ public class NewDebugCanvas : MonoBehaviour
 
     private void ConveyorSpeedMetric()
     {
-        conveyorSpeedString = "Conveyor speed: " + line01Conveyor.speed + " + " + gnomeCoinSys.permanentSpeed;
+        conveyorSpeedString = "Conveyor speed: " + (line01Conveyor.speed + gnomeCoinSys.permanentSpeed) + " (" + line01Conveyor.speed + " + " + gnomeCoinSys.permanentSpeed + ")";
     }
 
     private void ManufacturingTimeMetric()

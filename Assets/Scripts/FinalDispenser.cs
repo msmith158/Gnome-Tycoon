@@ -47,9 +47,7 @@ public class FinalDispenser : MonoBehaviour
         timeSlider.SetActive(true);
         timeSlider.transform.Find("timerText").GetComponent<TextMeshProUGUI>().text = "Manufacturing...";
         sys.manufacturingButtonImage.sprite = sys.manufacturingButtonPressed;
-        //manufacturingTime += (manufacturingTime * gnomeCoinSys.permanentTime);
         float manuT = manufacturingTime + gnomeCoinSys.permanentTime;
-        manufacturingCooldown += (manufacturingCooldown * gnomeCoinSys.permanentCooldown);
 
         for (float timer = manuT; timer > 0; timer -= Time.deltaTime)
         {

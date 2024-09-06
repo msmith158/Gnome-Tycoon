@@ -158,7 +158,31 @@ public class FinalFactorySystem : MonoBehaviour
                 costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString() + afterText;
                 break;
             case false:
-                costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+                if (newPrice >= 0 && newPrice < 1000)
+                {
+                    Debug.Log("Bingus 1");
+                    costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+                }
+                else if (newPrice >= 1000 && newPrice < 1000000)
+                {
+                    Debug.Log("Bingus 2");
+                    costText.text = beforeText + (RoundToNearestHundredth(newPrice) / 1000).ToString("F2") + "K" + afterText;
+                }
+                else if (newPrice >= 1000000 && newPrice < 1000000000)
+                {
+                    Debug.Log("Bingus 3");
+                    costText.text = beforeText + (RoundToNearestHundredth(newPrice) / 1000000).ToString("F2") + "M" + afterText;
+                }
+                else if (newPrice >= 1000000000 && newPrice < 1000000000000)
+                {
+                    Debug.Log("Bingus 4");
+                    costText.text = beforeText + (RoundToNearestHundredth(newPrice) / 1000000000).ToString("F2") + "B" + afterText;
+                }
+                else
+                {
+                    Debug.Log("No Bingus");
+                }
+                //costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
                 break;
         }
     }
@@ -199,7 +223,7 @@ public class FinalFactorySystem : MonoBehaviour
         buttonSfxSource.clip = buttonInSfx;
         buttonSfxSource.Play();
         manufacturingButtonImage.sprite = manufacturingButtonPressed;
-
+        
         for (int i = 0; i < productionLineAmount; i++)
         {
             string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
