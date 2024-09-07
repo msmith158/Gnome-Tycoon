@@ -9,12 +9,12 @@ public class FinalUpgrades : MonoBehaviour
     [Header("Values")]
     public UpgradeType upgradeType;
     public UpgradeCost upgradeCost;
-    public float initialCost;
-    [Tooltip("The rate at which the price increases in a curve.")] public float increaseRate;
+    public double initialCost;
+    [Tooltip("The rate at which the price increases in a curve.")] public double increaseRate;
     [Tooltip("How many of these upgrades the player can buy before reaching the max. Set to 0 for infinity.")] public int upgradeLimit;
     [Tooltip("The amount that the upgrade limit increases each prestige.")] [SerializeField] private int upgradeLimitIncrease;
-    private float currentPrice;
-    private float costPercentage;
+    private double currentPrice;
+    private double costPercentage;
     private int currentBuyAmount;
     private Color initialSliderColour;
     private bool hasRanOnce = false;
@@ -75,7 +75,7 @@ public class FinalUpgrades : MonoBehaviour
                     {
                         sys.pointScore -= currentPrice;
                         ddolManager.totalUpgradesBought++;
-                        sys.UpdatePrice(sys.moneyText, false, "Profit: $", sys.pointScore, "");
+                        sys.UpdateProfit(sys.moneyText, false, "Profit: $", sys.pointScore, "");
 
                         switch (upgradeType)
                         {
@@ -193,7 +193,7 @@ public class FinalUpgrades : MonoBehaviour
                     {
                         gnomeCoinSys.coinCount -= (int)currentPrice;
                         ddolManager.totalUpgradesBought++;
-                        sys.UpdatePrice(gnomeCoinSys.gnomeCoinText, true, "c", gnomeCoinSys.coinCount, "");
+                        sys.UpdateProfit(gnomeCoinSys.gnomeCoinText, true, "c", gnomeCoinSys.coinCount, "");
 
                         switch (upgradeType)
                         {

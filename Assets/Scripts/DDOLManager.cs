@@ -13,7 +13,7 @@ public class DDOLManager : MonoBehaviour
     // Counter values for the end of the game
     public int totalGnomesMade;
     public int totalUpgradesBought;
-    public float totalProfitMade;
+    public double totalProfitMade;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -29,8 +29,8 @@ public class DDOLManager : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneToLoad);
     }
 
-    public float RoundToNearestHundredth(float value)
+    public double RoundToNearestHundredth(double value)
     {
-        return (float)System.Math.Round(value, 2);
+        return System.Math.Round(value, 2);
     }
 }

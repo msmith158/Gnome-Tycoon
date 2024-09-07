@@ -8,7 +8,7 @@ public class PrestigeSystem : MonoBehaviour
 {
     [Header("General Values")]
     public PrestigeType prestigeType;
-    public float price;
+    public double price;
     [Header("Reward Values")]
     public float unitMultiplication;
     [Tooltip("Write the percentage as a decimal, e.g. 10% is 0.10")] public float manufacturerDecreasePercent;
@@ -26,7 +26,7 @@ public class PrestigeSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI prestigeBodyText;
     [SerializeField] private GameObject promptParent;
     [SerializeField] private List<GameObject> promptUIToDisable = new List<GameObject>();
-    [SerializeField] private List<GameObject> PromptUIToEnable = new List<GameObject>();
+    [SerializeField] private List<GameObject> promptUIToEnable = new List<GameObject>();
 
     void OnEnable()
     {
@@ -248,9 +248,9 @@ public class PrestigeSystem : MonoBehaviour
         {
             promptUIToDisable[i].SetActive(false);
         }
-        for (int i = 0; i < PromptUIToEnable.Count; i++)
+        for (int i = 0; i < promptUIToEnable.Count; i++)
         {
-            PromptUIToEnable[i].SetActive(true);
+            promptUIToEnable[i].SetActive(true);
         }
     }
 

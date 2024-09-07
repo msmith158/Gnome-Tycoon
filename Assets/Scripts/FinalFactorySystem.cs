@@ -7,19 +7,19 @@ using UnityEngine.UI;
 public class FinalFactorySystem : MonoBehaviour
 {
     [Header("Values: General")]
-    public float pointScore;
+    public double pointScore;
     public PrestigeLevel prestigeLvl = PrestigeLevel.Prestige0;
-    public float lvl1Value;
+    public double lvl1Value;
     [HideInInspector] public float lvl1InitialValue;
-    public float lvl2Value;
+    public double lvl2Value;
     [HideInInspector] public float lvl2InitialValue;
-    public float lvl3Value;
+    public double lvl3Value;
     [HideInInspector] public float lvl3InitialValue;
-    public float lvl4Value;
+    public double lvl4Value;
     [HideInInspector] public float lvl4InitialValue;
-    public float lvl5Value;
+    public double lvl5Value;
     [HideInInspector] public float lvl5InitialValue;
-    public float lvl6Value;
+    public double lvl6Value;
     [HideInInspector] public float lvl6InitialValue;
     [Range(1, 7)] public int productionLineAmount;
     private float switchPanelTime;
@@ -27,7 +27,7 @@ public class FinalFactorySystem : MonoBehaviour
 
     [Header("Debug Values")]
     public bool debugMode;
-    public float instantPointAddition;
+    public double instantPointAddition;
     private bool hasDebugRun;
 
     [Header("Object References: General")]
@@ -71,7 +71,7 @@ public class FinalFactorySystem : MonoBehaviour
                 break;
         }
 
-        lvl1InitialValue = lvl1Value;
+        lvl1InitialValue = (float)lvl1Value;
         Application.targetFrameRate = 60;
         // Add code here for amount of production lines from save/load system
         AddScore(0);
@@ -138,7 +138,7 @@ public class FinalFactorySystem : MonoBehaviour
         }
     }
 
-    public void AddScore(float amount)
+    public void AddScore(double amount)
     {
         pointScore += amount + (amount * ddolManager.permanentValue);
         ddolManager2.totalProfitMade += (amount + (amount * ddolManager.permanentValue));
@@ -150,7 +150,7 @@ public class FinalFactorySystem : MonoBehaviour
         moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
     }
 
-    public void UpdatePrice(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, float newPrice, string afterText)
+    public void UpdatePrice(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, double newPrice, string afterText)
     {
         switch (isGnomeCoins)
         {
@@ -186,10 +186,23 @@ public class FinalFactorySystem : MonoBehaviour
                 break;
         }
     }
-
-    public float RoundToNearestHundredth(float value)
+    
+    public void UpdateProfit(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, double newPrice, string afterText)
     {
-        return (float)System.Math.Round(value, 2);
+        switch (isGnomeCoins)
+        {
+            case true:
+                costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString() + afterText;
+                break;
+            case false:
+                costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+                break;
+        }
+    }
+
+    public double RoundToNearestHundredth(double value)
+    {
+        return System.Math.Round(value, 2);
     }
 
     public void QuitGame()

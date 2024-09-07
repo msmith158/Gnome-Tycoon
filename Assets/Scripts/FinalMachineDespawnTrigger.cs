@@ -7,11 +7,10 @@ public class FinalMachineDespawnTrigger : MonoBehaviour
 
     [Header("Machine Trigger Properties")]
     [SerializeField] private FinalMachineSystems parentToCallBackTo;
-    [HideInInspector] public Vector3 oldObjectVelocity;
 
     [Header("Exit Trigger Properties")]
     public FinalFactorySystem gameManager;
-    private float value;
+    private double value;
 
     private void OnTriggerEnter(Collider other)
     {
