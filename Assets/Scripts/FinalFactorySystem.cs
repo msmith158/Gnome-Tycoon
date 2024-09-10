@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
@@ -24,6 +25,7 @@ public class FinalFactorySystem : MonoBehaviour
     [Range(1, 7)] public int productionLineAmount;
     private float switchPanelTime;
     private bool isProductionLinesSet = false;
+    [HideInInspector] public bool autoActivated;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -261,6 +263,21 @@ public class FinalFactorySystem : MonoBehaviour
             }
 
             productionLineAmount = 1;
+        }
+    }
+
+    public void AutomatedDispenser()
+    {
+        autoActivated = true;
+        StartCoroutine(AutomatedDispensers());
+    }
+
+    private IEnumerator AutomatedDispensers()
+    {
+        while (autoActivated)
+        {
+            
+            yield return null;
         }
     }
 

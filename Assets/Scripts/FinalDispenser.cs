@@ -16,6 +16,7 @@ public class FinalDispenser : MonoBehaviour
     [HideInInspector] public float initialManuCool;
     public GameObject timeSlider;
     public bool isAutomated;
+    public bool isAutoActivated;
     public List<GameObject> objectsList = new List<GameObject>();
     private bool isActivated = false;
     private Scrollbar slider;
@@ -38,6 +39,15 @@ public class FinalDispenser : MonoBehaviour
         {
             isActivated = true;
             StartCoroutine(DelayedSpawn());
+        }
+    }
+
+    public void SpawnAuto()
+    {
+        if (!isAutoActivated)
+        {
+            isAutoActivated = true;
+            StartCoroutine(AutomatedSpawn());
         }
     }
     
@@ -81,9 +91,9 @@ public class FinalDispenser : MonoBehaviour
         isActivated = false;
     }
 
-    public IEnumerator AutomatedSpawn()
+    private IEnumerator AutomatedSpawn()
     {
-        // DO THIS FEATURE LATER
+        //float autoManuT = 
         yield return null;
     }
 }
