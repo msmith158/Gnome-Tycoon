@@ -340,6 +340,8 @@ public class PrestigeSequenceSystem : MonoBehaviour
         {
             uiToEnableStandard[i].SetActive(true);
         }
+
+        sys.ClearDispensers();
     }
 
     // This is to automate the prestige in-progress text

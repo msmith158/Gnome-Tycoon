@@ -239,7 +239,7 @@ MonoBehaviour:
   isOneOffComplete: 0
   resetTimes: 0
   sceneToLoad: FinalLevel
-  introSkipped: 0
+  introSkipped: 1
   totalGnomesMade: 0
   totalUpgradesBought: 0
   totalProfitMade: 0

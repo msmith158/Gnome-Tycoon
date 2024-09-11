@@ -23,9 +23,9 @@ public class FinalFactorySystem : MonoBehaviour
     public double lvl6Value;
     [HideInInspector] public float lvl6InitialValue;
     [Range(1, 7)] public int productionLineAmount;
+    public int automatedLineAmount;
     private float switchPanelTime;
     private bool isProductionLinesSet = false;
-    [HideInInspector] public bool autoActivated;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -253,6 +253,15 @@ public class FinalFactorySystem : MonoBehaviour
         manufacturingButtonImage.sprite = manufacturingButtonUnpressed;
     }
 
+    public void ClearDispensers()
+    {
+        for (int i = 0; i < productionLineAmount; i++)
+        {
+            string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
+            productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
+        }
+    }
+
     public void ResetProductionLineAmount()
     {
         if (productionLineAmount != 1)
@@ -268,16 +277,27 @@ public class FinalFactorySystem : MonoBehaviour
 
     public void AutomatedDispenser()
     {
-        autoActivated = true;
-        StartCoroutine(AutomatedDispensers());
+        string dispenserName = new string("line0" + (automatedLineAmount + 1) + "dispenserMachine");
+        if (!productionLines[automatedLineAmount].transform.Find(dispenserName).GetComponent<FinalDispenser>().isAutoRunning)
+        {
+            productionLines[automatedLineAmount].transform.Find(dispenserName).GetComponent<FinalDispenser>()
+                .isAutoRunning = true;
+            StartCoroutine(productionLines[automatedLineAmount].transform.Find(dispenserName).GetComponent<FinalDispenser>().AutomatedSpawn());
+            Debug.Log("Hi");
+        }
+
+        automatedLineAmount++;
     }
 
-    private IEnumerator AutomatedDispensers()
+    public void StopAutomatedDispenser()
     {
-        while (autoActivated)
+        for (int i = 0; i < productionLines.Count; i++)
         {
-            
-            yield return null;
+            string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
+            if (productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().isAutoRunning)
+            {
+                StopCoroutine(productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().AutomatedSpawn());
+            }
         }
     }
 

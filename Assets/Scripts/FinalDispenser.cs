@@ -15,13 +15,13 @@ public class FinalDispenser : MonoBehaviour
     [HideInInspector] public float initialManuTime;
     [HideInInspector] public float initialManuCool;
     public GameObject timeSlider;
-    public bool isAutomated;
     public bool isAutoActivated;
     public List<GameObject> objectsList = new List<GameObject>();
     private bool isActivated = false;
     private Scrollbar slider;
     [SerializeField] private float objectXOffset;
     private DDOLManager ddolManager;
+    [HideInInspector] public bool isAutoRunning = false;
 
     void OnEnable()
     {
@@ -91,9 +91,22 @@ public class FinalDispenser : MonoBehaviour
         isActivated = false;
     }
 
-    private IEnumerator AutomatedSpawn()
+    public IEnumerator AutomatedSpawn()
     {
-        //float autoManuT = 
+        Debug.Log("Hi2");
+        while (isAutoRunning)
+        {
+            Debug.Log("Hi3");
+            float manuT = manufacturingTime + gnomeCoinSys.permanentTime;
+            yield return new WaitForSeconds(manuT);
+            
+            Vector3 newPos = new Vector3(spawnTrigger.transform.position.x + objectXOffset, spawnTrigger.transform.position.y,
+                spawnTrigger.transform.position.z);
+            GameObject newObject = Instantiate(newPrefab, newPos, Quaternion.identity);
+            newObject.tag = "gnome";
+            objectsList.Add(newObject);
+            ddolManager.totalGnomesMade++;
+        }
         yield return null;
     }
 }

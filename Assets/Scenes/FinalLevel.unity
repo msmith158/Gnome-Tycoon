@@ -12294,6 +12294,7 @@ MonoBehaviour:
   - {fileID: 725734642}
   - {fileID: 1613842709}
   - {fileID: 408789053}
+  - {fileID: 461100526}
   dispensers:
   - {fileID: 1487663870}
   - {fileID: 680535911}
@@ -14537,10 +14538,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a08072b2166d34bb95b2245f6a27c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeType: 3
+  upgradeType: 4
   upgradeCost: 0
-  initialCost: 100
-  increaseRate: 7.5
+  initialCost: 500
+  increaseRate: 5
   upgradeLimit: 6
   upgradeLimitIncrease: 0
   costText: {fileID: 1413148304}
@@ -21539,7 +21540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275, y: -121}
+  m_AnchoredPosition: {x: 275, y: -122.5}
   m_SizeDelta: {x: 450, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679649362
@@ -21928,10 +21929,10 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
-  isAutomated: 0
   isAutoActivated: 0
   objectsList: []
   objectXOffset: -0.5
+  isAutoRunning: 0
 --- !u!1 &681298734
 GameObject:
   m_ObjectHideFlags: 0
@@ -32799,10 +32800,10 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
-  isAutomated: 0
   isAutoActivated: 0
   objectsList: []
   objectXOffset: -0.5
+  isAutoRunning: 0
 --- !u!1 &928016778
 GameObject:
   m_ObjectHideFlags: 0
@@ -36725,7 +36726,7 @@ MonoBehaviour:
   lvl6Value: 32
   lvl6InitialValue: 0
   productionLineAmount: 1
-  autoActivated: 0
+  automatedLineAmount: 0
   debugMode: 1
   instantPointAddition: 109999
   moneyText: {fileID: 2013700669}
@@ -39818,10 +39819,10 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
-  isAutomated: 0
   isAutoActivated: 0
   objectsList: []
   objectXOffset: -0.5
+  isAutoRunning: 0
 --- !u!1 &1204188012
 GameObject:
   m_ObjectHideFlags: 0
@@ -43472,10 +43473,10 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
-  isAutomated: 0
   isAutoActivated: 0
   objectsList: []
   objectXOffset: -0.5
+  isAutoRunning: 0
 --- !u!1 &1293386297
 GameObject:
   m_ObjectHideFlags: 0
@@ -45396,7 +45397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increases revenue per gnome by 10%.
+  m_text: Increases revenue per gnome by 5%.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa54721cb11f9bf4a92bf1c05fced61f, type: 2}
   m_sharedMaterial: {fileID: 7321924979020486631, guid: aa54721cb11f9bf4a92bf1c05fced61f,
@@ -54426,10 +54427,10 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
-  isAutomated: 0
   isAutoActivated: 0
   objectsList: []
   objectXOffset: -0.5
+  isAutoRunning: 0
 --- !u!1 &1490965635
 GameObject:
   m_ObjectHideFlags: 0
@@ -61973,10 +61974,10 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
-  isAutomated: 0
   isAutoActivated: 0
   objectsList: []
   objectXOffset: -0.5
+  isAutoRunning: 0
 --- !u!1 &1717992301
 GameObject:
   m_ObjectHideFlags: 0
@@ -67993,7 +67994,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.03
+          m_FloatArgument: 0.05
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -68868,10 +68869,10 @@ MonoBehaviour:
   initialManuTime: 0
   initialManuCool: 0
   timeSlider: {fileID: 1053985530}
-  isAutomated: 0
   isAutoActivated: 0
   objectsList: []
   objectXOffset: -0.5
+  isAutoRunning: 0
 --- !u!1 &1961315692
 GameObject:
   m_ObjectHideFlags: 0

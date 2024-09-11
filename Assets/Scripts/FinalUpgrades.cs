@@ -18,8 +18,7 @@ public class FinalUpgrades : MonoBehaviour
     private int currentBuyAmount;
     private Color initialSliderColour;
     private bool hasRanOnce = false;
-
-
+    
     [Header("Object References")]
     [SerializeField] private TextMeshProUGUI costText;
     [SerializeField] private Button upgradeButton;
@@ -162,9 +161,14 @@ public class FinalUpgrades : MonoBehaviour
                                 sys.UpdatePrice(costText, false, "$", currentPrice, "");
                                 break;
                             case UpgradeType.ProductionLines:
-
                                 sys.productionLineAmount += (int)percentage;
                                 sys.SetProductionLines();
+                                costPercentage += increaseRate;
+                                currentPrice += (initialCost * (costPercentage * 2));
+                                sys.UpdatePrice(costText, false, "$", currentPrice, "");
+                                break;
+                            case UpgradeType.LineAutomation:
+                                sys.AutomatedDispenser();
                                 costPercentage += increaseRate;
                                 currentPrice += (initialCost * (costPercentage * 2));
                                 sys.UpdatePrice(costText, false, "$", currentPrice, "");
@@ -275,7 +279,8 @@ public class FinalUpgrades : MonoBehaviour
         GnomeValue,
         ConveyorSpeed,
         ManufactureTime,
-        ProductionLines
+        ProductionLines,
+        LineAutomation
     }
 
     public enum UpgradeCost

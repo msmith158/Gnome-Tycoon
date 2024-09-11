@@ -211,6 +211,13 @@ public class PrestigeSystem : MonoBehaviour
                     break;
             }
         }
+        
+        // Reset automated lines
+        for (int i = 0; i < dispensers.Count; i++)
+        {
+            dispensers[i].isAutoRunning = false;
+        }
+        sys.StopAutomatedDispenser();
 
         // Reset and adjust total costs
         for (int i = 0; i < upgradeSys.Count; i++)
@@ -224,10 +231,11 @@ public class PrestigeSystem : MonoBehaviour
             switch (dispensers[i].isActiveAndEnabled)
             {
                 case true:
-                    for (int j = 0; j < dispensers[i].objectsList.Count; j++)
+                    foreach (GameObject g in dispensers[i].objectsList)
                     {
-                        Destroy(dispensers[i].objectsList[j]);
+                        Destroy(g);
                     }
+                    dispensers[i].objectsList.Clear();
                     break;
                 case false:
                     break;
