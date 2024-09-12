@@ -119,7 +119,6 @@ public class PrestigeSystem : MonoBehaviour
                     }
                     else if (sys.debugMode)
                     {
-                        Debug.Log("Hi");
                         finalPrestigeSys.SendMessage("StartNukeSequence", null);
                     }
                     else PromptWindow();
@@ -152,35 +151,30 @@ public class PrestigeSystem : MonoBehaviour
             case FinalFactorySystem.PrestigeLevel.Prestige1:
                 sys.lvl2InitialValue = sys.lvl1InitialValue * unitMultiplication;
                 sys.lvl2Value = sys.lvl2InitialValue;
-                Debug.Log("New gnome value: " + sys.lvl2Value);
                 displayablePrestigeLevel = 1;
                 currentPrestigeText.text = "Current Prestige: " + displayablePrestigeLevel;
                 break;
             case FinalFactorySystem.PrestigeLevel.Prestige2:
                 sys.lvl3InitialValue = sys.lvl1InitialValue * unitMultiplication;
                 sys.lvl3Value = sys.lvl3InitialValue;
-                Debug.Log("New gnome value: " + sys.lvl3Value);
                 displayablePrestigeLevel = 2;
                 currentPrestigeText.text = "Current Prestige: " + displayablePrestigeLevel;
                 break;
             case FinalFactorySystem.PrestigeLevel.Prestige3:
                 sys.lvl4InitialValue = sys.lvl1InitialValue * unitMultiplication;
                 sys.lvl4Value = sys.lvl4InitialValue;
-                Debug.Log("New gnome value: " + sys.lvl4Value);
                 displayablePrestigeLevel = 3;
                 currentPrestigeText.text = "Current Prestige: " + displayablePrestigeLevel;
                 break;
             case FinalFactorySystem.PrestigeLevel.Prestige4:
                 sys.lvl5InitialValue = sys.lvl1InitialValue * unitMultiplication;
                 sys.lvl5Value = sys.lvl5InitialValue;
-                Debug.Log("New gnome value: " + sys.lvl5Value);
                 displayablePrestigeLevel = 4;
                 currentPrestigeText.text = "Current Prestige: " + displayablePrestigeLevel;
                 break;
             case FinalFactorySystem.PrestigeLevel.Prestige5:
                 sys.lvl6InitialValue = sys.lvl1InitialValue * unitMultiplication;
                 sys.lvl6Value = sys.lvl6InitialValue;
-                Debug.Log("New gnome value: " + sys.lvl6Value);
                 displayablePrestigeLevel = 5;
                 currentPrestigeText.text = "Current Prestige: " + displayablePrestigeLevel;
                 break;
@@ -228,12 +222,15 @@ public class PrestigeSystem : MonoBehaviour
 
         for (int i = 0; i < dispensers.Count; i++)
         {
+            int rot = 0;
             switch (dispensers[i].isActiveAndEnabled)
             {
                 case true:
                     foreach (GameObject g in dispensers[i].objectsList)
                     {
                         Destroy(g);
+                        rot++;
+                        Debug.Log("Dispenser count: " + dispensers[i] + ", Specific dispenser object list count: " + dispensers[i].objectsList.Count + ", Current stage: " + rot + ".");
                     }
                     dispensers[i].objectsList.Clear();
                     break;
@@ -245,8 +242,6 @@ public class PrestigeSystem : MonoBehaviour
         sys.ResetProductionLineAmount();
 
         StartCoroutine(finalPrestigeSys.DoPrestigePhase());
-
-        Debug.Log("Upgraded Prestige to " + sys.prestigeLvl);
     }
 
     private void PromptWindow()

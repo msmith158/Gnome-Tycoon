@@ -93,10 +93,8 @@ public class FinalDispenser : MonoBehaviour
 
     public IEnumerator AutomatedSpawn()
     {
-        Debug.Log("Hi2");
         while (isAutoRunning)
         {
-            Debug.Log("Hi3");
             float manuT = manufacturingTime + gnomeCoinSys.permanentTime;
             yield return new WaitForSeconds(manuT);
             

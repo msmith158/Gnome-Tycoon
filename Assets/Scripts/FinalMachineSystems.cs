@@ -120,6 +120,7 @@ public class FinalMachineSystems : MonoBehaviour
                     dispenser.objectsList.Add(newPackagedObject);
                     newPackagedObject.GetComponent<Rigidbody>().velocity = objectVelocity;
                 }
+
                 break;
         }
     }
