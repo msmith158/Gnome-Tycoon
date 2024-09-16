@@ -159,7 +159,23 @@ public class FinalFactorySystem : MonoBehaviour
             pointScore += instantPointAddition;
             hasDebugRun = true;
         }
-        moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
+
+        if (pointScore >= 0 && pointScore < 1000000)
+        {
+            moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
+        }
+        else if (pointScore >= 1000000 && pointScore < 1000000000)
+        {
+            moneyText.text = "Profit: $" + (RoundToNearestHundredth(pointScore) / 1000000).ToString("F2") + " Million";
+        }
+        else if (pointScore >= 1000000000 && pointScore < 1000000000000)
+        {
+            moneyText.text = "Profit: $" + (RoundToNearestHundredth(pointScore) / 1000000000).ToString("F2") + " Billion";
+        }
+        else if (pointScore >= 1000000000000 && pointScore < 1000000000000000)
+        {
+            moneyText.text = "Profit: $" + (RoundToNearestHundredth(pointScore) / 1000000000000).ToString("F2") + " Trillion";
+        }
     }
 
     public void UpdatePrice(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, double newPrice, string afterText)
@@ -310,6 +326,7 @@ public class FinalFactorySystem : MonoBehaviour
     public void SwitchRoom(bool increment)
     {
         int lastRoomNumber = roomNumber;
+        Debug.Log("lastRoomNumber: " + lastRoomNumber);
         switch (increment)
         {
             case true:
@@ -325,62 +342,63 @@ public class FinalFactorySystem : MonoBehaviour
                     cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
                 break;
         }
+        Debug.Log("roomNumber: " + roomNumber);
 
         switch (roomNumber)
         {
-            case 1:
+            case 0:
                 foreach (GameObject obj in room1)
                 {
-                    ChangeMeshRenderersStateRecursively(false, obj);
+                    ChangeMeshRenderersStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
-                    case 2:
+                    case 1:
                         foreach (GameObject obj in room2)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
+                        }
+                        break;
+                }
+                break;
+            case 1:
+                foreach (GameObject obj in room2)
+                {
+                    ChangeMeshRenderersStateRecursively(true, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 0:
+                        foreach (GameObject obj in room1)
+                        {
+                            ChangeMeshRenderersStateRecursively(false, obj);
+                        }
+                        break;
+                    case 2:
+                        foreach (GameObject obj in room3)
+                        {
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                 }
                 break;
             case 2:
-                foreach (GameObject obj in room2)
+                foreach (GameObject obj in room3)
                 {
-                    ChangeMeshRenderersStateRecursively(false, obj);
+                    ChangeMeshRenderersStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 1:
-                        foreach (GameObject obj in room1)
+                        foreach (GameObject obj in room2)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                     case 3:
-                        foreach (GameObject obj in room3)
-                        {
-                            ChangeMeshRenderersStateRecursively(true, obj);
-                        }
-                        break;
-                }
-                break;
-            case 3:
-                foreach (GameObject obj in room3)
-                {
-                    ChangeMeshRenderersStateRecursively(false, obj);
-                }
-                switch (lastRoomNumber)
-                {
-                    case 2:
-                        foreach (GameObject obj in room2)
-                        {
-                            ChangeMeshRenderersStateRecursively(true, obj);
-                        }
-                        break;
-                    case 4:
                         foreach (GameObject obj in room4)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                 }
@@ -388,20 +406,20 @@ public class FinalFactorySystem : MonoBehaviour
             case 4:
                 foreach (GameObject obj in room4)
                 {
-                    ChangeMeshRenderersStateRecursively(false, obj);
+                    ChangeMeshRenderersStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 3:
                         foreach (GameObject obj in room3)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                     case 5:
                         foreach (GameObject obj in room5)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                 }
@@ -409,20 +427,20 @@ public class FinalFactorySystem : MonoBehaviour
             case 5:
                 foreach (GameObject obj in room5)
                 {
-                    ChangeMeshRenderersStateRecursively(false, obj);
+                    ChangeMeshRenderersStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 4:
                         foreach (GameObject obj in room4)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                     case 6:
                         foreach (GameObject obj in room6)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                 }
@@ -430,20 +448,20 @@ public class FinalFactorySystem : MonoBehaviour
             case 6:
                 foreach (GameObject obj in room6)
                 {
-                    ChangeMeshRenderersStateRecursively(false, obj);
+                    ChangeMeshRenderersStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 5:
                         foreach (GameObject obj in room5)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                     case 7:
                         foreach (GameObject obj in room7)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                 }
@@ -451,14 +469,14 @@ public class FinalFactorySystem : MonoBehaviour
             case 7:
                 foreach (GameObject obj in room7)
                 {
-                    ChangeMeshRenderersStateRecursively(false, obj);
+                    ChangeMeshRenderersStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 6:
                         foreach (GameObject obj in room6)
                         {
-                            ChangeMeshRenderersStateRecursively(true, obj);
+                            ChangeMeshRenderersStateRecursively(false, obj);
                         }
                         break;
                 }
@@ -473,7 +491,7 @@ public class FinalFactorySystem : MonoBehaviour
     {
         if (obj.GetComponent<MeshRenderer>())
         {
-            obj.GetComponent<MeshRenderer>().enabled = false;
+            obj.GetComponent<MeshRenderer>().enabled = enable;
         }
 
         foreach (Transform child in obj.transform)
