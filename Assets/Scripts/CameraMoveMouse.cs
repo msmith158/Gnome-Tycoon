@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraMoveMouse : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
+    [SerializeField] private FinalFactorySystem sys;
     [SerializeField] private float dragSpeed = 2.0f;
     [SerializeField] private float zoomSpeed = 0.5f;
     [SerializeField] private float minZoom = 5.0f;
@@ -83,5 +84,20 @@ public class CameraMoveMouse : MonoBehaviour
         float newSize = _camera.orthographicSize - scroll * zoomSpeed;
 
         _camera.orthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
+    }
+
+    public void ChangeBounds(bool increment)
+    {
+        switch (increment)
+        {
+            case true:
+                minBounds = new Vector3(minBounds.x + sys.cameraPosIncrementX, minBounds.y, minBounds.z);
+                maxBounds = new Vector3(maxBounds.x + sys.cameraPosIncrementX, maxBounds.y, maxBounds.z);
+                break;
+            case false:
+                minBounds = new Vector3(minBounds.x - sys.cameraPosIncrementX, minBounds.y, minBounds.z);
+                maxBounds = new Vector3(maxBounds.x - sys.cameraPosIncrementX, maxBounds.y, maxBounds.z);
+                break;
+        }
     }
 }

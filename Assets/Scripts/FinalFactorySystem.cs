@@ -26,6 +26,8 @@ public class FinalFactorySystem : MonoBehaviour
     public int automatedLineAmount;
     private float switchPanelTime;
     private bool isProductionLinesSet = false;
+    private int roomNumber;
+    public float cameraPosIncrementX;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -46,6 +48,14 @@ public class FinalFactorySystem : MonoBehaviour
     public Image manufacturingButtonImage;
     public Sprite manufacturingButtonUnpressed;
     public Sprite manufacturingButtonPressed;
+    [SerializeField] private GameObject cameraHolderHolder;
+    [SerializeField] private List<GameObject> room1 = new List<GameObject>();
+    [SerializeField] private List<GameObject> room2 = new List<GameObject>();
+    [SerializeField] private List<GameObject> room3 = new List<GameObject>();
+    [SerializeField] private List<GameObject> room4 = new List<GameObject>();
+    [SerializeField] private List<GameObject> room5 = new List<GameObject>();
+    [SerializeField] private List<GameObject> room6 = new List<GameObject>();
+    [SerializeField] private List<GameObject> room7 = new List<GameObject>();
 
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource buttonSfxSource;
@@ -294,6 +304,181 @@ public class FinalFactorySystem : MonoBehaviour
             {
                 StopCoroutine(productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().AutomatedSpawn());
             }
+        }
+    }
+
+    public void SwitchRoom(bool increment)
+    {
+        int lastRoomNumber = roomNumber;
+        switch (increment)
+        {
+            case true:
+                roomNumber++;
+                cameraHolderHolder.transform.position = new Vector3(
+                    cameraHolderHolder.transform.position.x + cameraPosIncrementX,
+                    cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                break;
+            case false:
+                roomNumber--;
+                cameraHolderHolder.transform.position = new Vector3(
+                    cameraHolderHolder.transform.position.x - cameraPosIncrementX,
+                    cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                break;
+        }
+
+        switch (roomNumber)
+        {
+            case 1:
+                foreach (GameObject obj in room1)
+                {
+                    ChangeMeshRenderersStateRecursively(false, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 2:
+                        foreach (GameObject obj in room2)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                }
+                break;
+            case 2:
+                foreach (GameObject obj in room2)
+                {
+                    ChangeMeshRenderersStateRecursively(false, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 1:
+                        foreach (GameObject obj in room1)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                    case 3:
+                        foreach (GameObject obj in room3)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                }
+                break;
+            case 3:
+                foreach (GameObject obj in room3)
+                {
+                    ChangeMeshRenderersStateRecursively(false, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 2:
+                        foreach (GameObject obj in room2)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                    case 4:
+                        foreach (GameObject obj in room4)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                }
+                break;
+            case 4:
+                foreach (GameObject obj in room4)
+                {
+                    ChangeMeshRenderersStateRecursively(false, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 3:
+                        foreach (GameObject obj in room3)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                    case 5:
+                        foreach (GameObject obj in room5)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                }
+                break;
+            case 5:
+                foreach (GameObject obj in room5)
+                {
+                    ChangeMeshRenderersStateRecursively(false, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 4:
+                        foreach (GameObject obj in room4)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                    case 6:
+                        foreach (GameObject obj in room6)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                }
+                break;
+            case 6:
+                foreach (GameObject obj in room6)
+                {
+                    ChangeMeshRenderersStateRecursively(false, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 5:
+                        foreach (GameObject obj in room5)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                    case 7:
+                        foreach (GameObject obj in room7)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                }
+                break;
+            case 7:
+                foreach (GameObject obj in room7)
+                {
+                    ChangeMeshRenderersStateRecursively(false, obj);
+                }
+                switch (lastRoomNumber)
+                {
+                    case 6:
+                        foreach (GameObject obj in room6)
+                        {
+                            ChangeMeshRenderersStateRecursively(true, obj);
+                        }
+                        break;
+                }
+                break;
+        }
+        
+        cameraHolderHolder.transform.GetChild(0).GetComponent<CameraMoveMouse>().ChangeBounds(increment);
+        cameraHolderHolder.transform.GetChild(0).GetComponent<CameraMoveTouch>().ChangeBounds(increment);
+    }
+
+    private void ChangeMeshRenderersStateRecursively(bool enable, GameObject obj)
+    {
+        if (obj.GetComponent<MeshRenderer>())
+        {
+            obj.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        foreach (Transform child in obj.transform)
+        {
+            ChangeMeshRenderersStateRecursively(enable, child.gameObject);
         }
     }
 
