@@ -37,8 +37,6 @@ public class FinalFactorySystem : MonoBehaviour
     [Header("Object References: General")]
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI coinText;
-    public List<GameObject> productionLines = new List<GameObject>();
-    public List<GameObject> oneOffObjects = new List<GameObject>();
     private GnomeCoinSystem ddolManager;
     private DDOLManager ddolManager2;
     private GameObject switchPanelDismissVar;
@@ -49,19 +47,24 @@ public class FinalFactorySystem : MonoBehaviour
     public Sprite manufacturingButtonUnpressed;
     public Sprite manufacturingButtonPressed;
     [SerializeField] private GameObject cameraHolderHolder;
-    [SerializeField] private List<GameObject> room1 = new List<GameObject>();
-    [SerializeField] private List<GameObject> room2 = new List<GameObject>();
-    [SerializeField] private List<GameObject> room3 = new List<GameObject>();
-    [SerializeField] private List<GameObject> room4 = new List<GameObject>();
-    [SerializeField] private List<GameObject> room5 = new List<GameObject>();
-    [SerializeField] private List<GameObject> room6 = new List<GameObject>();
-    [SerializeField] private List<GameObject> room7 = new List<GameObject>();
-    [SerializeField] private List<GameObject> roomSwitchConstant = new List<GameObject>();
+    [SerializeField] private TextMeshPro factoryRoomNumberText;
 
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource buttonSfxSource;
     [SerializeField] private AudioClip buttonInSfx;
     [SerializeField] private AudioClip buttonOutSfx;
+    
+    [Header("Object References: Lists")]
+    public List<GameObject> productionLines = new List<GameObject>();
+    public List<GameObject> oneOffObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> room1SpecificObjs = new List<GameObject>();
+    [SerializeField] private List<GameObject> room2SpecificObjs = new List<GameObject>();
+    [SerializeField] private List<GameObject> room3SpecificObjs = new List<GameObject>();
+    [SerializeField] private List<GameObject> room4SpecificObjs = new List<GameObject>();
+    [SerializeField] private List<GameObject> room5SpecificObjs = new List<GameObject>();
+    [SerializeField] private List<GameObject> room6SpecificObjs = new List<GameObject>();
+    [SerializeField] private List<GameObject> room7SpecificObjs = new List<GameObject>();
+    [SerializeField] private List<GameObject> roomSwitchConstantObjs = new List<GameObject>();
 
     private void OnEnable()
     {
@@ -327,7 +330,6 @@ public class FinalFactorySystem : MonoBehaviour
     public void SwitchRoom(bool increment)
     {
         int lastRoomNumber = roomNumber;
-        Debug.Log("lastRoomNumber: " + lastRoomNumber);
         switch (increment)
         {
             case true:
@@ -337,7 +339,7 @@ public class FinalFactorySystem : MonoBehaviour
                     cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x + cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
-                    foreach (GameObject obj in roomSwitchConstant)
+                    foreach (GameObject obj in roomSwitchConstantObjs)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
@@ -352,28 +354,34 @@ public class FinalFactorySystem : MonoBehaviour
                     cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x - cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
-                    foreach (GameObject obj in roomSwitchConstant)
+                    foreach (GameObject obj in roomSwitchConstantObjs)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
                     }
+                    
+                    
                 }
                 else return;
                 break;
         }
-        Debug.Log("roomNumber: " + roomNumber);
+
+        string roomNumberString = (roomNumber + 1).ToString();
+        Debug.Log(roomNumber);
+        Debug.Log(roomNumberString);
+        factoryRoomNumberText.text = roomNumberString;
 
         switch (roomNumber)
         {
             case 0:
-                foreach (GameObject obj in room1)
+                foreach (GameObject obj in room1SpecificObjs)
                 {
                     ChangeComponentStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 1:
-                        foreach (GameObject obj in room2)
+                        foreach (GameObject obj in room2SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
@@ -381,20 +389,20 @@ public class FinalFactorySystem : MonoBehaviour
                 }
                 break;
             case 1:
-                foreach (GameObject obj in room2)
+                foreach (GameObject obj in room2SpecificObjs)
                 {
                     ChangeComponentStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 0:
-                        foreach (GameObject obj in room1)
+                        foreach (GameObject obj in room1SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
                         break;
                     case 2:
-                        foreach (GameObject obj in room3)
+                        foreach (GameObject obj in room3SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
@@ -402,20 +410,20 @@ public class FinalFactorySystem : MonoBehaviour
                 }
                 break;
             case 2:
-                foreach (GameObject obj in room3)
+                foreach (GameObject obj in room3SpecificObjs)
                 {
                     ChangeComponentStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 1:
-                        foreach (GameObject obj in room2)
+                        foreach (GameObject obj in room2SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
                         break;
                     case 3:
-                        foreach (GameObject obj in room4)
+                        foreach (GameObject obj in room4SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
@@ -423,20 +431,20 @@ public class FinalFactorySystem : MonoBehaviour
                 }
                 break;
             case 4:
-                foreach (GameObject obj in room4)
+                foreach (GameObject obj in room4SpecificObjs)
                 {
                     ChangeComponentStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 3:
-                        foreach (GameObject obj in room3)
+                        foreach (GameObject obj in room3SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
                         break;
                     case 5:
-                        foreach (GameObject obj in room5)
+                        foreach (GameObject obj in room5SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
@@ -444,20 +452,20 @@ public class FinalFactorySystem : MonoBehaviour
                 }
                 break;
             case 5:
-                foreach (GameObject obj in room5)
+                foreach (GameObject obj in room5SpecificObjs)
                 {
                     ChangeComponentStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 4:
-                        foreach (GameObject obj in room4)
+                        foreach (GameObject obj in room4SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
                         break;
                     case 6:
-                        foreach (GameObject obj in room6)
+                        foreach (GameObject obj in room6SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
@@ -465,20 +473,20 @@ public class FinalFactorySystem : MonoBehaviour
                 }
                 break;
             case 6:
-                foreach (GameObject obj in room6)
+                foreach (GameObject obj in room6SpecificObjs)
                 {
                     ChangeComponentStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 5:
-                        foreach (GameObject obj in room5)
+                        foreach (GameObject obj in room5SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
                         break;
                     case 7:
-                        foreach (GameObject obj in room7)
+                        foreach (GameObject obj in room7SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
@@ -486,14 +494,14 @@ public class FinalFactorySystem : MonoBehaviour
                 }
                 break;
             case 7:
-                foreach (GameObject obj in room7)
+                foreach (GameObject obj in room7SpecificObjs)
                 {
                     ChangeComponentStateRecursively(true, obj);
                 }
                 switch (lastRoomNumber)
                 {
                     case 6:
-                        foreach (GameObject obj in room6)
+                        foreach (GameObject obj in room6SpecificObjs)
                         {
                             ChangeComponentStateRecursively(false, obj);
                         }
