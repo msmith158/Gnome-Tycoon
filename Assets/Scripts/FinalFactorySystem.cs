@@ -56,6 +56,7 @@ public class FinalFactorySystem : MonoBehaviour
     [SerializeField] private List<GameObject> room5 = new List<GameObject>();
     [SerializeField] private List<GameObject> room6 = new List<GameObject>();
     [SerializeField] private List<GameObject> room7 = new List<GameObject>();
+    [SerializeField] private List<GameObject> roomSwitchConstant = new List<GameObject>();
 
     [Header("Object References: Audio")]
     [SerializeField] private AudioSource buttonSfxSource;
@@ -336,6 +337,11 @@ public class FinalFactorySystem : MonoBehaviour
                     cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x + cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                    foreach (GameObject obj in roomSwitchConstant)
+                    {
+                        obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
+                            obj.transform.position.y, obj.transform.position.z);
+                    }
                 }
                 else return;
                 break;
@@ -346,6 +352,11 @@ public class FinalFactorySystem : MonoBehaviour
                     cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x - cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                    foreach (GameObject obj in roomSwitchConstant)
+                    {
+                        obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
+                            obj.transform.position.y, obj.transform.position.z);
+                    }
                 }
                 else return;
                 break;
@@ -500,10 +511,6 @@ public class FinalFactorySystem : MonoBehaviour
         if (obj.GetComponent<MeshRenderer>())
         {
             obj.GetComponent<MeshRenderer>().enabled = enable;
-        }
-        else if (obj.GetComponent<Light>())
-        {
-            obj.GetComponent<Light>().enabled = enable;
         }
 
         foreach (Transform child in obj.transform)
