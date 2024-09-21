@@ -56,6 +56,7 @@ public class FinalFactorySystem : MonoBehaviour
     
     [Header("Object References: Lists")]
     public List<GameObject> productionLines = new List<GameObject>();
+    public List<GameObject> productionLineGeos = new List<GameObject>();
     public List<GameObject> oneOffObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> room1SpecificObjs = new List<GameObject>();
     [SerializeField] private List<GameObject> room2SpecificObjs = new List<GameObject>();
