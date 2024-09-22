@@ -141,6 +141,11 @@ public class FinalFactorySystem : MonoBehaviour
                 foreach (var t in productionLines)
                 {
                     t.SetActive(false);
+                }
+
+                foreach (var t in productionLineGeos)
+                {
+                    t.SetActive(false);
                     isProductionLinesSet = true;
                 }
                 break;
@@ -148,6 +153,7 @@ public class FinalFactorySystem : MonoBehaviour
         for (int i = 0; i < productionLineAmount; i++)
         {
             productionLines[i].SetActive(true);
+            productionLineGeos[i].SetActive(true);
             float firstManufactureTime = productionLines[0].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime;
             float firstConveyorSpeed = productionLines[0].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed;
             productionLines[i].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime = firstManufactureTime;
@@ -297,6 +303,7 @@ public class FinalFactorySystem : MonoBehaviour
             for (int i = 1; i < productionLines.Count; i++)
             {
                 productionLines[i].SetActive(false);
+                productionLineGeos[i].SetActive(false);
             }
 
             productionLineAmount = 1;
@@ -360,8 +367,6 @@ public class FinalFactorySystem : MonoBehaviour
                         obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
                     }
-                    
-                    
                 }
                 else return;
                 break;

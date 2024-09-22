@@ -10,6 +10,7 @@ public class FinalMachineDespawnTrigger : MonoBehaviour
 
     [Header("Exit Trigger Properties")]
     public FinalFactorySystem gameManager;
+    //[SerializeField] private FinalDispenser dispenser;
     private double value;
 
     private void OnTriggerEnter(Collider other)

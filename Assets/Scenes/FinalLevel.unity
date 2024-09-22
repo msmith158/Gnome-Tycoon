@@ -6739,7 +6739,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 543212187}
   newPrefab: {fileID: 7362040410011930534, guid: 15d7297dca0608a4c95ca0a335f01c7a,
     type: 3}
-  dispenser: {fileID: 1954626671}
+  dispenser: {fileID: 588472042}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -7541,7 +7541,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 2101836488}
   newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
-  dispenser: {fileID: 1487663870}
+  dispenser: {fileID: 42937657}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -7598,7 +7598,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 65470662}
   newPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  dispenser: {fileID: 1954626671}
+  dispenser: {fileID: 588472042}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList:
@@ -8265,7 +8265,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: A$7.99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa54721cb11f9bf4a92bf1c05fced61f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10010,7 +10010,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 129797858}
   newPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  dispenser: {fileID: 1716639367}
+  dispenser: {fileID: 221187203}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList:
@@ -13424,7 +13424,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1852443257}
   newPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  dispenser: {fileID: 1199300292}
+  dispenser: {fileID: 1742182106}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList:
@@ -13996,7 +13996,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1081957010}
   newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
-  dispenser: {fileID: 923677708}
+  dispenser: {fileID: 142150429}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -15138,7 +15138,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1314252537}
   newPrefab: {fileID: 7334675669938766358, guid: f4f6634f5394efa48b8cf105169e7b1c,
     type: 3}
-  dispenser: {fileID: 680535911}
+  dispenser: {fileID: 839467117}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -16438,13 +16438,13 @@ MonoBehaviour:
   sys: {fileID: 1095546606}
   conveyors: []
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
 --- !u!1 &293252150
 GameObject:
   m_ObjectHideFlags: 0
@@ -21811,13 +21811,13 @@ MonoBehaviour:
   - {fileID: 408789053}
   - {fileID: 461100526}
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
   conveyors:
   - {fileID: 1218973847}
   - {fileID: 1191192557}
@@ -22408,7 +22408,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 56136633}
   newPrefab: {fileID: 7334675669938766358, guid: f4f6634f5394efa48b8cf105169e7b1c,
     type: 3}
-  dispenser: {fileID: 1291777366}
+  dispenser: {fileID: 1552746773}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -25129,7 +25129,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1345941548}
   newPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  dispenser: {fileID: 1291777366}
+  dispenser: {fileID: 1552746773}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList:
@@ -25391,7 +25391,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1508023360}
   newPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  dispenser: {fileID: 680535911}
+  dispenser: {fileID: 839467117}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList:
@@ -32285,7 +32285,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: A$16.99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa54721cb11f9bf4a92bf1c05fced61f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -35139,7 +35139,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1623509902}
   newPrefab: {fileID: 7334675669938766358, guid: f4f6634f5394efa48b8cf105169e7b1c,
     type: 3}
-  dispenser: {fileID: 923677708}
+  dispenser: {fileID: 142150429}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -36943,7 +36943,7 @@ Transform:
   m_GameObject: {fileID: 642178324}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0009917915, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 0, y: -1.1159999, z: 1.3349514}
+  m_LocalPosition: {x: 0, y: -1.17, z: 1.3349514}
   m_LocalScale: {x: 0.20000005, y: 0.19999999, z: 0.20000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37887,13 +37887,13 @@ MonoBehaviour:
   - {fileID: 1613842709}
   - {fileID: 408789053}
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
   conveyors:
   - {fileID: 1218973847}
   - {fileID: 1191192557}
@@ -37987,7 +37987,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664805437}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -42093,7 +42093,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1852635075}
   newPrefab: {fileID: 7362040410011930534, guid: 15d7297dca0608a4c95ca0a335f01c7a,
     type: 3}
-  dispenser: {fileID: 923677708}
+  dispenser: {fileID: 142150429}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -46599,7 +46599,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1288432945}
   newPrefab: {fileID: 7362040410011930534, guid: 15d7297dca0608a4c95ca0a335f01c7a,
     type: 3}
-  dispenser: {fileID: 1487663870}
+  dispenser: {fileID: 42937657}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -48838,7 +48838,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 595732502}
   newPrefab: {fileID: 7334675669938766358, guid: f4f6634f5394efa48b8cf105169e7b1c,
     type: 3}
-  dispenser: {fileID: 1954626671}
+  dispenser: {fileID: 588472042}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -54835,7 +54835,7 @@ Transform:
   m_GameObject: {fileID: 885737649}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0009917915, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 0, y: -1.1159999, z: 1.3349514}
+  m_LocalPosition: {x: 0, y: -1.17, z: 1.3349514}
   m_LocalScale: {x: 0.20000005, y: 0.19999999, z: 0.20000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58059,7 +58059,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: A$24.99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa54721cb11f9bf4a92bf1c05fced61f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -64132,7 +64132,7 @@ Transform:
   m_GameObject: {fileID: 1073579751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0009917915, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 0, y: -1.1159999, z: 1.3349514}
+  m_LocalPosition: {x: 0, y: -1.17, z: 1.3349514}
   m_LocalScale: {x: 0.20000005, y: 0.19999999, z: 0.20000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67770,7 +67770,7 @@ Transform:
   m_GameObject: {fileID: 1141893177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0009917915, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 0, y: -1.1159999, z: 1.3349514}
+  m_LocalPosition: {x: 0, y: -1.17, z: 1.3349514}
   m_LocalScale: {x: 0.20000008, y: 0.19999999, z: 0.20000008}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -68556,7 +68556,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 2140860356}
   newPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  dispenser: {fileID: 923677708}
+  dispenser: {fileID: 142150429}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList:
@@ -70077,7 +70077,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 207060733}
   newPrefab: {fileID: 7362040410011930534, guid: 15d7297dca0608a4c95ca0a335f01c7a,
     type: 3}
-  dispenser: {fileID: 1716639367}
+  dispenser: {fileID: 221187203}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -70895,7 +70895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line01Conveyor: {fileID: 1218973847}
   sys: {fileID: 1095546606}
-  line01Dispenser: {fileID: 1487663870}
+  line01Dispenser: {fileID: 42937657}
   gnomeCoinSys: {fileID: 0}
   enableFPSCounter: 1
   enableFrameTiming: 1
@@ -71638,7 +71638,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: A$9.99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa54721cb11f9bf4a92bf1c05fced61f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -73632,7 +73632,7 @@ GameObject:
   - component: {fileID: 1253221513}
   - component: {fileID: 1253221512}
   m_Layer: 5
-  m_Name: scrollArea
+  m_Name: prestigeScrollArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74429,13 +74429,13 @@ MonoBehaviour:
   - {fileID: 1613842709}
   - {fileID: 408789053}
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
   conveyors:
   - {fileID: 1218973847}
   - {fileID: 1191192557}
@@ -75517,7 +75517,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278165082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -84311,7 +84311,7 @@ Transform:
   m_GameObject: {fileID: 1409292576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0009917915, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 0, y: -1.1159999, z: 1.3349991}
+  m_LocalPosition: {x: 0, y: -1.17, z: 1.3349991}
   m_LocalScale: {x: 0.20000009, y: 0.19999999, z: 0.20000009}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85217,7 +85217,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1540584437}
   newPrefab: {fileID: 7362040410011930534, guid: cf0eb0d6e74f4d4429ece056f49c6a79,
     type: 3}
-  dispenser: {fileID: 1487663870}
+  dispenser: {fileID: 42937657}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList:
@@ -86611,7 +86611,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1375055417}
   newPrefab: {fileID: 7362040410011930534, guid: 15d7297dca0608a4c95ca0a335f01c7a,
     type: 3}
-  dispenser: {fileID: 1291777366}
+  dispenser: {fileID: 1552746773}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -92268,7 +92268,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1917613980}
   newPrefab: {fileID: 7362040410011930534, guid: 15d7297dca0608a4c95ca0a335f01c7a,
     type: 3}
-  dispenser: {fileID: 680535911}
+  dispenser: {fileID: 839467117}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -93771,7 +93771,7 @@ GameObject:
   - component: {fileID: 1490965638}
   - component: {fileID: 1490965637}
   m_Layer: 5
-  m_Name: listArea
+  m_Name: prestigeListArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98769,7 +98769,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 261866436}
   newPrefab: {fileID: 7334675669938766358, guid: f4f6634f5394efa48b8cf105169e7b1c,
     type: 3}
-  dispenser: {fileID: 1487663870}
+  dispenser: {fileID: 42937657}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -100721,13 +100721,13 @@ MonoBehaviour:
   sys: {fileID: 1095546606}
   conveyors: []
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
 --- !u!1 &1615066287
 GameObject:
   m_ObjectHideFlags: 0
@@ -102479,13 +102479,13 @@ MonoBehaviour:
   - {fileID: 1613842709}
   - {fileID: 408789053}
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
   conveyors:
   - {fileID: 1218973847}
   - {fileID: 1191192557}
@@ -104671,7 +104671,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 312233539}
   newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
-  dispenser: {fileID: 1954626671}
+  dispenser: {fileID: 588472042}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -106742,7 +106742,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1438240488}
   newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
-  dispenser: {fileID: 1716639367}
+  dispenser: {fileID: 221187203}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -108805,7 +108805,7 @@ Transform:
   m_GameObject: {fileID: 1775596879}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0009917915, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 0, y: -1.1159999, z: 1.3349514}
+  m_LocalPosition: {x: 0, y: -1.17, z: 1.3349514}
   m_LocalScale: {x: 0.20000005, y: 0.19999999, z: 0.20000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109835,7 +109835,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790825621}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -110951,13 +110951,13 @@ MonoBehaviour:
   - {fileID: 1613842709}
   - {fileID: 408789053}
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
   conveyors:
   - {fileID: 1218973847}
   - {fileID: 1191192557}
@@ -113103,13 +113103,13 @@ MonoBehaviour:
   - {fileID: 1613842709}
   - {fileID: 408789053}
   dispensers:
-  - {fileID: 1487663870}
-  - {fileID: 680535911}
-  - {fileID: 1291777366}
-  - {fileID: 1716639367}
-  - {fileID: 1954626671}
-  - {fileID: 923677708}
-  - {fileID: 1199300292}
+  - {fileID: 42937657}
+  - {fileID: 839467117}
+  - {fileID: 1552746773}
+  - {fileID: 221187203}
+  - {fileID: 588472042}
+  - {fileID: 142150429}
+  - {fileID: 1742182106}
   conveyors:
   - {fileID: 1218973847}
   - {fileID: 1191192557}
@@ -113248,7 +113248,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1862977181
@@ -115948,7 +115948,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1455183270}
   newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
-  dispenser: {fileID: 1199300292}
+  dispenser: {fileID: 1742182106}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -117097,7 +117097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1936565042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -118131,7 +118131,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: A$3.99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa54721cb11f9bf4a92bf1c05fced61f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -119092,7 +119092,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 1581497913}
   newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
-  dispenser: {fileID: 1291777366}
+  dispenser: {fileID: 1552746773}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -124038,7 +124038,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 2101836488}
   newPrefab: {fileID: 1199206688798345746, guid: 6e3a9703de337be4a8ecf9c35735ed05,
     type: 3}
-  dispenser: {fileID: 680535911}
+  dispenser: {fileID: 839467117}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -124095,7 +124095,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 120958785}
   newPrefab: {fileID: 7334675669938766358, guid: f4f6634f5394efa48b8cf105169e7b1c,
     type: 3}
-  dispenser: {fileID: 1716639367}
+  dispenser: {fileID: 221187203}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -125898,7 +125898,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 199932516}
   newPrefab: {fileID: 7334675669938766358, guid: f4f6634f5394efa48b8cf105169e7b1c,
     type: 3}
-  dispenser: {fileID: 1199300292}
+  dispenser: {fileID: 1742182106}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -127383,7 +127383,7 @@ MonoBehaviour:
   despawnTrigger: {fileID: 88002412}
   newPrefab: {fileID: 7362040410011930534, guid: 15d7297dca0608a4c95ca0a335f01c7a,
     type: 3}
-  dispenser: {fileID: 1199300292}
+  dispenser: {fileID: 1742182106}
   initSys: {fileID: 0}
   sys: {fileID: 1095546606}
   gnomeMaterialList: []
@@ -128407,7 +128407,7 @@ Transform:
   m_GameObject: {fileID: 2141454657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0009917915, z: -0, w: 0.9999995}
-  m_LocalPosition: {x: 0, y: -1.1159999, z: 1.3349514}
+  m_LocalPosition: {x: 0, y: -1.17, z: 1.3349514}
   m_LocalScale: {x: 0.20000005, y: 0.19999999, z: 0.20000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
