@@ -350,11 +350,11 @@ public class FinalFactorySystem : MonoBehaviour
                         obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
                     }
-                    foreach (GameObject obj in productionLineGeos)
+                    /*foreach (GameObject obj in productionLineGeos)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
-                    }
+                    }*/
                 }
                 else return;
                 break;
@@ -370,11 +370,11 @@ public class FinalFactorySystem : MonoBehaviour
                         obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
                     }
-                    foreach (GameObject obj in productionLineGeos)
+                    /*foreach (GameObject obj in productionLineGeos)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
-                    }
+                    }*/
                 }
                 else return;
                 break;
@@ -415,14 +415,19 @@ public class FinalFactorySystem : MonoBehaviour
                 switch (productionLineAmount)
                 {
                     case >= 14:
+                        Debug.Log("14 or more");
                         foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
                         break;
                     case < 14:
                         foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        for (int i = 7; i < productionLineAmount; i++)
+                        if (productionLineAmount > 7)
                         {
-                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            Debug.Log(i);
+                            Debug.Log("Less than 14");
+                            for (int i = 0; i < productionLineAmount - 7; i++)
+                            {
+                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                                Debug.Log(i);
+                            }
                         }
                         break;
                 }
@@ -445,7 +450,7 @@ public class FinalFactorySystem : MonoBehaviour
                         break;
                     case < 21:
                         foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        for (int i = 14; i < productionLineAmount; i++)
+                        for (int i = 0; i < productionLineAmount - 14; i++)
                         {
                             ChangeComponentStateRecursively(true, productionLineGeos[i]); 
                             Debug.Log(i);
@@ -471,7 +476,7 @@ public class FinalFactorySystem : MonoBehaviour
                         break;
                     case < 28:
                         foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        for (int i = 21; i < productionLineAmount; i++)
+                        for (int i = 0; i < productionLineAmount - 21; i++)
                         {
                             ChangeComponentStateRecursively(true, productionLineGeos[i]); 
                             Debug.Log(i);
@@ -497,7 +502,7 @@ public class FinalFactorySystem : MonoBehaviour
                         break;
                     case < 35:
                         foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        for (int i = 28; i < productionLineAmount; i++)
+                        for (int i = 0; i < productionLineAmount - 28; i++)
                         {
                             ChangeComponentStateRecursively(true, productionLineGeos[i]); 
                             Debug.Log(i);
@@ -523,7 +528,7 @@ public class FinalFactorySystem : MonoBehaviour
                         break;
                     case < 42:
                         foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        for (int i = 35; i < productionLineAmount; i++)
+                        for (int i = 0; i < productionLineAmount - 35; i++)
                         {
                             ChangeComponentStateRecursively(true, productionLineGeos[i]); 
                             Debug.Log(i);
@@ -549,7 +554,7 @@ public class FinalFactorySystem : MonoBehaviour
                         break;
                     case < 49:
                         foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        for (int i = 42; i < productionLineAmount; i++)
+                        for (int i = 0; i < productionLineAmount - 42; i++)
                         {
                             ChangeComponentStateRecursively(true, productionLineGeos[i]); 
                             Debug.Log(i);
