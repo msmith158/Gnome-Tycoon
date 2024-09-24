@@ -1,4 +1,7 @@
-using System.Collections;
+// ## THIS SCRIPT HAS BEEN DEPRECATED AS IT IS NO LONGER NEEDED.
+// ## IF THIS SCRIPT NEEDS TO BE USED AGAIN, THE PRODUCTION LINE REFERENCE NEEDS TO BE FIXED.
+
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -38,4 +41,4 @@ public class ClearObjects : MonoBehaviour
             }
         }
     }
-}
+}*/

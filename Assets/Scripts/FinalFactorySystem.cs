@@ -79,12 +79,10 @@ public class FinalFactorySystem : MonoBehaviour
             case true:
                 debugMetrics.gameObject.SetActive(true);
                 debugMetrics.GetComponent<NewDebugCanvas>().enabled = true;
-                Debug.Log("Booper 1");
                 break;
             case false:
                 debugMetrics.gameObject.SetActive(false);
                 debugMetrics.GetComponent<NewDebugCanvas>().enabled = false;
-                Debug.Log("Booper 2");
                 break;
         }
 
@@ -153,7 +151,7 @@ public class FinalFactorySystem : MonoBehaviour
         for (int i = 0; i < productionLineAmount; i++)
         {
             productionLines[i].SetActive(true);
-            productionLineGeos[i].SetActive(true);
+            if (i < 7) productionLineGeos[i].SetActive(true);
             float firstManufactureTime = productionLines[0].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime;
             float firstConveyorSpeed = productionLines[0].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed;
             productionLines[i].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime = firstManufactureTime;
@@ -352,6 +350,11 @@ public class FinalFactorySystem : MonoBehaviour
                         obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
                     }
+                    foreach (GameObject obj in productionLineGeos)
+                    {
+                        obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
+                            obj.transform.position.y, obj.transform.position.z);
+                    }
                 }
                 else return;
                 break;
@@ -367,150 +370,196 @@ public class FinalFactorySystem : MonoBehaviour
                         obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
                             obj.transform.position.y, obj.transform.position.z);
                     }
+                    foreach (GameObject obj in productionLineGeos)
+                    {
+                        obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
+                            obj.transform.position.y, obj.transform.position.z);
+                    }
                 }
                 else return;
                 break;
         }
 
         string roomNumberString = (roomNumber + 1).ToString();
-        Debug.Log(roomNumber);
-        Debug.Log(roomNumberString);
         factoryRoomNumberText.text = roomNumberString;
 
         switch (roomNumber)
         {
             case 0:
-                foreach (GameObject obj in room1SpecificObjs)
+                foreach (GameObject obj in room1SpecificObjs) ChangeComponentStateRecursively(true, obj);
+                switch (productionLineAmount)
                 {
-                    ChangeComponentStateRecursively(true, obj);
+                    case >= 7:
+                        Debug.Log("7 or more");
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case < 7:
+                        Debug.Log("Less than 7");
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        for (int i = 0; i < productionLineAmount; i++)
+                        {
+                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            Debug.Log(i);
+                        }
+                        break;
                 }
                 switch (lastRoomNumber)
                 {
                     case 1:
-                        foreach (GameObject obj in room2SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                 }
                 break;
             case 1:
-                foreach (GameObject obj in room2SpecificObjs)
+                foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(true, obj);
+                switch (productionLineAmount)
                 {
-                    ChangeComponentStateRecursively(true, obj);
+                    case >= 14:
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case < 14:
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        for (int i = 7; i < productionLineAmount; i++)
+                        {
+                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            Debug.Log(i);
+                        }
+                        break;
                 }
                 switch (lastRoomNumber)
                 {
                     case 0:
-                        foreach (GameObject obj in room1SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room1SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                     case 2:
-                        foreach (GameObject obj in room3SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                 }
                 break;
             case 2:
-                foreach (GameObject obj in room3SpecificObjs)
+                foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(true, obj);
+                switch (productionLineAmount)
                 {
-                    ChangeComponentStateRecursively(true, obj);
+                    case >= 21:
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case < 21:
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        for (int i = 14; i < productionLineAmount; i++)
+                        {
+                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            Debug.Log(i);
+                        }
+                        break;
                 }
                 switch (lastRoomNumber)
                 {
                     case 1:
-                        foreach (GameObject obj in room2SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                     case 3:
-                        foreach (GameObject obj in room4SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room4SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                 }
                 break;
             case 4:
-                foreach (GameObject obj in room4SpecificObjs)
+                foreach (GameObject obj in room4SpecificObjs) ChangeComponentStateRecursively(true, obj);
+                switch (productionLineAmount)
                 {
-                    ChangeComponentStateRecursively(true, obj);
+                    case >= 28:
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case < 28:
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        for (int i = 21; i < productionLineAmount; i++)
+                        {
+                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            Debug.Log(i);
+                        }
+                        break;
                 }
                 switch (lastRoomNumber)
                 {
                     case 3:
-                        foreach (GameObject obj in room3SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                     case 5:
-                        foreach (GameObject obj in room5SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room5SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                 }
                 break;
             case 5:
-                foreach (GameObject obj in room5SpecificObjs)
+                foreach (GameObject obj in room5SpecificObjs) ChangeComponentStateRecursively(true, obj);
+                switch (productionLineAmount)
                 {
-                    ChangeComponentStateRecursively(true, obj);
+                    case >= 35:
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case < 35:
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        for (int i = 28; i < productionLineAmount; i++)
+                        {
+                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            Debug.Log(i);
+                        }
+                        break;
                 }
                 switch (lastRoomNumber)
                 {
                     case 4:
-                        foreach (GameObject obj in room4SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room4SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                     case 6:
-                        foreach (GameObject obj in room6SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room6SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                 }
                 break;
             case 6:
-                foreach (GameObject obj in room6SpecificObjs)
+                foreach (GameObject obj in room6SpecificObjs) ChangeComponentStateRecursively(true, obj);
+                switch (productionLineAmount)
                 {
-                    ChangeComponentStateRecursively(true, obj);
+                    case >= 42:
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case < 42:
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        for (int i = 35; i < productionLineAmount; i++)
+                        {
+                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            Debug.Log(i);
+                        }
+                        break;
                 }
                 switch (lastRoomNumber)
                 {
                     case 5:
-                        foreach (GameObject obj in room5SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room5SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                     case 7:
-                        foreach (GameObject obj in room7SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room7SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                 }
                 break;
             case 7:
-                foreach (GameObject obj in room7SpecificObjs)
+                foreach (GameObject obj in room7SpecificObjs) ChangeComponentStateRecursively(true, obj);
+                switch (productionLineAmount)
                 {
-                    ChangeComponentStateRecursively(true, obj);
+                    case >= 49:
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case < 49:
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        for (int i = 42; i < productionLineAmount; i++)
+                        {
+                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            Debug.Log(i);
+                        }
+                        break;
                 }
                 switch (lastRoomNumber)
                 {
                     case 6:
-                        foreach (GameObject obj in room6SpecificObjs)
-                        {
-                            ChangeComponentStateRecursively(false, obj);
-                        }
+                        foreach (GameObject obj in room6SpecificObjs) ChangeComponentStateRecursively(false, obj);
                         break;
                 }
                 break;
@@ -522,10 +571,11 @@ public class FinalFactorySystem : MonoBehaviour
 
     private void ChangeComponentStateRecursively(bool enable, GameObject obj)
     {
-        if (obj.GetComponent<MeshRenderer>())
+        /*if (obj.GetComponent<MeshRenderer>())
         {
             obj.GetComponent<MeshRenderer>().enabled = enable;
-        }
+        }*/
+        obj.SetActive(enable);
 
         foreach (Transform child in obj.transform)
         {
