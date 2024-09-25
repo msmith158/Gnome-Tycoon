@@ -22,7 +22,7 @@ public class FinalFactorySystem : MonoBehaviour
     [HideInInspector] public float lvl5InitialValue;
     public double lvl6Value;
     [HideInInspector] public float lvl6InitialValue;
-    [Range(1, 14)] public int productionLineAmount;
+    [Range(1, 49)] public int productionLineAmount;
     public int automatedLineAmount;
     private float switchPanelTime;
     private bool isProductionLinesSet = false;
@@ -268,8 +268,11 @@ public class FinalFactorySystem : MonoBehaviour
         
         for (int i = 0; i < productionLineAmount; i++)
         {
-            string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
+            string dispenserName;
+            if (i < 9) dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
+            else dispenserName = new string("line" + (i + 1) + "dispenserMachine"); 
             productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
+            Debug.Log(i);
         }
     }
 
@@ -325,7 +328,9 @@ public class FinalFactorySystem : MonoBehaviour
     {
         for (int i = 0; i < productionLines.Count; i++)
         {
-            string dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
+            string dispenserName;
+            if (i < 9) dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
+            else dispenserName = new string("line" + (i + 1) + "dispenserMachine"); 
             if (productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().isAutoRunning)
             {
                 StopCoroutine(productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().AutomatedSpawn());
