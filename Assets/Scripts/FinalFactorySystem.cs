@@ -30,7 +30,8 @@ public class FinalFactorySystem : MonoBehaviour
     private bool isProductionLinesSet = false;
     private int roomNumber;
     public float cameraPosIncrementX;
-    [SerializeField] private float cameraSwitchTime;
+    [SerializeField] private AnimationCurve movementCurve;
+    private Vector3 initCameraPos;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -93,6 +94,7 @@ public class FinalFactorySystem : MonoBehaviour
         Application.targetFrameRate = 60;
         // Add code here for amount of production lines from save/load system
         AddScore(0);
+        initCameraPos = cameraHolderHolder.transform.position;
 
         // Start intro sequence
         GetComponent<IntroSequence>().ProgressIntroStates();
@@ -353,7 +355,7 @@ public class FinalFactorySystem : MonoBehaviour
                     /*cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x + cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
-                    StartCoroutine(SwitchRoomCamera(true));
+                    StartCoroutine(SwitchRoomCamera());
                     foreach (GameObject obj in roomSwitchConstantObjs)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
@@ -369,7 +371,7 @@ public class FinalFactorySystem : MonoBehaviour
                     /*cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x - cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
-                    StartCoroutine(SwitchRoomCamera(false));
+                    StartCoroutine(SwitchRoomCamera());
                     foreach (GameObject obj in roomSwitchConstantObjs)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
@@ -596,26 +598,20 @@ public class FinalFactorySystem : MonoBehaviour
             ChangeComponentStateRecursively(enable, child.gameObject);
         }
     }
-
-    private IEnumerator SwitchRoomCamera(bool forward)
+    
+    private IEnumerator SwitchRoomCamera()
     {
         float timeElapsed = 0;
-        Vector3 newPos;
-        switch (forward)
+        float curveValue = 0;
+        Vector3 newPos = new Vector3(initCameraPos.x + (cameraPosIncrementX * roomNumber), initCameraPos.y, initCameraPos.z);
+        Vector3 oldPos = cameraHolderHolder.transform.position;
+        
+        while (timeElapsed < movementCurve[movementCurve.length - 1].time)
         {
-            case true:
-                newPos = new Vector3(cameraHolderHolder.transform.position.x + cameraPosIncrementX,
-                    cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
-                break;
-            case false:
-                newPos = new Vector3(cameraHolderHolder.transform.position.x - cameraPosIncrementX,
-                    cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
-                break;
-        }
-        while (timeElapsed < cameraSwitchTime)
-        {
-            cameraHolderHolder.transform.position = Vector3.Lerp(cameraHolderHolder.transform.position, newPos,
-                timeElapsed / cameraSwitchTime);
+            Debug.Log(cameraHolderHolder.transform.position);
+            curveValue = movementCurve.Evaluate(timeElapsed);
+            cameraHolderHolder.transform.position = Vector3.Lerp(oldPos, newPos,
+                curveValue);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
