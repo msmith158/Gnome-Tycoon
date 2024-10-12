@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
 
 public class FinalFactorySystem : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class FinalFactorySystem : MonoBehaviour
     private bool isProductionLinesSet = false;
     private int roomNumber;
     public float cameraPosIncrementX;
+    [SerializeField] private float cameraSwitchTime;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -347,9 +350,10 @@ public class FinalFactorySystem : MonoBehaviour
                 if (roomNumber != 6)
                 {
                     roomNumber++;
-                    cameraHolderHolder.transform.position = new Vector3(
+                    /*cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x + cameraPosIncrementX,
-                        cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                        cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
+                    StartCoroutine(SwitchRoomCamera(true));
                     foreach (GameObject obj in roomSwitchConstantObjs)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
@@ -362,9 +366,10 @@ public class FinalFactorySystem : MonoBehaviour
                 if (roomNumber != 0)
                 {
                     roomNumber--;
-                    cameraHolderHolder.transform.position = new Vector3(
+                    /*cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x - cameraPosIncrementX,
-                        cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                        cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
+                    StartCoroutine(SwitchRoomCamera(false));
                     foreach (GameObject obj in roomSwitchConstantObjs)
                     {
                         obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
@@ -590,6 +595,31 @@ public class FinalFactorySystem : MonoBehaviour
         {
             ChangeComponentStateRecursively(enable, child.gameObject);
         }
+    }
+
+    private IEnumerator SwitchRoomCamera(bool forward)
+    {
+        float timeElapsed = 0;
+        Vector3 newPos;
+        switch (forward)
+        {
+            case true:
+                newPos = new Vector3(cameraHolderHolder.transform.position.x + cameraPosIncrementX,
+                    cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                break;
+            case false:
+                newPos = new Vector3(cameraHolderHolder.transform.position.x - cameraPosIncrementX,
+                    cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);
+                break;
+        }
+        while (timeElapsed < cameraSwitchTime)
+        {
+            cameraHolderHolder.transform.position = Vector3.Lerp(cameraHolderHolder.transform.position, newPos,
+                timeElapsed / cameraSwitchTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        cameraHolderHolder.transform.position = newPos;
     }
 
     public enum PrestigeLevel
