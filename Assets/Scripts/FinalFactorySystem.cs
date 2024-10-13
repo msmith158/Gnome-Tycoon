@@ -229,7 +229,23 @@ public class FinalFactorySystem : MonoBehaviour
                 costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString() + afterText;
                 break;
             case false:
-                costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+                //costText.text = beforeText + RoundToNearestHundredth(newPrice).ToString("F2") + afterText;
+                if (pointScore >= 0 && pointScore < 1000000)
+                {
+                    moneyText.text = "Profit: $" + RoundToNearestHundredth(pointScore).ToString("F2");
+                }
+                else if (pointScore >= 1000000 && pointScore < 1000000000)
+                {
+                    moneyText.text = "Profit: $" + (RoundToNearestHundredth(pointScore) / 1000000).ToString("F2") + " Million";
+                }
+                else if (pointScore >= 1000000000 && pointScore < 1000000000000)
+                {
+                    moneyText.text = "Profit: $" + (RoundToNearestHundredth(pointScore) / 1000000000).ToString("F2") + " Billion";
+                }
+                else if (pointScore >= 1000000000000 && pointScore < 1000000000000000)
+                {
+                    moneyText.text = "Profit: $" + (RoundToNearestHundredth(pointScore) / 1000000000000).ToString("F2") + " Trillion";
+                }
                 break;
         }
     }

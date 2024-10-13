@@ -14,7 +14,7 @@ public class FinalUpgrades : MonoBehaviour
     [Tooltip("How many of these upgrades the player can buy before reaching the max. Set to 0 for infinity.")] public int upgradeLimit;
     [Tooltip("The amount that the upgrade limit increases each prestige.")] [SerializeField] private int upgradeLimitIncrease;
     private double currentPrice;
-    private double costPercentage;
+    [SerializeField] private double costPercentage;
     private int currentBuyAmount;
     private Color initialSliderColour;
     private bool hasRanOnce = false;
