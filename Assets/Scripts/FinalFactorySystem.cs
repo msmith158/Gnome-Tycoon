@@ -363,8 +363,6 @@ public class FinalFactorySystem : MonoBehaviour
 
     public void SwitchRoom(bool increment)
     {
-        stopCall = true;
-        StopCoroutine(SwitchRoomCamera());
         int lastRoomNumber = roomNumber;
         switch (increment)
         {
@@ -375,6 +373,8 @@ public class FinalFactorySystem : MonoBehaviour
                     /*cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x + cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
+                    stopCall = true;
+                    StopCoroutine(SwitchRoomCamera());
                     StartCoroutine(SwitchRoomCamera());
                     foreach (GameObject obj in roomSwitchConstantObjs)
                     {
@@ -391,6 +391,8 @@ public class FinalFactorySystem : MonoBehaviour
                     /*cameraHolderHolder.transform.position = new Vector3(
                         cameraHolderHolder.transform.position.x - cameraPosIncrementX,
                         cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
+                    stopCall = true;
+                    StopCoroutine(SwitchRoomCamera());
                     StartCoroutine(SwitchRoomCamera());
                     foreach (GameObject obj in roomSwitchConstantObjs)
                     {
