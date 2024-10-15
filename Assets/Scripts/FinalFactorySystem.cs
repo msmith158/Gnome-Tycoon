@@ -32,6 +32,8 @@ public class FinalFactorySystem : MonoBehaviour
     public float cameraPosIncrementX;
     [SerializeField] private AnimationCurve movementCurve;
     private Vector3 initCameraPos;
+    private Vector3 newPos;
+    private bool stopCall = false;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -361,6 +363,8 @@ public class FinalFactorySystem : MonoBehaviour
 
     public void SwitchRoom(bool increment)
     {
+        stopCall = true;
+        StopCoroutine(SwitchRoomCamera());
         int lastRoomNumber = roomNumber;
         switch (increment)
         {
@@ -617,12 +621,15 @@ public class FinalFactorySystem : MonoBehaviour
     
     private IEnumerator SwitchRoomCamera()
     {
+        yield return null;
+        stopCall = false;
+        if (newPos != null) { cameraHolderHolder.transform.position = newPos; }
         float timeElapsed = 0;
         float curveValue = 0;
-        Vector3 newPos = new Vector3(initCameraPos.x + (cameraPosIncrementX * roomNumber), initCameraPos.y, initCameraPos.z);
+        newPos = new Vector3(initCameraPos.x + (cameraPosIncrementX * roomNumber), initCameraPos.y, initCameraPos.z);
         Vector3 oldPos = cameraHolderHolder.transform.position;
         
-        while (timeElapsed < movementCurve[movementCurve.length - 1].time)
+        while (timeElapsed < movementCurve[movementCurve.length - 1].time && !stopCall)
         {
             Debug.Log(cameraHolderHolder.transform.position);
             curveValue = movementCurve.Evaluate(timeElapsed);
