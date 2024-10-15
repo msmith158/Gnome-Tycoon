@@ -158,7 +158,31 @@ public class FinalFactorySystem : MonoBehaviour
         for (int i = 0; i < productionLineAmount; i++)
         {
             productionLines[i].SetActive(true);
-            if (i < 7) productionLineGeos[i].SetActive(true);
+            switch (roomNumber)
+            {
+                case 0:
+                    if (i < 7) { productionLineGeos[i].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i]); }
+                    break;
+                case 1:
+                    if (i >= 7 && i < 14) { productionLineGeos[i - 7].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 7]); }
+                    break;
+                case 2:
+                    if (i >= 14 && i < 21) { productionLineGeos[i - 14].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 14]); }
+                    break;
+                case 3:
+                    if (i >= 21 && i < 28) { productionLineGeos[i - 21].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 21]); }
+                    break;
+                case 4:
+                    if (i >= 28 && i < 35) { productionLineGeos[i - 28].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 28]); }
+                    break;
+                case 5:
+                    if (i >= 35 && i < 42) { productionLineGeos[i - 35].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 35]); }
+                    break;
+                case 6:
+                    if (i >= 42 && i < 49) { productionLineGeos[i - 42].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 42]); }
+                    break;
+
+            }
             float firstManufactureTime = productionLines[0].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime;
             float firstConveyorSpeed = productionLines[0].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed;
             productionLines[i].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime = firstManufactureTime;
@@ -295,7 +319,6 @@ public class FinalFactorySystem : MonoBehaviour
             if (i < 9) dispenserName = new string("line0" + (i + 1) + "dispenserMachine");
             else dispenserName = new string("line" + (i + 1) + "dispenserMachine"); 
             productionLines[i].transform.Find(dispenserName).GetComponent<FinalDispenser>().SpawnObject();
-            Debug.Log(i);
         }
     }
 
@@ -407,6 +430,7 @@ public class FinalFactorySystem : MonoBehaviour
         string roomNumberString = (roomNumber + 1).ToString();
         factoryRoomNumberText.text = roomNumberString;
 
+        #region SpecificRoomSwitchingFunctions
         switch (roomNumber)
         {
             case 0:
@@ -603,6 +627,7 @@ public class FinalFactorySystem : MonoBehaviour
                 }
                 break;
         }
+        #endregion
         cameraHolderHolder.transform.GetChild(0).GetComponent<CameraMoveMouse>().ChangeBounds(increment);
         cameraHolderHolder.transform.GetChild(0).GetComponent<CameraMoveTouch>().ChangeBounds(increment);
     }
@@ -633,7 +658,6 @@ public class FinalFactorySystem : MonoBehaviour
         
         while (timeElapsed < movementCurve[movementCurve.length - 1].time && !stopCall)
         {
-            Debug.Log(cameraHolderHolder.transform.position);
             curveValue = movementCurve.Evaluate(timeElapsed);
             cameraHolderHolder.transform.position = Vector3.Lerp(oldPos, newPos,
                 curveValue);
