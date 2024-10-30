@@ -34,6 +34,7 @@ public class FinalFactorySystem : MonoBehaviour
     private Vector3 initCameraPos;
     private Vector3 newPos;
     private bool stopCall = false;
+    private bool multipleRoomVisible;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -158,36 +159,84 @@ public class FinalFactorySystem : MonoBehaviour
         for (int i = 0; i < productionLineAmount; i++)
         {
             productionLines[i].SetActive(true);
-            switch (roomNumber)
+            switch (multipleRoomVisible)
             {
-                case 0:
-                    if (i < 7) { productionLineGeos[i].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i]); }
+                case true:
+                    switch (roomNumber)
+                    {
+                        case 0:
+                            if (i < 14) { productionLineGeos[i].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i]); }
+                            break;
+                        case 1:
+                            if (i < 21) { productionLineGeos[i].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i]); }
+                            break;
+                        case 2:
+                            if (i >= 7 && i < 28) { productionLineGeos[i - 7].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 7]); }
+                            break;
+                        case 3:
+                            if (i >= 14 && i < 35) { productionLineGeos[i - 14].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 14]); }
+                            break;
+                        case 4:
+                            if (i >= 21 && i < 42) { productionLineGeos[i - 21].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 21]); }
+                            break;
+                        case 5:
+                            if (i >= 28 && i < 49) { productionLineGeos[i - 28].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 28]); }
+                            break;
+                        case 6:
+                            if (i >= 35 && i < 49) { productionLineGeos[i - 35].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 35]); }
+                            break;
+                    }
                     break;
-                case 1:
-                    if (i >= 7 && i < 14) { productionLineGeos[i - 7].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 7]); }
+                case false:
+                    switch (roomNumber)
+                    {
+                        case 0:
+                            if (i < 7) { productionLineGeos[i].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i]); }
+                            break;
+                        case 1:
+                            if (i >= 7 && i < 14) { productionLineGeos[i - 7].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 7]); }
+                            break;
+                        case 2:
+                            if (i >= 14 && i < 21) { productionLineGeos[i - 14].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 14]); }
+                            break;
+                        case 3:
+                            if (i >= 21 && i < 28) { productionLineGeos[i - 21].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 21]); }
+                            break;
+                        case 4:
+                            if (i >= 28 && i < 35) { productionLineGeos[i - 28].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 28]); }
+                            break;
+                        case 5:
+                            if (i >= 35 && i < 42) { productionLineGeos[i - 35].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 35]); }
+                            break;
+                        case 6:
+                            if (i >= 42 && i < 49) { productionLineGeos[i - 42].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 42]); }
+                            break;
+                    }
                     break;
-                case 2:
-                    if (i >= 14 && i < 21) { productionLineGeos[i - 14].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 14]); }
-                    break;
-                case 3:
-                    if (i >= 21 && i < 28) { productionLineGeos[i - 21].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 21]); }
-                    break;
-                case 4:
-                    if (i >= 28 && i < 35) { productionLineGeos[i - 28].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 28]); }
-                    break;
-                case 5:
-                    if (i >= 35 && i < 42) { productionLineGeos[i - 35].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 35]); }
-                    break;
-                case 6:
-                    if (i >= 42 && i < 49) { productionLineGeos[i - 42].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i - 42]); }
-                    break;
-
             }
             float firstManufactureTime = productionLines[0].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime;
             float firstConveyorSpeed = productionLines[0].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed;
             productionLines[i].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime = firstManufactureTime;
             productionLines[i].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed = firstConveyorSpeed;
         }
+    }
+
+    public void ToggleMultipleRoomVisibility(bool enable)
+    {
+        switch (enable)
+        {
+            case true: 
+                multipleRoomVisible = true;
+                break;
+            case false:
+                multipleRoomVisible = false;
+                break;
+        }
+        foreach (var t in productionLineGeos)
+        {
+            t.SetActive(false);
+        }
+        SetProductionLines();
     }
 
     public void AddScore(double amount)
