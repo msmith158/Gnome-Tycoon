@@ -508,25 +508,25 @@ public class FinalFactorySystem : MonoBehaviour
         switch (roomNumber) // Determining which room the player has switched to
         {
             case 0:
-                RoomSwitchSetGeo(room1SpecificObjs, 14, 0, 7, 0, lastRoomNumber, -1, null, true, 1, room3SpecificObjs, null, room2SpecificObjs);
+                RoomSwitchSetGeo(room1SpecificObjs, 14, 0, 7, 0, lastRoomNumber, false, false, -1, null, true, true, 1, room3SpecificObjs, null, room2SpecificObjs);
                 break;
             case 1:
-                RoomSwitchSetGeo(room2SpecificObjs, 21, 0, 14, 7, lastRoomNumber, 0, null, true, 2, room4SpecificObjs, room1SpecificObjs, room3SpecificObjs);
+                RoomSwitchSetGeo(room2SpecificObjs, 21, 0, 14, 7, lastRoomNumber, false,true, 0, null, true, true, 2, room4SpecificObjs, room1SpecificObjs, room3SpecificObjs);
                 break;
             case 2:
-                RoomSwitchSetGeo(room3SpecificObjs, 28, 7, 21, 14, lastRoomNumber, 1, room1SpecificObjs, true, 3, room5SpecificObjs, room2SpecificObjs, room4SpecificObjs);
+                RoomSwitchSetGeo(room3SpecificObjs, 28, 7, 21, 14, lastRoomNumber, true, true, 1, room1SpecificObjs, true, true, 3, room5SpecificObjs, room2SpecificObjs, room4SpecificObjs);
                 break;
             case 3:
-                RoomSwitchSetGeo(room4SpecificObjs, 35, 14, 28, 21, lastRoomNumber, 2, room2SpecificObjs, true, 4, room6SpecificObjs, room3SpecificObjs, room5SpecificObjs);
+                RoomSwitchSetGeo(room4SpecificObjs, 35, 14, 28, 21, lastRoomNumber, true, true, 2, room2SpecificObjs, true, true, 4, room6SpecificObjs, room3SpecificObjs, room5SpecificObjs);
                 break;
             case 4:
-                RoomSwitchSetGeo(room5SpecificObjs, 42, 21, 35, 28, lastRoomNumber, 3, room3SpecificObjs, true, 5, room7SpecificObjs, room4SpecificObjs, room6SpecificObjs);
+                RoomSwitchSetGeo(room5SpecificObjs, 42, 21, 35, 28, lastRoomNumber, true, true, 3, room3SpecificObjs, true, true, 5, room7SpecificObjs, room4SpecificObjs, room6SpecificObjs);
                 break;
             case 5:
-                RoomSwitchSetGeo(room6SpecificObjs, 49, 28, 42, 35, lastRoomNumber, 4, room4SpecificObjs, false, 6, null, room5SpecificObjs, room7SpecificObjs);
+                RoomSwitchSetGeo(room6SpecificObjs, 49, 28, 42, 35, lastRoomNumber, true, true, 4, room4SpecificObjs, false, true, 6, null, room5SpecificObjs, room7SpecificObjs);
                 break;
             case 6:
-                RoomSwitchSetGeo(room7SpecificObjs, 49, 35, 49, 42, lastRoomNumber, 5, room5SpecificObjs, false, 7, null, room6SpecificObjs, null);
+                RoomSwitchSetGeo(room7SpecificObjs, 49, 35, 49, 42, lastRoomNumber, true, true,5, room5SpecificObjs, false, false, 7, null, room6SpecificObjs, null);
                 break;
         }
         #endregion
@@ -534,7 +534,8 @@ public class FinalFactorySystem : MonoBehaviour
         cameraHolderHolder.transform.GetChild(0).GetComponent<CameraMoveTouch>().ChangeBounds(increment);
     }
 
-    private void RoomSwitchSetGeo(List<GameObject> roomSpecificObjs, int productionLineLimitExtended, int productionLineThresholdExtended, int productionLineLimit, int productionLineThreshold, int lastRoomNumber, int lastRoomNumberReq1, List<GameObject> behindRoomSpecificObjsExtended, bool hasLastRoomNumberReq2, int lastRoomNumberReq2, List<GameObject> aheadRoomSpecificObjsExtended, List<GameObject> behindRoomSpecificObjs, List<GameObject> aheadRoomSpecificObjs)
+    // Req 1 is for checking rooms behind the current room, req 2 is for rooms in front
+    private void RoomSwitchSetGeo(List<GameObject> roomSpecificObjs, int productionLineLimitExtended, int productionLineThresholdExtended, int productionLineLimit, int productionLineThreshold, int lastRoomNumber, bool hasLastRoomNumberExtReq1, bool hasLastRoomNumberReq1,  int lastRoomNumberReq1, List<GameObject> behindRoomSpecificObjsExtended, bool hasLastRoomNumberExtReq2, bool hasLastRoomNumberReq2, int lastRoomNumberReq2, List<GameObject> aheadRoomSpecificObjsExtended, List<GameObject> behindRoomSpecificObjs, List<GameObject> aheadRoomSpecificObjs)
     {
         foreach (GameObject obj in roomSpecificObjs) ChangeComponentStateRecursively(true, obj);
         switch (multipleRoomVisible) // Make specific calls for enabling/disabling geometry based on what the multiple room visibility option is set to
@@ -556,11 +557,11 @@ public class FinalFactorySystem : MonoBehaviour
                         }
                         break;
                 }
-                if (lastRoomNumber == lastRoomNumberReq1)
+                if (hasLastRoomNumberExtReq1 && lastRoomNumber == lastRoomNumberReq1)
                 {
                     foreach (GameObject obj in behindRoomSpecificObjsExtended) ChangeComponentStateRecursively(false, obj);
                 }
-                if (hasLastRoomNumberReq2 && lastRoomNumber == lastRoomNumberReq2)
+                if (hasLastRoomNumberExtReq2 && lastRoomNumber == lastRoomNumberReq2)
                 {
                     foreach (GameObject obj in aheadRoomSpecificObjsExtended) ChangeComponentStateRecursively(false, obj);
                 }
@@ -582,7 +583,7 @@ public class FinalFactorySystem : MonoBehaviour
                         }
                         break;
                 }
-                if (lastRoomNumber == lastRoomNumberReq1)
+                if (hasLastRoomNumberReq1 && lastRoomNumber == lastRoomNumberReq1)
                 {
                     foreach (GameObject obj in behindRoomSpecificObjs) ChangeComponentStateRecursively(false, obj);
                 }
