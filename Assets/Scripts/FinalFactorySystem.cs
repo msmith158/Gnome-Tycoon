@@ -448,10 +448,25 @@ public class FinalFactorySystem : MonoBehaviour
                     stopCall = true;
                     StopCoroutine(SwitchRoomCamera());
                     StartCoroutine(SwitchRoomCamera());
-                    foreach (GameObject obj in roomSwitchConstantObjs)
+                    switch (multipleRoomVisible)
                     {
-                        obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
-                            obj.transform.position.y, obj.transform.position.z);
+                        case true:
+                            if (roomNumber != 0 || roomNumber != 6)
+                            {
+                                foreach (GameObject obj in roomSwitchConstantObjs)
+                                {
+                                    obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
+                                        obj.transform.position.y, obj.transform.position.z);
+                                }
+                            }
+                            break;
+                        case false:
+                            foreach (GameObject obj in roomSwitchConstantObjs)
+                            {
+                                obj.transform.position = new Vector3(obj.transform.position.x + cameraPosIncrementX,
+                                    obj.transform.position.y, obj.transform.position.z);
+                            }
+                            break;
                     }
                 }
                 else return;
@@ -466,10 +481,25 @@ public class FinalFactorySystem : MonoBehaviour
                     stopCall = true;
                     StopCoroutine(SwitchRoomCamera());
                     StartCoroutine(SwitchRoomCamera());
-                    foreach (GameObject obj in roomSwitchConstantObjs)
+                    switch (multipleRoomVisible)
                     {
-                        obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
-                            obj.transform.position.y, obj.transform.position.z);
+                        case true:
+                            if (roomNumber != 0 || roomNumber != 6)
+                            {
+                                foreach (GameObject obj in roomSwitchConstantObjs)
+                                {
+                                    obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
+                                        obj.transform.position.y, obj.transform.position.z);
+                                }
+                            }
+                            break;
+                        case false:
+                            foreach (GameObject obj in roomSwitchConstantObjs)
+                            {
+                                obj.transform.position = new Vector3(obj.transform.position.x - cameraPosIncrementX,
+                                    obj.transform.position.y, obj.transform.position.z);
+                            }
+                            break;
                     }
                 }
                 else return;
@@ -480,30 +510,44 @@ public class FinalFactorySystem : MonoBehaviour
         factoryRoomNumberText.text = roomNumberString;
 
         #region SpecificRoomSwitchingFunctions
-        switch (roomNumber)
+        switch (roomNumber) // Determining which room the player has switched to
         {
             case 0:
                 foreach (GameObject obj in room1SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (productionLineAmount)
+                switch (multipleRoomVisible) // Make specific calls for enabling/disabling geometry based on what the multiple room visibility option is set to
                 {
-                    case >= 7:
-                        Debug.Log("7 or more");
-                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                        break;
-                    case < 7:
-                        Debug.Log("Less than 7");
-                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        for (int i = 0; i < productionLineAmount; i++)
+                    case true:
+                        // ## INSERT THE MAIN FUNCTION HERE ##
+                        switch (lastRoomNumber) // Turn off room-specific objects for the last room
                         {
-                            ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            Debug.Log(i);
+                            case 1:
+                                foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(false, obj);
+                                break;
                         }
                         break;
-                }
-                switch (lastRoomNumber)
-                {
-                    case 1:
-                        foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(false, obj);
+                    case false:
+                        switch (productionLineAmount) // Making calls based on whether the player has maxed out a room, e.g. disable all and enable up to the amount if not maxed out
+                        {
+                            case >= 7:
+                                Debug.Log("7 or more");
+                                foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                                break;
+                            case < 7:
+                                Debug.Log("Less than 7");
+                                foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                                for (int i = 0; i < productionLineAmount; i++)
+                                {
+                                    ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                                    Debug.Log(i);
+                                }
+                                break;
+                        }
+                        switch (lastRoomNumber) // Turn off room-specific objects for the last room
+                        {
+                            case 1:
+                                foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(false, obj);
+                                break;
+                        }
                         break;
                 }
                 break;
