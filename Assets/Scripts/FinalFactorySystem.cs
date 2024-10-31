@@ -34,7 +34,7 @@ public class FinalFactorySystem : MonoBehaviour
     private Vector3 initCameraPos;
     private Vector3 newPos;
     private bool stopCall = false;
-    private bool multipleRoomVisible;
+    private bool multipleRoomVisible = false;
 
     [Header("Debug Values")]
     public bool debugMode;
@@ -81,7 +81,7 @@ public class FinalFactorySystem : MonoBehaviour
         SetProductionLines();
         ddolManager.Initialise();
         
-        switch (debugMode)
+        switch (debugMode) // Set debug metrics
         {
             case true:
                 debugMetrics.gameObject.SetActive(true);
@@ -159,10 +159,10 @@ public class FinalFactorySystem : MonoBehaviour
         for (int i = 0; i < productionLineAmount; i++)
         {
             productionLines[i].SetActive(true);
-            switch (multipleRoomVisible)
+            switch (multipleRoomVisible) // Check whether the player has the multiple room visibility option on or off
             {
                 case true:
-                    switch (roomNumber)
+                    switch (roomNumber) // Check which room the player is in currently
                     {
                         case 0:
                             if (i < 14) { productionLineGeos[i].SetActive(true); ChangeComponentStateRecursively(true, productionLineGeos[i]); }
@@ -214,6 +214,7 @@ public class FinalFactorySystem : MonoBehaviour
                     }
                     break;
             }
+            // Make sure all production lines are set to the same values as the first production line
             float firstManufactureTime = productionLines[0].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime;
             float firstConveyorSpeed = productionLines[0].transform.GetChild(0).GetComponentInChildren<FinalConveyor>().speed;
             productionLines[i].transform.GetComponentInChildren<FinalDispenser>().manufacturingTime = firstManufactureTime;
@@ -239,7 +240,7 @@ public class FinalFactorySystem : MonoBehaviour
         SetProductionLines();
     }
 
-    public void AddScore(double amount)
+    public void AddScore(double amount) // For when the gnomes reach the end of the production line
     {
         pointScore += amount + (amount * ddolManager.permanentValue);
         ddolManager2.totalProfitMade += (amount + (amount * ddolManager.permanentValue));
@@ -267,7 +268,7 @@ public class FinalFactorySystem : MonoBehaviour
         }
     }
 
-    public void UpdatePrice(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, double newPrice, string afterText)
+    public void UpdatePrice(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, double newPrice, string afterText) // For an upgrade's price when it is bought
     {
         switch (isGnomeCoins)
         {
@@ -296,7 +297,7 @@ public class FinalFactorySystem : MonoBehaviour
         }
     }
     
-    public void UpdateProfit(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, double newPrice, string afterText)
+    public void UpdateProfit(TextMeshProUGUI costText, bool isGnomeCoins, string beforeText, double newPrice, string afterText) // For the profit counter when an upgrade is bought
     {
         switch (isGnomeCoins)
         {
@@ -442,10 +443,7 @@ public class FinalFactorySystem : MonoBehaviour
                 if (roomNumber != 6)
                 {
                     roomNumber++;
-                    /*cameraHolderHolder.transform.position = new Vector3(
-                        cameraHolderHolder.transform.position.x + cameraPosIncrementX,
-                        cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
-                    stopCall = true;
+                    stopCall = true; // Wait for the while loop in the SwitchRoomCamera coroutine to end
                     StopCoroutine(SwitchRoomCamera());
                     StartCoroutine(SwitchRoomCamera());
                     switch (multipleRoomVisible)
@@ -475,10 +473,7 @@ public class FinalFactorySystem : MonoBehaviour
                 if (roomNumber != 0)
                 {
                     roomNumber--;
-                    /*cameraHolderHolder.transform.position = new Vector3(
-                        cameraHolderHolder.transform.position.x - cameraPosIncrementX,
-                        cameraHolderHolder.transform.position.y, cameraHolderHolder.transform.position.z);*/
-                    stopCall = true;
+                    stopCall = true; // Wait for the while loop in the SwitchRoomCamera coroutine to end
                     StopCoroutine(SwitchRoomCamera());
                     StartCoroutine(SwitchRoomCamera());
                     switch (multipleRoomVisible)
@@ -517,7 +512,20 @@ public class FinalFactorySystem : MonoBehaviour
                 switch (multipleRoomVisible) // Make specific calls for enabling/disabling geometry based on what the multiple room visibility option is set to
                 {
                     case true:
-                        // ## INSERT THE MAIN FUNCTION HERE ##
+                        switch (productionLineAmount) // Making calls based on whether the player has maxed out a room, e.g. disable all and enable up to the amount if not maxed out
+                        {
+                            case >= 14:
+                                foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                                break;
+                            case < 14:
+                                foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                                for (int i = 0; i < productionLineAmount; i++)
+                                {
+                                    ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                                    Debug.Log(i);
+                                }
+                                break;
+                        }
                         switch (lastRoomNumber) // Turn off room-specific objects for the last room
                         {
                             case 1:
@@ -529,11 +537,9 @@ public class FinalFactorySystem : MonoBehaviour
                         switch (productionLineAmount) // Making calls based on whether the player has maxed out a room, e.g. disable all and enable up to the amount if not maxed out
                         {
                             case >= 7:
-                                Debug.Log("7 or more");
                                 foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
                                 break;
                             case < 7:
-                                Debug.Log("Less than 7");
                                 foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
                                 for (int i = 0; i < productionLineAmount; i++)
                                 {
@@ -550,24 +556,22 @@ public class FinalFactorySystem : MonoBehaviour
                         }
                         break;
                 }
+                //RoomSwitchSetGeo(room1SpecificObjs, 14, 0, 7, 0, 1, 1, room3SpecificObjs, false, 0, null, room2SpecificObjs, null);
                 break;
             case 1:
                 foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(true, obj);
                 switch (productionLineAmount)
                 {
                     case >= 14:
-                        Debug.Log("14 or more");
                         foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
                         break;
                     case < 14:
                         foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
                         if (productionLineAmount > 7)
                         {
-                            Debug.Log("Less than 14");
                             for (int i = 0; i < productionLineAmount - 7; i++)
                             {
                                 ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                                Debug.Log(i);
                             }
                         }
                         break;
@@ -723,6 +727,66 @@ public class FinalFactorySystem : MonoBehaviour
         #endregion
         cameraHolderHolder.transform.GetChild(0).GetComponent<CameraMoveMouse>().ChangeBounds(increment);
         cameraHolderHolder.transform.GetChild(0).GetComponent<CameraMoveTouch>().ChangeBounds(increment);
+    }
+
+    private void RoomSwitchSetGeo(List<GameObject> roomSpecificObjs, int productionLineLimitExtended, int productionLineThresholdExtended, int productionLineLimit, int productionLineThreshold, int lastRoomNumber, int lastRoomNumberReq1, List<GameObject> behindRoomSpecificObjsExtended, bool hasLastRoomNumberReq2, int lastRoomNumberReq2, List<GameObject> aheadRoomSpecificObjsExtended, List<GameObject> behindRoomSpecificObjs, List<GameObject> aheadRoomSpecificObjs)
+    {
+        foreach (GameObject obj in roomSpecificObjs) ChangeComponentStateRecursively(true, obj);
+        switch (multipleRoomVisible) // Make specific calls for enabling/disabling geometry based on what the multiple room visibility option is set to
+        {
+            case true:
+                switch (productionLineAmount) // Making calls based on whether the player has maxed out a room, e.g. disable all and enable up to the amount if not maxed out
+                {
+                    case var value when value >= productionLineLimitExtended: // This is a workaround for switch statements expecting constant values
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case var value when value < productionLineLimitExtended: // This is a workaround for switch statements expecting constant values
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        if (productionLineAmount > productionLineThresholdExtended)
+                        {
+                            for (int i = 0; i < productionLineAmount - productionLineThresholdExtended; i++)
+                            {
+                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            }
+                        }
+                        break;
+                }
+                if (lastRoomNumber == lastRoomNumberReq1)
+                {
+                    foreach (GameObject obj in behindRoomSpecificObjsExtended) ChangeComponentStateRecursively(false, obj);
+                }
+                if (hasLastRoomNumberReq2 && lastRoomNumber == lastRoomNumberReq2)
+                {
+                    foreach (GameObject obj in aheadRoomSpecificObjsExtended) ChangeComponentStateRecursively(false, obj);
+                }
+                break;
+            case false:
+                switch (productionLineAmount) // Making calls based on whether the player has maxed out a room, e.g. disable all and enable up to the amount if not maxed out
+                {
+                    case var value when value >= productionLineLimit:
+                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
+                        break;
+                    case var value when value <= productionLineLimit:
+                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
+                        if (productionLineAmount > productionLineThreshold)
+                        {
+                            for (int i = 0; i < productionLineAmount - productionLineThreshold; i++)
+                            {
+                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
+                            }
+                        }
+                        break;
+                }
+                if (lastRoomNumber == lastRoomNumberReq1)
+                {
+                    foreach (GameObject obj in behindRoomSpecificObjs) ChangeComponentStateRecursively(false, obj);
+                }
+                if (hasLastRoomNumberReq2 && lastRoomNumber == lastRoomNumberReq2)
+                {
+                    foreach (GameObject obj in aheadRoomSpecificObjs) ChangeComponentStateRecursively(false, obj);
+                }
+                break;
+        }
     }
 
     private void ChangeComponentStateRecursively(bool enable, GameObject obj)
