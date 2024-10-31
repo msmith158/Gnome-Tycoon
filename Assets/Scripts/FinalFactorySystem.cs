@@ -508,220 +508,25 @@ public class FinalFactorySystem : MonoBehaviour
         switch (roomNumber) // Determining which room the player has switched to
         {
             case 0:
-                foreach (GameObject obj in room1SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (multipleRoomVisible) // Make specific calls for enabling/disabling geometry based on what the multiple room visibility option is set to
-                {
-                    case true:
-                        switch (productionLineAmount) // Making calls based on whether the player has maxed out a room, e.g. disable all and enable up to the amount if not maxed out
-                        {
-                            case >= 14:
-                                foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                                break;
-                            case < 14:
-                                foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                                for (int i = 0; i < productionLineAmount; i++)
-                                {
-                                    ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                                    Debug.Log(i);
-                                }
-                                break;
-                        }
-                        switch (lastRoomNumber) // Turn off room-specific objects for the last room
-                        {
-                            case 1:
-                                foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                                break;
-                        }
-                        break;
-                    case false:
-                        switch (productionLineAmount) // Making calls based on whether the player has maxed out a room, e.g. disable all and enable up to the amount if not maxed out
-                        {
-                            case >= 7:
-                                foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                                break;
-                            case < 7:
-                                foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                                for (int i = 0; i < productionLineAmount; i++)
-                                {
-                                    ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                                    Debug.Log(i);
-                                }
-                                break;
-                        }
-                        switch (lastRoomNumber) // Turn off room-specific objects for the last room
-                        {
-                            case 1:
-                                foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                                break;
-                        }
-                        break;
-                }
-                //RoomSwitchSetGeo(room1SpecificObjs, 14, 0, 7, 0, 1, 1, room3SpecificObjs, false, 0, null, room2SpecificObjs, null);
+                RoomSwitchSetGeo(room1SpecificObjs, 14, 0, 7, 0, lastRoomNumber, -1, null, true, 1, room3SpecificObjs, null, room2SpecificObjs);
                 break;
             case 1:
-                foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (productionLineAmount)
-                {
-                    case >= 14:
-                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                        break;
-                    case < 14:
-                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        if (productionLineAmount > 7)
-                        {
-                            for (int i = 0; i < productionLineAmount - 7; i++)
-                            {
-                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            }
-                        }
-                        break;
-                }
-                switch (lastRoomNumber)
-                {
-                    case 0:
-                        foreach (GameObject obj in room1SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                    case 2:
-                        foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                }
+                RoomSwitchSetGeo(room2SpecificObjs, 21, 0, 14, 7, lastRoomNumber, 0, null, true, 2, room4SpecificObjs, room1SpecificObjs, room3SpecificObjs);
                 break;
             case 2:
-                foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (productionLineAmount)
-                {
-                    case >= 21:
-                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                        break;
-                    case < 21:
-                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        if (productionLineAmount > 14)
-                        {
-                            for (int i = 0; i < productionLineAmount - 14; i++)
-                            {
-                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            }
-                        }
-                        break;
-                }
-                switch (lastRoomNumber)
-                {
-                    case 1:
-                        foreach (GameObject obj in room2SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                    case 3:
-                        foreach (GameObject obj in room4SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                }
+                RoomSwitchSetGeo(room3SpecificObjs, 28, 7, 21, 14, lastRoomNumber, 1, room1SpecificObjs, true, 3, room5SpecificObjs, room2SpecificObjs, room4SpecificObjs);
+                break;
+            case 3:
+                RoomSwitchSetGeo(room4SpecificObjs, 35, 14, 28, 21, lastRoomNumber, 2, room2SpecificObjs, true, 4, room6SpecificObjs, room3SpecificObjs, room5SpecificObjs);
                 break;
             case 4:
-                foreach (GameObject obj in room4SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (productionLineAmount)
-                {
-                    case >= 28:
-                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                        break;
-                    case < 28:
-                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        if (productionLineAmount > 21)
-                        {
-                            for (int i = 0; i < productionLineAmount - 21; i++)
-                            {
-                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            }
-                        }
-                        break;
-                }
-                switch (lastRoomNumber)
-                {
-                    case 3:
-                        foreach (GameObject obj in room3SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                    case 5:
-                        foreach (GameObject obj in room5SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                }
+                RoomSwitchSetGeo(room5SpecificObjs, 42, 21, 35, 28, lastRoomNumber, 3, room3SpecificObjs, true, 5, room7SpecificObjs, room4SpecificObjs, room6SpecificObjs);
                 break;
             case 5:
-                foreach (GameObject obj in room5SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (productionLineAmount)
-                {
-                    case >= 35:
-                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                        break;
-                    case < 35:
-                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        if (productionLineAmount > 28)
-                        {
-                            for (int i = 0; i < productionLineAmount - 28; i++)
-                            {
-                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            }
-                        }
-                        break;
-                }
-                switch (lastRoomNumber)
-                {
-                    case 4:
-                        foreach (GameObject obj in room4SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                    case 6:
-                        foreach (GameObject obj in room6SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                }
+                RoomSwitchSetGeo(room6SpecificObjs, 49, 28, 42, 35, lastRoomNumber, 4, room4SpecificObjs, false, 6, null, room5SpecificObjs, room7SpecificObjs);
                 break;
             case 6:
-                foreach (GameObject obj in room6SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (productionLineAmount)
-                {
-                    case >= 42:
-                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                        break;
-                    case < 42:
-                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        if (productionLineAmount > 35)
-                        {
-                            for (int i = 0; i < productionLineAmount - 35; i++)
-                            {
-                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            }
-                        }
-                        break;
-                }
-                switch (lastRoomNumber)
-                {
-                    case 5:
-                        foreach (GameObject obj in room5SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                    case 7:
-                        foreach (GameObject obj in room7SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                }
-                break;
-            case 7:
-                foreach (GameObject obj in room7SpecificObjs) ChangeComponentStateRecursively(true, obj);
-                switch (productionLineAmount)
-                {
-                    case >= 49:
-                        foreach (GameObject prodObj in productionLineGeos) ChangeComponentStateRecursively(true, prodObj);
-                        break;
-                    case < 49:
-                        foreach (GameObject obj in productionLineGeos) ChangeComponentStateRecursively(false, obj);
-                        if (productionLineAmount > 42)
-                        {
-                            for (int i = 0; i < productionLineAmount - 42; i++)
-                            {
-                                ChangeComponentStateRecursively(true, productionLineGeos[i]); 
-                            }
-                        }
-                        break;
-                }
-                switch (lastRoomNumber)
-                {
-                    case 6:
-                        foreach (GameObject obj in room6SpecificObjs) ChangeComponentStateRecursively(false, obj);
-                        break;
-                }
+                RoomSwitchSetGeo(room7SpecificObjs, 49, 35, 49, 42, lastRoomNumber, 5, room5SpecificObjs, false, 7, null, room6SpecificObjs, null);
                 break;
         }
         #endregion
