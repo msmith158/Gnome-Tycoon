@@ -4669,7 +4669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &66282618
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18345,7 +18345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &229687935
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51097,7 +51097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &607050608
 RectTransform:
   m_ObjectHideFlags: 0
@@ -95198,7 +95198,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  debugMode: 1
+  debugMode: 0
   instantPointAddition: 100000000
   moneyText: {fileID: 2013700669}
   coinText: {fileID: 1486817317}
@@ -152681,7 +152681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1722694471
 RectTransform:
   m_ObjectHideFlags: 0
